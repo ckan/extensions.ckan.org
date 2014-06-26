@@ -1,0 +1,272 @@
+name,title,url,description,author,type,status,updated_at
+ckanext-MYEXTENSION,ckanext-MYEXTENSION,https://github.com/LeeDongHoon/ckanext-MYEXTENSION,,LeeDongHoon,Extension,,2013-10-19T18:46:34Z
+ckanext-admin,,https://github.com/pkoskinen/ckanext-admin,,Pinja Koskinen,Extension,,2014-04-15T10:12:00Z
+ckanext-aerc,AERC demo plugin,https://github.com/okfn/ckanext-aerc,,Open Knowledge,Extension,,2013-10-09T23:14:11Z
+ckanext-agesic,Mirror of http://git.agesic.gub.uy/agesic-arquitectura/ckanext-agesic.git,https://github.com/anibalpacheco/ckanext-agesic,,anibalpacheco,Extension,,2014-05-02T22:35:12Z
+ckanext-agls,AGLS metadata extension for CKAN,https://github.com/datagovau/ckanext-agls,,data.gov.au,Extension,,2014-04-07T03:00:30Z
+ckanext-alexandra,,https://github.com/csk157/ckanext-alexandra,,csk157,Extension,,2013-09-27T08:40:30Z
+ckanext-api-ng,New-generation API for Ckan (proposals for /api/4),https://github.com/rshk/ckanext-api-ng,,rshk,Extension,,2014-01-21T10:21:49Z
+ckanext-apihelper,API Helper extension.,https://github.com/ckan/ckanext-apihelper,,CKAN,Extension,,2014-04-25T13:06:39Z
+ckanext-archiver,Archive CKAN resources,https://github.com/ckan/ckanext-archiver,,CKAN,Extension,,2014-01-29T08:57:36Z
+ckanext-arrayexpress,An ArrayExpress importer for CKAN.,https://github.com/jimmccusker/ckanext-arrayexpress,,Jim McCusker,Extension,,2013-10-05T13:48:47Z
+ckanext-astro,A ckan extension that automatically parses FITS files and adds it's headers to the resource metadata and generates a jpg preview,https://github.com/joetsoi/ckanext-astro,,joetsoi,Extension,,2014-02-08T02:33:42Z
+ckanext-authz,ckan-plugin for providing ckan-1.x authorization functions in ckan-2.x ,https://github.com/enal/ckanext-authz,,enal,Extension,,2013-11-28T05:35:39Z
+ckanext-b2find,,https://github.com/B2FIND/ckanext-b2find,,B2FIND,Extension,,2014-04-19T23:22:29Z
+ckanext-barnet,,https://github.com/okfn/ckanext-barnet,,Open Knowledge,Extension,,2014-04-27T01:34:17Z
+ckanext-basemaps,ckanext basemaps plugin,https://github.com/gsi-cyberjapan/ckanext-basemaps,,,Extension,,2014-03-14T05:36:59Z
+ckanext-basiccharts,"Line, bar and pie charts for CKAN",https://github.com/ckan/ckanext-basiccharts,,CKAN,Extension,,2014-05-02T12:23:32Z
+ckanext-berlin,,https://github.com/fraunhoferfokus/ckanext-berlin,,Fraunhofer FOKUS,Extension,,2013-10-07T22:10:03Z
+ckanext-berlin,CKAN extension for the datenregister.berlin.de portal,https://github.com/berlinonline/ckanext-berlin,,berlinonline,Extension,,2013-12-03T15:22:43Z
+ckanext-canada,Government of Canada CKAN Extension - Extension à CKAN du Gouvernement du Canada,https://github.com/open-data/ckanext-canada,,Open Data Initiative - Initiative sur les données ouvertes,Extension,,2014-04-17T17:09:32Z
+ckanext-canada-ckan-1.8,Archived version of Government of Canada CKAN Extension for ckan-1.8 - Extension à CKAN du Gouvernement du Canada,https://github.com/open-data/ckanext-canada-ckan-1.8,,Open Data Initiative - Initiative sur les données ouvertes,Extension,,2013-10-28T23:41:29Z
+ckanext-ceres,Ceres CKAN Extension,https://github.com/CSTARS/ckanext-ceres,,CSTARS,Extension,,2014-03-31T21:04:15Z
+ckanext-certificates,Retrieval and helpers for ODI Open Data certificates,https://github.com/datagovuk/ckanext-certificates,,Data.Gov.UK - Cabinet Office,Extension,,2014-03-04T12:37:32Z
+ckanext-clone,,https://github.com/XVTSolutions/ckanext-clone,,XVTSolutions,Extension,,2014-04-30T01:10:05Z
+ckanext-cmap,,https://github.com/nuams/ckanext-cmap,,,Extension,,2014-02-11T09:09:39Z
+ckanext-cmre,Custom Template for CMRE,https://github.com/geosolutions-it/ckanext-cmre,,geosolutions-it,Extension,,2014-03-24T17:08:23Z
+ckanext-colombia,,https://github.com/okfn/ckanext-colombia,,Open Knowledge,Extension,,2013-10-09T23:11:47Z
+ckanext-comments,,https://github.com/pkoskinen/ckanext-comments,,Pinja Koskinen,Extension,,2013-10-17T04:59:13Z
+ckanext-comments,"Comments for CKAN urls (datasets, resources, organizations etc).",https://github.com/rossjones/ckanext-comments,,Ross Jones,Extension,,2014-02-11T15:20:47Z
+ckanext-contact_us,CKAN Extension for a contact us form,https://github.com/Quatral/ckanext-contact_us,,Quatral Solutions,Extension,,2014-04-30T18:00:19Z
+ckanext-countapicalls,Simple API dataset hits counter,https://github.com/abulte/ckanext-countapicalls,,Alexandre Bulté,Extension,,2013-10-15T17:18:15Z
+ckanext-countrycodes,,https://github.com/nigelbabu/ckanext-countrycodes,,Nigel Babu,Extension,,2013-12-18T22:31:45Z
+ckanext-csw,,https://github.com/okfn/ckanext-csw,,Open Knowledge,Extension,,2013-10-09T23:11:41Z
+ckanext-custom_fields,,https://github.com/ag242/ckanext-custom_fields,,ag242,Extension,,2013-12-19T15:01:38Z
+ckanext-customdataset,This CKAN extension allows creation of specific dataset types for the CIWATER system,https://github.com/CI-Water-DASYCIM/ckanext-customdataset,,CI-Water-DASYCIM,Extension,,2014-03-21T18:44:41Z
+ckanext-customization,This CKAN extension is for customizing the UI layer of CIWATER Portal.,https://github.com/CI-Water-DASYCIM/ckanext-customization,,CI-Water-DASYCIM,Extension,,2014-02-11T17:32:41Z
+ckanext-dadosgovbr,CKAN theme for the brazilian open data portal,https://github.com/dadosgovbr/ckanext-dadosgovbr,,dadosgovbr,Extension,,2014-04-30T15:14:29Z
+ckanext-dashboard,Organize views in a single dashboard,https://github.com/ckan/ckanext-dashboard,,CKAN,Extension,,2014-04-09T20:55:39Z
+ckanext-datacatalogs,CKAN datacatalogs.org theme,https://github.com/okfn/ckanext-datacatalogs,,Open Knowledge,Extension,,2014-02-04T09:25:03Z
+ckanext-datadaemon,Ckan based datadaemon that loads an RDF and store it as a resource,https://github.com/lightbase/ckanext-datadaemon,,Lightbase Consultoria,Extension,,2013-01-11T13:55:00Z
+ckanext-dataforjapan,CKAN extension for Data for Japan,https://github.com/codeforjapan/ckanext-dataforjapan,,codeforjapan,Extension,,2014-04-07T12:04:26Z
+ckanext-datagm,Code and theme for the Data GM Open Data Portal at http://datagm.org.uk/,https://github.com/okfn/ckanext-datagm,,Open Knowledge,Extension,,2013-10-09T23:10:24Z
+ckanext-datagovau,Site specific customisations for the hosting of data.gov.au.,https://github.com/datagovau/ckanext-datagovau,,data.gov.au,Extension,,2014-04-07T03:01:06Z
+ckanext-datagr,CKAN extension for data.grcity.us customizations,https://github.com/friendlycode/ckanext-datagr,,friendlycode,Extension,,2014-02-12T03:39:16Z
+ckanext-datahub,Plugin for datahub,https://github.com/okfn/ckanext-datahub,,Open Knowledge,Extension,,2014-01-18T16:17:44Z
+ckanext-datahubsuomi,Customizations for the finnish CKAN http://fi.thedatahub.org,https://github.com/jlouhio/ckanext-datahubsuomi,,jlouhio,Extension,,2013-01-13T18:10:37Z
+ckanext-datajson,for POD /data,https://github.com/HHS/ckanext-datajson,,U.S. Department of Health & Human Services,Extension,,2014-04-18T17:37:03Z
+ckanext-datalocale,extension CKAN développée pour le projet http://catalogue.datalocale.fr,https://github.com/datalocale/ckanext-datalocale,,portail de données ouvertes datalocale.fr,Extension,,2014-03-01T12:25:40Z
+ckanext-datamx_theme,Codeando Mexico's Custom Theme CKAN Extension.,https://github.com/CodeandoMexico/ckanext-datamx_theme,,CodeandoMexico,Extension,,2014-05-01T19:28:00Z
+ckanext-datanl,,https://github.com/okfn/ckanext-datanl,,Open Knowledge,Extension,,2014-03-19T13:53:38Z
+ckanext-datano,,https://github.com/okfn/ckanext-datano,,Open Knowledge,Extension,,2013-09-30T06:37:35Z
+ckanext-datapackager,CKAN extension for the Open Knowledge Data Packager,https://github.com/ckan/ckanext-datapackager,,CKAN,Extension,,2014-05-04T17:05:40Z
+ckanext-datapreview,Local data previewer for CKAN that uses the resource cache instead of the remote data.,https://github.com/rossjones/ckanext-datapreview,,Ross Jones,Extension,,2013-12-23T13:33:47Z
+ckanext-datapreview,Data preview for ckan from local resource cache,https://github.com/datagovuk/ckanext-datapreview,,Data.Gov.UK - Cabinet Office,Extension,,2014-03-07T13:10:08Z
+ckanext-datapub,,https://github.com/jimmccusker/ckanext-datapub,,Jim McCusker,Extension,,2013-11-05T10:38:45Z
+ckanext-datapusherext,Backport of 2.2 datapusher extension.,https://github.com/ckan/ckanext-datapusherext,,CKAN,Extension,,2014-01-31T14:37:28Z
+ckanext-datastore,,https://github.com/datagovuk/ckanext-datastore,,Data.Gov.UK - Cabinet Office,Extension,,2014-03-12T17:44:25Z
+ckanext-datastorer,Get files from ckan into the webstore.,https://github.com/ckan/ckanext-datastorer,,CKAN,Extension,,2014-01-29T10:04:53Z
+ckanext-datatable,An implementation of CKAN's IResourcePreview interface that uses the WET datatables,https://github.com/open-data/ckanext-datatable,,Open Data Initiative - Initiative sur les données ouvertes,Extension,,2013-12-11T06:11:43Z
+ckanext-datesearch,,https://github.com/B2FIND/ckanext-datesearch,,B2FIND,Extension,,2014-03-19T14:04:13Z
+ckanext-datesearch,A CKAN extension that adds temporal facets (limit dataset search results to between two dates),https://github.com/seanh/ckanext-datesearch,,Sean Hammond,Extension,,2014-02-24T22:48:45Z
+ckanext-datitrentinoit,Ckan customizations for OpenData Trentino,https://github.com/opendatatrentino/ckanext-datitrentinoit,,Open Data in Trentino,Extension,,2014-03-25T15:41:56Z
+ckanext-dcat,Work in progress: CKAN + DCAT,https://github.com/ckan/ckanext-dcat,,CKAN,Extension,,2014-02-06T10:34:21Z
+ckanext-ddi,DDI import tool for CKAN,https://github.com/kata-csc/ckanext-ddi,,Kata team repository,Extension,,2014-04-28T13:31:43Z
+ckanext-delineate,A CKAN extension for delineating watershed. It uses EPA web service for delineation.,https://github.com/CI-Water-DASYCIM/ckanext-delineate,,CI-Water-DASYCIM,Extension,,2014-04-04T22:14:54Z
+ckanext-deliverance,,https://github.com/okfn/ckanext-deliverance,,Open Knowledge,Extension,,2013-10-06T01:48:39Z
+ckanext-demo,ckan demo site extension,https://github.com/okfn/ckanext-demo,,Open Knowledge,Extension,,2014-04-22T09:39:20Z
+ckanext-demo-classic,CKAN Demo Extension.,https://github.com/okfn/ckanext-demo-classic,,Open Knowledge,Extension,,2013-10-09T23:15:47Z
+ckanext-dev,CKAN extention for development tools.,https://github.com/NaturalHistoryMuseum/ckanext-dev,,Natural History Museum,Extension,,2014-04-07T00:46:26Z
+ckanext-dev,,https://github.com/aliceh75/ckanext-dev,,aliceh75,Extension,,2014-04-29T15:22:21Z
+ckanext-dga-stats,CKAN's built-in Statistics plugin modified for data.gov.au,https://github.com/datagovau/ckanext-dga-stats,,data.gov.au,Extension,,2014-04-18T16:18:30Z
+ckanext-dghk,DGHK CKAN Extension,https://github.com/chungyuen/ckanext-dghk,,chungyuen,Extension,,2014-04-23T01:49:11Z
+ckanext-dgu,CKAN extension for data.gov.uk,https://github.com/datagovuk/ckanext-dgu,,Data.Gov.UK - Cabinet Office,Extension,,2014-04-28T19:47:25Z
+ckanext-dgu-local,Support for harvesting from Local Authorities,https://github.com/datagovuk/ckanext-dgu-local,,Data.Gov.UK - Cabinet Office,Extension,,2014-03-18T13:23:12Z
+ckanext-dgutests,Selenium tests for data.gov.uk,https://github.com/rossjones/ckanext-dgutests,,Ross Jones,Extension,,2013-12-06T09:29:39Z
+ckanext-dgutheme,,https://github.com/okfn/ckanext-dgutheme,,Open Knowledge,Extension,,2013-10-09T23:17:07Z
+ckanext-dgvat,,https://github.com/datagvat/ckanext-dgvat,,datagvat,Extension,,2014-01-07T11:44:45Z
+ckanext-dgvat_harvest,,https://github.com/datagvat/ckanext-dgvat_harvest,,datagvat,Extension,,2014-01-07T11:44:59Z
+ckanext-dgvat_por,,https://github.com/datagvat/ckanext-dgvat_por,,datagvat,Extension,,2014-01-07T11:45:15Z
+ckanext-dhdata,CKAN extension packaging up customizations for dhdata.org.,https://github.com/jgsmith/ckanext-dhdata,,jgsmith,Extension,,2013-09-04T23:01:05Z
+ckanext-diachron,,https://github.com/eccenca/ckanext-diachron,,eccenca,Extension,,2014-05-01T08:58:03Z
+ckanext-disqus,Extension that adds the Disqus commenting system to CKAN,https://github.com/ckan/ckanext-disqus,,CKAN,Extension,,2014-01-29T08:54:44Z
+ckanext-downloadsdf,,https://github.com/ckan/ckanext-downloadsdf,,CKAN,Extension,,2014-03-04T16:42:24Z
+ckanext-drupal,drual integration,https://github.com/okfn/ckanext-drupal,,Open Knowledge,Extension,,2013-12-29T09:51:04Z
+ckanext-drupal,This is simple CKAN extension that works with the od_package Drupal module,https://github.com/open-data/ckanext-drupal,,Open Data Initiative - Initiative sur les données ouvertes,Extension,,2013-12-23T18:32:13Z
+ckanext-drupal7,Drupal7 authentication for ckan,https://github.com/okfn/ckanext-drupal7,,Open Knowledge,Extension,,2013-12-24T05:23:43Z
+ckanext-dsactions,,https://github.com/XVTSolutions/ckanext-dsactions,,XVTSolutions,Extension,,2014-04-30T01:07:46Z
+ckanext-ecportal,EC PORTAL,https://github.com/geosolutions-it/ckanext-ecportal,,geosolutions-it,Extension,,2014-04-16T15:46:53Z
+ckanext-ecportal,CKAN extension for the European Union Open Data Portal,https://github.com/okfn/ckanext-ecportal,,Open Knowledge,Extension,,2013-11-18T11:30:29Z
+ckanext-edo,,https://github.com/okfn/ckanext-edo,,Open Knowledge,Extension,,2013-10-22T09:30:40Z
+ckanext-environmentcanada,CKAN 2.0 Extension for importing Environment Canada ISO 19115 NAP files into data.gc.ca,https://github.com/thriuin/ckanext-environmentcanada,,thriuin,Extension,,2013-11-20T19:14:59Z
+ckanext-esis,Ckan extension adding additional fields and controls for spectral data,https://github.com/CSTARS/ckanext-esis,,CSTARS,Extension,,2014-04-28T19:06:29Z
+ckanext-etalab,CKAN extension for data.gouv.fr site,https://github.com/etalab/ckanext-etalab,,Etalab,Extension,,2014-01-17T14:42:30Z
+ckanext-eudatjmd,,https://github.com/B2FIND/ckanext-eudatjmd,,B2FIND,Extension,,2014-03-20T13:13:00Z
+ckanext-example,CKAN Extension that demonstrates some common patterns for customising a CKAN instance.,https://github.com/okfn/ckanext-example,,Open Knowledge,Extension,,2013-12-02T11:24:17Z
+ckanext-examplevocabs,Example tag vocabularies CKAN plugin,https://github.com/seanh/ckanext-examplevocabs,,Sean Hammond,Extension,,2013-10-20T02:23:08Z
+ckanext-export_users,,https://github.com/fprieur/ckanext-export_users,,fprieur,Extension,,2014-02-13T16:42:58Z
+ckanext-extend_search,Extends Ckan's search with additional options,https://github.com/XVTSolutions/ckanext-extend_search,,XVTSolutions,Extension,,2014-04-17T23:26:03Z
+ckanext-extractor,CKAN plugin for the automatic extraction of data sources,https://github.com/unaguil/ckanext-extractor,,unaguil,Extension,,2013-11-04T10:58:27Z
+ckanext-fake-datagojp,ckan extension for datago.jp which is a mirror site of data.go.jp,https://github.com/fumi/ckanext-fake-datagojp,,fumi,Extension,,2014-04-17T09:13:23Z
+ckanext-faster,A CKAN extension that makes CKAN run faster,https://github.com/seanh/ckanext-faster,,Sean Hammond,Extension,,2014-05-03T17:24:11Z
+ckanext-fedmsg,CKAN extension for sending activity events to the Fedora Infrastructure Message Bus (fedmsg),https://github.com/etalab/ckanext-fedmsg,,Etalab,Extension,,2013-12-06T18:21:42Z
+ckanext-feedback,Naive code to include a simple feedback form for submitting data requests the CKAN System. ,https://github.com/maulikkamdar/ckanext-feedback,,Maulik Kamdar,Extension,,2014-04-11T14:13:11Z
+ckanext-feedcontent,Allows for content from rss/atom feeds to be inserted into pages.,https://github.com/okfn/ckanext-feedcontent,,Open Knowledge,Extension,,2013-10-09T23:15:03Z
+ckanext-follower,CKAN Follower Extension,https://github.com/okfn/ckanext-follower,,Open Knowledge,Extension,,2014-03-26T12:40:19Z
+ckanext-foph,Harvester for the Federal Office of Public Health (FOPH),https://github.com/ogdch/ckanext-foph,,OGD Switzerland,Extension,,2014-02-21T16:11:44Z
+ckanext-forms,Manages dataset forms in ckan,https://github.com/ciudadanointeligente/ckanext-forms,,Ciudadano Inteligente,Extension,,2013-10-13T13:24:56Z
+ckanext-fso,Harvester for the Swiss Federal Statistical Office (FSO),https://github.com/ogdch/ckanext-fso,,OGD Switzerland,Extension,,2014-02-20T17:54:16Z
+ckanext-ga-report,"For creating detailed reports of CKAN analytics, sliced by group",https://github.com/datagovuk/ckanext-ga-report,,Data.Gov.UK - Cabinet Office,Extension,,2014-03-05T21:46:49Z
+ckanext-ga-report,Google analytics report for CKAN,https://github.com/datagovau/ckanext-ga-report,,data.gov.au,Extension,,2014-04-07T03:01:51Z
+ckanext-geo,,https://github.com/okfn/ckanext-geo,,Open Knowledge,Extension,,2013-01-04T18:46:50Z
+ckanext-geodatagov,data.gov extension,https://github.com/GSA/ckanext-geodatagov,,U.S. General Services Administration,Extension,,2014-05-02T19:05:37Z
+ckanext-geonetwork,GeoNetwork harvester for CKAN,https://github.com/geosolutions-it/ckanext-geonetwork,,geosolutions-it,Extension,,2014-03-27T13:58:04Z
+ckanext-geoserver,,https://github.com/ngds/ckanext-geoserver,,ngds,Extension,,2014-04-15T17:49:47Z
+ckanext-ggmeta,Custom Metadata for GG,https://github.com/Luckisstar/ckanext-ggmeta,,Luckisstar,Extension,,2013-11-27T09:37:35Z
+ckanext-ghana,Demo site for Ghana,https://github.com/okfn/ckanext-ghana,,Open Knowledge,Extension,,2013-10-09T23:11:45Z
+ckanext-glasgow,CKAN Extensions specific to Open Glasgow,https://github.com/okfn/ckanext-glasgow,,Open Knowledge,Extension,,2014-04-16T10:31:14Z
+ckanext-googleanalytics,"CKAN extension to integrate Google Analytics data into CKAN. Gives download stats on package pages, list of most popular packages, etc.",https://github.com/ckan/ckanext-googleanalytics,,CKAN,Extension,,2014-01-29T09:42:06Z
+ckanext-govdatade,GovData.de specific CKAN extension,https://github.com/fraunhoferfokus/ckanext-govdatade,,Fraunhofer FOKUS,Extension,,2014-03-14T16:27:40Z
+ckanext-hampshire,Extension for hampshire,https://github.com/okfn/ckanext-hampshire,,Open Knowledge,Extension,,2013-10-09T23:11:45Z
+ckanext-harvest,Remote harvesting extension for CKAN,https://github.com/ckan/ckanext-harvest,,CKAN,Extension,,2014-04-30T16:47:24Z
+ckanext-harvest,,https://github.com/simonliu0315/ckanext-harvest,,Chih-Yu Liu,Extension,,2013-09-10T11:05:18Z
+ckanext-helloresource,An helloworld CKAN plugin that demonstrates how to hook into the offline (queued) resource processing,https://github.com/PublicaMundi/ckanext-helloresource,,PublicaMundi,Extension,,2013-12-13T08:22:20Z
+ckanext-helloworld,"""Hello World"" extension for CKAN",https://github.com/rclark/ckanext-helloworld,,Ryan Clark,Extension,,2013-10-20T06:26:56Z
+ckanext-helloworld,An helloworld CKAN plugin that demonstrates how to extend metadata schema with a couple of new fields,https://github.com/PublicaMundi/ckanext-helloworld,,PublicaMundi,Extension,,2013-12-13T09:38:56Z
+ckanext-hidegroups,A CKAN 2 extension that removes CKAN's groups feature from the web interface,https://github.com/okfn/ckanext-hidegroups,,Open Knowledge,Extension,,2013-10-07T15:51:00Z
+ckanext-hideorganizations,A CKAN 2 extension that removes CKAN's organizations feature,https://github.com/okfn/ckanext-hideorganizations,,Open Knowledge,Extension,,2013-10-09T23:10:34Z
+ckanext-hideorgs,A CKAN 2 plugin that hides the organizations feature from the web interface,https://github.com/AnnaGerber/ckanext-hideorgs,,Anna Gerber,Extension,,2014-02-07T05:12:19Z
+ckanext-hierarchy,Organization hierarchy - CKAN extension,https://github.com/datagovuk/ckanext-hierarchy,,Data.Gov.UK - Cabinet Office,Extension,,2014-01-13T16:55:44Z
+ckanext-htsql,An extension that enables htsql queries for the new datastore.,https://github.com/okfn/ckanext-htsql,,Open Knowledge,Extension,,2013-10-09T23:11:52Z
+ckanext-iati,CKAN extension for the IATI Registry,https://github.com/okfn/ckanext-iati,,Open Knowledge,Extension,,2014-05-01T17:03:17Z
+ckanext-idatasetform_bug,just a bug demo,https://github.com/hbunke/ckanext-idatasetform_bug,,hbunke,Extension,,2014-03-22T03:35:08Z
+ckanext-importlib,,https://github.com/okfn/ckanext-importlib,,Open Knowledge,Extension,,2014-04-24T21:59:21Z
+ckanext-inspire,,https://github.com/okfn/ckanext-inspire,,Open Knowledge,Extension,,2013-10-07T22:10:01Z
+ckanext-intro,A quick interactive introduction to writing CKAN extensions,https://github.com/ckan/ckanext-intro,,CKAN,Extension,,2014-04-29T13:36:12Z
+ckanext-iota,CKAN extension for the IOTA,https://github.com/AwareTI/ckanext-iota,,Aware,Extension,,2013-11-02T05:10:54Z
+ckanext-irods,iRODS extension for CKAN.,https://github.com/kata-csc/ckanext-irods,,Kata team repository,Extension,,2014-02-03T11:13:12Z
+ckanext-issues,CKAN Issues Extension,https://github.com/okfn/ckanext-issues,,Open Knowledge,Extension,,2014-04-22T14:45:37Z
+ckanext-junar,Connector for ckan to use junar.com,https://github.com/ciudadanointeligente/ckanext-junar,,Ciudadano Inteligente,Extension,,2013-10-01T16:38:30Z
+ckanext-kata,KATA extensions for CKAN,https://github.com/kata-csc/ckanext-kata,,Kata team repository,Extension,,2014-04-30T09:48:01Z
+ckanext-kenya,,https://github.com/okfn/ckanext-kenya,,Open Knowledge,Extension,,2013-10-09T23:14:10Z
+ckanext-krzn,Custom CKAN extension for KRZN,https://github.com/domoritz/ckanext-krzn,,Dominik Moritz,Extension,,2013-11-08T20:30:24Z
+ckanext-landportal_theme,LandPortal theme for CKAN,https://github.com/weso/ckanext-landportal_theme,,weso,Extension,,2014-03-13T12:55:32Z
+ckanext-lightbase,Lightbase extension for Ckan,https://github.com/lightbase/ckanext-lightbase,,Lightbase Consultoria,Extension,,2014-03-15T05:34:37Z
+ckanext-linkfinder,Finds links on resources that are actually html pages,https://github.com/datagovuk/ckanext-linkfinder,,Data.Gov.UK - Cabinet Office,Extension,,2014-03-10T03:49:23Z
+ckanext-map,Map visualisation for NHM CKAN,https://github.com/NaturalHistoryMuseum/ckanext-map,,Natural History Museum,Extension,,2014-04-29T16:32:58Z
+ckanext-mapsearch,A CKAN extension to add an scale-aware map-centred search,https://github.com/bopen/ckanext-mapsearch,,bopen,Extension,,2014-03-31T09:56:28Z
+ckanext-mapstore,CKAN Extension for MapStore Preview and GeoStore Harvesting,https://github.com/geosolutions-it/ckanext-mapstore,,geosolutions-it,Extension,,2014-04-16T11:46:18Z
+ckanext-mapviews,CKAN Resource View to build maps and choropleth maps,https://github.com/ckan/ckanext-mapviews,,CKAN,Extension,,2014-05-01T23:16:19Z
+ckanext-metadata,"Universal metadata harvester for CKAN, uses DDI and OAI-PMH harvesters to streamline the harvesting to one harvester.",https://github.com/kata-csc/ckanext-metadata,,Kata team repository,Extension,,2013-11-14T12:31:13Z
+ckanext-metadata,SPARQL endpoint analyzer and metadata generator for CKAN,https://github.com/unaguil/ckanext-metadata,,unaguil,Extension,,2014-03-11T08:34:33Z
+ckanext-metameta,generic metameta,https://github.com/XVTSolutions/ckanext-metameta,,XVTSolutions,Extension,,2014-05-02T03:42:53Z
+ckanext-meteoswiss,Harvester for the Federal Office of Meteorology and Climatology MeteoSwiss,https://github.com/ogdch/ckanext-meteoswiss,,OGD Switzerland,Extension,,2014-02-20T17:46:09Z
+ckanext-midja,CKAN theme for Midja Data Registry,https://github.com/uq-eresearch/ckanext-midja,,UQ eResearch Group,Extension,,2014-03-17T05:24:48Z
+ckanext-mimetypes,Custom mimetypes extension,https://github.com/fumi/ckanext-mimetypes,,fumi,Extension,,2014-03-25T14:49:29Z
+ckanext-mo-observations,Retrieves and stores weather observation data from the Met Office,https://github.com/rossjones/ckanext-mo-observations,,Ross Jones,Extension,,2013-11-16T09:14:26Z
+ckanext-moderatededits,Moderated Edits extension for CKAN 1.4,https://github.com/okfn/ckanext-moderatededits,,Open Knowledge,Extension,,2013-10-13T07:56:57Z
+ckanext-mongodb,CKAN extension for MongoDB,https://github.com/alexbyrnes/ckanext-mongodb,,Alex Byrnes,Extension,,2013-11-12T01:48:18Z
+ckanext-mx,Theme for datos.gob.mx,https://github.com/okfn/ckanext-mx,,Open Knowledge,Extension,,2013-12-18T20:42:22Z
+ckanext-nationdata,ckanext-nationdata,https://github.com/jmwenda/ckanext-nationdata,,Jude Mwenda,Extension,,2014-04-27T05:57:29Z
+ckanext-ngds,CKAN extension for NGDS-specific customizations,https://github.com/ngds/ckanext-ngds,,ngds,Extension,,2014-04-28T18:43:01Z
+ckanext-nhm,CKAN extension for data.nhm.ac.uk,https://github.com/NaturalHistoryMuseum/ckanext-nhm,,Natural History Museum,Extension,,2014-04-17T14:14:38Z
+ckanext-noregistration,Plugin to disable user registration on a CKAN instance,https://github.com/ogdch/ckanext-noregistration,,OGD Switzerland,Extension,,2014-02-20T17:44:41Z
+ckanext-nsw,,https://github.com/okfn/ckanext-nsw,,Open Knowledge,Extension,,2013-10-18T12:14:07Z
+ckanext-oaipmh,OAI PMH extension to CKAN,https://github.com/ilrt/ckanext-oaipmh,,"ILRT, University of Bristol",Extension,,2014-02-13T08:10:21Z
+ckanext-oaipmh,OAI PMH extension to CKAN,https://github.com/kata-csc/ckanext-oaipmh,,Kata team repository,Extension,,2014-04-15T10:18:51Z
+ckanext-oauth,,https://github.com/okfn/ckanext-oauth,,Open Knowledge,Extension,,2014-04-04T02:26:14Z
+ckanext-oauth2,OAuth2 support for CKAN,https://github.com/etalab/ckanext-oauth2,,Etalab,Extension,,2014-05-02T14:57:55Z
+ckanext-odmetheme,Custom CKAN theme for Offene Daten Mettmann http://demo.offene-daten.me,https://github.com/formwandler/ckanext-odmetheme,,formwandler,Extension,,2014-04-20T07:48:50Z
+ckanext-offenedaten,CKAN extension for OffeneDaten.de,https://github.com/okfde/ckanext-offenedaten,,Open Knowledge Foundation Germany,Extension,,2013-10-15T13:46:49Z
+ckanext-offenedaten,,https://github.com/pudo/ckanext-offenedaten,,pudo,Extension,,2013-12-15T19:52:03Z
+ckanext-ogdch,CKAN templates and translations for opendata.admin.ch,https://github.com/ogdch/ckanext-ogdch,,OGD Switzerland,Extension,,2014-02-21T13:02:14Z
+ckanext-ogdch_actions,Additional action APIs for opendata.admin.ch,https://github.com/ogdch/ckanext-ogdch_actions,,OGD Switzerland,Extension,,2014-02-20T17:46:50Z
+ckanext-openafrica,CKAN extension for Open Africa.,https://github.com/CodeForAfrica/ckanext-openafrica,,CodeForAfrica,Extension,,2014-04-18T08:58:03Z
+ckanext-opendata,CKAN extension for oppnadata.se (Öppna Data) for Vinnova,https://github.com/Softhouse/ckanext-opendata,,Softhouse,Extension,,2014-03-05T09:01:50Z
+ckanext-opendatahub,CKAN extension with the OpenDataHub,https://github.com/sciamlab/ckanext-opendatahub,,SciamLab,Extension,,2014-03-15T21:19:30Z
+ckanext-os,Spatial widgets developed in mainly by Ordnance Survey (CKAN extension),https://github.com/datagovuk/ckanext-os,,Data.Gov.UK - Cabinet Office,Extension,,2014-05-02T10:56:53Z
+ckanext-pages,simple cms,https://github.com/ckan/ckanext-pages,,CKAN,Extension,,2014-05-02T10:55:02Z
+ckanext-pakistan,,https://github.com/okfn/ckanext-pakistan,,Open Knowledge,Extension,,2014-05-02T12:27:09Z
+ckanext-parkinsons,CKAN Extensions for a Parkinsons Research Data Catalogue,https://github.com/thejimmyg/ckanext-parkinsons,,thejimmyg,Extension,,2013-10-16T01:05:13Z
+ckanext-patcategories,CKAN extension to offer a list of categories defined by Provincia Autonoma di Trento,https://github.com/opendatatrentino/ckanext-patcategories,,Open Data in Trentino,Extension,,2013-11-05T20:22:05Z
+ckanext-patform,,https://github.com/opendatatrentino/ckanext-patform,,Open Data in Trentino,Extension,,2013-11-05T07:33:41Z
+ckanext-patgeo,scraping script to populate CKAN from the geocatalog of Provincia Autonoma di Trento - http://www.territorio.provincia.tn.it/portal/server.pt/community/sgc_-_geocatalogo/862/sgc_-_geocatalogo/32157,https://github.com/opendatatrentino/ckanext-patgeo,,Open Data in Trentino,Extension,,2013-12-14T07:43:45Z
+ckanext-patstatweb,Harvester script to populate CKAN from the server of the statistics department of the Provincia Autonoma di Trento,https://github.com/opendatatrentino/ckanext-patstatweb,,Open Data in Trentino,Extension,,2013-09-29T02:39:47Z
+ckanext-pdeu,Custom CKAN Extension for PublicData.eu,https://github.com/okfn/ckanext-pdeu,,Open Knowledge,Extension,,2014-05-04T13:42:40Z
+ckanext-persona,A CKAN extension for logging in using Mozilla Persona,https://github.com/ckan/ckanext-persona,,CKAN,Extension,,2014-02-28T19:59:42Z
+ckanext-profile,Add profiling to CKAN using repoze.profile,https://github.com/seanh/ckanext-profile,,Sean Hammond,Extension,,2013-10-06T06:31:40Z
+ckanext-publicamundi,Publica Mundi main CKAN extension. http://www.publicamundi.eu,https://github.com/PublicaMundi/ckanext-publicamundi,,PublicaMundi,Extension,,2014-05-02T01:08:43Z
+ckanext-pubsub,Instant notifications for datasets.,https://github.com/rossjones/ckanext-pubsub,,Ross Jones,Extension,,2013-09-29T06:53:46Z
+ckanext-qa,CKAN QA Extension,https://github.com/ckan/ckanext-qa,,CKAN,Extension,,2014-01-29T08:57:46Z
+ckanext-queue,Async queueing for CKAN.,https://github.com/okfn/ckanext-queue,,Open Knowledge,Extension,,2013-10-15T15:37:07Z
+ckanext-rdf,"RDF features for CKAN. DCAT read/write API, integration with SPAQRL endpoint for (catalog) data.",https://github.com/okfn/ckanext-rdf,,Open Knowledge,Extension,,2013-10-09T23:18:39Z
+ckanext-realtime,Build realtime apps with CKAN,https://github.com/alexandrainst/ckanext-realtime,,alexandrainst,Extension,,2014-05-04T15:15:57Z
+ckanext-recaptcha,Correct the bug for the missing recaptcha widget at registration,https://github.com/Hoedic/ckanext-recaptcha,,Hoedic,Extension,,2014-02-08T03:29:15Z
+ckanext-reclinepreview-fr,Extracted reclinepreview translated in french,https://github.com/Quatral/ckanext-reclinepreview-fr,,Quatral Solutions,Extension,,2014-04-21T20:15:59Z
+ckanext-recombinant,Create datastore tables for organizations and provide combined output,https://github.com/open-data/ckanext-recombinant,,Open Data Initiative - Initiative sur les données ouvertes,Extension,,2014-05-01T18:05:20Z
+ckanext-redlink,CKAN extension to connect to Redlink triple store.,https://github.com/redlink-gmbh/ckanext-redlink,,redlink-gmbh,Extension,,2014-05-02T08:36:54Z
+ckanext-redmine,Contact/Issues form backed by redmine,https://github.com/datagovuk/ckanext-redmine,,Data.Gov.UK - Cabinet Office,Extension,,2013-12-19T09:38:53Z
+ckanext-rems,,https://github.com/kata-csc/ckanext-rems,,Kata team repository,Extension,,2014-04-25T07:20:48Z
+ckanext-reorder,Allows dataset editors to reorder the positioning of resources.,https://github.com/XVTSolutions/ckanext-reorder,,XVTSolutions,Extension,,2014-02-27T08:58:10Z
+ckanext-repo,Shows information about the CKAN version an instance is running. Mostly useful for development sites.,https://github.com/ckan/ckanext-repo,,CKAN,Extension,,2014-04-10T05:12:08Z
+ckanext-review,,https://github.com/XVTSolutions/ckanext-review,,XVTSolutions,Extension,,2014-04-30T02:40:34Z
+ckanext-s3archive,Archive CKAN datastore to S3,https://github.com/ckan/ckanext-s3archive,,CKAN,Extension,,2014-04-25T13:06:18Z
+ckanext-sa,Custom CKAN extension for data.sa.gov.au,https://github.com/okfn/ckanext-sa,,Open Knowledge,Extension,,2014-04-07T09:39:27Z
+ckanext-saml2,SAML2 Athentication extension,https://github.com/GSA/ckanext-saml2,,U.S. General Services Administration,Extension,,2014-03-28T21:22:01Z
+ckanext-scheming,"Easy, sharable custom CKAN schemas",https://github.com/open-data/ckanext-scheming,,Open Data Initiative - Initiative sur les données ouvertes,Extension,,2014-01-29T20:30:22Z
+ckanext-sdrdltheme,Deisgn theme for CKAN,https://github.com/sdrdl/ckanext-sdrdltheme,,San Diego Regional Data Library,Extension,,2013-10-29T02:45:27Z
+ckanext-searchhistory,Save search history to be used later for autocomplete and statistics,https://github.com/ckan/ckanext-searchhistory,,CKAN,Extension,,2014-05-02T09:25:05Z
+ckanext-semantic,integration of lodstats and personalization features based on it,https://github.com/srkunze/ckanext-semantic,,Sven R. Kunze,Extension,,2013-11-01T12:07:51Z
+ckanext-sentry,Sentry support for CKAN,https://github.com/etalab/ckanext-sentry,,Etalab,Extension,,2014-04-22T16:02:58Z
+ckanext-sentry,Hooks the Sentry's raven plugin into ckan/pylons wsgi middleware chain.,https://github.com/opendatatrentino/ckanext-sentry,,Open Data in Trentino,Extension,,2014-02-19T16:16:25Z
+ckanext-sfa,Harvester for the Swiss Federal Archives (SFA),https://github.com/ogdch/ckanext-sfa,,OGD Switzerland,Extension,,2014-02-20T17:49:53Z
+ckanext-shibboleth,Shibboleth authentication plugin for CKAN,https://github.com/harripal/ckanext-shibboleth,,Harri Palojärvi,Extension,,2013-10-02T06:11:25Z
+ckanext-shibboleth,CKAN shibboleth identification plugin,https://github.com/kata-csc/ckanext-shibboleth,,Kata team repository,Extension,,2014-03-18T05:24:06Z
+ckanext-silk,A plugin to integrate Silk Link Discovery Framework into CKAN,https://github.com/memaldi/ckanext-silk,,memaldi,Extension,,2014-03-11T08:36:18Z
+ckanext-simplecsvpreview,,https://github.com/ckan/ckanext-simplecsvpreview,,CKAN,Extension,,2014-03-03T10:50:10Z
+ckanext-singapore,,https://github.com/okfn/ckanext-singapore,,Open Knowledge,Extension,,2013-10-09T23:14:09Z
+ckanext-sitemap,Sitemap search engine support for CKAN,https://github.com/kata-csc/ckanext-sitemap,,Kata team repository,Extension,,2013-10-17T02:51:43Z
+ckanext-snl,Harvester for the Swiss National Library (SNL),https://github.com/ogdch/ckanext-snl,,OGD Switzerland,Extension,,2014-02-20T18:07:24Z
+ckanext-social,,https://github.com/okfn/ckanext-social,,Open Knowledge,Extension,,2013-10-09T23:14:44Z
+ckanext-socrata,,https://github.com/okfn/ckanext-socrata,,Open Knowledge,Extension,,2013-10-09T23:14:46Z
+ckanext-sourceplanet,CKAN extension for SourcePlanet project,https://github.com/jonlazaro/ckanext-sourceplanet,,Jon Lázaro Aduna,Extension,,2014-02-04T01:25:40Z
+ckanext-sparql,SPARQL Interface for Ckan,https://github.com/georgepm/ckanext-sparql,,georgepm,Extension,,2013-11-20T23:30:34Z
+ckanext-sparql,,https://github.com/jonlazaro/ckanext-sparql,,Jon Lázaro Aduna,Extension,,2014-03-11T08:36:43Z
+ckanext-spatial,Geospatial extension for CKAN,https://github.com/ckan/ckanext-spatial,,CKAN,Extension,,2014-04-30T17:02:42Z
+ckanext-spatial,,https://github.com/kindly/ckanext-spatial,,,Extension,,2013-10-05T02:57:48Z
+ckanext-spatial-cerco,,https://github.com/geosolutions-it/ckanext-spatial-cerco,,geosolutions-it,Extension,,2014-02-12T14:10:12Z
+ckanext-spatialUI,,https://github.com/XVTSolutions/ckanext-spatialUI,,XVTSolutions,Extension,,2014-04-19T10:34:34Z
+ckanext-stats,,https://github.com/okfn/ckanext-stats,,Open Knowledge,Extension,,2013-10-09T23:19:04Z
+ckanext-storage,CKAN storage extension.,https://github.com/okfn/ckanext-storage,,Open Knowledge,Extension,,2013-12-06T11:49:32Z
+ckanext-stromnetzberlin,ckanext-stromnetzberlin,https://github.com/fraunhoferfokus/ckanext-stromnetzberlin,,Fraunhofer FOKUS,Extension,,2013-10-07T22:09:49Z
+ckanext-surrey,CKAN extension for city of surrey,https://github.com/opennorth/ckanext-surrey,,opennorth,Extension,,2014-04-09T22:28:34Z
+ckanext-suspend,,https://github.com/XVTSolutions/ckanext-suspend,,XVTSolutions,Extension,,2014-04-06T22:00:38Z
+ckanext-swisstopo,Harvester for the Federal Office of Topography swisstopo,https://github.com/ogdch/ckanext-swisstopo,,OGD Switzerland,Extension,,2014-02-21T07:58:33Z
+ckanext-tdt,A The DataTank extension for CKAN,https://github.com/tdt/ckanext-tdt,,tdt,Extension,,2014-04-25T11:44:34Z
+ckanext-test,Minimal CKAN Plugin for testing purposes,https://github.com/knudmoeller/ckanext-test,,Knud Möller,Extension,,2013-10-30T01:06:45Z
+ckanext-themeSmartStreets,This repository will contain the ckan extension to override the default ckan front-end components with a Smart Streets theme.,https://github.com/SenseTecnic/ckanext-themeSmartStreets,,"Sense Tecnic Systems, Inc.",Extension,,2013-11-20T20:26:20Z
+ckanext-themeUrbanOpus,,https://github.com/SenseTecnic/ckanext-themeUrbanOpus,,"Sense Tecnic Systems, Inc.",Extension,,2013-10-15T21:02:03Z
+ckanext-transharvest,Harvester for term_translations,https://github.com/ogdch/ckanext-transharvest,,OGD Switzerland,Extension,,2014-02-20T16:50:35Z
+ckanext-tsbsatellites,,https://github.com/okfn/ckanext-tsbsatellites,,Open Knowledge,Extension,,2014-05-01T10:46:24Z
+ckanext-uebpackage,This is a CKAN extension that builds UEB model packages and runs UEB model. This extension is specific to CI_WATER CKAN instance.,https://github.com/CI-Water-DASYCIM/ckanext-uebpackage,,CI-Water-DASYCIM,Extension,,2014-03-21T18:58:35Z
+ckanext-urn,URN fetching extension for CKAN,https://github.com/kata-csc/ckanext-urn,,Kata team repository,Extension,,2013-10-11T12:50:51Z
+ckanext-usertesting,Small extension for a custom theme for user testing,https://github.com/okfn/ckanext-usertesting,,Open Knowledge,Extension,,2013-10-09T23:10:51Z
+ckanext-utilities,Maintenance functions for data.gc.ca,https://github.com/thriuin/ckanext-utilities,,thriuin,Extension,,2013-11-27T18:34:07Z
+ckanext-vdmauth,,https://github.com/fprieur/ckanext-vdmauth,,fprieur,Extension,,2014-01-15T21:34:01Z
+ckanext-vdojstats,statistic function,https://github.com/XVTSolutions/ckanext-vdojstats,,XVTSolutions,Extension,,2014-04-22T20:48:15Z
+ckanext-vdojtheme,,https://github.com/XVTSolutions/ckanext-vdojtheme,,XVTSolutions,Extension,,2014-05-01T22:33:06Z
+ckanext-vds,,https://github.com/Quatral/ckanext-vds,,Quatral Solutions,Extension,,2014-03-27T15:29:57Z
+ckanext-vectorstorer,"CKAN extension to upload vector geospatial data, store and publish through OGC services.",https://github.com/PublicaMundi/ckanext-vectorstorer,,PublicaMundi,Extension,,2014-04-28T12:23:25Z
+ckanext-vegaview,VegaJS' view extension for CKAN,https://github.com/okfn/ckanext-vegaview,,Open Knowledge,Extension,,2014-05-04T15:39:41Z
+ckanext-viewhelpers,Helpers for creating views for CKAN,https://github.com/ckan/ckanext-viewhelpers,,CKAN,Extension,,2014-04-09T20:44:53Z
+ckanext-webhooks,,https://github.com/okfn/ckanext-webhooks,,Open Knowledge,Extension,,2013-12-17T21:25:07Z
+ckanext-wet-boew,CKAN extension that adds the Web Experience Toolkit to CKAN 2.0,https://github.com/open-data/ckanext-wet-boew,,Open Data Initiative - Initiative sur les données ouvertes,Extension,,2014-05-02T15:47:18Z
+ckanext-wordpresser,Wordpress integration for CKAN,https://github.com/okfn/ckanext-wordpresser,,Open Knowledge,Extension,,2014-01-15T13:20:11Z
+ckanext-wotkit,Extensions to the CKAN open data portal for WoTKit integration,https://github.com/SenseTecnic/ckanext-wotkit,,"Sense Tecnic Systems, Inc.",Extension,,2013-12-11T00:05:11Z
+ckanext-xvt,boilerplate ckan extension,https://github.com/XVTSolutions/ckanext-xvt,,XVTSolutions,Extension,,2014-02-25T01:25:51Z
+ckanext-youckan,YouCKAN connector for CKAN,https://github.com/etalab/ckanext-youckan,,Etalab,Extension,,2014-02-26T14:22:09Z
+ckanext-ytp-dataset,Chages to open data datamodel in YTP,https://github.com/yhteentoimivuuspalvelut/ckanext-ytp-dataset,,yhteentoimivuuspalvelut,Extension,,2014-04-08T06:50:36Z
+ckanext-ytp-drupal,CKAN Drupal data,https://github.com/yhteentoimivuuspalvelut/ckanext-ytp-drupal,,yhteentoimivuuspalvelut,Extension,,2014-04-04T07:38:01Z
+ckanext-ytp-main,Avoindata main CKAN extension,https://github.com/yhteentoimivuuspalvelut/ckanext-ytp-main,,yhteentoimivuuspalvelut,Extension,,2014-04-07T12:58:56Z
+ckanext-ytp-organizations,YTP group CKAN extension,https://github.com/yhteentoimivuuspalvelut/ckanext-ytp-organizations,,yhteentoimivuuspalvelut,Extension,,2014-04-08T06:51:38Z
+ckanext-ytp-request,Organization member request handling,https://github.com/yhteentoimivuuspalvelut/ckanext-ytp-request,,yhteentoimivuuspalvelut,Extension,,2014-03-06T08:58:54Z
+ckanext-ytp-tasks,Task handling for YTP,https://github.com/yhteentoimivuuspalvelut/ckanext-ytp-tasks,,yhteentoimivuuspalvelut,Extension,,2014-03-25T10:52:10Z
+ckanext-ytp-theme,,https://github.com/yhteentoimivuuspalvelut/ckanext-ytp-theme,,yhteentoimivuuspalvelut,Extension,,2014-04-08T06:52:38Z
+ckanext-ytp-tools,Provides miscellaneous CKAN extension tools,https://github.com/yhteentoimivuuspalvelut/ckanext-ytp-tools,,yhteentoimivuuspalvelut,Extension,,2014-02-27T17:13:20Z
+ckanext-ytp-user,User customizations for YTP project.,https://github.com/yhteentoimivuuspalvelut/ckanext-ytp-user,,yhteentoimivuuspalvelut,Extension,,2014-04-08T06:49:42Z
+ckanext-zhgis,Harvester for the Office for Spatial Development of the Canton of Zurich,https://github.com/ogdch/ckanext-zhgis,,OGD Switzerland,Extension,,2014-02-14T12:46:25Z
+ckanext-zhstat,Harvester for the Statistical Office of Canton of Zurich,https://github.com/ogdch/ckanext-zhstat,,OGD Switzerland,Extension,,2014-02-20T17:51:47Z
+ckanext_notification,An example of CKAN extension. Notify new resource via the twitter,https://github.com/shidax/ckanext_notification,,shidax,Extension,,2014-05-02T23:01:45Z
+ckanextcustomfields,,https://github.com/LeeDongHoon/ckanextcustomfields,,LeeDongHoon,Extension,,2013-07-30T02:20:40Z
+inventory-template,PHP script to generate an XLS file ready for import to ckanext-dgu,https://github.com/datagovuk/inventory-template,,Data.Gov.UK - Cabinet Office,Extension,,2013-09-30T14:00:59Z
+landportal-ckanext-drupal,CKAN extension to manage logins and logouts from Drupal,https://github.com/weso/landportal-ckanext-drupal,,weso,Extension,,2014-02-17T17:58:41Z
