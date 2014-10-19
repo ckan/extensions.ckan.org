@@ -10,10 +10,11 @@ jQuery(document).ready(function($) {
     if (chosen_opts !== null) {
       chosen_opts = chosen_opts.join('');
     }
-    // filter extensions
-    container.isotope({
-      filter: chosen_opts
-    });
+    
+    // console.log(chosen_opts);
+    // TODO: implement simple filtering properly
+    // container.find('.record').show();
+    container.find('.record ' + chosen_opts).show();
 
     return false;
   });
@@ -36,19 +37,6 @@ jQuery(document).ready(function($) {
         }
       });
     });
-
-    // Mouse over the record container
-    record.hover(function() {
-      var record = $(this);
-      if (!record.hasClass('loaded')) {
-        // Load and display it on hover
-        $.get(url, function(data) {
-          record.append(
-            $(data).find('.record .rhs').html()
-          ).addClass('loaded');
-        });
-      }
-    });
   });
 
   // create filter options
@@ -67,12 +55,8 @@ jQuery(document).ready(function($) {
     return title.trim().toLowerCase();
   }
 
-  // Create Isotope grid view
-  container.isotope({
-    itemSelector: '.record',
-    layoutMode: 'masonry',
-    filter: '[data-featured=true]'
-  });
+  // TODO: filter by featured
+  // filter: '[data-featured=true]'
 
   $('.chosen-select').chosen();
 });
