@@ -1,0 +1,10 @@
+title: CKAN Extensions
+markdown: redcarpet
+highlighter: pygments
+relative_permalinks: false
+
+collections:
+  extensions:
+    output: true
+    permalink: extensions/:path
+

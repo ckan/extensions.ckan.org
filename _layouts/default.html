@@ -1,0 +1,147 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>{{page.title}} - {{site.title}}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{site.title}} - {{site.subtitle}}" />
+
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/chosen.min.css"/>
+    <link rel="stylesheet" href="/assets/css/style.css"/>
+    <link rel="stylesheet" href="/assets/css/blue.css"/>
+    <link rel="stylesheet" href="/assets/css/extensions.css"/>
+
+  <style type="text/css">
+    @media (min-width: 980px) {
+      .navbar {
+        height:65px;
+      }
+      .navbar .brand {
+        line-height: 65px;
+      }
+      .navbar .brand img {
+        margin-top:15px;
+        height:35px;
+      }
+      .navbar .nav > li > a {
+        padding-top:24px;
+        padding-bottom:22px;
+      }
+      .navbar .sub-brand {
+        line-height:60px;
+        padding-top:5px;
+      }
+      .header-text {
+        margin-top:15px;
+      }
+      .navbar .navbar-inner .social-links,
+      .navbar .navbar-inner .header-search {
+        margin-top:22px;
+      }
+    }
+    .navbar .brand {font-size: 36px; letter-spacing:-1px; text-indent:-5px; line-height: 62px;}
+    @import url(http://fonts.googleapis.com/css?family=Ubuntu);
+    .navbar .brand {font-family: 'Ubuntu', sans-serif; font-weight:400;}
+                #wpadminbar {display:none; }
+    html {margin-top: 0px !important;}
+    </style>
+
+    <link rel="shortcut icon" href="http://assets.okfn.org/p/ckan/img/ckan.ico" />
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <script type='text/javascript' src='http://code.jquery.com/jquery-1.7.2.min.js?ver=3.6'></script>
+  </head>
+
+  <body>
+    <header class="has-subheader">
+      <div class="navbar">
+        <div class="navbar-inner">
+          <div class="container">
+            <a data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar collapsed">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a title="Home"
+              class="brand"
+              href="/">
+            <img src="http://ckan.org/files/2012/03/ckanlogored.png" alt="logo" />
+            {{site.title}}
+          </a>
+          <span class="sub-brand">{{site.subtitle}}</span>
+          <nav class="nav-collapse collapse">
+            <ul id="nav" class="nav">
+              <li>
+                <a href="http://ckan.org/">CKAN Main Site</a>
+              </li>
+              <li>
+                <a href="http://ckan.org/contact/">Get in Touch</a>
+              </li>
+              <li>
+                <a href="http://ckan.org/blog/">Blog</a>
+              </li>
+            </ul>
+          </nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="sub-header">
+        <div class="container">
+          {% if page.breadcrumbs %}
+          <ul class="breadcrumb">
+            <li>
+              <a href="/">Home</a>
+            </li>
+            {% for pair in page.breadcrumbs %}
+              {% for item in pair %}
+                <span class="delimiter">/</span>
+                {% if item[1] == '' %}
+                  {{item[0]}}
+                {% else %}
+                  <a href="{{item[1]}}">{{item[0]}}</a>
+                {% endif %}
+              {% endfor %}
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      {{content}}
+    </div>
+
+  <footer>
+    <div class="inner">
+      <div class="container">
+        <div class="row">
+          <div class="span3">
+            <h3 class="widgettitle">CKAN</h3>
+            <ul class="menu">
+              <li><a href="http://ckan.org/contact/">Contact</a></li>
+              <li><a href="http://ckan.org/about/">About</a></li>
+              <li><a href="http://ckan.org/blog/">Blog</a></li>
+            </ul>
+          </div>
+          <div class="span3">
+            <h3>Terms of Use</h3>
+            <ul>
+              <li><a href="http://okfn.org/terms-of-use/">Terms of use</a></li>
+              <li><a href="http://okfn.org/privacy-policy/">Privacy policy</a></li>
+              <li><a href="http://okfn.org/ip-policy/">IP Policy</a></li>
+            </ul>
+          </div>
+        </div><!-- /row -->
+      </div><!-- /container -->
+    </div><!-- /inner -->
+  </footer>
+
+  <!-- script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/js/bootstrap.min.js"></script-->
+</body>
+</html>

@@ -1,0 +1,58 @@
+---
+title: Labs Projects
+layout: default
+bodyclass: code
+---
+
+<div class="page-header">
+  <h1>
+    <!--div style="float: right; font-size: 75%;">
+      [<a href="/extensions/add/">Add a Project</a>]
+    </div-->
+    Find CKAN Extensions
+  </h1>
+</div>
+
+<form class="form-inline hidden" id="filters">
+  <select data-placeholder="Filter extensions..." style="width:500px;" class="form-control chosen-select" multiple>
+    <option value=""></option>
+    <optgroup label="Featured">
+      <option value="[data-featured*=true]" selected>Featured</option>
+    </optgroup>
+    <optgroup label="Help wanted">
+      <option value="[data-helpwanted*=true]">Help wanted</option>
+    </optgroup>
+  </select>
+  <button type="submit" class="btn btn-primary">Filter</button>
+</form>
+
+<div class="extensions">
+{% for extension in site.pages %}
+  {% if extension.category == 'Extension' %}
+    <div class="record" data-featured="{{extension.featured}}" data-helpwanted="{{extension.helpwanted}}" data-status="{{extension.status}}" data-language="{{ extension.language | join: ";" }}" data-type="{{ extension.type | join: ";" }}" data-tags="{{ extension.tags | join: ";" }}" data-url="{{extension.url | replace:'index.html',''}}">
+      <h2>
+        <a href="{{extension.url | replace:'index.html',''}}">{{extension.title}}
+        </a>
+        {% if extension.author %}
+        <div class="author">by {{extension.author}}</div>
+        {% endif %}
+      </h2>
+      {% if extension.imageurl %}
+        <img src="{{extension.imageurl}}" alt="{{extension.title}}" />
+      {% endif %}
+
+      <p class="description">{{extension.content}}</p>
+      {% if extension.github_repo %}
+      <p><i class="fa fa-github"></i> <a href="https://github.com/{{extension.github_user}}/{{extension.github_repo}}">Github</a></p>
+      {% endif %}
+    </div>
+  {% endif %}
+{% endfor %}
+</div>
+
+
+<script type="text/javascript" src="../assets/js/chosen.jquery.min.js"></script>
+<script type="text/javascript" src="../assets/js/isotope.pkgd.js"></script>
+<script type="text/javascript" src="../assets/js/imagesloaded.pkgd.js"></script>
+<script type="text/javascript" src="../assets/js/extensions.js"></script>
+
