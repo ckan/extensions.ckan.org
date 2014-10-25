@@ -14,3 +14,7 @@ Generate all the pages for extensions:
 python scripts/generate.py
 ```
 
+## License
+
+Copyright Open Knowledge (2014-) and licensed under the MIT License.
+
