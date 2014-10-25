@@ -1,7 +1,7 @@
 ---
 layout: extension
 name: dcat
-title: Work in progress- CKAN + DCAT
+title: CKAN + DCAT
 author: CKAN
 homepage: https://github.com/ckan/ckanext-dcat
 github_user: ckan

@@ -16,7 +16,7 @@ def get_master(master_csv_url):
 # assumes on github
 def get_extension_info(master_info_dict):
     outdict = AttrDict(master_info_dict)
-    outdict.name = outdict.name.replace('ckanext-', '')
+    outdict.name = outdict.name.replace('ckanext-', '').lower()
     # : is an illegal character in front-matter
     outdict.title = outdict.title.split('.')[0].replace(':', '-')
     # url is github url
@@ -34,7 +34,11 @@ def _get_readme(user, repo):
         url += 'README' + ext
         urlfo = urllib.urlopen(url)
         if urlfo.getcode() != 404:
-            return urlfo.read()
+            readme = urlfo.read()
+            # {% is reserved for liquid templates
+            readme = readme.replace('{% ', '{%raw%}{% {%endraw%}')
+            readme = readme.replace(' %}', '{%raw%} %}{%endraw%}')
+            return readme
 
 def write_extension(extension):
     print('Processing: %s' % extension.name)
@@ -62,9 +66,11 @@ permalink: /extension/%(name)s/
 # https://docs.google.com/a/okfn.org/spreadsheets/d/1izCpljO6Et7zLUKcUlB4BzsMZTurENp56Iqi9kXOtgs/edit#gid=0
 master_csv_url = 'https://docs.google.com/spreadsheets/d/1izCpljO6Et7zLUKcUlB4BzsMZTurENp56Iqi9kXOtgs/export?gid=0&format=csv'
 
+import sys
 if __name__ == '__main__':
+    filt = sys.argv[1] if len(sys.argv) >= 2 else ''
     toprocess = get_master(master_csv_url)
-    toprocess = [ x for x in toprocess if x.show ]
+    toprocess = [ x for x in toprocess if x.show and (filt in x.name)]
     for ext in toprocess:
         info = get_extension_info(ext)
         write_extension(info)

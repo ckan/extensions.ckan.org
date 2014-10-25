@@ -7,7 +7,7 @@ homepage: https://github.com/ckan/ckanext-apihelper
 github_user: ckan
 github_repo: ckanext-apihelper
 category: Extension
-featured: 1
+featured: 
 permalink: /extension/apihelper/
 ---
 

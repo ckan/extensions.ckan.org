@@ -1,10 +1,10 @@
 ---
 layout: extension
 name: shibboleth
-title: Shibboleth authentication plugin for CKAN
-author: Harri Palojärvi
-homepage: https://github.com/harripal/ckanext-shibboleth
-github_user: harripal
+title: CKAN shibboleth identification plugin
+author: Kata team repository
+homepage: https://github.com/kata-csc/ckanext-shibboleth
+github_user: kata-csc
 github_repo: ckanext-shibboleth
 category: Extension
 featured: 
@@ -15,11 +15,11 @@ permalink: /extension/shibboleth/
 ckanext-shibboleth
 ==================
 
-Shibboleth identification plugin for CKAN. Uses repoze.who.openid plugin for authentication.
+Shibboleth identification plugin for CKAN 2.0a. Uses repoze.who.openid plugin for authentication.
 
 Install
 -------
-	pip install -e git+git://github.com/harripal/ckanext-shibboleth.git#egg=ckanext-shibboleth
+	pip install -e git+git://github.com/kata-csc/ckanext-shibboleth.git#egg=ckanext-shibboleth
 	
 Nosetests
 ---------
@@ -36,10 +36,17 @@ pyenv/src/ckan/development.ini:
 pyenv/src/ckan/who.ini:
 
 	[plugin:shibboleth]
-	use = ckanext.repoze.who.shibboleth.plugin:make_identification_plugin
-	session = Shib-Session-ID
-	mail = mail
-	name = cn
+    use = ckanext.repoze.who.shibboleth.plugin:make_identification_plugin
+    session = Shib-Session-ID
+    eppn = eppn
+    mail = mail
+    fullname = cn
+    # Add more key-worded parameters below
+    firstname = displayName
+    surname = sn
+    organization = schacHomeOrganization
+    mobile = mobile
+    telephone = telephoneNumber
 
 	[general]
 	request_classifier = repoze.who.classifiers:default_request_classifier

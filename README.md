@@ -14,6 +14,11 @@ Generate all the pages for extensions:
 python scripts/generate.py
 ```
 
+Regenerate just one page:
+
+```
+python scripts/generate.py {name-of-extension}
+
 ## License
 
 Copyright Open Knowledge (2014-) and licensed under the MIT License.
