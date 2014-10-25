@@ -15,22 +15,35 @@ bodyclass: extension
   </h1>
 </div>
 
-<ul class="meta">
-  <li>
-    <i class="fa fa-link" title="Project Home Page"></i> <a
-      href="{{page.homepage}}" target="_blank">{{page.homepage}}</a>
-  </li>
-  {% if page.github_repo %}
-  <li>
-    <iframe src="http://ghbtns.com/github-btn.html?user={{page.github_user}}&repo={{page.github_repo}}&type=watch&count=true"
-        allowtransparency="true" frameborder="0" scrolling="0" width="80" height="20"></iframe>
-    <iframe src="http://ghbtns.com/github-btn.html?user={{page.github_user}}&repo={{page.github_repo}}&type=fork&count=true"
-        allowtransparency="true" frameborder="0" scrolling="0" width="80" height="20"></iframe>
-  </li>
-  {% endif %}
-</ul>
+<div class="row">
+  <div class="span8">
+    <ul class="meta">
+      <li>
+        <i class="fa fa-link" title="Project Home Page"></i> <a
+          href="{{page.homepage}}" target="_blank">{{page.homepage}}</a>
+      </li>
+      {% if page.github_repo %}
+      <li>
+        <iframe src="http://ghbtns.com/github-btn.html?user={{page.github_user}}&repo={{page.github_repo}}&type=watch&count=true"
+            allowtransparency="true" frameborder="0" scrolling="0" width="80" height="20"></iframe>
+        <iframe src="http://ghbtns.com/github-btn.html?user={{page.github_user}}&repo={{page.github_repo}}&type=fork&count=true"
+            allowtransparency="true" frameborder="0" scrolling="0" width="80" height="20"></iframe>
+      </li>
+      {% endif %}
+    </ul>
 
-<p class="description">
-{{content}}
-</p>
+    <div class="description">
+    {{content}}
+    </div>
+  </div>
+  <div class="span4">
+    <h3>Recent Activity</h3>
+    <div id="github-activity"></div>
+    <script>
+      $('#github-activity').githubActivity({
+        repos: ["{{page.github_user}}/{{page.github_repo}}"]
+      });
+    </script>
+  </div>
+</div>
 
