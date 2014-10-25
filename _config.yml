@@ -1,5 +1,7 @@
 title: CKAN Extensions
-markdown: redcarpet
+markdown: kramdown
+kramdown:
+  input: GFM
 highlighter: pygments
 relative_permalinks: false
 extension_list_gdoc: https://docs.google.com/a/okfn.org/spreadsheets/d/1izCpljO6Et7zLUKcUlB4BzsMZTurENp56Iqi9kXOtgs/edit#gid=0
