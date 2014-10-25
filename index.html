@@ -25,7 +25,10 @@ bodyclass: code
 
 <div class="extensions">
   <div class="result-summary">
-    <h3><span class="count js-result-count"></span> extensions match</h3>
+    <h3>
+      Matching extensions:
+      <span class="count js-result-count"></span> 
+    </h3>
   </div>
 {% for extension in site.pages %}
   {% if extension.category == 'Extension' %}

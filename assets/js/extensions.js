@@ -25,7 +25,6 @@ jQuery(document).ready(function($) {
 
 
 function doSearchAndFilter(filterSpec) {
-  console.log(filterSpec);
   var container = $('.extensions');
   container.find('.record').hide();
   if (filterSpec) {
@@ -35,7 +34,12 @@ function doSearchAndFilter(filterSpec) {
   }
 
   var matchCount = $('.record:visible').length;
-  $count = $('.js-result-count').text(matchCount);
+  var $count = $('.js-result-count');
+  // fadeout => fadein so as to highlight the change
+  $count.fadeOut(function() {
+    $count.text(matchCount);
+    $count.delay(100).fadeIn('slow');
+  });
 }
 
 
