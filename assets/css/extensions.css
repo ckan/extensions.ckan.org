@@ -1,21 +1,8 @@
-/* Extensions List */
+/* Home Page Filter / Search */
 form#filters {
-    z-index: 5;
-    position: relative;
-}
-
-.extensions {
-}
-
-.extensions .record {
-  padding: 25px;
-  padding-left: 0px;
-  padding-right: 50px;
-  margin-top: 25px;
-}
-.record h2 {
-  margin-top: 0;
-  line-height: 25px;
+  z-index: 5;
+  position: relative;
+  margin-bottom: 50px;
 }
 
 ul.filters {
@@ -54,6 +41,17 @@ ul.filters {
   background-size: 15px 15px;
 }
 
+/* Extensions List */
+.extensions {
+}
+
+.extensions .record {
+  margin-bottom: 50px;
+}
+
+.record h2 {
+}
+
 .extensions .author {
   color: #999;
   font-size: 15px;
@@ -76,25 +74,12 @@ ul.filters {
 }
 
 /* Individual extension page */
-.body-extension .record .image {
-  margin-left: 30px;
-  float: right;
-  width: 450px;
-  min-height: 300px;
-}
-
-.body-extension .record .image img {
-  max-width: 100%;
-  max-height: 450px;
-  vertical-align: center;
-  text-align: center;
-  margin: auto;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
-}
-
-.body-extension .meta {
+body.extension .meta {
   margin-left: 0;
   list-style-type: none;
+}
+
+body.extension .meta li {
+  margin-bottom: 8px;
 }
 

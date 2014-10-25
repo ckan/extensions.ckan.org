@@ -37,14 +37,11 @@ bodyclass: code
         <div class="author">by {{extension.author}}</div>
         {% endif %}
       </h2>
-      {% if extension.imageurl %}
-        <img src="{{extension.imageurl}}" alt="{{extension.title}}" />
-      {% endif %}
 
-      <p class="description">{{extension.content}}</p>
-      {% if extension.github_repo %}
-      <p><i class="fa fa-github"></i> <a href="https://github.com/{{extension.github_user}}/{{extension.github_repo}}">Github</a></p>
-      {% endif %}
+      <div class="description">
+        {{ extension.content | markdownify | strip_html | truncatewords: 45 }} 
+        <a href="{{ extension.url }}" title="read more">Read more &raquo;</a>
+      </div>
     </div>
   {% endif %}
 {% endfor %}

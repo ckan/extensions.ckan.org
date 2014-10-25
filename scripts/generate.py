@@ -17,14 +17,24 @@ def get_master(master_csv_url):
 def get_extension_info(master_info_dict):
     outdict = AttrDict(master_info_dict)
     outdict.name = outdict.name.replace('ckanext-', '')
-    outdict.readme = outdict.title
-    outdict.title = outdict.title.split('.')[0]
+    # : is an illegal character in front-matter
+    outdict.title = outdict.title.split('.')[0].replace(':', '-')
     # url is github url
     parts = outdict.url.split('/')
     outdict.github_user = parts[3]
     outdict.github_repo = parts[4]
-    # later we will do fancier stuff like get the README.md etc
+    # try to find the README or README.md etc
+    outdict.readme = _get_readme(outdict.github_user, outdict.github_repo)
     return outdict
+
+def _get_readme(user, repo):
+    exts = [ '.md', '.markdown', '.rst', '' ]
+    for ext in exts:
+        url = 'https://raw.githubusercontent.com/%s/%s/master/' % (user, repo)
+        url += 'README' + ext
+        urlfo = urllib.urlopen(url)
+        if urlfo.getcode() != 404:
+            return urlfo.read()
 
 def write_extension(extension):
     print('Processing: %s' % extension.name)
@@ -35,6 +45,7 @@ layout: extension
 name: %(name)s
 title: %(title)s
 author: %(author)s
+homepage: %(url)s
 github_user: %(github_user)s
 github_repo: %(github_repo)s
 category: Extension

@@ -1,52 +1,36 @@
 ---
 layout: default
-categories: project
-bodyclass: project
+categories: extension
+bodyclass: extension
 ---
 
-<div class="record">
-  <div class="image">
-    {% if page.imageurl %}
-      <img src="{{page.imageurl}}" alt="{{page.title}}" />
-    {% endif %}
-  </div>
-  <h2>
-    <a href="{{page.projecturl}}" target="_blank">{{page.title}}</a>
-    {% if page.tagline %}
-    <br />
-    <small><em>{{page.tagline}}</em></small>
-    {% endif %}
+<div class="page-title">
+  <h1>
+    {{page.title}}
 
     <br />
     {% if page.author %}
       <small>by {{page.author}}</small>
     {% endif %}
-  </h2>
-  <ul class="meta">
-    {% if page.maintainers %}
-    <li>
-      <i class="icon-user" title="Maintainer"></i> Maintainer{% if page.maintainers.size > 1 %}s{% endif %} &ndash;
-      {% for maintainer in page.maintainers %}
-        <a href="/members/{{maintainer}}/" target="_blank">{{maintainer}}</a>{% if forloop.last != true %}, {% endif %}
-      {% endfor %}
-    </li>
-    {% endif %}
-    {% if page.projecturl %}
-    <li>
-      <i class="icon-link" title="Project HomePage"></i> <a href="{{page.projecturl}}" target="_blank">{{page.projecturl}}</a>
-    </li>
-    {% endif %}
-  </ul>
-  <p class="description">
-  {{content}}
-  </p>
-  {% if page.github_repo %}
-    <p><i class="fa fa-github"></i> <a href="https://github.com/{{page.github_user}}/{{page.github_repo}}">Github</a></p>
-    <div class="rhs">
-      <iframe src="http://ghbtns.com/github-btn.html?user={{page.github_user}}&repo={{page.github_repo}}&type=watch&count=true"
-          allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
-      <iframe src="http://ghbtns.com/github-btn.html?user={{page.github_user}}&repo={{page.github_repo}}&type=fork&count=true"
-          allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe>
-    </div>
-  {% endif %}
+  </h1>
 </div>
+
+<ul class="meta">
+  <li>
+    <i class="fa fa-link" title="Project Home Page"></i> <a
+      href="{{page.homepage}}" target="_blank">{{page.homepage}}</a>
+  </li>
+  {% if page.github_repo %}
+  <li>
+    <iframe src="http://ghbtns.com/github-btn.html?user={{page.github_user}}&repo={{page.github_repo}}&type=watch&count=true"
+        allowtransparency="true" frameborder="0" scrolling="0" width="80" height="20"></iframe>
+    <iframe src="http://ghbtns.com/github-btn.html?user={{page.github_user}}&repo={{page.github_repo}}&type=fork&count=true"
+        allowtransparency="true" frameborder="0" scrolling="0" width="80" height="20"></iframe>
+  </li>
+  {% endif %}
+</ul>
+
+<p class="description">
+{{content}}
+</p>
+
