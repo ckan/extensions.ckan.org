@@ -17,32 +17,42 @@ bodyclass: code
   <select data-placeholder="Filter extensions..." style="width:500px;" class="form-control chosen-select" multiple>
     <option value=""></option>
     <optgroup label="Featured">
-      <option value="[data-featured*=true]" selected>Featured</option>
-    </optgroup>
-    <optgroup label="Help wanted">
-      <option value="[data-helpwanted*=true]">Help wanted</option>
+      <option value="[data-featured*=1]" selected>Featured</option>
     </optgroup>
   </select>
   <button type="submit" class="btn btn-primary">Filter</button>
 </form>
 
 <div class="extensions">
+  <div class="result-summary">
+    <h3><span class="count js-result-count"></span> extensions match</h3>
+  </div>
 {% for extension in site.pages %}
   {% if extension.category == 'Extension' %}
-    <div class="record" data-featured="{{extension.featured}}" data-helpwanted="{{extension.helpwanted}}" data-status="{{extension.status}}" data-language="{{ extension.language | join: ";" }}" data-type="{{ extension.type | join: ";" }}" data-tags="{{ extension.tags | join: ";" }}" data-url="{{extension.url | replace:'index.html',''}}">
-      <h2>
-        <a href="{{extension.url | replace:'index.html',''}}">{{extension.title}}
-        </a>
-        {% if extension.author %}
-        <div class="author">by {{extension.author}}</div>
-        {% endif %}
-      </h2>
-
-      <div class="description">
-        {{ extension.content | markdownify | strip_html | truncatewords: 45 }} 
-        <a href="{{ extension.url }}" title="read more">Read more &raquo;</a>
-      </div>
+  <div class="record"
+    data-featured="{{extension.featured}}"
+    data-status="{{extension.status}}"
+    data-type="{{ extension.type | join: ";" }}"
+    data-url="{{extension.url | replace:'index.html',''}}"
+    >
+    <h2>
+      <a href="{{extension.url | replace:'index.html',''}}">{{extension.title}}
+      </a>
+      {% if extension.author %}
+      <div class="author">by {{extension.author}}</div>
+      {% endif %}
+    </h2>
+    <div class="meta">
+      {% if extension.featured %}
+      <span class="label label-important">Featured</span>
+      {% endif %}
     </div>
+
+    <div class="description">
+      {{ extension.content | markdownify | strip_html | truncatewords: 45 }} 
+      <a href="{{ extension.url }}" title="read more">Read more &raquo;</a>
+    </div>
+  </div>
   {% endif %}
 {% endfor %}
 </div>

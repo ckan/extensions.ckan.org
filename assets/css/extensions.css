@@ -2,7 +2,7 @@
 form#filters {
   z-index: 5;
   position: relative;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 
 ul.filters {
@@ -41,8 +41,12 @@ ul.filters {
   background-size: 15px 15px;
 }
 
-/* Extensions List */
+/* Extensions List Page */
 .extensions {
+}
+
+.extensions .result-summary {
+  margin-bottom: 30px; 
 }
 
 .extensions .record {

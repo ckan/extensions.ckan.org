@@ -1,31 +1,51 @@
 jQuery(document).ready(function($) {
   var container = $('.extensions');
   var chosen_select = $('.chosen-select');
+  var $form = $('form#filters');
 
+  // make form visible - will not work if no javascript
   $(".form-inline").removeClass("hidden");
 
   // triggered when the form text is changed
-  $("form#filters").on('change', function() {
+  $form.on('change submit', function(e) {
+    e.preventDefault();
+
     var chosen_opts = $('.chosen-select').val();
     if (chosen_opts !== null) {
       chosen_opts = chosen_opts.join('');
     }
-    
-    // console.log(chosen_opts);
-    // TODO: implement simple filtering properly
-    // container.find('.record').show();
-    container.find('.record ' + chosen_opts).show();
-
-    return false;
+    doSearchAndFilter(chosen_opts);
   });
 
-  var filters = {tags: {}, type: {}, status: {}, language: {}};
+  $('.chosen-select').chosen();
+
+  // finally, do default search (filter on featured)
+  doSearchAndFilter('[data-featured*=1]');
+});
+
+
+function doSearchAndFilter(filterSpec) {
+  console.log(filterSpec);
+  var container = $('.extensions');
+  container.find('.record').hide();
+  if (filterSpec) {
+    container.find('.record' + filterSpec).show();
+  } else {
+    container.find('.record').show();
+  }
+
+  var matchCount = $('.record:visible').length;
+  $count = $('.js-result-count').text(matchCount);
+}
+
+
+function setupFilters(){
+  var container = $('.extensions');
+  var filters = {type: {}, status: {}};
 
   container.find('.record').each(function() {
     // Find the current extension's detail URL
     var record = $(this);
-    var url = record.data('url');
-    record.addClass('expand');
 
     // de-duplicate filter values
     $.each(filters, function (filter_type) {
@@ -54,9 +74,5 @@ jQuery(document).ready(function($) {
   function toFilterName(title) {
     return title.trim().toLowerCase();
   }
+}
 
-  // TODO: filter by featured
-  // filter: '[data-featured=true]'
-
-  $('.chosen-select').chosen();
-});
