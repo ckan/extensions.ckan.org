@@ -1,7 +1,7 @@
 jQuery(document).ready(function($) {
   var container = $('.extensions');
   var chosen_select = $('.chosen-select');
-  var $form = $('form#filters');
+  var $form = $('form.js-search');
 
   // make form visible - will not work if no javascript
   $(".form-inline").removeClass("hidden");
@@ -10,35 +10,54 @@ jQuery(document).ready(function($) {
   $form.on('change submit', function(e) {
     e.preventDefault();
 
+    var q = $form.find('input[name="q"]').val();
     var chosen_opts = $('.chosen-select').val();
     if (chosen_opts !== null) {
       chosen_opts = chosen_opts.join('');
     }
-    doSearchAndFilter(chosen_opts);
+    doSearchAndFilter({
+      q: q,
+      filters: chosen_opts
+    });
   });
 
   $('.chosen-select').chosen();
 
   // finally, do default search (filter on featured)
-  doSearchAndFilter('[data-featured*=1]');
+  doSearchAndFilter({
+    q: '',
+    filters: '[data-featured*=1]'
+  });
 });
 
 
-function doSearchAndFilter(filterSpec) {
-  var container = $('.extensions');
-  container.find('.record').hide();
-  if (filterSpec) {
-    container.find('.record' + filterSpec).show();
-  } else {
-    container.find('.record').show();
-  }
+function doSearchAndFilter(query) {
+  var container = $('.extensions')
+    cssMatch = '.record'
+    $count = $('.js-result-count');
+    regex = new RegExp(query.q, 'im')
+    ;
 
-  var matchCount = $('.record:visible').length;
-  var $count = $('.js-result-count');
-  // fadeout => fadein so as to highlight the change
-  $count.fadeOut(function() {
+  // could have a race here but guess second will take longer so we do not chain
+  $count.fadeOut('slow');
+  container.find(cssMatch).hide('slow', function() {
+    if (query.filters) {
+      cssMatch += query.filters;
+    }
+    container.find(cssMatch).each(function(idx, record) {
+      var $record = $(record)
+        , title = $record.find('h2').text()
+        ;
+      if (!(query.q) || title.match(regex)) {
+        // can not show slow here as we get into race with count condition below
+        $(record).show();
+      }
+    });
+
+    var matchCount = $('.record:visible').length;
+    // fadeout => fadein so as to highlight the change
     $count.text(matchCount);
-    $count.delay(100).fadeIn('slow');
+    $count.fadeIn('slow');
   });
 }
 

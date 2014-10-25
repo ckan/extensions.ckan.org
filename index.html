@@ -13,21 +13,25 @@ bodyclass: code
   </h1>
 </div>
 
-<form class="form-inline hidden" id="filters">
-  <select data-placeholder="Filter extensions..." style="width:500px;" class="form-control chosen-select" multiple>
+<form class="form-inline hidden search js-search">
+  <input type="text" name="q" placeholder="Search extensions" />
+  <select data-placeholder="Add filters ..."
+    class="form-control chosen-select"
+    multiple
+    >
     <option value=""></option>
     <optgroup label="Featured">
       <option value="[data-featured*=1]" selected>Featured</option>
     </optgroup>
   </select>
-  <button type="submit" class="btn btn-primary">Filter</button>
+  <button type="submit" class="btn btn-primary">Search</button>
 </form>
 
 <div class="extensions">
   <div class="result-summary">
     <h3>
       Matching extensions:
-      <span class="count js-result-count"></span> 
+      <span class="count js-result-count">0</span> 
     </h3>
   </div>
 {% for extension in site.pages %}
@@ -37,6 +41,7 @@ bodyclass: code
     data-status="{{extension.status}}"
     data-type="{{ extension.type | join: ";" }}"
     data-url="{{extension.url | replace:'index.html',''}}"
+    style="display: none;"
     >
     <h2>
       <a href="{{extension.url | replace:'index.html',''}}">{{extension.title}}

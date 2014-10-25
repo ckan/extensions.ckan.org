@@ -1,5 +1,5 @@
 /* Home Page Filter / Search */
-form#filters {
+form.search {
   z-index: 5;
   position: relative;
   margin-bottom: 30px;
