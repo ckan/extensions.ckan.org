@@ -26,7 +26,7 @@ jQuery(document).ready(function($) {
   // finally, do default search (filter on featured)
   doSearchAndFilter({
     q: '',
-    filters: '[data-featured*=1]'
+    filters: ''
   });
 });
 
