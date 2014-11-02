@@ -33,6 +33,7 @@ What we will then do:
   * README
     * README should be in markdown format preferably (plain text and restructured text accepted but discouraged)
     * README should start with a simple introductory paragraph (**not** a heading)
+    * README should include install instructions (even if just `pip install ckanext-{name}`)
   * Recent activity on your extension
   * All of the information submitted in the original issue
 
