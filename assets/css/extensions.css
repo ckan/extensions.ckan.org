@@ -41,6 +41,12 @@ ul.filters {
   background-size: 15px 15px;
 }
 
+form.search p.help {
+  font-size: 80%;
+  margin-top: 8px;
+  margin-left: 10px;
+}
+
 /* Extensions List Page */
 .extensions {
 }
