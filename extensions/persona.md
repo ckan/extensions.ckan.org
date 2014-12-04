@@ -23,7 +23,7 @@ name and password for CKAN.
 Traditional username and password login and registration are still enabled when this
 plugin is active, the user is given the choice of Persona or traditional login.
 
-For screenshots and details about how it works, see the [blog post](http://seanh.sdfeu.org/posts/ckanext-persona/).
+For screenshots and details about how it works, see the [blog post](http://seanh.cc/posts/ckanext-persona/).
 
 
 Installation

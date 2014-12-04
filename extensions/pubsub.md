@@ -15,6 +15,7 @@ permalink: /extension/pubsub/
 
 # [WIP] ckanext-pubsub
 
+## THIS PLUGIN IS CURRENTLY UNFINISHED.
 
 ## Intro
 
@@ -54,7 +55,7 @@ To run the tests for ckanext-pubsub you should run the following command from th
 
 ## Is it any good?
 
-Yes.
+No. It currently does nothing.
 
 
 

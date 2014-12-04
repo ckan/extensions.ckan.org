@@ -2,7 +2,7 @@
 layout: extension
 name: recombinant
 title: Create datastore tables for organizations and provide combined output
-author: Open Data Initiative - Initiative sur les données ouvertes
+author: open.canada.ca
 homepage: https://github.com/open-data/ckanext-recombinant
 github_user: open-data
 github_repo: ckanext-recombinant
