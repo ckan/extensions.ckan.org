@@ -30,7 +30,27 @@ There are no templates supplied with this extension, but you can use the templat
 
 You should add ```certificates``` to your list of plugins configured by ```ckan.plugins```.
 
-No other configuration is required by this extension but you should ensure your ```ckan.site_url``` is configured correctly so that matching entries can be found from the data feed.
+It is wise to add a parameter to the ODI Certificates feed URL, to request only your site's dataset certificates. e.g.:
+```
+ckanext.certificates.feed_url = https://certificates.theodi.org/datasets.feed?domain=data.gov.uk
+```
+
+All certificates will be checked to see if they are for your site anyway, by seeing if the 'about' URL starts with your configured ```ckan.site_url```. e.g.
+```
+ckan.site_url = http://data.gov.uk
+```
+Note it is automatically flexible enough to allow both http and https versions, and with www. inserted or not.
+
+However in some circumstances the ckan.site_url may be different to the certificates interested in, perhaps on a test machine. In this case you can configure a string that the about URL must start with in ```ckanext.certificates.site_url``` e.g.
+
+```
+ckan.site_url = http://localhost:5000
+ckanext.certificates.site_url = http://data.gov.uk
+```
+Or maybe a regular expression is needed, to cope with variations e.g. 
+```
+ckanext.certificates.site_url_regex = https?://(catalog\.)?data\.gov
+```
 
 ## Retrieving information
 
@@ -39,3 +59,11 @@ You should set up a recurring task to fetch the certificates at a rate that is s
 ```
 paster --plugin=ckanext-certificates fetch_certs -c <PATH_TO_CONFIG_FILE>
 ```
+
+## Tests
+
+A few tests are available:
+```
+nosetests ckanext/certificates/tests/
+```
+
