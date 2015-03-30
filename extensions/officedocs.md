@@ -3,11 +3,11 @@ layout: extension
 name: ckanext-officedocs
 title: CKAN ResourceView using Microsoft's office previewer
 author: Ross Jones
-homepage: https://github.com/rossjones/ckanext-officedocs
-github_user: rossjones
+homepage: https://github.com/jqnatividad/ckanext-officedocs
+github_user: jqnatividad
 github_repo: ckanext-officedocs
 category: Extension
-featured: 
+featured: 1
 permalink: /extension/ckanext-officedocs/
 ---
 
@@ -25,7 +25,7 @@ Supported formats
 
 This plugin will attempt to preview the following formats
 
-    "DOC", "DOCX", "XLS", "XLSX", "PPT", "PPTX"
+    "DOC", "DOCX", "XLS", "XLSX", "PPT", "PPTX", "PPS"
 
 ------------
 Installation
