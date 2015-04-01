@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: suspend
+name: ckanext-suspend
 title: Admin Suspension (hiding) of Datasets
 author: XVTSolutions
 homepage: https://github.com/XVTSolutions/ckanext-suspend
@@ -8,7 +8,7 @@ github_user: XVTSolutions
 github_repo: ckanext-suspend
 category: Extension
 featured: 
-permalink: /extension/suspend/
+permalink: /extension/ckanext-suspend/
 ---
 
 

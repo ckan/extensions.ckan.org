@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: datapackager
+name: ckanext-datapackager
 title: CKAN extension for the Open Knowledge Data Packager
 author: CKAN
 homepage: https://github.com/ckan/ckanext-datapackager
@@ -8,7 +8,7 @@ github_user: ckan
 github_repo: ckanext-datapackager
 category: Extension
 featured: 
-permalink: /extension/datapackager/
+permalink: /extension/ckanext-datapackager/
 ---
 
 

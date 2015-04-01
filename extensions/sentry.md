@@ -1,14 +1,14 @@
 ---
 layout: extension
-name: sentry
-title: Hooks the Sentry's raven plugin into ckan/pylons wsgi middleware chain
+name: ckanext-sentry
+title: Hooks the Sentry's raven plugin into ckan/pylons wsgi middleware chain.
 author: Open Data in Trentino
 homepage: https://github.com/opendatatrentino/ckanext-sentry
 github_user: opendatatrentino
 github_repo: ckanext-sentry
 category: Extension
 featured: 
-permalink: /extension/sentry/
+permalink: /extension/ckanext-sentry/
 ---
 
 

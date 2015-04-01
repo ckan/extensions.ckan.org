@@ -1,14 +1,14 @@
 ---
 layout: extension
-name: odata
-title: This CKAN extension provides a basic OData 3
+name: ckanext-odata
+title: This CKAN extension provides a basic OData 3.0 endpoint for CKAN.
 author: whythawk
 homepage: https://github.com/whythawk/ckanext-odata
 github_user: whythawk
 github_repo: ckanext-odata
 category: Extension
 featured: 
-permalink: /extension/odata/
+permalink: /extension/ckanext-odata/
 ---
 
 

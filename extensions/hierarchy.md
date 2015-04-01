@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: hierarchy
+name: ckanext-hierarchy
 title: Organization hierarchy - CKAN extension
 author: Data.Gov.UK - Cabinet Office
 homepage: https://github.com/datagovuk/ckanext-hierarchy
@@ -8,7 +8,7 @@ github_user: datagovuk
 github_repo: ckanext-hierarchy
 category: Extension
 featured: 1
-permalink: /extension/hierarchy/
+permalink: /extension/ckanext-hierarchy/
 ---
 
 
@@ -43,7 +43,7 @@ Install the extension in your python environment
 ```
 $ . /usr/lib/ckan/default/bin/activate
 (pyenv) $ cd /usr/lib/ckan/default/src
-(pyenv) $ pip install -e "git+https://github.com/datagovuk/ckanext-hierarchy.git#ckanext-hierarchy"
+(pyenv) $ pip install -e "git+https://github.com/datagovuk/ckanext-hierarchy.git#egg=ckanext-hierarchy"
 ```
 Then change your CKAN ini file (e.g. development.ini or production.ini).  Note that hierarchy_display 
 should come before hierarchy_form

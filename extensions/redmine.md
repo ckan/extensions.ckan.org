@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: redmine
+name: ckanext-redmine
 title: Contact/Issues form backed by redmine
 author: Data.Gov.UK - Cabinet Office
 homepage: https://github.com/datagovuk/ckanext-redmine
@@ -8,7 +8,7 @@ github_user: datagovuk
 github_repo: ckanext-redmine
 category: Extension
 featured: 
-permalink: /extension/redmine/
+permalink: /extension/ckanext-redmine/
 ---
 
 

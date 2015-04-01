@@ -1,14 +1,14 @@
 ---
 layout: extension
-name: repo
-title: Shows information about the CKAN version an instance is running
+name: ckanext-repo
+title: Shows information about the CKAN version an instance is running. Mostly useful for development sites.
 author: CKAN
 homepage: https://github.com/ckan/ckanext-repo
 github_user: ckan
 github_repo: ckanext-repo
 category: Extension
 featured: 
-permalink: /extension/repo/
+permalink: /extension/ckanext-repo/
 ---
 
 

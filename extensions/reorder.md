@@ -1,14 +1,14 @@
 ---
 layout: extension
-name: reorder
-title: Allows dataset editors to reorder the positioning of resources
+name: ckanext-reorder
+title: Allows dataset editors to reorder the positioning of resources.
 author: XVTSolutions
 homepage: https://github.com/XVTSolutions/ckanext-reorder
 github_user: XVTSolutions
 github_repo: ckanext-reorder
 category: Extension
 featured: 
-permalink: /extension/reorder/
+permalink: /extension/ckanext-reorder/
 ---
 
 

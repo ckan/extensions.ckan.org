@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: hideorganizations
+name: ckanext-hideorganizations
 title: A CKAN 2 extension that removes CKAN's organizations feature
 author: Open Knowledge
 homepage: https://github.com/okfn/ckanext-hideorganizations
@@ -8,7 +8,7 @@ github_user: okfn
 github_repo: ckanext-hideorganizations
 category: Extension
 featured: 
-permalink: /extension/hideorganizations/
+permalink: /extension/ckanext-hideorganizations/
 ---
 
 

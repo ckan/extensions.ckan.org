@@ -1,28 +1,23 @@
 ---
 layout: extension
-name: feedback
-title: Naive code to include a simple feedback form for submitting data requests the CKAN System
-author: Maulik Kamdar
-homepage: https://github.com/maulikkamdar/ckanext-feedback
-github_user: maulikkamdar
+name: ckanext-feedback
+title: Feedback extension for CKAN
+author: U.K. Natural History Museum
+homepage: https://github.com/NaturalHistoryMuseum/ckanext-feedback
+github_user: NaturalHistoryMuseum
 github_repo: ckanext-feedback
 category: Extension
 featured: 
-permalink: /extension/feedback/
+permalink: /extension/ckanext-feedback/
 ---
 
 
-**CKAN-feedback**
+ckanext-feedback
+================
 
-This extension provides a simple feedback form for submitting data requests through the CKAN System.
-The administrator receives an email for processing the request. The administrator email can be set in the CKAN config file development.ini/production.ini. The config variable is 'ckan.feedback.request_email'. The system email which would send this request information could be defined in the same config file using the config variable 'ckan.feedback.sender_email'. If these values are not defined, the extension uses the default values defined in controller.py.
+Feedback extension for CKAN
 
-The CKAN-feedback extension can be installed by running 
+The private-beta branch was for internal launch, with a built in feedback form.
 
-python setup.py develop
-
-in the extension directory.
-
-========================================================
-The CKAN-feedback extension was developed for use as a Data-request module in the Data.Gov.IE Open Data Platform, but can be extended and used as a simple, generic feedback module for any CKAN deployment. 
+The public-beta branch is for public beta launch, with a footer bar with link to 
 

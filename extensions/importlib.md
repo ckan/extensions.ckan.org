@@ -1,14 +1,14 @@
 ---
 layout: extension
-name: importlib
-title: Library for importing datasets into CKAN using the API
+name: ckanext-importlib
+title: Library for importing datasets into CKAN using the API.
 author: Open Knowledge
 homepage: https://github.com/okfn/ckanext-importlib
 github_user: okfn
 github_repo: ckanext-importlib
 category: Extension
 featured: 
-permalink: /extension/importlib/
+permalink: /extension/ckanext-importlib/
 ---
 
 
