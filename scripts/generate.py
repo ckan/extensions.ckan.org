@@ -1,6 +1,7 @@
 import csv
 import os
 import urllib
+import pypandoc
 from collections import OrderedDict
 
 class AttrDict(dict): 
@@ -21,8 +22,8 @@ def get_extension_info(master_info_dict):
     outdict.title = outdict.title.split('.')[0].replace(':', '-')
     # url is github url
     parts = outdict.url.split('/')
-    outdict.github_user = parts[3]
-    outdict.github_repo = parts[4]
+    outdict['github_user'] = parts[3]
+    outdict['github_repo'] = parts[4]
     # try to find the README or README.md etc
     outdict.readme = _get_readme(outdict.github_user, outdict.github_repo)
     return outdict
@@ -38,6 +39,8 @@ def _get_readme(user, repo):
             # {% is reserved for liquid templates
             readme = readme.replace('{% ', '{%raw%}{% {%endraw%}')
             readme = readme.replace(' %}', '{%raw%} %}{%endraw%}')
+            if ext == '.rst':
+                readme = pypandoc.convert(readme, to='markdown_github', format='rst')
             return readme
 
 def write_extension(extension):
