@@ -1,25 +1,37 @@
 ---
 layout: extension
-name: climate-tagger
-title: The reegle Climate Tagger CKAN Extension provides suggested tags for climate compatible content by introducing an additional field to the add/edit resource form that displays suggested tags for reegles Tagging API
+name: ckanext-climate-tagger
+title: The reegle Climate Tagger CKAN Extension provides suggested tags for climate compatible content by introducing an additional field to the add/edit resource form that displays suggested tags for reegles Tagging API.
 author: Reegle
 homepage: https://github.com/REEEP/ckanext-climate-tagger
 github_user: REEEP
 github_repo: ckanext-climate-tagger
 category: Extension
 featured: 
-permalink: /extension/climate-tagger/
+permalink: /extension/ckanext-climate-tagger/
 ---
 
 
 ckanext-climate-tagger
 ======================
 
-The reegle Climate Tagger CKAN Extension provides suggested tags for climate compatible content (for CKAN) by introducing an additional field to the add/edit resource form that displays suggested tags for reegles Tagging API.
+The reegle Climate Tagger CKAN Extension provides suggested tags for climate compatible content (for CKAN) by introducing an additional field to the add/edit resource form that displays suggested tags from the Climate Tagger API hosted by reegle.
+
+Make your CKAN open government data more easily searchable by leveraging the standardized taxonomy of tags provided by the Climate Tagger tags.
 
 Current status: **beta**
 
 More information about the tagging API can be found at http://api.reegle.info.
+
+
+Features
+--------
+
+* Climate Tagger tags available in English, French, Spanish, Portuguese and German
+
+* Ability to configure the relevance threshhold for tags returned bu the Climate tagger API
+
+* Clean separation from existing tags fields allows users to manually input their own tags 
 
 
 Install

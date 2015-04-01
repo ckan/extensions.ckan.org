@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: sparql-2
+name: ckanext-sparql-2
 title: 
 author: Jon Lázaro Aduna
 homepage: https://github.com/jonlazaro/ckanext-sparql
@@ -8,7 +8,7 @@ github_user: jonlazaro
 github_repo: ckanext-sparql
 category: Extension
 featured: 
-permalink: /extension/sparql-2/
+permalink: /extension/ckanext-sparql-2/
 ---
 
 

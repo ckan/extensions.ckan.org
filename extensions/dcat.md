@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: dcat
+name: ckanext-dcat
 title: CKAN + DCAT
 author: CKAN
 homepage: https://github.com/ckan/ckanext-dcat
@@ -8,7 +8,7 @@ github_user: ckan
 github_repo: ckanext-dcat
 category: Extension
 featured: 1
-permalink: /extension/dcat/
+permalink: /extension/ckanext-dcat/
 ---
 
 

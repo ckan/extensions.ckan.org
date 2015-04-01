@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: spatial
+name: ckanext-spatial
 title: Geospatial extension for CKAN
 author: CKAN
 homepage: https://github.com/ckan/ckanext-spatial
@@ -8,60 +8,42 @@ github_user: ckan
 github_repo: ckanext-spatial
 category: Extension
 featured: 1
-permalink: /extension/spatial/
+permalink: /extension/ckanext-spatial/
 ---
 
 
-==============================================
 ckanext-spatial - Geo related plugins for CKAN
 ==============================================
 
+This extension contains plugins that add geospatial capabilities to [CKAN](http://ckan.org), including:
 
-This extension contains plugins that add geospatial capabilities to CKAN_,
-including:
-
-* A spatial field on the default CKAN dataset schema, that uses PostGIS_
-  as the backend and allows to perform spatial queries and to display the
-  dataset extent on the frontend.
-* Harvesters to import geospatial metadata into CKAN from other sources
-  in ISO 19139 format and others.
-* Commands to support the CSW standard using pycsw_.
-* Plugins to preview spatial formats such as GeoJSON_.
+-   A spatial field on the default CKAN dataset schema, that uses [PostGIS](http://postgis.org) as the backend and allows to perform spatial queries and to display the dataset extent on the frontend.
+-   Harvesters to import geospatial metadata into CKAN from other sources in ISO 19139 format and others.
+-   Commands to support the CSW standard using [pycsw](http://pycsw.org).
+-   Plugins to preview spatial formats such as [GeoJSON](http://geojson.org).
 
 Full documentation, including installation instructions, can be found at:
-    
-http://docs.ckan.org/projects/ckanext-spatial
 
+<http://docs.ckan.org/projects/ckanext-spatial>
 
 Community
 ---------
 
-* Developer mailing list: `ckan-dev@lists.okfn.org <http://lists.okfn.org/mailman/listinfo/ckan-dev>`_
-* Developer IRC channel: `#ckan on irc.freenode.net <http://webchat.freenode.net/?channels=ckan>`_
-* `Issue tracker <https://github.com/okfn/ckanext-spatial/issues>`_
-
+-   Developer mailing list: [<ckan-dev@lists.okfn.org>](http://lists.okfn.org/mailman/listinfo/ckan-dev)
+-   Developer IRC channel: [\#ckan on irc.freenode.net](http://webchat.freenode.net/?channels=ckan)
+-   [Issue tracker](https://github.com/okfn/ckanext-spatial/issues)
 
 Contributing
 ------------
 
-For contributing to ckanext-spatial or its documentation, follow the same
-guidelines that apply to CKAN core, described in
-`CONTRIBUTING <https://github.com/okfn/ckan/blob/master/CONTRIBUTING.rst>`_.
-
+For contributing to ckanext-spatial or its documentation, follow the same guidelines that apply to CKAN core, described in [CONTRIBUTING](https://github.com/okfn/ckan/blob/master/CONTRIBUTING.rst).
 
 Copying and License
 -------------------
 
 This material is copyright (c) 2006-2011 Open Knowledge Foundation.
 
-It is open and licensed under the GNU Affero General Public License (AGPL) v3.0
-whose full text may be found at:
+It is open and licensed under the GNU Affero General Public License (AGPL) v3.0 whose full text may be found at:
 
-http://www.fsf.org/licensing/licenses/agpl-3.0.html
-
-.. _CKAN: http://ckan.org
-.. _PostGIS: http://postgis.org
-.. _pycsw: http://pycsw.org
-.. _GeoJSON: http://geojson.org
-
+<http://www.fsf.org/licensing/licenses/agpl-3.0.html>
 

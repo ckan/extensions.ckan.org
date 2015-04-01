@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: issues
+name: ckanext-issues
 title: CKAN Issues Extension
 author: Open Knowledge
 homepage: https://github.com/okfn/ckanext-issues
@@ -8,16 +8,18 @@ github_user: okfn
 github_repo: ckanext-issues
 category: Extension
 featured: 
-permalink: /extension/issues/
+permalink: /extension/ckanext-issues/
 ---
 
 
+[![Build Status](https://travis-ci.org/okfn/ckanext-issues.svg?branch=master)](https://travis-ci.org/okfn/ckanext-issues)
+[![Coverage Status](https://coveralls.io/repos/okfn/ckanext-issues/badge.svg)](https://coveralls.io/r/okfn/ckanext-issues)
 # CKAN Issues Extension
 
 This extension allows users to to report issues with datasets and resources in
 a CKAN instance.
 
-**Current Status:** Beta
+**Current Status:** Alpha
 
 ## What it does
 
@@ -80,8 +82,13 @@ Please open an issue in the github [issue tracker][issues].
 Normal requirements for CKAN Extensions (including an installation of CKAN and
 its dev requirements).
 
-Testing:
+### Testing with Postgres
+To run full production tests on postgres run. These are the tests that the travis build will run
 
-    nosetests test/ --ckan --nologcapture
+    nosetests --ckan --with-pylons=test.ini -v --with-id ckanext/issues --with-coverage --cover-package=ckanext.issues --nologcapture
 
+### Testing with sqlite
+For quick development tests run. --reset-db is necessary when running sqlite tests in memory
+
+    nosetests --reset-db --ckan --with-pylons=test-sqlite.ini -v --with-id ckanext/issues --with-coverage --cover-package=ckanext.issues --nologcapture
 

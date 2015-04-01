@@ -1,14 +1,14 @@
 ---
 layout: extension
-name: arrayexpress
-title: An ArrayExpress importer for CKAN
+name: ckanext-arrayexpress
+title: An ArrayExpress importer for CKAN.
 author: Jim McCusker
 homepage: https://github.com/jimmccusker/ckanext-arrayexpress
 github_user: jimmccusker
 github_repo: ckanext-arrayexpress
 category: Extension
 featured: 
-permalink: /extension/arrayexpress/
+permalink: /extension/ckanext-arrayexpress/
 ---
 
 

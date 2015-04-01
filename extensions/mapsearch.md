@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: mapsearch
+name: ckanext-mapsearch
 title: A CKAN extension to add an scale-aware map-centred search
 author: bopen
 homepage: https://github.com/bopen/ckanext-mapsearch
@@ -8,7 +8,7 @@ github_user: bopen
 github_repo: ckanext-mapsearch
 category: Extension
 featured: 
-permalink: /extension/mapsearch/
+permalink: /extension/ckanext-mapsearch/
 ---
 
 

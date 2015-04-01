@@ -1,14 +1,14 @@
 ---
 layout: extension
-name: comments
-title: Comments for CKAN urls (datasets, resources, organizations etc)
+name: ckanext-comments
+title: Comments for CKAN urls (datasets, resources, organizations etc).
 author: Ross Jones
 homepage: https://github.com/rossjones/ckanext-comments
 github_user: rossjones
 github_repo: ckanext-comments
 category: Extension
 featured: 
-permalink: /extension/comments/
+permalink: /extension/ckanext-comments/
 ---
 
 

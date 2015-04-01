@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: silk
+name: ckanext-silk
 title: A plugin to integrate Silk Link Discovery Framework into CKAN
 author: memaldi
 homepage: https://github.com/memaldi/ckanext-silk
@@ -8,7 +8,7 @@ github_user: memaldi
 github_repo: ckanext-silk
 category: Extension
 featured: 
-permalink: /extension/silk/
+permalink: /extension/ckanext-silk/
 ---
 
 

@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: dgu-local
+name: ckanext-dgu-local
 title: Support for harvesting from Local Authorities
 author: Data.Gov.UK - Cabinet Office
 homepage: https://github.com/datagovuk/ckanext-dgu-local
@@ -8,7 +8,7 @@ github_user: datagovuk
 github_repo: ckanext-dgu-local
 category: Extension
 featured: 
-permalink: /extension/dgu-local/
+permalink: /extension/ckanext-dgu-local/
 ---
 
 

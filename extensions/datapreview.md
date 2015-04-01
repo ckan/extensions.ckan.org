@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: datapreview
+name: ckanext-datapreview
 title: Data preview for ckan from local resource cache
 author: Data.Gov.UK - Cabinet Office
 homepage: https://github.com/datagovuk/ckanext-datapreview
@@ -8,7 +8,7 @@ github_user: datagovuk
 github_repo: ckanext-datapreview
 category: Extension
 featured: 
-permalink: /extension/datapreview/
+permalink: /extension/ckanext-datapreview/
 ---
 
 

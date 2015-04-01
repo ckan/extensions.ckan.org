@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: linkfinder
+name: ckanext-linkfinder
 title: Finds links on resources that are actually html pages
 author: Data.Gov.UK - Cabinet Office
 homepage: https://github.com/datagovuk/ckanext-linkfinder
@@ -8,7 +8,7 @@ github_user: datagovuk
 github_repo: ckanext-linkfinder
 category: Extension
 featured: 
-permalink: /extension/linkfinder/
+permalink: /extension/ckanext-linkfinder/
 ---
 
 

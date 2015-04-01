@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: datajson
+name: ckanext-datajson
 title: for POD /data
 author: U.S. Department of Health & Human Services
 homepage: https://github.com/HHS/ckanext-datajson
@@ -8,7 +8,7 @@ github_user: HHS
 github_repo: ckanext-datajson
 category: Extension
 featured: 1
-permalink: /extension/datajson/
+permalink: /extension/ckanext-datajson/
 ---
 
 

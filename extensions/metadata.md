@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: metadata
+name: ckanext-metadata
 title: SPARQL endpoint analyzer and metadata generator for CKAN
 author: unaguil
 homepage: https://github.com/unaguil/ckanext-metadata
@@ -8,7 +8,7 @@ github_user: unaguil
 github_repo: ckanext-metadata
 category: Extension
 featured: 
-permalink: /extension/metadata/
+permalink: /extension/ckanext-metadata/
 ---
 
 

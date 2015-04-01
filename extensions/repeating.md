@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: repeating
+name: ckanext-repeating
 title: Repeating metadata fields (validators, template snippets and ckanext-scheming support)
 author: open.canada.ca
 homepage: https://github.com/open-data/ckanext-repeating
@@ -8,7 +8,7 @@ github_user: open-data
 github_repo: ckanext-repeating
 category: Extension
 featured: 1
-permalink: /extension/repeating/
+permalink: /extension/ckanext-repeating/
 ---
 
 

@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: recombinant
+name: ckanext-recombinant
 title: Create datastore tables for organizations and provide combined output
 author: open.canada.ca
 homepage: https://github.com/open-data/ckanext-recombinant
@@ -8,7 +8,7 @@ github_user: open-data
 github_repo: ckanext-recombinant
 category: Extension
 featured: 1
-permalink: /extension/recombinant/
+permalink: /extension/ckanext-recombinant/
 ---
 
 
@@ -71,4 +71,54 @@ Example Table Description File
 ]
 ```
 
+
+Supported Datastore Types
+-------------------------
+
+Each "fields" entry in the JSON table description file
+describes a field in the dataset. In particular, its
+"datastore_type" key codifies its type.
+
+The ckanext-recombinant extension supports the following
+data type specifications, with their respective semantics:
+
+```"datastore_type": "text"```
+The field is a text value, corresponding to a text column
+in the database. It takes no specific input format in
+the .xls template. Such fields default to a blank unicode
+string.
+
+```"datastore_type": "int"```
+The field is a numeric value, corresponding to an integer
+column in the database. It takes a .xls template format
+using space-separated digit groups; the execution
+canonicalizes content to an integer on write. Such
+fields default to zero.
+
+```"datastore_type": "year"```
+The field is a year value, corresponding to an integer
+column in the database. It takes a .xls template format
+citing a four digit integer; the execution canonicalizes
+content to an integer on write. Such fields default to zero.
+
+```"datastore_type": "month"```
+The field is a month value, corresponding to an integer
+column in the database. It takes a .xls template format
+citing a two digit integer, left-zero-padded; the execution
+canonicalizes content to an integer on write. Such fields
+default to zero.
+
+```"datastore_type": "date"```
+The field is a date value, corresponding to a text
+column in the database. It takes a .xls template format
+specifying an ISO 8601 date (yyyy-mm-dd). Such fields
+default to a blank unicode string.
+
+```"datastore_type": "money"```
+The field is a text value, corresponding to a text
+column in the database. It takes a xls template template
+format specifying a dollar sign ('$') prefix and space-
+separated digit groups; the execution reduces content
+to an integral numeric string on write. Such fields
+default to a blank unicode string.
 

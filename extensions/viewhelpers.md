@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: viewhelpers
+name: ckanext-viewhelpers
 title: Helpers for creating views for CKAN
 author: CKAN
 homepage: https://github.com/ckan/ckanext-viewhelpers
@@ -8,7 +8,7 @@ github_user: ckan
 github_repo: ckanext-viewhelpers
 category: Extension
 featured: 
-permalink: /extension/viewhelpers/
+permalink: /extension/ckanext-viewhelpers/
 ---
 
 

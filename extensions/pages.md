@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: pages
+name: ckanext-pages
 title: Simple CMS (create web pages in CKAN)
 author: CKAN Association / Open Knowledge
 homepage: https://github.com/ckan/ckanext-pages
@@ -8,7 +8,7 @@ github_user: ckan
 github_repo: ckanext-pages
 category: Extension
 featured: 1
-permalink: /extension/pages/
+permalink: /extension/ckanext-pages/
 ---
 
 

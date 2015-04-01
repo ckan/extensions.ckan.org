@@ -12,90 +12,63 @@ permalink: /extension/ckanext-showcase/
 ---
 
 
-.. You should enable this project on travis-ci.org and coveralls.io to make
-   these badges work. The necessary Travis and Coverage config files have been
-   generated for you.
+[![image](https://travis-ci.org/ckan/ckanext-showcase.svg?branch=master)](https://travis-ci.org/ckan/ckanext-showcase)
 
-.. image:: https://travis-ci.org/ckan/ckanext-showcase.svg?branch=master
-    :target: https://travis-ci.org/ckan/ckanext-showcase
+![image](https://coveralls.io/repos/ckan/ckanext-showcase/badge.png?branch=master)
 
-.. image:: https://coveralls.io/repos/ckan/ckanext-showcase/badge.png?branch=master
-  :target: https://coveralls.io/r/ckan/ckanext-showcase?branch=master
+> target  
+> <https://coveralls.io/r/ckan/ckanext-showcase?branch=master>
+>
+|------------------|
+| ckanext-showcase |
 
-=============
-ckanext-showcase
-=============
+Showcase and link to datasets in use. Datasets used in an app, website or visualization, or featured in an article, report or blog post can be showcased within the CKAN website. Showcases can include an image, description, tags and external link. Showcases may contain several datasets, helping users discover related datasets being used together. Showcases can be discovered by searching and filtered by tag.
 
-Showcase and link to datasets in use. Datasets used in an app, website or
-visualization, or featured in an article, report or blog post can be showcased
-within the CKAN website. Showcases can include an image, description, tags and
-external link. Showcases may contain several datasets, helping users discover
-related datasets being used together. Showcases can be discovered by searching
-and filtered by tag.
+Site sysadmins can promote selected users to become 'Showcase Admins' to help create, populate and maintain showcases.
 
-Site sysadmins can promote selected users to become 'Showcase Admins' to help
-create, populate and maintain showcases.
+ckanext-showcase is intended to be a more powerful replacement for the 'Related Item' feature.
 
-ckanext-showcase is intended to be a more powerful replacement for the
-'Related Item' feature.
-
-
-------------
 Requirements
-------------
+============
 
 Current status: Alpha
 
 Compatible with CKAN 2.3.
 
-
-------------
 Installation
-------------
-
-.. Add any additional install steps to the list below.
-   For example installing any non-Python dependencies or adding any required
-   config settings.
+============
 
 To install ckanext-showcase:
 
-1. Activate your CKAN virtual environment, for example::
+1.  Activate your CKAN virtual environment, for example:
 
-     . /usr/lib/ckan/default/bin/activate
+        . /usr/lib/ckan/default/bin/activate
 
-2. Install the ckanext-showcase Python package into your virtual environment::
+2.  Install the ckanext-showcase Python package into your virtual environment:
 
-     pip install ckanext-showcase
+        pip install ckanext-showcase
 
-3. Add ``showcase`` to the ``ckan.plugins`` setting in your CKAN
-   config file (by default the config file is located at
-   ``/etc/ckan/default/production.ini``).
+3.  Add `showcase` to the `ckan.plugins` setting in your CKAN config file (by default the config file is located at `/etc/ckan/default/production.ini`).
+4.  Restart CKAN. For example if you've deployed CKAN with Apache on Ubuntu:
 
-4. Restart CKAN. For example if you've deployed CKAN with Apache on Ubuntu::
+        sudo service apache2 reload
 
-     sudo service apache2 reload
-
-
-------------------------
 Development Installation
-------------------------
+========================
 
-To install ckanext-showcase for development, activate your CKAN virtualenv and
-do::
+To install ckanext-showcase for development, activate your CKAN virtualenv and do:
 
     git clone https://github.com/ckan/ckanext-showcase.git
     cd ckanext-showcase
     python setup.py develop
     pip install -r dev-requirements.txt
 
-
----
 API
----
+===
 
 All actions in the Showcase extension are available in the CKAN Action API.
 
-Showcase actions::
+Showcase actions:
 
     - create a new showcase (sysadmins and showcase admins only)
     curl -X POST http://127.0.0.1:5000/api/3/action/ckanext_showcase_create -H "Authorization:{YOUR-API-KEY}" -d '{"name": "my-new-showcase"}'
@@ -109,8 +82,7 @@ Showcase actions::
     - list showcases
     curl -X POST http://127.0.0.1:5000/api/3/action/ckanext_showcase_list -d ''
 
-
-Dataset actions::
+Dataset actions:
 
     - add a dataset to a showcase (sysadmins and showcase admins only)
     curl -X POST http://127.0.0.1:5000/api/3/action/ckanext_showcase_package_association_create -H "Authorization:{YOUR-API-KEY}" -d '{"showcase_id": "my-showcase", "package_id": "my-package"}'
@@ -124,8 +96,7 @@ Dataset actions::
     - list showcases featuring a given dataset
     curl -X POST http://127.0.0.1:5000/api/3/action/ckanext_package_showcase_list -d '{"package_id": "my-package"}'
 
-
-Showcase admin actions::
+Showcase admin actions:
 
     - add showcase admin (sysadmins only)
     curl -X POST http://127.0.0.1:5000/api/3/action/ckanext_showcase_admin_add -H "Authorization:{YOUR-API-KEY}" -d '{"username": "bert"}'
@@ -136,93 +107,70 @@ Showcase admin actions::
     - list showcase admins (sysadmins only)
     curl -X POST http://127.0.0.1:5000/api/3/action/ckanext_showcase_admin_list -H "Authorization:{YOUR-API-KEY}" -d ''
 
-
-----------------------------
 Migrating from Related Items
-----------------------------
+============================
 
-If you already have Related Items in your database, you can use the ``showcase
-migrate`` command to create Showcases from Related Items.
+If you already have Related Items in your database, you can use the `showcase migrate` command to create Showcases from Related Items.
 
-From the ``ckanext-showcase`` directory::
+From the `ckanext-showcase` directory:
 
     paster showcase migrate -c {path to production.ini}
 
-Note that each Related Item must have a unique title before migration can
-proceed.
+Note that each Related Item must have a unique title before migration can proceed.
 
-The Related Item property ``type`` will become a Showcase tag. The Related Item
-properties ``created``, ``owner_id``, ``view_count``, and ``featured`` have no
-equivalent in Showcases and will not be migrated.
+The Related Item property `type` will become a Showcase tag. The Related Item properties `created`, `owner_id`, `view_count`, and `featured` have no equivalent in Showcases and will not be migrated.
 
 Related Item data is not removed from the database by this command.
 
------------------
 Running the Tests
------------------
+=================
 
-To run the tests, do::
+To run the tests, do:
 
     nosetests --ckan --nologcapture --with-pylons=test.ini
 
-To run the tests and produce a coverage report, first make sure you have
-coverage installed in your virtualenv (``pip install coverage``) then run::
+To run the tests and produce a coverage report, first make sure you have coverage installed in your virtualenv (`pip install coverage`) then run:
 
     nosetests --ckan --nologcapture --with-pylons=test.ini --with-coverage --cover-package=ckanext.showcase --cover-inclusive --cover-erase --cover-tests
 
+---------------------------------Registering ckanext-showcase on PyPI ---------------------------------
 
----------------------------------
-Registering ckanext-showcase on PyPI
----------------------------------
+ckanext-showcase should be availabe on PyPI as <https://pypi.python.org/pypi/ckanext-showcase>. If that link doesn't work, then you can register the project on PyPI for the first time by following these steps:
 
-ckanext-showcase should be availabe on PyPI as
-https://pypi.python.org/pypi/ckanext-showcase. If that link doesn't work, then
-you can register the project on PyPI for the first time by following these
-steps:
+1.  Create a source distribution of the project:
 
-1. Create a source distribution of the project::
+        python setup.py sdist
 
-     python setup.py sdist
+2.  Register the project:
 
-2. Register the project::
+        python setup.py register
 
-     python setup.py register
+3.  Upload the source distribution to PyPI:
 
-3. Upload the source distribution to PyPI::
+        python setup.py sdist upload
 
-     python setup.py sdist upload
+4.  Tag the first release of the project on GitHub with the version number from the `setup.py` file. For example if the version number in `setup.py` is 0.0.1 then do:
 
-4. Tag the first release of the project on GitHub with the version number from
-   the ``setup.py`` file. For example if the version number in ``setup.py`` is
-   0.0.1 then do::
+        git tag 0.0.1
+        git push --tags
 
-       git tag 0.0.1
-       git push --tags
+----------------------------------------Releasing a New Version of ckanext-showcase ----------------------------------------
+
+ckanext-showcase is availabe on PyPI as <https://pypi.python.org/pypi/ckanext-showcase>. To publish a new version to PyPI follow these steps:
+
+1.  Update the version number in the `setup.py` file. See [PEP 440](http://legacy.python.org/dev/peps/pep-0440/#public-version-identifiers) for how to choose version numbers.
+2.  Create a source distribution of the new version:
+
+        python setup.py sdist
+
+3.  Upload the source distribution to PyPI:
+
+        python setup.py sdist upload
+
+4.  Tag the new release of the project on GitHub with the version number from the `setup.py` file. For example if the version number in `setup.py` is 0.0.2 then do:
+
+        git tag 0.0.2
+        git push --tags
 
 
-----------------------------------------
-Releasing a New Version of ckanext-showcase
-----------------------------------------
-
-ckanext-showcase is availabe on PyPI as https://pypi.python.org/pypi/ckanext-showcase.
-To publish a new version to PyPI follow these steps:
-
-1. Update the version number in the ``setup.py`` file.
-   See `PEP 440 <http://legacy.python.org/dev/peps/pep-0440/#public-version-identifiers>`_
-   for how to choose version numbers.
-
-2. Create a source distribution of the new version::
-
-     python setup.py sdist
-
-3. Upload the source distribution to PyPI::
-
-     python setup.py sdist upload
-
-4. Tag the new release of the project on GitHub with the version number from
-   the ``setup.py`` file. For example if the version number in ``setup.py`` is
-   0.0.2 then do::
-
-       git tag 0.0.2
-       git push --tags
 

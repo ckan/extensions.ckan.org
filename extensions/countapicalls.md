@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: countapicalls
+name: ckanext-countapicalls
 title: Simple API dataset hits counter
 author: Alexandre Bulté
 homepage: https://github.com/abulte/ckanext-countapicalls
@@ -8,7 +8,7 @@ github_user: abulte
 github_repo: ckanext-countapicalls
 category: Extension
 featured: 
-permalink: /extension/countapicalls/
+permalink: /extension/ckanext-countapicalls/
 ---
 
 
