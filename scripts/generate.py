@@ -61,6 +61,8 @@ permalink: /extension/%(name)s/
 ---
 ''' % extension
 
+    if type(extension.readme) == unicode:
+        extension.readme = extension.readme.encode('ascii', 'xmlcharrefreplace')
     out = '%s\n\n%s\n' % (frontmatter, extension.readme)
     outfo.write(out)
     outfo.close()
