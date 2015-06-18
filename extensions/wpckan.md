@@ -1,7 +1,7 @@
 ---
 layout: extension
 name: wpckan
-title: https-//wordpress
+title: Wordpress CKAN Plugin
 author: Alex Corbi
 homepage: https://github.com/OpenDevelopmentMekong/wpckan
 github_user: OpenDevelopmentMekong
