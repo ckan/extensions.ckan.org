@@ -1,14 +1,14 @@
 ---
 layout: extension
-name: ckanext-datarequests
-title: CKAN Data Requests. A plugin that allows users to request data that is not published yet
+name: datarequests
+title: CKAN Data Requests
 author: CoNWeT
 homepage: https://github.com/conwetlab/ckanext-datarequests
 github_user: conwetlab
 github_repo: ckanext-datarequests
 category: Extension
 featured: 
-permalink: /extension/ckanext-datarequests/
+permalink: /extension/datarequests/
 ---
 
 
@@ -86,6 +86,7 @@ Returns a list with the existing data requests. Rights access will be checked be
     
 ##### Parameters (included in `data_dict`):
 * **`organization_id`** (string) (optional): to filter the result by organization
+* **`user_id`** (string) (optional): to filter the result by user
 * **`closed`** (string) (optional): to filter the result by state (`True`: Closed, `False`: Open)
 * **`offset`** (int) (optional) (default `0`): the first element to be returned
 * **`limit`** (int) (optional) (default `10`): The max number of data requests to be returned
@@ -174,6 +175,7 @@ Install this extension in your CKAN instance is as easy as intall any other CKAN
 * Activate your virtual environment (generally by running `. /usr/lib/ckan/default/bin/activate`)
 * Install the extension by running `python setup.py develop`
 * Modify your configuration file (generally in `/etc/ckan/default/production.ini`) and add `datarequests` in the `ckan.plugins` setting. 
+ * If you want to disable the comments system, you must also add this `ckan.datarequests.comments = False` to your properties file.
 * Restart your apache2 reserver (`sudo service apache2 restart`)
 * That's All!
 

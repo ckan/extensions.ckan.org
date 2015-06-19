@@ -1,14 +1,14 @@
 ---
 layout: extension
-name: ckanext-webhooks
-title: Webhooks for CKAN.  Allows users and services to register to be notified for common CKAN events e.g. new/update/delete events for datasets and resources
+name: webhooks
+title: Webhooks for CKAN
 author: Denis Zgonjanin
 homepage: https://github.com/deniszgonjanin/ckanext-webhooks
 github_user: deniszgonjanin
 github_repo: ckanext-webhooks
 category: Extension
 featured: 
-permalink: /extension/ckanext-webhooks/
+permalink: /extension/webhooks/
 ---
 
 
@@ -55,10 +55,20 @@ Supported Topics
 -   resource/update
 -   resource/delete
 
+Tornado Eventloop ================ CKAN is built on Pylons, which is single-threaded. Things happen within the request-response lifecycle. This is not ideal for webhooks, since a webhook will block pylons from returning an HTTP response to the web user until the relevant webhooks have fired.
+
+Right now this is solved by including a small event loop written in Tornado. If you want to use it, run the event loop with the provided run\_webhooks command. Then add ckanext.webhooks.eventloop = http://localhost:8765 to your ckan.ini.
+
 Design Decisions
 ----------------
 
-The extension allows users to create webhooks without logging in. This decreases friction to creating webhooks and exposes the functionality to more users. The main reason for the decision to do it this way is because most governments (the primary users of CKAN) do not wish to allow account creation in CKAN to the public. If we only allow Webhook creation for users with an API key, many CKAN users will be left without a way to create Webhooks.
+By default the extension allows users to create webhooks without logging in. This decreases friction to creating webhooks and exposes the functionality to more users. The main reason for the decision to do it this way is because most governments (the primary users of CKAN) do not wish to allow account creation in CKAN to the public. If we only allow Webhook creation for users with an API key, many CKAN users will be left without a way to create Webhooks.
+
+There is a minimal authentication as you may restrict creation of webhooks to users who are editors or administrators of organisations. You may add a config option to your CKAN file as below where the value is one of editor, admin, sysadmin or none, specifying the minimum roles required to be able to interact with webhooks.
+
+> \# Only let sysadmins create hooks ckanext.webhooks.minimum\_auth = sysadmin
+>
+> \# Only let admins and editors create hooks ckanext.webhooks.minimum\_auth = editor
 
 Because of this, the extension makes the following decisions:
 

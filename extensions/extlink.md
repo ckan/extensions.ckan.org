@@ -1,7 +1,7 @@
 ---
 layout: extension
 name: extlink
-title: This extension will add pop-up message and tooltip for external URLs
+title: External URL pop-up message and tooltips
 author: data.gov - GSA
 homepage: https://github.com/GSA/ckanext-extlink
 github_user: GSA

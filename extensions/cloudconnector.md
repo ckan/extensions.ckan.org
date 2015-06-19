@@ -1,7 +1,7 @@
 ---
 layout: extension
 name: cloudconnector
-title: An extension for the CKAN open data platform for storing resources on cloud storage
+title: Store resources on cloud storage (AWS)
 author: Link Web Services Pty Ltd
 homepage: https://github.com/DataShades/ckanext-cloudconnector
 github_user: DataShades
