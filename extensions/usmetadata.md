@@ -1,7 +1,7 @@
 ---
 layout: extension
 name: usmetadata
-title: This CKAN Extension expands CKAN to offer a number of custom fields related to the US Common Core Schema
+title: US Common Core Schema additional custom fields
 author: data.gov - GSA
 homepage: https://github.com/GSA/USMetadata/
 github_user: GSA
