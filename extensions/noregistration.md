@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-noregistration
+name: noregistration
 title: Plugin to disable user registration on a CKAN instance
 author: OGD Switzerland
 homepage: https://github.com/ogdch/ckanext-noregistration
@@ -8,7 +8,7 @@ github_user: ogdch
 github_repo: ckanext-noregistration
 category: Extension
 featured: 
-permalink: /extension/ckanext-noregistration/
+permalink: /extension/noregistration/
 ---
 
 

@@ -76,7 +76,7 @@ You can collaborate with [code](https://github.com/sciamlab/ckan4j/pulls) or
 License
 -------
 
-    Copyright 2013-2014 Sciamlab s.r.l.
+    Copyright 2013-2015 Sciamlab s.r.l.
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.

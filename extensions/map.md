@@ -1,14 +1,14 @@
 ---
 layout: extension
-name: ckanext-map
-title: A CKAN plugin to replace the default map preview with one that uses a Windshaft server to generate the map tiles and interactivity layer. The point of this extention is to provide maps that can handle millions of data points. 
+name: map
+title: replace the default map preview with one that uses a Windshaft server that can handle millions of data points
 author: U.K. Natural History Museum
 homepage: https://github.com/NaturalHistoryMuseum/ckanext-map
 github_user: NaturalHistoryMuseum
 github_repo: ckanext-map
 category: Extension
 featured: 
-permalink: /extension/ckanext-map/
+permalink: /extension/map/
 ---
 
 

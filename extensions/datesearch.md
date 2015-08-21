@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-datesearch
+name: datesearch
 title: A CKAN extension that adds temporal facets (limit dataset search results to between two dates)
 author: B2FIND
 homepage: https://github.com/B2FIND/ckanext-datesearch
@@ -8,7 +8,7 @@ github_user: B2FIND
 github_repo: ckanext-datesearch
 category: Extension
 featured: 
-permalink: /extension/ckanext-datesearch/
+permalink: /extension/datesearch/
 ---
 
 

@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-datatable
+name: datatable
 title: An implementation of CKAN's IResourcePreview interface that uses the WET datatables
 author: Open Data Initiative - Initiative sur les données ouvertes
 homepage: https://github.com/open-data/ckanext-datatable
@@ -8,7 +8,7 @@ github_user: open-data
 github_repo: ckanext-datatable
 category: Extension
 featured: 
-permalink: /extension/ckanext-datatable/
+permalink: /extension/datatable/
 ---
 
 

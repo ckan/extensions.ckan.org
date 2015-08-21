@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-oaipmh
+name: oaipmh
 title: Open Archives Initiative-Protocol for Metadata Harvesting(OAI PMH) extension to CKAN
 author: Kata team repository
 homepage: https://github.com/kata-csc/ckanext-oaipmh
@@ -8,7 +8,7 @@ github_user: kata-csc
 github_repo: ckanext-oaipmh
 category: Extension
 featured: 
-permalink: /extension/ckanext-oaipmh/
+permalink: /extension/oaipmh/
 ---
 
 

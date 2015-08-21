@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-vegaview
+name: vegaview
 title: VegaJS' view extension for CKAN
 author: Open Knowledge
 homepage: https://github.com/okfn/ckanext-vegaview
@@ -8,7 +8,7 @@ github_user: okfn
 github_repo: ckanext-vegaview
 category: Extension
 featured: 
-permalink: /extension/ckanext-vegaview/
+permalink: /extension/vegaview/
 ---
 
 

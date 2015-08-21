@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-basiccharts
+name: basiccharts
 title: Line, bar and pie charts for CKAN
 author: CKAN
 homepage: https://github.com/ckan/ckanext-basiccharts
@@ -8,7 +8,7 @@ github_user: ckan
 github_repo: ckanext-basiccharts
 category: Extension
 featured: 1
-permalink: /extension/ckanext-basiccharts/
+permalink: /extension/basiccharts/
 ---
 
 

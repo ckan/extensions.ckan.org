@@ -1,14 +1,14 @@
 ---
 layout: extension
-name: ckanext-introjs
-title: Adds intro.js to CKAN so users can follow a guided tour of the UI
+name: introjs
+title: Adds intro
 author: NHS England
 homepage: https://github.com/nhsengland/ckanext-introjs
 github_user: nhsengland
 github_repo: ckanext-introjs
 category: Extension
 featured: 
-permalink: /extension/ckanext-introjs/
+permalink: /extension/introjs/
 ---
 
 

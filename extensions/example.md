@@ -1,14 +1,14 @@
 ---
 layout: extension
-name: ckanext-example
-title: CKAN Extension that demonstrates some common patterns for customising a CKAN instance.
+name: example
+title: CKAN Extension that demonstrates some common patterns for customising a CKAN instance
 author: Open Knowledge
 homepage: https://github.com/okfn/ckanext-example
 github_user: okfn
 github_repo: ckanext-example
 category: Extension
 featured: 1
-permalink: /extension/ckanext-example/
+permalink: /extension/example/
 ---
 
 

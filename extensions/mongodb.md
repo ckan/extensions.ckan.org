@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-mongodb
+name: mongodb
 title: CKAN extension for MongoDB
 author: Alex Byrnes
 homepage: https://github.com/alexbyrnes/ckanext-mongodb
@@ -8,7 +8,7 @@ github_user: alexbyrnes
 github_repo: ckanext-mongodb
 category: Extension
 featured: 
-permalink: /extension/ckanext-mongodb/
+permalink: /extension/mongodb/
 ---
 
 

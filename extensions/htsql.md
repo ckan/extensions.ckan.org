@@ -1,14 +1,14 @@
 ---
 layout: extension
-name: ckanext-htsql
-title: An extension that enables htsql queries for the new datastore.
+name: htsql
+title: An extension that enables htsql queries for the new datastore
 author: Open Knowledge
 homepage: https://github.com/okfn/ckanext-htsql
 github_user: okfn
 github_repo: ckanext-htsql
 category: Extension
 featured: 1
-permalink: /extension/ckanext-htsql/
+permalink: /extension/htsql/
 ---
 
 

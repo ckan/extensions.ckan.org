@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-fluent
+name: fluent
 title: Multilingual metadata fields (validators, template snippets and ckanext-scheming support)
 author: open.canada.ca
 homepage: https://github.com/open-data/ckanext-fluent
@@ -8,7 +8,7 @@ github_user: open-data
 github_repo: ckanext-fluent
 category: Extension
 featured: 1
-permalink: /extension/ckanext-fluent/
+permalink: /extension/fluent/
 ---
 
 

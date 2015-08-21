@@ -1,14 +1,14 @@
 ---
 layout: extension
-name: ckanext-redlink
-title: CKAN extension to connect to Redlink triple store.
+name: redlink
+title: CKAN extension to connect to Redlink triple store
 author: redlink-gmbh
 homepage: https://github.com/redlink-gmbh/ckanext-redlink
 github_user: redlink-gmbh
 github_repo: ckanext-redlink
 category: Extension
 featured: 
-permalink: /extension/ckanext-redlink/
+permalink: /extension/redlink/
 ---
 
 

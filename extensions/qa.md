@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-qa
+name: qa
 title: CKAN QA Extension
 author: CKAN
 homepage: https://github.com/ckan/ckanext-qa
@@ -8,7 +8,7 @@ github_user: ckan
 github_repo: ckanext-qa
 category: Extension
 featured: 1
-permalink: /extension/ckanext-qa/
+permalink: /extension/qa/
 ---
 
 

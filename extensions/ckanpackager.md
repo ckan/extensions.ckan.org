@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-ckanpackager
+name: ckanpackager
 title: A stand-alone service to pack a given CKAN resource in a ZIP file and email the link to a user
 author: U.K. Natural History Museum
 homepage: https://github.com/NaturalHistoryMuseum/ckanext-ckanpackager
@@ -8,7 +8,7 @@ github_user: NaturalHistoryMuseum
 github_repo: ckanext-ckanpackager
 category: Extension
 featured: 
-permalink: /extension/ckanext-ckanpackager/
+permalink: /extension/ckanpackager/
 ---
 
 

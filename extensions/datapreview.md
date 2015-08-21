@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-datapreview
+name: datapreview
 title: Data preview for ckan from local resource cache
 author: Data.Gov.UK - Cabinet Office
 homepage: https://github.com/datagovuk/ckanext-datapreview
@@ -8,11 +8,26 @@ github_user: datagovuk
 github_repo: ckanext-datapreview
 category: Extension
 featured: 
-permalink: /extension/ckanext-datapreview/
+permalink: /extension/datapreview/
 ---
 
 
 # ckanext-datapreview
+
+This CKAN extension supplies data from local storage or via a remote download, parses CSV/XLS and provides it at a URL that can be called by Recline or other CKAN data previewer.
+
+e.g. for a spreadsheet it returns a JSON dict such as:
+
+        {
+            "fields": ['Name', 'Age'],
+            "data": [['Bob', 42], ['Jill', 54]],
+            "extra_text": "This preview shows only the first 10 rows",
+            "max_results": 10,
+            "length": 435,
+            "url": "http://data.com/file.csv",
+        }
+
+(see helpers.proxy_query() )
 
 This extension is a modified, but local implementation of the [OKFN dataproxy](https://github.com/okfn/dataproxy) that runs as a CKAN extension rather than on [Google AppEngine](http://jsonpdataproxy.appspot.com). This has been written to improve the performance on [data.gov.uk](data.gov.uk) and increase the maximum file size processed.
 
@@ -36,6 +51,19 @@ Or alternatively install directly using pip:
 
 Once complete the datapreview should be added to your ckan.plugins property in the appropriate .ini file.
 
+## Config
+
+In your CKAN config file, configure the following options:
+
+### limit
+
+The 'limit' is the maximum size of a file downloaded or loaded into memory. If the data is not stored locally, then you don't want to wait forever downloading it to be able to proxy it. And if the whole file needs to be loaded into memory to display the first 100 rows then you want to limit the file size. e.g. a 20MB XLS file may take up 100MB when parsed in memory, and you don't want to fill your server by loading anything much bigger. 
+
+The limit is expressed in bytes, so the default of 5MB would be:
+
+    ckan.datapreview.limit = 5242880
+
+Local CSV files are not subject to this limit because the first 100 rows can be loaded without loading the whole file into memory.
 
 ## Requirements
 

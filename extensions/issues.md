@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-issues
+name: issues
 title: CKAN Issues Extension
 author: Open Knowledge
 homepage: https://github.com/okfn/ckanext-issues
@@ -8,7 +8,7 @@ github_user: okfn
 github_repo: ckanext-issues
 category: Extension
 featured: 
-permalink: /extension/ckanext-issues/
+permalink: /extension/issues/
 ---
 
 
@@ -34,10 +34,6 @@ You can add an issue at:
 
     /dataset/{dataset-name-or-id}/issues/add
 
-You can also add an issue about a specific resource
-
-    /dataset/{dataset-name-or-id}/issues/add/{resource-id}
-
 ### Issues API
 
 The issues extension also exposes its functionality as part of the standard [CKAN Action API][api]:
@@ -48,6 +44,15 @@ Specifically:
 
     /api/3/action/issue_show
     /api/3/action/issue_create
+    /api/3/action/issue_update
+    /api/3/action/issue_delete
+    /api/3/action/issue_search
+    /api/3/action/issue_count
+    /api/3/action/issue_comment_create
+    /api/3/action/issue_report
+    /api/3/action/issue_report_clear
+    /api/3/action/issue_comment_report
+    /api/3/action/issue_comment_report_clear
 
 ## Installation and Activation
 
@@ -70,6 +75,24 @@ emails will be sent about the newly created issue.
     ckanext.issues.notify_admin = True
     ckanext.issues.notify_owner = True
     ckanext.issues.from_address = test@localhost.local
+
+### Activation
+
+By default, issues are enabled for all datasets. If you wish to restrict
+issues to specific datasets you can use the config option
+    
+    ckanext.issues.enabled_for_dataset = mydataset1 mydataset2 ...
+
+If `enabled_per_dataset` is not set you can use the config option
+
+    ckanext.issues.enabled_per_dataset_default = false
+
+To turn off issues for all datasets, in this case, ckanext-issues will search
+for a dataset extra in each dataset
+
+    'issues_enabled': True
+
+If this dataset extra is present, issues will be enabled for that dataset.
 
 ## Feedback
 

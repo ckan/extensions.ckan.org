@@ -1,14 +1,14 @@
 ---
 layout: extension
-name: ckanext-apihelper
-title: API Helper extension.
+name: apihelper
+title: API Helper extension
 author: CKAN
 homepage: https://github.com/ckan/ckanext-apihelper
 github_user: ckan
 github_repo: ckanext-apihelper
 category: Extension
 featured: 
-permalink: /extension/ckanext-apihelper/
+permalink: /extension/apihelper/
 ---
 
 

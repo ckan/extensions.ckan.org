@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-archiver
+name: archiver
 title: Archive CKAN resources
 author: CKAN
 homepage: https://github.com/ckan/ckanext-archiver
@@ -8,7 +8,7 @@ github_user: ckan
 github_repo: ckanext-archiver
 category: Extension
 featured: 1
-permalink: /extension/ckanext-archiver/
+permalink: /extension/archiver/
 ---
 
 
@@ -69,12 +69,14 @@ Configuration
         to.
         MAX_CONTENT_LENGTH: the maximum size (in bytes) of files to archive.
         DATA_FORMATS: the data formats that are archived.
+        USER_AGENT_STRING: the `User-Agent` header used when the archiver makes requests
 
-> Alternatively, if you are running CKAN with this patch: <https://github.com/datagovuk/ckan/commit/83dcaf3d875d622ee0cd7f3c1f65ec27a970cd10> then you can instead add the settings to the CKAN config file as normal:
->
-> > -   ckanext-archiver.archive\_dir
-> > -   ckanext-archiver.max\_content\_length
-> > -   ckanext-archiver.data\_formats (space separated)
+    Alternatively, if you are running CKAN with this patch: <https://github.com/datagovuk/ckan/commit/83dcaf3d875d622ee0cd7f3c1f65ec27a970cd10> then you can instead add the settings to the CKAN config file as normal:
+
+        ckanext-archiver.archive_dir
+        ckanext-archiver.max_content_length
+        ckanext-archiver.data_formats  (space separated)
+        ckanext.archiver.user_agent_string
 
 Using Archiver
 --------------

@@ -1,14 +1,14 @@
 ---
 layout: extension
-name: ckanext-dev
-title: CKAN extension for development tools.
+name: dev
+title: CKAN extension for development tools
 author: U.K. Natural History Museum
 homepage: https://github.com/NaturalHistoryMuseum/ckanext-dev
 github_user: NaturalHistoryMuseum
 github_repo: ckanext-dev
 category: Extension
 featured: 
-permalink: /extension/ckanext-dev/
+permalink: /extension/dev/
 ---
 
 

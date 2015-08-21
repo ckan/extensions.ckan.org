@@ -1,14 +1,14 @@
 ---
 layout: extension
-name: ckanext-sparql-2
-title: 
+name: sparql-2
+title: SPARQL endpoint for CKAN
 author: Jon Lázaro Aduna
 homepage: https://github.com/jonlazaro/ckanext-sparql
 github_user: jonlazaro
 github_repo: ckanext-sparql
 category: Extension
 featured: 
-permalink: /extension/ckanext-sparql-2/
+permalink: /extension/sparql-2/
 ---
 
 

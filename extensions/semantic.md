@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-semantic
+name: semantic
 title: integration of lodstats and personalization features based on it
 author: Sven R. Kunze
 homepage: https://github.com/srkunze/ckanext-semantic
@@ -8,7 +8,7 @@ github_user: srkunze
 github_repo: ckanext-semantic
 category: Extension
 featured: 
-permalink: /extension/ckanext-semantic/
+permalink: /extension/semantic/
 ---
 
 

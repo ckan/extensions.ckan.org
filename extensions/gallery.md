@@ -1,14 +1,14 @@
 ---
 layout: extension
-name: ckanext-gallery
-title: CKAN extension for a dataset gallery view. Based on https://github.com/blueimp/Bootstrap-Image-Gallery.
+name: gallery
+title: CKAN extension for a dataset gallery view
 author: U.K. Natural History Museum
 homepage: https://github.com/NaturalHistoryMuseum/ckanext-gallery
 github_user: NaturalHistoryMuseum
 github_repo: ckanext-gallery
 category: Extension
 featured: 
-permalink: /extension/ckanext-gallery/
+permalink: /extension/gallery/
 ---
 
 

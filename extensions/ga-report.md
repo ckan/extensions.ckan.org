@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-ga-report
+name: ga-report
 title: Google analytics report for CKAN
 author: data.gov.au
 homepage: https://github.com/datagovau/ckanext-ga-report
@@ -8,7 +8,7 @@ github_user: datagovau
 github_repo: ckanext-ga-report
 category: Extension
 featured: 
-permalink: /extension/ckanext-ga-report/
+permalink: /extension/ga-report/
 ---
 
 

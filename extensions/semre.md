@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-semre
+name: semre
 title: CKAN extension for RDF description of dataset relationships
 author: Petar Milic
 homepage: https://github.com/milicp/ckanext-semre
@@ -8,7 +8,7 @@ github_user: milicp
 github_repo: ckanext-semre
 category: Extension
 featured:  
-permalink: /extension/ckanext-semre/
+permalink: /extension/semre/
 ---
 
 

@@ -1,14 +1,14 @@
 ---
 layout: extension
-name: ckanext-vectorstorer
-title: CKAN extension to upload vector geospatial data, store and publish through OGC services.
+name: vectorstorer
+title: CKAN extension to upload vector geospatial data, store and publish through OGC services
 author: PublicaMundi
 homepage: https://github.com/PublicaMundi/ckanext-vectorstorer
 github_user: PublicaMundi
 github_repo: ckanext-vectorstorer
 category: Extension
 featured: 
-permalink: /extension/ckanext-vectorstorer/
+permalink: /extension/vectorstorer/
 ---
 
 

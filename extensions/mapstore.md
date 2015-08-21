@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-mapstore
+name: mapstore
 title: CKAN Extension for MapStore Preview and GeoStore Harvesting
 author: geosolutions-it
 homepage: https://github.com/geosolutions-it/ckanext-mapstore
@@ -8,7 +8,7 @@ github_user: geosolutions-it
 github_repo: ckanext-mapstore
 category: Extension
 featured: 
-permalink: /extension/ckanext-mapstore/
+permalink: /extension/mapstore/
 ---
 
 

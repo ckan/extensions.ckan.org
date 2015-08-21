@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-spatial
+name: spatial
 title: Geospatial extension for CKAN
 author: CKAN
 homepage: https://github.com/ckan/ckanext-spatial
@@ -8,19 +8,22 @@ github_user: ckan
 github_repo: ckanext-spatial
 category: Extension
 featured: 1
-permalink: /extension/ckanext-spatial/
+permalink: /extension/spatial/
 ---
 
 
 ckanext-spatial - Geo related plugins for CKAN
 ==============================================
 
+[![image](https://travis-ci.org/ckan/ckanext-spatial.svg?branch=master)](https://travis-ci.org/ckan/ckanext-spatial)
+
 This extension contains plugins that add geospatial capabilities to [CKAN](http://ckan.org), including:
 
 -   A spatial field on the default CKAN dataset schema, that uses [PostGIS](http://postgis.org) as the backend and allows to perform spatial queries and to display the dataset extent on the frontend.
 -   Harvesters to import geospatial metadata into CKAN from other sources in ISO 19139 format and others.
 -   Commands to support the CSW standard using [pycsw](http://pycsw.org).
--   Plugins to preview spatial formats such as [GeoJSON](http://geojson.org).
+
+**Note**: The view plugins for rendering spatial formats like [GeoJSON](http://geojson.org) have been moved to [ckanextggeoview](https://github.com/ckan/ckanext-geoview).
 
 Full documentation, including installation instructions, can be found at:
 

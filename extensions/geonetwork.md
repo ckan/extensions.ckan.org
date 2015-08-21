@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-geonetwork
+name: geonetwork
 title: GeoNetwork harvester for CKAN
 author: geosolutions-it
 homepage: https://github.com/geosolutions-it/ckanext-geonetwork
@@ -8,7 +8,7 @@ github_user: geosolutions-it
 github_repo: ckanext-geonetwork
 category: Extension
 featured: 
-permalink: /extension/ckanext-geonetwork/
+permalink: /extension/geonetwork/
 ---
 
 

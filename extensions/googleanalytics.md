@@ -1,14 +1,14 @@
 ---
 layout: extension
-name: ckanext-googleanalytics
-title: CKAN extension to integrate Google Analytics data into CKAN. Gives download stats on package pages, list of most popular packages, etc.
+name: googleanalytics
+title: CKAN extension to integrate Google Analytics data into CKAN
 author: CKAN
 homepage: https://github.com/ckan/ckanext-googleanalytics
 github_user: ckan
 github_repo: ckanext-googleanalytics
 category: Extension
 featured: 1
-permalink: /extension/ckanext-googleanalytics/
+permalink: /extension/googleanalytics/
 ---
 
 

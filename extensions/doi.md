@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-doi
+name: doi
 title: CKAN extension for assigning a digital object identifier (DOI) to datasets
 author: U.K. Natural History Museum
 homepage: https://github.com/NaturalHistoryMuseum/ckanext-doi
@@ -8,7 +8,7 @@ github_user: NaturalHistoryMuseum
 github_repo: ckanext-doi
 category: Extension
 featured: 
-permalink: /extension/ckanext-doi/
+permalink: /extension/doi/
 ---
 
 
@@ -63,7 +63,7 @@ Dataset package fields and CKAN config settings are mapped to the DataCite Schem
 
 DataCite title and author are mandatory metadata fields, so dataset title and creator fields are made required fields. 
 This has been implemented in the theme layer, with another check in IPackageController.after_update, which raises
-an exception if the title or author fields do not exist. 
+a DOIMetadataException if the title or author fields do not exist. 
 
 It is recommended plugins implementing DOIs add additional validation checks to their schema.
 
@@ -83,6 +83,7 @@ ckanext.doi.prefix =
 ckanext.doi.publisher = 
 ckanext.doi.test_mode = True or False
 ckanext.doi.site_url =  # Defaults to ckan.site_url if not set 
+ckanext.doi.site_title = # Optional - site title to use in the citation - eg Natural History Museum Data Portal (data.nhm.ac.uk)
 ```
 
 Account name, password and prefix will be provided by your DataCite provider.
@@ -120,7 +121,7 @@ Removed locking of DOI metadata fields after 10 days.  This is an interim soluti
 
 Added build_metadata interface (and moved custom NHM metadata fields to ckanext-nhm).
 
-Added schema migration command.
+Added schema migration command.r
 
 
 Upgrade notes

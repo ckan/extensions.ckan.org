@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-oauth2conwet
+name: oauth2conwet
 title: OAuth2 Support for CKAN
 author: CoNWeT
 homepage: https://github.com/conwetlab/ckanext-oauth2
@@ -8,7 +8,7 @@ github_user: conwetlab
 github_repo: ckanext-oauth2
 category: Extension
 featured: 
-permalink: /extension/ckanext-oauth2conwet/
+permalink: /extension/oauth2conwet/
 ---
 
 
@@ -17,7 +17,7 @@ OAuth2 CKAN extension  [![Build Status](https://build.conwet.fi.upm.es/jenkins/b
 
 The OAuth2 extension allows site visitors to login through an OAuth2 server.
 
-**Note**: This extension has been tested in ckan 2.2. It may not work in other versions.
+**Note**: This extension has been tested in CKAN 2.2 and 2.3. It may not work in other versions.
 
 
 Links
@@ -30,3 +30,4 @@ Links
 Credits
 -------
 Based on the idea proposed by [Etalab](https://github.com/etalab/ckanext-oauth2)
+

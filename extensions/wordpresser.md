@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-wordpresser
+name: wordpresser
 title: Wordpress integration for CKAN
 author: Open Knowledge
 homepage: https://github.com/okfn/ckanext-wordpresser
@@ -8,7 +8,7 @@ github_user: okfn
 github_repo: ckanext-wordpresser
 category: Extension
 featured: 
-permalink: /extension/ckanext-wordpresser/
+permalink: /extension/wordpresser/
 ---
 
 

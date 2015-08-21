@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-geoserver
+name: geoserver
 title: Geoserver Extension for CKAN
 author: ngds
 homepage: https://github.com/ngds/ckanext-geoserver
@@ -8,7 +8,7 @@ github_user: ngds
 github_repo: ckanext-geoserver
 category: Extension
 featured: 
-permalink: /extension/ckanext-geoserver/
+permalink: /extension/geoserver/
 ---
 
 

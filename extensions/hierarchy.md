@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-hierarchy
+name: hierarchy
 title: Organization hierarchy - CKAN extension
 author: Data.Gov.UK - Cabinet Office
 homepage: https://github.com/datagovuk/ckanext-hierarchy
@@ -8,12 +8,11 @@ github_user: datagovuk
 github_repo: ckanext-hierarchy
 category: Extension
 featured: 1
-permalink: /extension/ckanext-hierarchy/
+permalink: /extension/hierarchy/
 ---
 
 
-ckanext-hierarchy - Organization hierarchy for CKAN
-===================================================
+# ckanext-hierarchy - Organization hierarchy for CKAN
 
 Provides a new field on the organization edit form to select a parent
 organization. This new hierarchical arrangement of organizations is displayed
@@ -36,8 +35,14 @@ hierarchy_form into your own. If you have your own templates then you can use
 the snippets (or logic functions) that this extension provides to display the
 trees.
 
-Installation
-============
+TODO:
+* make the trees prettier with JSTree
+
+## Compatibility
+
+This extension requires CKAN v2.2 or later. Specifically it uses these changes CKAN: https://github.com/ckan/ckan/pull/1247/files 
+
+## Installation
 
 Install the extension in your python environment
 ```
@@ -51,9 +56,7 @@ should come before hierarchy_form
 ckan.plugins = stats text_view recline_view ... hierarchy_display hierarchy_form
 ```
 
-NB:
-This extension relies on a particular feature of CKAN: https://github.com/datagovuk/ckan/tree/1038-organization-hierarchy which at the time of writing is merged into branch release-v2.2 (i.e. CKAN 2.2 beta, which is quite usable) and will be released in CKAN 2.2 (early 2014).
+## Copyright & Licence
 
-TODO:
-* make the trees prettier with JSTree
+This module is Crown Copyright 2013 and openly licensed with AGPLv3 - see LICENSE file.
 

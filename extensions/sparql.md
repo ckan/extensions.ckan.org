@@ -1,14 +1,14 @@
 ---
 layout: extension
-name: ckanext-sparql
-title: SPARQL Interface for Ckan
+name: sparql
+title: SPARQL Interface for CKAN
 author: georgepm
 homepage: https://github.com/georgepm/ckanext-sparql
 github_user: georgepm
 github_repo: ckanext-sparql
 category: Extension
 featured: 
-permalink: /extension/ckanext-sparql/
+permalink: /extension/sparql/
 ---
 
 

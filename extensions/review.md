@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-review
+name: review
 title: Review datasets at a set interval
 author: XVTSolutions
 homepage: https://github.com/XVTSolutions/ckanext-review
@@ -8,7 +8,7 @@ github_user: XVTSolutions
 github_repo: ckanext-review
 category: Extension
 featured: 
-permalink: /extension/ckanext-review/
+permalink: /extension/review/
 ---
 
 

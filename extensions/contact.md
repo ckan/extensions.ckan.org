@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-contact
+name: contact
 title: Adds a contact form
 author: U.K. Natural History Museum
 homepage: https://github.com/NaturalHistoryMuseum/ckanext-contact
@@ -8,7 +8,7 @@ github_user: NaturalHistoryMuseum
 github_repo: ckanext-contact
 category: Extension
 featured: 
-permalink: /extension/ckanext-contact/
+permalink: /extension/contact/
 ---
 
 
@@ -16,7 +16,7 @@ permalink: /extension/ckanext-contact/
 
 This extension adds a contact form
 
-**Current Status:** ALPHA: Under active development
+**DEMO:** http://data.nhm.ac.uk/
 
 **Settings**
 
@@ -27,3 +27,4 @@ ckanext.contact.subject =
 **Credits:**
 
 Borrows much of the contact form code from https://github.com/CityofSurrey/ckanext-surrey
+

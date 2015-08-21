@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-agls
+name: agls
 title: AGLS metadata extension for CKAN
 author: data.gov.au
 homepage: https://github.com/datagovau/ckanext-agls
@@ -8,7 +8,7 @@ github_user: datagovau
 github_repo: ckanext-agls
 category: Extension
 featured: 
-permalink: /extension/ckanext-agls/
+permalink: /extension/agls/
 ---
 
 

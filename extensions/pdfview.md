@@ -1,20 +1,18 @@
 ---
 layout: extension
-name: ckanext-pdfview
-title: PDF viewer for CKAN >= 2.3
+name: pdfview
+title: PDF viewer for CKAN >= 2
 author: CKAN
 homepage: https://github.com/ckan/ckanext-pdfview
 github_user: ckan
 github_repo: ckanext-pdfview
 category: Extension
 featured: 1
-permalink: /extension/ckanext-pdfview/
+permalink: /extension/pdfview/
 ---
 
 
 [![image](https://travis-ci.org/ckan/ckanext-pdfview.svg?branch=master)](https://travis-ci.org/ckan/ckanext-pdfview)
-
-[![image](https://coveralls.io/repos/ckan/ckanext-pdfview/badge.png?branch=master)](https://coveralls.io/r/ckan/ckanext-pdfview?branch=master)
 
 [![Downloads](https://pypip.in/download/ckanext-pdfview/badge.svg)](https://pypi.python.org/pypi//ckanext-pdfview/)
 
@@ -126,11 +124,15 @@ Source Install Troubleshooting
 
 **AttributeError: 'module' object has no attribute 'ckanext-pdfview/main'**
 
-When upgrading a CKAN source install to 2.3+, be sure [to follow all the steps.](http://docs.ckan.org/en/ckan-2.3/maintaining/upgrading/upgrade-source.html) In particular, be sure to register any new or updated plugins:
+When upgrading a CKAN source install to 2.3+, be sure to remove the old bundled pdfview.
+
+> rm -rf /usr/lib/ckan/default/src/ckan/ckanext/pdfview
+
+pdfview used to be part of CKAN core, and [has been made a separate extension](https://github.com/ckan/ckan/pull/2270) to make it easier to iterate on pdf viewer enhancements.
+
+Also, be sure be sure to register any new or updated plugins:
 
     . /usr/lib/ckan/default/bin/activate
     cd /usr/lib/ckan/default/src/ckan
     python setup.py develop
-
-ckanext-pdfview used to be part of CKAN core, and [has been made a separate extension](https://github.com/ckan/ckan/pull/2270) to make it easier to iterate on pdf viewer enhancements.
 

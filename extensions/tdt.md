@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-tdt
+name: tdt
 title: DataTank extension for CKAN
 author: tdt
 homepage: https://github.com/tdt/ckanext-tdt
@@ -8,7 +8,7 @@ github_user: tdt
 github_repo: ckanext-tdt
 category: Extension
 featured: 
-permalink: /extension/ckanext-tdt/
+permalink: /extension/tdt/
 ---
 
 

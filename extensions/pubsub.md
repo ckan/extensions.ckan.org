@@ -1,14 +1,14 @@
 ---
 layout: extension
-name: ckanext-pubsub
-title: Instant notifications for datasets.
+name: pubsub
+title: Instant notifications for datasets
 author: Ross Jones
 homepage: https://github.com/rossjones/ckanext-pubsub
 github_user: rossjones
 github_repo: ckanext-pubsub
 category: Extension
 featured: 
-permalink: /extension/ckanext-pubsub/
+permalink: /extension/pubsub/
 ---
 
 

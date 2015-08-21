@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-shibboleth
+name: shibboleth
 title: CKAN shibboleth identification plugin
 author: Kata team repository
 homepage: https://github.com/kata-csc/ckanext-shibboleth
@@ -8,7 +8,7 @@ github_user: kata-csc
 github_repo: ckanext-shibboleth
 category: Extension
 featured: 
-permalink: /extension/ckanext-shibboleth/
+permalink: /extension/shibboleth/
 ---
 
 

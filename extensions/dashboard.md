@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-dashboard
+name: dashboard
 title: Organize views in a single dashboard
 author: CKAN
 homepage: https://github.com/ckan/ckanext-dashboard
@@ -8,7 +8,7 @@ github_user: ckan
 github_repo: ckanext-dashboard
 category: Extension
 featured: 
-permalink: /extension/ckanext-dashboard/
+permalink: /extension/dashboard/
 ---
 
 

@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-clone
+name: clone
 title: 
 author: XVTSolutions
 homepage: https://github.com/XVTSolutions/ckanext-clone
@@ -8,7 +8,7 @@ github_user: XVTSolutions
 github_repo: ckanext-clone
 category: Extension
 featured: 
-permalink: /extension/ckanext-clone/
+permalink: /extension/clone/
 ---
 
 

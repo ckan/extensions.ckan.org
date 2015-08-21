@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-showcase
+name: showcase
 title: CKAN extension to showcase datasets in use
 author: CKAN
 homepage: https://github.com/ckan/ckanext-showcase
@@ -8,7 +8,7 @@ github_user: ckan
 github_repo: ckanext-showcase
 category: Extension
 featured: 
-permalink: /extension/ckanext-showcase/
+permalink: /extension/showcase/
 ---
 
 
@@ -31,7 +31,7 @@ ckanext-showcase is intended to be a more powerful replacement for the 'Related 
 Requirements
 ============
 
-Current status: Alpha
+Current status: Beta
 
 Compatible with CKAN 2.3.
 

@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-urn
+name: urn
 title: URN fetching extension for CKAN
 author: Kata team repository
 homepage: https://github.com/kata-csc/ckanext-urn
@@ -8,7 +8,7 @@ github_user: kata-csc
 github_repo: ckanext-urn
 category: Extension
 featured: 
-permalink: /extension/ckanext-urn/
+permalink: /extension/urn/
 ---
 
 

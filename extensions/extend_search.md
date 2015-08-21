@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-extend_search
+name: extend_search
 title: Extends Ckan's search with additional options
 author: XVTSolutions
 homepage: https://github.com/XVTSolutions/ckanext-extend_search
@@ -8,7 +8,7 @@ github_user: XVTSolutions
 github_repo: ckanext-extend_search
 category: Extension
 featured: 
-permalink: /extension/ckanext-extend_search/
+permalink: /extension/extend_search/
 ---
 
 

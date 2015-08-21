@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-scheming
+name: scheming
 title: Easy, sharable custom CKAN schemas
 author: open.canada.ca
 homepage: https://github.com/open-data/ckanext-scheming
@@ -8,7 +8,7 @@ github_user: open-data
 github_repo: ckanext-scheming
 category: Extension
 featured: 1
-permalink: /extension/ckanext-scheming/
+permalink: /extension/scheming/
 ---
 
 

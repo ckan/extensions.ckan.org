@@ -1,14 +1,14 @@
 ---
 layout: extension
-name: ckanext-irods
-title: iRODS extension for CKAN.
+name: irods
+title: iRODS extension for CKAN
 author: Kata team repository
 homepage: https://github.com/kata-csc/ckanext-irods
 github_user: kata-csc
 github_repo: ckanext-irods
 category: Extension
 featured: 
-permalink: /extension/ckanext-irods/
+permalink: /extension/irods/
 ---
 
 

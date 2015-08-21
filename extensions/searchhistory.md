@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-searchhistory
+name: searchhistory
 title: Save search history to be used later for autocomplete and statistics
 author: CKAN
 homepage: https://github.com/ckan/ckanext-searchhistory
@@ -8,7 +8,7 @@ github_user: ckan
 github_repo: ckanext-searchhistory
 category: Extension
 featured: 
-permalink: /extension/ckanext-searchhistory/
+permalink: /extension/searchhistory/
 ---
 
 

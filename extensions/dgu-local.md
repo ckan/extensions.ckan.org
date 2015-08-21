@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-dgu-local
+name: dgu-local
 title: Support for harvesting from Local Authorities
 author: Data.Gov.UK - Cabinet Office
 homepage: https://github.com/datagovuk/ckanext-dgu-local
@@ -8,7 +8,7 @@ github_user: datagovuk
 github_repo: ckanext-dgu-local
 category: Extension
 featured: 
-permalink: /extension/ckanext-dgu-local/
+permalink: /extension/dgu-local/
 ---
 
 
@@ -35,7 +35,7 @@ For development you should install ckanext-dgu-local as follows.
 
 2. Activate the plugins by adding them to the CKAN config and then restarting CKAN:
 
-    ckan.plugins = ...other_plugins... dgu_local lga_harvester
+    ckan.plugins = ...other_plugins... dgu_local inventory_harvester
 
 3. Setup the database tables:
 
@@ -46,7 +46,7 @@ For development you should install ckanext-dgu-local as follows.
 
 `dgu_local` will provide any UI/search enhancements
 
-`lga_harvester` is used for harvesting from the LGA Inventory format.
+`inventory_harvester` is used for harvesting from the LGA Inventory format.
 
 
 ## Running tests

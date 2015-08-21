@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-fedmsg
+name: fedmsg
 title: CKAN extension for sending activity events to the Fedora Infrastructure Message Bus (fedmsg)
 author: Etalab
 homepage: https://github.com/etalab/ckanext-fedmsg
@@ -8,7 +8,7 @@ github_user: etalab
 github_repo: ckanext-fedmsg
 category: Extension
 featured: 
-permalink: /extension/ckanext-fedmsg/
+permalink: /extension/fedmsg/
 ---
 
 

@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-disqus
+name: disqus
 title: Extension that adds the Disqus commenting system to CKAN
 author: CKAN
 homepage: https://github.com/ckan/ckanext-disqus
@@ -8,7 +8,7 @@ github_user: ckan
 github_repo: ckanext-disqus
 category: Extension
 featured: 1
-permalink: /extension/ckanext-disqus/
+permalink: /extension/disqus/
 ---
 
 

@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-mapviews
+name: mapviews
 title: CKAN Resource View to build maps and choropleth maps
 author: CKAN
 homepage: https://github.com/ckan/ckanext-mapviews
@@ -8,7 +8,7 @@ github_user: ckan
 github_repo: ckanext-mapviews
 category: Extension
 featured: 1
-permalink: /extension/ckanext-mapviews/
+permalink: /extension/mapviews/
 ---
 
 

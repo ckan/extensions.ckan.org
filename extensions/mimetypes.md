@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-mimetypes
+name: mimetypes
 title: Custom mimetypes extension
 author: fumi
 homepage: https://github.com/fumi/ckanext-mimetypes
@@ -8,7 +8,7 @@ github_user: fumi
 github_repo: ckanext-mimetypes
 category: Extension
 featured: 
-permalink: /extension/ckanext-mimetypes/
+permalink: /extension/mimetypes/
 ---
 
 

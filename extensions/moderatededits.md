@@ -1,14 +1,14 @@
 ---
 layout: extension
-name: ckanext-moderatededits
-title: Moderated Edits extension for CKAN 1.4
+name: moderatededits
+title: Moderated Edits extension for CKAN 1
 author: Open Knowledge
 homepage: https://github.com/okfn/ckanext-moderatededits
 github_user: okfn
 github_repo: ckanext-moderatededits
 category: Extension
 featured: 
-permalink: /extension/ckanext-moderatededits/
+permalink: /extension/moderatededits/
 ---
 
 

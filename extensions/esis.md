@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-esis
+name: esis
 title: Ckan extension adding additional fields and controls for spectral data
 author: CSTARS
 homepage: https://github.com/CSTARS/ckanext-esis
@@ -8,7 +8,7 @@ github_user: CSTARS
 github_repo: ckanext-esis
 category: Extension
 featured: 
-permalink: /extension/ckanext-esis/
+permalink: /extension/esis/
 ---
 
 
@@ -23,11 +23,13 @@ EcoSIS extension for CKAN adding resource controls for spectra
 ```
 . /usr/lib/ckan/default/bin/activate
 # run ckan as root
-sudo ~/pycharm-community-4.0.1/bin/pycharm.sh
+sudo ~/pycharm-community-x.x.x/bin/pycharm.sh
 ```
 
 #### run setup
 ```
+select virtual env python as interpreter, then
+
 script = /usr/lib/ckan/default/bin/paster
 script paramters = --plugin=ckan serve /etc/ckan/default/development.ini
 ```

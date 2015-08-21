@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-officedocs
+name: officedocs
 title: MS Office and OpenOffice Resource Viewer
 author: Ross Jones
 homepage: https://github.com/jqnatividad/ckanext-officedocs
@@ -8,7 +8,7 @@ github_user: jqnatividad
 github_repo: ckanext-officedocs
 category: Extension
 featured: 1
-permalink: /extension/ckanext-officedocs/
+permalink: /extension/officedocs/
 ---
 
 

@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-userdatasets
+name: userdatasets
 title: CKAN plugin to allow users with 'member' role within an organization to create/edit/delete their own datasets
 author: U.K. Natural History Museum
 homepage: https://github.com/NaturalHistoryMuseum/ckanext-userdatasets
@@ -8,7 +8,7 @@ github_user: NaturalHistoryMuseum
 github_repo: ckanext-userdatasets
 category: Extension
 featured: 
-permalink: /extension/ckanext-userdatasets/
+permalink: /extension/userdatasets/
 ---
 
 

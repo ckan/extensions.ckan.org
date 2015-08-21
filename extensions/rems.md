@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-rems
+name: rems
 title: Resource Entitlement Management System (REMS) extensions for CKAN
 author: Kata team repository
 homepage: https://github.com/kata-csc/ckanext-rems
@@ -8,7 +8,7 @@ github_user: kata-csc
 github_repo: ckanext-rems
 category: Extension
 featured: 
-permalink: /extension/ckanext-rems/
+permalink: /extension/rems/
 ---
 
 

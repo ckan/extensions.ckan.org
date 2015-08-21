@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-ytp-request
+name: ytp-request
 title: CKAN Request for membership
 author: Valtori Government ICT Centre
 homepage: https://github.com/yhteentoimivuuspalvelut/ckanext-ytp-request
@@ -8,7 +8,7 @@ github_user: yhteentoimivuuspalvelut
 github_repo: ckanext-ytp-request
 category: Extension
 featured:  
-permalink: /extension/ckanext-ytp-request/
+permalink: /extension/ytp-request/
 ---
 
 

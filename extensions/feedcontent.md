@@ -1,14 +1,14 @@
 ---
 layout: extension
-name: ckanext-feedcontent
-title: Allows for content from rss/atom feeds to be inserted into pages.
+name: feedcontent
+title: Allows for content from rss/atom feeds to be inserted into pages
 author: Open Knowledge
 homepage: https://github.com/okfn/ckanext-feedcontent
 github_user: okfn
 github_repo: ckanext-feedcontent
 category: Extension
 featured: 
-permalink: /extension/ckanext-feedcontent/
+permalink: /extension/feedcontent/
 ---
 
 

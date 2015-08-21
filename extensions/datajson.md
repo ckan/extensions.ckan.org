@@ -1,7 +1,7 @@
 ---
 layout: extension
 name: datajson
-title: A CKAN extension for /data pages in Project Open Data implementation
+title: Project Open Data CKAN (data
 author: data.gov - GSA
 homepage: https://github.com/GSA/ckanext-datajson
 github_user: GSA

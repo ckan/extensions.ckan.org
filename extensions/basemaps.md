@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-basemaps
+name: basemaps
 title: ckanext basemaps plugin
 author: 
 homepage: https://github.com/gsi-cyberjapan/ckanext-basemaps
@@ -8,7 +8,7 @@ github_user: gsi-cyberjapan
 github_repo: ckanext-basemaps
 category: Extension
 featured: 
-permalink: /extension/ckanext-basemaps/
+permalink: /extension/basemaps/
 ---
 
 

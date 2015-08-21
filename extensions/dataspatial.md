@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-dataspatial
+name: dataspatial
 title: CKAN extension to enable geospatial searches within the datastore
 author: U.K. Natural History Museum
 homepage: https://github.com/NaturalHistoryMuseum/ckanext-dataspatial
@@ -8,7 +8,7 @@ github_user: NaturalHistoryMuseum
 github_repo: ckanext-dataspatial
 category: Extension
 featured: 
-permalink: /extension/ckanext-dataspatial/
+permalink: /extension/dataspatial/
 ---
 
 

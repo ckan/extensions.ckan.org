@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-ytp-comments
+name: ytp-comments
 title: CKAN Comments for Datasets
 author: Valtori Government ICT Centre
 homepage: https://github.com/yhteentoimivuuspalvelut/ckanext-ytp-comments
@@ -8,7 +8,7 @@ github_user: yhteentoimivuuspalvelut
 github_repo: ckanext-ytp-comments
 category: Extension
 featured:  
-permalink: /extension/ckanext-ytp-comments/
+permalink: /extension/ytp-comments/
 ---
 
 

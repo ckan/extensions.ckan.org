@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-certificates
+name: certificates
 title: Retrieval and helpers for ODI Open Data certificates
 author: Data.Gov.UK - Cabinet Office
 homepage: https://github.com/datagovuk/ckanext-certificates
@@ -8,7 +8,7 @@ github_user: datagovuk
 github_repo: ckanext-certificates
 category: Extension
 featured: 
-permalink: /extension/ckanext-certificates/
+permalink: /extension/certificates/
 ---
 
 

@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-s3archive
+name: s3archive
 title: Archive CKAN datastore to S3
 author: CKAN
 homepage: https://github.com/ckan/ckanext-s3archive
@@ -8,7 +8,7 @@ github_user: ckan
 github_repo: ckanext-s3archive
 category: Extension
 featured: 
-permalink: /extension/ckanext-s3archive/
+permalink: /extension/s3archive/
 ---
 
 
