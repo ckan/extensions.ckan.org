@@ -1,6 +1,6 @@
 ---
 layout: extension
-name: ckanext-feedback
+name: feedback-nhm
 title: Feedback extension for CKAN
 author: U.K. Natural History Museum
 homepage: https://github.com/NaturalHistoryMuseum/ckanext-feedback
@@ -8,7 +8,7 @@ github_user: NaturalHistoryMuseum
 github_repo: ckanext-feedback
 category: Extension
 featured: 
-permalink: /extension/ckanext-feedback/
+permalink: /extension/feedback-nhm/
 ---
 
 
