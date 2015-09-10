@@ -1,7 +1,7 @@
 ---
 layout: extension
 name: feedback
-title: Naive code to include a simple feedback form for submitting data requests the CKAN System
+title: Simple feedback form for submitting data requests
 author: Maulik Kamdar
 homepage: https://github.com/maulikkamdar/ckanext-feedback
 github_user: maulikkamdar
