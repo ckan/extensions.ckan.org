@@ -31,9 +31,13 @@ def get_extension_info(master_info_dict):
 def _get_readme(user, repo):
     exts = [ '.md', '.markdown', '.rst', '' ]
     for ext in exts:
-        url = 'https://raw.githubusercontent.com/%s/%s/master/' % (user, repo)
-        url += 'README' + ext
+        urlbase = 'https://raw.githubusercontent.com/%s/%s/master/' % (user, repo)
+        url = urlbase + 'README' + ext
         urlfo = urllib.urlopen(url)
+        if urlfo.getcode() == 404:
+            # try lowercase readme
+            url = urlbase + 'readme' + ext
+            urlfo = urllib.urlopen(url)
         if urlfo.getcode() != 404:
             readme = urlfo.read()
             # {% is reserved for liquid templates
