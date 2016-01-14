@@ -21,11 +21,11 @@ The extension adds the ability to include a data dictionary (metadata) for each 
 
 *Additional stage added to dataset setup*
 
-![Editing data dictionary for a dataset](https://github.com/cmuphillycapstone/ckanext-dictionary/blob/master/screenshots/admin-edit.png)
+![Editing data dictionary for a dataset](https://github.com/cmuphillycapstone/ckanext-dictionary/blob/master/screenshots/admin-edit.png?raw=true)
 
 *Editing data dictionary for a dataset*
 
-![User view of the data dictionary](https://github.com/cmuphillycapstone/ckanext-dictionary/blob/master/screenshots/user-view.png)
+![User view of the data dictionary](https://github.com/cmuphillycapstone/ckanext-dictionary/blob/master/screenshots/user-view.png?raw=true)
 
 *User view of the data dictionary*
 
