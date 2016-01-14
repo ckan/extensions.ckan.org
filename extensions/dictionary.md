@@ -17,7 +17,7 @@ permalink: /extension/dictionary/
 
 The extension adds the ability to include a data dictionary (metadata) for each dataset. Admins can create the data dictionary when adding the dataset, or create/modify it any other time. Users see the data dictionary as another tab for each dataset. Since this dictionary extension utilizes the DataStore extension, Data Dictionary information can be accessed via API.
 
-![Additional stage added to dataset setup](https://github.com/cmuphillycapstone/ckanext-dictionary/blob/master/screenshots/admin-setup.png)
+![Additional stage added to dataset setup](https://github.com/cmuphillycapstone/ckanext-dictionary/blob/master/screenshots/admin-setup.png?raw=true)
 
 *Additional stage added to dataset setup*
 
