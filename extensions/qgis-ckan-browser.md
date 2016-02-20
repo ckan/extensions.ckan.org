@@ -58,7 +58,7 @@ make deploy
 
 After successful install there is a new toolbar available (click on `Settings`):
 
-![CKAN Browser Toolbar](img/toolbar.png)
+![CKAN Browser Toolbar](img/toolbar.png?raw=true)
 
 #### Settings
 
@@ -70,7 +70,7 @@ After successful install there is a new toolbar available (click on `Settings`):
 6. `Save` settings and close
 
 
-![CKAN Browser Settings](img/settings.png)
+![CKAN Browser Settings](img/settings.png?raw=true)
 
 #### Open Data (CKAN) Browser
 
@@ -88,5 +88,5 @@ After successful install there is a new toolbar available (click on `Settings`):
   2. Double click on a group to get all data sets associated with that group
 9. List all data available sets
 
-![Open Data (CKAN) Browser](img/open-data-ckan-browser.png)
+![Open Data (CKAN) Browser](img/open-data-ckan-browser.png?raw=true)
 
