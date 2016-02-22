@@ -1,7 +1,7 @@
 ---
 layout: extension
 name: storepublisher
-title: CKAN Store Publisher
+title: CKAN extension to publish public datasets in the FIWARE Store as offerings
 author: CoNWeT
 homepage: https://github.com/conwetlab/ckanext-storepublisher
 github_user: conwetlab
