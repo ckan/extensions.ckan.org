@@ -58,7 +58,8 @@ In your config file (``/etc/ckan/default/production.ini``) add these properties:
 
 * ``ckan.googleauth_hosted_domain = hosted_domain_value`` (OPTIONAL) It contains the domain authorized to authenticate. If it isn't set you will have access with any Google Account Credentials.
 
-##Development Installation
+Development Installation
+------------------------
 
 To install ckanext-googleauth for development, activate your CKAN virtualenv and do::
 	
