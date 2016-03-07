@@ -12,7 +12,8 @@ permalink: /extension/googleauth/
 ---
 
 
-#ckanext-googleauth
+ckanext-googleauth
+===============
 
 CKAN extension for use Google as authentication authority.
 
@@ -21,13 +22,15 @@ This extension allow users to authenticate in CKAN using their google account. O
 At the first access, the extension create a new user in CKAN with strong and complex password and username calculated from email address, substituting every non alphanumerical character with underscore "_".
 For example: 'name.surname@domain.it' -> 'name_surname_domain_it'.
 
-##Requirements
+Requirements
+------------
 
 ckanext-googleauth was created and tested in CKAN 2.5.1; it was also tested in CKAN 2.4.1. The functioning with other versions of CKAN is not guaranteed.
 
 To use this extension you must register your application with Google to obtaining authorization credentials. For more information please visit https://developers.google.com/identity/sign-in/web/devconsole-project 
 
-##Installation
+Installation
+------------
 
 To install ckanext-googleauth:
 
@@ -46,7 +49,8 @@ To install ckanext-googleauth:
 
 6. Restart CKAN.
 
-##Config Settings
+Config Settings
+---------------
 
 In your config file (``/etc/ckan/default/production.ini``) add these properties:
 
@@ -62,10 +66,12 @@ To install ckanext-googleauth for development, activate your CKAN virtualenv and
     cd ckanext-googleauth
     python setup.py develop
 
-##License
+License
+-------
 This extension is licensed under the terms of GNU AFFERO GENERAL PUBLIC LICENSE Version 3.
 
-##Credits
+Credits
+-------
 This extension was developed with the support of ARPA Emilia Romagna.
 
 
