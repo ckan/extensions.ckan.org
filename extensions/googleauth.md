@@ -1,7 +1,7 @@
 ---
 layout: extension
 name: googleauth
-title: CKAN extension for use Google as authentication authority
+title: CKAN extension to use Google as authentication authority
 author: Yacme S.r.l (dev@yacme.com)
 homepage: https://github.com/yacme/ckanext-googleauth
 github_user: yacme
