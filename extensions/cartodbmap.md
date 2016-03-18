@@ -12,7 +12,10 @@ permalink: /extension/cartodbmap/
 ---
 
 
-============= ckanext-cartodbmap (CKAN CartoDB ResourceView) ============= Use CartoDB as a more powerful way to visualize geospatial data in CKAN. And not just visualize, but actually tell stories as well with round-tripping support with CartoDB editor.
+|------------------------------------------------|
+| ckanext-cartodbmap (CKAN CartoDB ResourceView) |
+
+Use CartoDB as a more powerful/performant way to visualize geospatial data in CKAN. And not just visualize, but actually start telling stories as well with round-tripping support with CartoDB editor.
 
 Config Settings
 ===============
