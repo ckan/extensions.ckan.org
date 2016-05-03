@@ -3,8 +3,8 @@ layout: extension
 name: issues
 title: CKAN Issues Extension
 author: Open Knowledge
-homepage: https://github.com/okfn/ckanext-issues
-github_user: okfn
+homepage: https://github.com/ckan/ckanext-issues
+github_user: ckan
 github_repo: ckanext-issues
 category: Extension
 featured: 
