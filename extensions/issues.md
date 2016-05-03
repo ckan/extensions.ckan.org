@@ -12,18 +12,18 @@ permalink: /extension/issues/
 ---
 
 
-[![Build Status](https://travis-ci.org/okfn/ckanext-issues.svg?branch=master)](https://travis-ci.org/okfn/ckanext-issues)
-[![Coverage Status](https://coveralls.io/repos/okfn/ckanext-issues/badge.svg)](https://coveralls.io/r/okfn/ckanext-issues)
+[![Build Status](https://travis-ci.org/ckan/ckanext-issues.svg?branch=master)](https://travis-ci.org/ckan/ckanext-issues)
+[![Coverage Status](https://coveralls.io/repos/ckan/ckanext-issues/badge.svg)](https://coveralls.io/r/ckan/ckanext-issues)
 # CKAN Issues Extension
 
-This extension allows users to to report issues with datasets and resources in
-a CKAN instance.
+This extension allows users to to report issues with datasets in a CKAN
+instance.
 
-**Current Status:** Alpha
+**Current Status:** Beta
 
 ## What it does
 
-Once installed and enabled, the issues extension will make available a per
+Once installed and enabled, the issues extension will make available a per-
 dataset issue tracker.
 
 The issue tracker user interface can be found at:
@@ -54,56 +54,69 @@ Specifically:
     /api/3/action/issue_comment_report
     /api/3/action/issue_comment_report_clear
 
-## Installation and Activation
+## Installation
 
 To install the plugin, enter your virtualenv and install the source::
 
-    pip install git+http://github.com/okfn/ckanext-issues
+    pip install -e git+http://github.com/ckan/ckanext-issues
+
+Create the necessary tables:
+
+    paster --plugin=ckanext-issues issues init_db -c ckan.ini
 
 This will also register a plugin entry point, so you now should be
 able to add the following to your CKAN .ini file::
 
     ckan.plugins = issues
 
-After you clear your cache and reload the site, the Issues plugin
-and should be available.
+After you clear your cache and restart the web server, the Issues extension
+should be available.
 
-To configure notifications, you should set the following options in your
-configuration.  Should notify_admin and notify_owner be set to False then no
-emails will be sent about the newly created issue.
+## Upgrade from older versions
 
-    ckanext.issues.notify_admin = True
-    ckanext.issues.notify_owner = True
-    ckanext.issues.from_address = test@localhost.local
+When upgrading ckanext-issues from older code versions, you should run the issues upgrade command, in case there are any model migrations (e.g. 11th Jan 2016):
+
+    paster --plugin=ckanext-issues issues upgrade_db -c test-core.ini
+
+## Configuration
+
+To switch-on notifications, you should set the following option in your
+configuration, and all users in the group will get the email.
+
+    ckanext.issues.send_email_notifications = true
+
+If you set max_strikes then users can 'report' a comment as spam/abuse. If the number of users reporting a particular comment hits the max_strikes number then it is hidden, pending moderation.
+
+    ckanext.issues.max_strikes = 2
 
 ### Activation
 
 By default, issues are enabled for all datasets. If you wish to restrict
-issues to specific datasets you can use the config option
+issues to specific datasets or organizations, you can use these config options:
     
-    ckanext.issues.enabled_for_dataset = mydataset1 mydataset2 ...
+    ckanext.issues.enabled_for_datasets = mydataset1 mydataset2 ...
+    ckanext.issues.enabled_for_organizations = department-of-transport health-regulator
 
-If `enabled_per_dataset` is not set you can use the config option
-
-    ckanext.issues.enabled_per_dataset_default = false
-
-To turn off issues for all datasets, in this case, ckanext-issues will search
-for a dataset extra in each dataset
+Alternatively, you can switch issues on/off for particular datasets by using an extra field:
 
     'issues_enabled': True
 
-If this dataset extra is present, issues will be enabled for that dataset.
+and you can set the default for all the other datasets (without that extra field):
+
+    ckanext.issues.enabled_without_extra = false
+
+For the extra field to work you must not set `enabled_per_dataset` or `enabled_for_organizations` options.
 
 ## Feedback
 
 Please open an issue in the github [issue tracker][issues].
 
-[issues]: https://github.com/okfn/ckanext-issues
+[issues]: https://github.com/ckan/ckanext-issues
 
 ## Developers
 
 Normal requirements for CKAN Extensions (including an installation of CKAN and
-its dev requirements).
+its dev requirements). Contributions welcome.
 
 ### Testing with Postgres
 To run full production tests on postgres run. These are the tests that the travis build will run
