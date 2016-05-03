@@ -2,7 +2,7 @@
 layout: extension
 name: cartodbmap
 title: CartoDB resource view extension
-author: Ontodia
+author: OpenGov/Ontodia
 homepage: https://github.com/Ontodia/ckanext-cartodbmap
 github_user: Ontodia
 github_repo: ckanext-cartodbmap

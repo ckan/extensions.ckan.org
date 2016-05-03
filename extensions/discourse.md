@@ -2,7 +2,7 @@
 layout: extension
 name: discourse
 title: CKAN Discourse Integration
-author: Ontodia
+author: OpenGov/Ontodia
 homepage: https://github.com/ontodia/ckanext-discourse
 github_user: ontodia
 github_repo: ckanext-discourse
