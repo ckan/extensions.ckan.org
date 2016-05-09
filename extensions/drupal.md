@@ -15,7 +15,7 @@ permalink: /extension/drupal/
 ckanext-drupal
 ==============
 
-This is simple CKAN extension that works with the od\_package (<https://github.com/open-data/od_package>) Drupal module.
+This is simple CKAN extension that works with the od\_package (<https://github.com/open-data/opendata_package>) Drupal module.
 
 Right now, this extension reads some basic package information from the Canadian Government meta-data schema and writes it into the database table (od\_package) created by the module.
 
