@@ -22,6 +22,7 @@ About
 
 A simple form that will build a query string that can then be used to fetch data from the IATI Datastore API.
 
+See it in action here - http://datastore.iatistandard.org/query/index.php
 
 Requirements
 ============
