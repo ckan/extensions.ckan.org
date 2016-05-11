@@ -2,7 +2,7 @@
 layout: extension
 name: uscensus-citysdk
 title: CKAN CitySDK module
-author: CKAN module initially contributed by OpenGov/Ontodia
+author: OpenGov/Ontodia (for its initial CKAN module contribution)
 homepage: https://github.com/uscensusbureau/citysdk
 github_user: uscensusbureau
 github_repo: citysdk
