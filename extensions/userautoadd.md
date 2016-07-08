@@ -1,7 +1,7 @@
 ---
 layout: extension
 name: userautoadd
-title: dd new users automatically to an organization with a given role
+title: Add new users automatically to an organization with a given role
 author: Aptivate
 homepage: https://github.com/aptivate/ckanext-userautoadd
 github_user: aptivate
