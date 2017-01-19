@@ -1,7 +1,7 @@
 ---
 layout: extension
 name: aaf
-title: Allows AAF (Australian Acceess Federation) authentication to log into a CKAN installation
+title: Allows AAF (Australian Access Federation) authentication to log into a CKAN installation
 author: Louis des Landes (Swinburne University)
 homepage: https://github.com/Psykar/ckanext-aaf
 github_user: Psykar
