@@ -44,7 +44,9 @@ def _get_readme(user, repo):
             readme = readme.replace('{% ', '{%raw%}{% {%endraw%}')
             readme = readme.replace(' %}', '{%raw%} %}{%endraw%}')
             if ext == '.rst':
-                readme = pypandoc.convert(readme, to='markdown_github', format='rst')
+                readme = pypandoc.convert(readme, to='markdown_github', format = 'rst' )
+            else:
+                readme = pypandoc.convert(readme, to='markdown_github', format = 'markdown_github' ) 
             return readme
 
 def write_extension(extension):
