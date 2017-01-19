@@ -18,21 +18,12 @@ A java library to extend and access core functionalities of CKAN.
 
 Why a CKAN java library
 -----------------------
-[CKAN](http://ckan.org) is a complete and performant open-source Data Management System (DMS)
-built in Python and maintained by a quite large community leaded by the [Open Knowledge Foundation](http://okfn.org/).
-It powers many data catalogs across the globe including [datahub.io](http://datahub.io),
-[catalog.data.gov](http://catalog.data.gov) and [data.gov.uk](http://data.gov.uk/data/search)
-among many other sites.
-CKAN provide a well designed and powerful [RPC-style API](http://docs.ckan.org/en/latest/api/index.html)
-that expose pratically all its core functionalities but when it comes to integration
-with Java based or enterprise scale applications it present some lack of support. 
-So, when we built the [opendatahub.it](http://www.opendatahub.it) federated catalog of
-Italian open dataset we decided to create a Java based client library and extension to CKAN
-to ease such integration and to decouple the portal and data harvester architecture
-(based on Java tecnologies like [Hadoop](http://hadoop.apache.org/) and 
-[Storm](http://storm.incubator.apache.org/)) from the CKAN itself.
-ckan4j is the core library of such work released as open-source so that many other can
-benefit from it
+[CKAN](http://ckan.org) is a complete and performant open-source Data Management System (DMS) built in Python and maintained by a quite large community leaded by the [Open Knowledge Foundation](http://okfn.org/).
+It powers many data catalogs across the globe including [datahub.io](http://datahub.io), [catalog.data.gov](http://catalog.data.gov) and [data.gov.uk](http://data.gov.uk/data/search) among many other sites.
+CKAN provide a well designed and powerful [RPC-style API](http://docs.ckan.org/en/latest/api/index.html) that expose pratically all its core functionalities but when it comes to integration with Java based or enterprise scale applications it present some lack of support. 
+So, when we built the [opendatahub.it](http://www.opendatahub.it) federated catalog of Italian open dataset we decided to create a Java based client library and extension to CKAN to ease such integration and to decouple the portal and data harvester architecture
+(based on Java tecnologies like [Hadoop](http://hadoop.apache.org/) and [Storm](http://storm.incubator.apache.org/)) from the CKAN itself.
+ckan4j is the core library of such work released as open-source so that many other can benefit from it
 
 
 Features
@@ -40,7 +31,7 @@ Features
 ckan4j is a Java client library that provide access to the CKAN
 core functionalities and APIs using Java language. The key difference
 respect other Java libraries for CKAN is the extension architecture which
-is designed to extend the CKAN API adding specific enterprise grade
+is designed not only to act as a java client of a CKAN but also to extend the CKAN API adding specific enterprise grade
 functionalities like: 
 
 * Social Login (supported GitHub, Google+ and Facebook).
@@ -55,6 +46,7 @@ Usage
 ckan4j is distributed as an [Eclipse](https://www.eclipse.org/) based [Maven](http://maven.apache.org/) project.
 Once you build it, you can use it in webapps or generic Java client apps adding the jar to the classpath (it is not yet published on a Maven repo).
 If you are interested on a reference implementation for a web api, you can give a look to [ckan4j-webapi](https://github.com/sciamlab/ckan4j-webapi).
+
 
 
 Dependencies

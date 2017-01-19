@@ -1,10 +1,10 @@
 ---
 layout: extension
 name: shibboleth
-title: CKAN shibboleth identification plugin
-author: Kata team repository
-homepage: https://github.com/kata-csc/ckanext-shibboleth
-github_user: kata-csc
+title: Shibboleth authentication plugin for CKAN
+author: Harri Palojärvi
+homepage: https://github.com/harripal/ckanext-shibboleth
+github_user: harripal
 github_repo: ckanext-shibboleth
 category: Extension
 featured: 
@@ -12,39 +12,34 @@ permalink: /extension/shibboleth/
 ---
 
 
-Shibboleth identification plugin for CKAN 2.1. Uses repoze.who.openid plugin for authentication.
+ckanext-shibboleth
+==================
+
+Shibboleth identification plugin for CKAN. Uses repoze.who.openid plugin for authentication.
 
 Install
 -------
-
-You can install ckanext-shibboleth with
-
-	pip install -e git+git://github.com/kata-csc/ckanext-shibboleth.git#egg=ckanext-shibboleth
+	pip install -e git+git://github.com/harripal/ckanext-shibboleth.git#egg=ckanext-shibboleth
 	
 Nosetests
 ---------
-
-To run tests type
-
 	$ python setup.py nosetests
 	
 Plugin configuration
 --------------------
+pyenv/src/ckan/development.ini:
 
-who.ini configuration:
+	...
+	ckan.plugins = shibboleth
+	...
+
+pyenv/src/ckan/who.ini:
 
 	[plugin:shibboleth]
-    use = ckanext.repoze.who.shibboleth.plugin:make_identification_plugin
-    session = Shib-Session-ID
-    eppn = eppn
-    mail = mail
-    fullname = cn
-    # Add more key-worded parameters below
-    firstname = displayName
-    surname = sn
-    organization = schacHomeOrganization
-    mobile = mobile
-    telephone = telephoneNumber
+	use = ckanext.repoze.who.shibboleth.plugin:make_identification_plugin
+	session = Shib-Session-ID
+	mail = mail
+	name = cn
 
 	[general]
 	request_classifier = repoze.who.classifiers:default_request_classifier
@@ -64,14 +59,15 @@ who.ini configuration:
 
 	[challengers]
 	plugins =
-		shibboleth
+		openid
+		friendlyform;browser
 
-Shibboleth service provider (sp)
+shibboleth sp
 -------------
-
 If you can login to IdP but CKAN is not logging you in, try removing REMOTE_USER from 
-ApplicationDefaults in /etc/shibboleth/shibboleth2.xml. This should work:
+ApplicationDefaults in /etc/shibboleth/shibboleth2.xml, this should work:
 
 	<ApplicationDefaults entityID="https://sp.mydomain.com/shibboleth">
+
 
 

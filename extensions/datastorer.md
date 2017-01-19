@@ -75,7 +75,7 @@ A paster command is available, that lets you archive all resources or just those
 
 To queue the update to run in celery, use:
 
-> paster datastorer queue [package-id]
+> paster datastorer queue \[package-id\]
 
 Logging and Debugging
 =====================

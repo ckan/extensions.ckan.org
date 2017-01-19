@@ -45,7 +45,7 @@ RDF output, linking dataset to the Linked Open Data cloud.
 
 ### Requirements
 
-CKAN \>= 2.4
+CKAN &gt;= 2.4
 
 ### Installation
 

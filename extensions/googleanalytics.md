@@ -17,7 +17,7 @@ CKAN Google Analytics Extension
 
 **Status:** Production
 
-**CKAN Version:** \>= 1.5.\*
+**CKAN Version:** &gt;= 1.5.\*
 
 A CKAN extension that both sends tracking data to Google Analytics and retrieves statistics from Google Analytics and inserts them into CKAN pages.
 
@@ -26,13 +26,14 @@ Features
 
 -   Puts the Google Analytics asynchronous tracking code into your page headers for basic Google Analytics page tracking.
 -   Adds Google Analytics Event Tracking to resource download links, so that resource downloads will be displayed as Events in the Google Analytics reporting interface.
+-   Adds Google Analytics Event Tracking to some API calls so that usage of the API can be reported on via Google Analytics.
 -   Adds Google Analytics Event Tracking to group links on the home page, user profile links, editing and saving user profiles, etc.
 
     *Only if* `googleanalytics.track_events = true` *is in your CKAN ini file.*
 
     *CKAN 1.x only*.
 
--   Puts download stats into dataset pages, e.g. "[downloaded 4 times]".
+-   Puts download stats into dataset pages, e.g. "\[downloaded 4 times\]".
 
     *CKAN 1.x only.*
 
@@ -67,7 +68,7 @@ Installation
 
     (If there are other plugins activated, add this to the list. Each plugin should be separated with a space).
 
-4.  If you are using this plugin with a version of CKAN \< 2.0 then you should also put the following in your ini file:
+4.  If you are using this plugin with a version of CKAN &lt; 2.0 then you should also put the following in your ini file:
 
         ckan.legacy_templates = true
 

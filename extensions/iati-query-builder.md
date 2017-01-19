@@ -22,23 +22,43 @@ About
 
 A simple form that will build a query string that can then be used to fetch data from the IATI Datastore API.
 
-See it in action here - [http://datastore.iatistandard.org/query/index.php](http://datastore.iatistandard.org/query/index.php)
+See it in action here - http://datastore.iatistandard.org/query/index.php
+
 
 Requirements
 ============
-A webserver running php and php-curl
+A webserver running php and php-curl.
+
 
 Installation
 ============
 
-Place all the files on your server and visit index.php to deploy.
+Place all the files on your server and visit `index.php`.
+
+```
+# Clone the repository and enter into the root folder
+git clone https://github.com/IATI/IATI-Query-Builder.git
+cd IATI-Query-Builder
+
+# You may wish to ensure that the included codelists are up-to-date (optional)
+./update-codelists.sh
+
+# Run a webserver
+php -S localhost:8000
+
+# Open a browser and visit localhost:8000
+```
+
 
 Helpers
 -------
 The /helpers directory has a script `refresh_group_data.example.php` that you should modify for your needs.
 Running this script will generate a .json file of groups in use on the IATI registry, and this in turn will populate the group drop down of the form.
 
-You could set this up as a cron job on your server.
+The script `update-codelists.sh` will re-download latest versions of the required codelists.
+
+You could set these up as a cron job on your server.
+
 
 Licence
 =======

@@ -32,20 +32,23 @@ In order to use this information, this plugin exposes the **[wpckan_related_data
 The shortcode has following parameters:
 
 * **group**:  (Optional)
-Specify the name (Not title) of a group available on the target CKAN instance in order to filter the related datasets to ONLY those assigned to it.
+Specify the id (Not title or name) of a group available on the target CKAN instance in order to filter the related datasets to ONLY those assigned to it.
 
 * **organization**:  (Optional)
-Specify the name (Not title) of an organization available on the target CKAN instance in order to filter the related datasets to ONLY those assigned to it.
+Specify the id (Not title or name) of an organization available on the target CKAN instance in order to filter the related datasets to ONLY those assigned to it.
 
 Note: If both **group** and **organization** parameters are specified then the dataset has to be asssigned to both in order to be returned by the shortcode.
 
 * **include_fields_dataset**:  (Optional) Comma-separated string.
-Per default, this shortcode shows only title and notes of the CKAN dataset (See http://demo.ckan.org/api/3/action/package_search?q=spending). A list of attributes can be specified to present more information. Possible values: "title", "notes", "url", "license", "license_url" "metadata_created", "metadata_modified", "author" , "author_email"
+Per default, this shortcode shows only title and notes of the CKAN dataset (See http://demo.ckan.org/api/3/action/package_search?q=spending). A list of attributes can be specified to present more information. Possible values: "title", "notes", "url", "license_id", "license_url" "metadata_created", "metadata_modified", "author" , "author_email"
 
 * **include_fields_resources**:  (Optional) Comma-separated string.
 Per default, this shortcode shows only name, description and format of the resources (See http://demo.ckan.org/api/3/action/package_search?q=spending). A list of attributes can be specified to present more information. Possible values: "name", "description", "revision_timestamp", "format", "created"
 
-* **limit**: (Optional) Number.
+* **include_fields_extra**: (Optional) Comma-separated string.
+This shortcode outputs extra metadatafields. A list of attributes can specified to present more Information.
+
+* **limit**: (Optional) Number. Default is 10.
 Limits the amount of datasets shown by the shortcode string.
 
 * **filter**: (Optional) Number.
@@ -55,6 +58,9 @@ Filters the datasets according to following criteria:
 
 * **filter_fields**: (Optional) JSON.
 Filters the datasets according to the content of the datasets' extra fields. The list of fields and values is specified as JSON string. The name of the fields must match exactly (case unsensitive) but for the value the php strpos() function will be employed. The OR operator will be applied if more than 1 key/value combination are given. See examples below.
+
+* **sort**: (Optional) String.
+As per the solr documentation, this is a comma-separated string of field names and sort-orderings.
 
 #### Pagination
 
@@ -83,12 +89,15 @@ Examples:
 ```php
 [wpckan_related_datasets]
 [wpckan_related_datasets limit="3"]
+[wpckan_related_datasets organization="d9722d77-3b91-4c26-9172-950a9a4be07a"]
 [wpckan_related_datasets limit="3" page="2"]
 [wpckan_related_datasets limit="3" page="2" prev_page_link="http://test?prev_page" next_page_link="http://test?next_page"]
 [wpckan_related_datasets include_fields_dataset="title,description,author"]
 [wpckan_related_datasets include_fields_dataset="title,description,author" include_fields_resources="name,description,created"]
 [wpckan_related_datasets limit="3" filter_fields='{"spatial-text":"England","date":"2015"}']
-[wpckan_related_datasets blank_on_empty='true']
+[wpckan_related_datasets blank_on_empty="true"]
+[wpckan_related_datasets type="library_record"]
+[wpckan_related_datasets sort="metadata_modified+desc"]
 ```
 
 An example showing how the information returned by this shortcode will be structured:
@@ -125,29 +134,8 @@ An example showing how the information returned by this shortcode will be struct
   <a href="#">Next</a>
 </div>
 ```
-
 Also, the plugin exposes the  **[wpckan_number_of_related_datasets]** shortcode for returning the number of related datasets assigned to the post as a customizable link so a summary can be presented on the wordpress side.
-The shortcode has following parameters:
-
-* **group**:  (Optional)
-Specify the name (Not title) of a group available on the target CKAN instance in order to filter the related datasets to ONLY those assigned to it.
-
-* **organization**:  (Optional)
-Specify the name (Not title) of an organization available on the target CKAN instance in order to filter the related datasets to ONLY those assigned to it.
-
-Note: If both **group** and **organization** parameters are specified then the dataset has to be asssigned to both in order to be returned by the shortcode.
-
-* **limit**: (Optional) Number.
-Limits the amount of datasets shown by the shortcode.
-
-* **filter**: (Optional) Number.
-Filters the datasets according to following criteria:
-  * '0' (ALL): Return all datasets (Default)
-  * '1' (ONLY WITH RESOURCES): Return only datasets featuring at least one resource.
-
-
-* **filter_fields**: (Optional) JSON.
-Filters the datasets according to the content of the datasets' extra fields. The list of fields and values is specified as JSON string. The name of the fields must match exactly (case unsensitive) but for the value the php strpos() function will be employed. The OR operator will be applied if more than 1 key/value combination are given. See examples below.
+The shortcode has the same argument as the shortcode above, and also following additional parameters:
 
 * **link_url**:  (Optional)
 Specify the URL to link the produced output with some other resource (i.e: in the CKAN instance)
@@ -158,11 +146,6 @@ Prepends a string before the number.
 * **suffix**:  (Optional)
 Appends a string after the number.
 
-## Advanced
-
-* **blank_on_empty**: (Optional) Boolean.
-Returns an empty string "" if no datasets have been found to return
-
 Examples:
 ```php
 [wpckan_number_of_related_datasets]
@@ -171,8 +154,11 @@ Examples:
 [wpckan_number_of_related_datasets group="news" limit="1"]
 [wpckan_number_of_related_datasets group="news" suffix=" datasets found in the news."]
 [wpckan_number_of_related_datasets group="news" prefix="Number of datasets: (" suffix=")" link_url="http://link_to_more"]
+[wpckan_number_of_related_datasets organization="d9722d77-3b91-4c26-9172-950a9a4be07a"]
 [wpckan_number_of_related_datasets limit="3" filter_fields='{"spatial-text":"England","date":"2015"}']
+[wpckan_number_of_related_datasets limit="3" type="dataset"]
 [wpckan_number_of_related_datasets blank_on_empty="true"]
+[wpckan_number_of_related_datasets type="library_record"]
 ```
 An example (corresponding to the last example above) showing how the information returned by this shortcode will be structured:
 
@@ -198,13 +184,15 @@ The shortcode has following parameters:
 
 * **group**: (Optional) Filter dataset results by showing only those belonging to a certain group.
 
+* **type**: (Optional) Filter dataset results by showing only those belonging to a certain dataset-type.
+
 * **include_fields_dataset**:  (Optional) Comma-separated.
 Per default, this shortcode shows only title (with link to the dataset's URL) and notes of the CKAN dataset (See http://demo.ckan.org/api/3/action/package_search?q=spending). A list of attributes can be specified to present more information. Possible values: "title", "notes", "url", "license", "license_url" "metadata_created", "metadata_modified", "author" , "author_email"
 
 * **include_fields_resources**:  (Optional) Comma-separated.
 Per default, this shortcode shows only name (with link to the resources's URL), description and format of the resources (See http://demo.ckan.org/api/3/action/package_search?q=spending). A list of attributes can be specified to present more information. Possible values: "name", "description", "revision_timestamp", "format", "created"
 
-* **limit**: (Optional) Number.
+* **limit**: (Optional) Number. Default is 10.
 Limits the amount of datasets shown by the shortcode.
 
 * **filter**: (Optional) Number.
@@ -215,6 +203,9 @@ Filters the datasets according to following criteria:
 
 * **filter_fields**: (Optional) JSON.
 Filters the datasets according to the content of the datasets' extra fields. The list of fields and values is specified as JSON string. The name of the fields must match exactly (case unsensitive) but for the value the php strpos() function will be employed. The OR operator will be applied if more than 1 key/value combination are given. See examples below.
+
+* **sort**: (Optional) String.
+As per the solr documentation, this is a comma-separated string of field names and sort-orderings.
 
 #### Pagination
 
@@ -244,11 +235,14 @@ Examples:
 [wpckan_query_datasets query="coal"]
 [wpckan_query_datasets query="corruption" limit="5"]
 [wpckan_query_datasets query="corruption" limit="5" page="1"]
+[wpckan_query_datasets organization="d9722d77-3b91-4c26-9172-950a9a4be07a"]
 [wpckan_query_datasets query="politics" limit="3" page="2" prev_page_link="http://test?prev_page" next_page_link="http://test?next_page"]
 [wpckan_query_datasets query="forestry" organization="odmcambodia" group="news"]
 [wpckan_query_datasets query="elections" include_fields_dataset="title,notes,license" include_fields_resources="name,description,created"]
 [wpckan_query_datasets limit="3" filter_fields='{"spatial-text":"England","date":"2015"}']
-[wpckan_query_datasets query="coal" blank_on_empty='true']
+[wpckan_query_datasets query="coal" blank_on_empty="true"]
+[wpckan_query_datasets query="*:*" type="library_record"]
+[wpckan_query_datasets sort="metadata_modified+desc"]
 ```
 
 ```html
@@ -284,6 +278,40 @@ Examples:
 </div>
 ```
 
+Also, the plugin exposes the  **[wpckan_number_of_query_datasets]** shortcode for returning the number of queried datasets so a summary can be presented on the wordpress side.
+The shortcode has the same argument as the shortcode above, and also following additional parameters:
+
+* **link_url**:  (Optional)
+Specify the URL to link the produced output with some other resource (i.e: in the CKAN instance)
+
+* **prefix**:  (Optional)
+Prepends a string before the number.
+
+* **suffix**:  (Optional)
+Appends a string after the number.
+
+Examples:
+```php
+[wpckan_number_of_query_datasets]
+[wpckan_number_of_query_datasets link_url="http://link_to_more"]
+[wpckan_number_of_query_datasets group="news"]
+[wpckan_number_of_query_datasets group="news" limit="1"]
+[wpckan_number_of_query_datasets group="news" suffix=" datasets found in the news."]
+[wpckan_number_of_query_datasets group="news" prefix="Number of datasets: (" suffix=")" link_url="http://link_to_more"]
+[wpckan_number_of_query_datasets organization="d9722d77-3b91-4c26-9172-950a9a4be07a"]
+[wpckan_number_of_query_datasets limit="3" filter_fields='{"spatial-text":"England","date":"2015"}']
+[wpckan_number_of_query_datasets limit="3" type='dataset']
+[wpckan_number_of_query_datasets blank_on_empty="true"]
+[wpckan_number_of_query_datasets type="library_record"]
+```
+An example (corresponding to the last example above) showing how the information returned by this shortcode will be structured:
+
+```html
+<div class="wpckan_dataset_number">
+  <p><a target="_blank" href="http://link_to_more">Number of datasets: (5)</a></p>
+</div>
+```
+
 ## Feature 3: Archiving WP Posts in CKAN
 
 The plugin presents a metabox while users are editing posts. It allows users to specify if the post should be archived as a CKAN dataset. The plugin polls the CKAN instance and retrieves the list of available organizations and groups in order for users to be able to determine to which organization or group the dataset will be assign to. Also, when that particular post will be archived.
@@ -291,6 +319,58 @@ The plugin presents a metabox while users are editing posts. It allows users to 
 This feature archives the custom fields along with the title and description. If a valid URL is found in the value of the custom fields, a new resource will be added to the dataset.
 
 **WARNING** However, custom fields beginning with **_** or **wpckan_** will not be stored.
+
+## Feature 4: Show dataset detail
+
+The plugin exposes a shortcode which can be used to output the metadata and resources of a CKAN dataset, specified by id parameter
+
+* **id**: String.
+Unique identifier of the dataset
+
+Examples:
+```php
+[wpckan_dataset_detail id="ckan-dataset-one"]
+```
+
+```html
+<div class="wpckan_dataset_detail">
+	<h1 class="wpckan_dataset_title">title</h1>
+	<a href="#" class="wpckan_dataset_owner_org">Organization</a>
+	<p class="wpckan_dataset_notes">description</p>
+  <ul class="wpckan_dataset_tags">
+    <li class="wpckan_dataset_tag"><a href="#">Tag1</a></li>
+   	<li class="wpckan_dataset_tag"><a href="#">Tag2</a></li>
+  </ul>
+	<h2>Resources</h2>
+	<ul class="wpckan_dataset_resources">
+    <li class="wpckan_dataset_resource">
+			<img src="#"></img><a href="#">Resource1</a>
+		</li>
+		<li class="wpckan_dataset_resource">
+			<img src="#"></img><a href="#">Resource2</a>
+		</li>
+  </ul>
+	<h2>Additional info</h2>
+	<table class="wpckan_dataset_metadata_fields">
+    <tr class="wpckan_dataset_metadata_field">
+			<td>field name</td>
+			<td>field value</td>
+		</tr>
+  </table>
+</div>
+<div class="wpckan_dataset_list_pagination">
+<a href="#">Previous</a>
+<a href="#">Next</a>
+</div>
+```
+
+## widgets
+
+This plugin ships with a series of widgets that basically expose the functionality of the different shortcodes for easy integration on a Wordpress site layout:
+
+* WPCKAN Related Datasets: Shows the information of the related datasets of the post or page the widget is integrated in. See **/inc/widgets/related-datasets-widget.php**
+* WPCKAN Query Datasets: Shows the results of the specified query. See **/inc/widgets/query-resources-widget.php**
+* WPCKAN Query resources by post's category: Shows the results of a query made with the specified field as filter and the post's or page's categories as values for the query. See **/inc/widgets/query-resources-by-category-widget.php**
 
 ## CORS Support disabled for CKAN >2.3
 
@@ -301,10 +381,21 @@ Taken from http://docs.ckan.org/en/latest/changelog.html#id1:
 
 So, mind that the CKAN instance which this plugin is used with needs to allow all origins or whitelist the domain where the wpckan is installed.
 
+## Support for ckanext-fluent and qTranslate/qTranslateX
+
+For the multilingual functionalities, this plugin relies on two other components:
+
+- ckanext-fluent (https://github.com/ckan/ckanext-fluent): This CKAN extension provides a way to store and return multilingual fields in CKAN datasets, resources, organizations and groups.
+
+- qTranslate/qTranslateX (https://github.com/qTranslate-Team/qtranslate-x): This plugin offers a way to maintain dynamic multilingual content on a WordPress site.
+
+If you are using both in your Wordpress/CKAN stack, you can configure WPCKAN to be able to present the data pulled from CKAN in the currently selected language on WP.
+
 # Installation
 
-1. Either download the files as zip or clone recursively (contains submodules) <code>git clone https://github.com/OpenDevelopmentMekong/wpckan.git --recursive</code> into the Wordpress plugins folder.
-2. Activate the plugin through the 'Plugins' menu in WordPress
+1. Either download the files as zip or clone <code>git clone https://github.com/OpenDevelopmentMekong/wpckan.git</code> into the Wordpress plugins folder.
+2. Install dependencies with composer (http://getcomposer.org) <code>composer install</code>
+3. Activate the plugin through the 'Plugins' menu in WordPress
 
 # Development
 
@@ -322,6 +413,16 @@ So, mind that the CKAN instance which this plugin is used with needs to allow al
 * Analog logger https://github.com/jbroadway/analog
 * Silex CKAN PHP Client https://github.com/SilexConsulting/CKAN_PHP
 * Twitter's typeahead https://github.com/twitter/typeahead.js/
+
+# Testing
+
+Tests are found on /tests and can be run with ```phpunit tests```
+
+# Continuous deployment
+
+Everytime code is pushed to the repository, travis will run the tests available on **/tests**. In case the code has been pushed to **master** branch and tests pass, the **_ci/deploy.sh** script will be called for deploying code in CKAN's DEV instance. Analog to this, and when code from **master** branch has been **tagged as release**, travis will deploy to CKAN's PROD instance automatically.
+
+For the automatic deployment, the scripts on **_ci/** are responsible of downloading the odm-automation repository, decrypting the **odm_tech_rsa.enc** private key file ( encrypted using Travis-ci encryption mechanism) and triggering deployment in either DEV or PROD environment.
 
 # Copyright and License
 

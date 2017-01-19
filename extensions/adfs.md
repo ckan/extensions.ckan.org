@@ -40,14 +40,14 @@ Configure: =========
 
 In Azure ensure the following settings are correct for your application:
 
--   Sign-on URL - should be <https://yourdomain.com/user/login> (replacing \<yourdomain\> with, er, your domain).
+-   Sign-on URL - should be <https://yourdomain.com/user/login> (replacing &lt;yourdomain&gt; with, er, your domain).
 -   Reply URL - should be <https://yourdomain.com/adfs/signin/> (make sure you include the trailing slash).
 
 On the machine hosting your instance of CKAN:
 
 Ensure all the requirements are installed (see requirements.txt for further details).
 
-In your CKAN's settings.ini file you need to provide two settings in the [app:main] section:
+In your CKAN's settings.ini file you need to provide two settings in the \[app:main\] section:
 
 -   adfs\_wtrealm - the APP ID URI setting found in the "Get Started" / "Enable Users to Sign On" section on the "home" page for the application integrating with ADFS on the Azure website. This is usually the same as the APP ID URI you define in the settings for the application.
 -   adfs\_metadata\_url - a URL pointing to a remote file called FederationMetadata.xml containing the ADFS\_NAMESPACE and adfs\_x509 related values. This URL is in the "Federation Metadata Document URL" value in the "Enable Users to Sign On" section of the Azure website (at current time of writing).

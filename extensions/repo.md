@@ -50,6 +50,10 @@ If the `github_org` part is not provided, `ckan` is assumed. For instance:
 
     ckanext.repo.repos = ckan okfn/ckanext-glasgow ckanext-oauth2waad ckanapi
 
+You can also specify the location where the CKAN sources are installed with 
+`ckanext.repo.srcpath` configuration option. For instance:
+    ckanext.repo.srcpath = /usr/src
+
 
 ## FAQ
 

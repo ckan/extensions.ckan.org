@@ -1,7 +1,7 @@
 ---
 layout: extension
 name: dictionary
-title: Data Dictionaries for Datasets
+title: Data Dictionary extension 
 author: Heinz/CMU Capstone Team
 homepage: https://github.com/cmuphillycapstone/ckanext-dictionary
 github_user: cmuphillycapstone
@@ -12,20 +12,21 @@ permalink: /extension/dictionary/
 ---
 
 
+|                    |
 |--------------------|
 | ckanext-dictionary |
 
 The extension adds the ability to include a data dictionary (metadata) for each dataset. Admins can create the data dictionary when adding the dataset, or create/modify it any other time. Users see the data dictionary as another tab for each dataset. Since this dictionary extension utilizes the DataStore extension, Data Dictionary information can be accessed via API.
 
-![Additional stage added to dataset setup](https://github.com/cmuphillycapstone/ckanext-dictionary/blob/master/screenshots/admin-setup.png?raw=true)
+<img src="https://github.com/cmuphillycapstone/ckanext-dictionary/blob/master/screenshots/admin-setup.png?raw=true" alt="Additional stage added to dataset setup" width="449" height="245" />
 
 *Additional stage added to dataset setup*
 
-![Editing data dictionary for a dataset](https://github.com/cmuphillycapstone/ckanext-dictionary/blob/master/screenshots/admin-edit.png?raw=true)
+<img src="https://github.com/cmuphillycapstone/ckanext-dictionary/blob/master/screenshots/admin-edit.png?raw=true" alt="Editing data dictionary for a dataset" width="450" height="280" />
 
 *Editing data dictionary for a dataset*
 
-![User view of the data dictionary](https://github.com/cmuphillycapstone/ckanext-dictionary/blob/master/screenshots/user-view.png?raw=true)
+<img src="https://github.com/cmuphillycapstone/ckanext-dictionary/blob/master/screenshots/user-view.png?raw=true" alt="User view of the data dictionary" width="450" height="197" />
 
 *User view of the data dictionary*
 

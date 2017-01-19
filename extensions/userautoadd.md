@@ -12,35 +12,20 @@ permalink: /extension/userautoadd/
 ---
 
 
-[![image](https://travis-ci.org/aptivate/ckanext-userautoadd.svg?branch=master)](https://travis-ci.org/aptivate/ckanext-userautoadd)
+ckanext-userautoadd
+===================
 
-![image](https://coveralls.io/repos/aptivate/ckanext-userautoadd/badge.svg)
+CKAN plugin to add new users to an existing organization automatically.
 
-> target  
-> <https://coveralls.io/r/aptivate/ckanext-userautoadd>
->
-[![Downloads](https://pypip.in/download/ckanext-userautoadd/badge.svg)](https://pypi.python.org/pypi//ckanext-userautoadd/)
-
-[![Latest Version](https://pypip.in/version/ckanext-userautoadd/badge.svg)](https://pypi.python.org/pypi/ckanext-userautoadd/)
-
-[![Supported Python versions](https://pypip.in/py_versions/ckanext-userautoadd/badge.svg)](https://pypi.python.org/pypi/ckanext-userautoadd/)
-
-[![Development Status](https://pypip.in/status/ckanext-userautoadd/badge.svg)](https://pypi.python.org/pypi/ckanext-userautoadd/)
-
-[![License](https://pypip.in/license/ckanext-userautoadd/badge.svg)](https://pypi.python.org/pypi/ckanext-userautoadd/)
-
-|---------------------|
-| ckanext-userautoadd |
-
-Adds new users to an existing organization.
+This plugin implements the `user_create` action to add users to an existing organization with a given role (both specified in the configuration - See Config Settings below).
 
 Requirements
-============
+------------
 
 Tested with CKAN v2.5.2
 
 Installation
-============
+------------
 
 To install ckanext-userautoadd:
 
@@ -58,14 +43,16 @@ To install ckanext-userautoadd:
         sudo service apache2 reload
 
 Config Settings
-===============
+---------------
 
-> \# The organization to which new users are added ckan.userautoadd.organization\_name = my\_organization
->
-> \# The role the new users will have ckan.userautoadd.organization\_role = editor
+    # The organization to which new users are added
+    ckan.userautoadd.organization_name = my_organization
+
+    # The role the new users will have
+    ckan.userautoadd.organization_role = editor
 
 Development Installation
-========================
+------------------------
 
 To install ckanext-userautoadd for development, activate your CKAN virtualenv and do:
 
@@ -75,7 +62,7 @@ To install ckanext-userautoadd for development, activate your CKAN virtualenv an
     pip install -r dev-requirements.txt
 
 Running the Tests
-=================
+-----------------
 
 To run the tests, do:
 
@@ -85,7 +72,8 @@ To run the tests and produce a coverage report, first make sure you have coverag
 
     nosetests --nologcapture --with-pylons=test.ini --with-coverage --cover-package=ckanext.userautoadd --cover-inclusive --cover-erase --cover-tests
 
----------------------------------Registering ckanext-userautoadd on PyPI ---------------------------------
+Registering ckanext-userautoadd on PyPI
+---------------------------------------
 
 ckanext-userautoadd should be availabe on PyPI as <https://pypi.python.org/pypi/ckanext-userautoadd>. If that link doesn't work, then you can register the project on PyPI for the first time by following these steps:
 
@@ -106,7 +94,8 @@ ckanext-userautoadd should be availabe on PyPI as <https://pypi.python.org/pypi/
         git tag 0.0.1
         git push --tags
 
-----------------------------------------Releasing a New Version of ckanext-userautoadd ----------------------------------------
+Releasing a New Version of ckanext-userautoadd
+----------------------------------------------
 
 ckanext-userautoadd is availabe on PyPI as <https://pypi.python.org/pypi/ckanext-userautoadd>. To publish a new version to PyPI follow these steps:
 
@@ -124,5 +113,12 @@ ckanext-userautoadd is availabe on PyPI as <https://pypi.python.org/pypi/ckanext
         git tag 0.0.2
         git push --tags
 
+About
+-----
 
+Copyright (c) 2016 [MapAction](http://mapaction.org). Developed by [Aptivate](http://aptivate.org).
+
+Development of v1 of this plugin was funded by [ECHO](http://ec.europa.eu/echo).
+
+!["Funded by European Union Humanitarian Aid"](http://www.echo-visibility.eu/wp-content/uploads/2014/02/EU_Flag_HA_2016_EN-300x272.png)
 

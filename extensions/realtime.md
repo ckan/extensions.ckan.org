@@ -66,19 +66,14 @@ Installation
 3.  Set ckanext-realtime specific configuration options in your ckan config (e.g. /etc/ckan/default/production.ini):
 
     > *\# ckanext-realtime settings*
-    >
     > *\#at what url can the Action API be reached*
-    > *ckan.realtime.ckan\_api\_url = <http://localhost:5000/api/3/action/>*
-    >
+    > \*ckan.realtime.ckan\_api\_url = <http://localhost:5000/api/3/action/*>
     > *\# admin API key to be used by WebSocket server and datastore listener*
-    > *ckan.realtime.apikey = \<api key\>*
-    >
+    > *ckan.realtime.apikey = &lt;api key&gt;*
     > *\#redis server host*
     > *ckan.realtime.redis\_host = 127.0.0.1*
-    >
     > *\#redis server port*
     > *ckan.realtime.redis\_port = 6379*
-    >
     > *\#WebsocketServer port*
     > *ckan.realtime.wss\_port = 9000*
 
@@ -116,7 +111,7 @@ First, install jasmine test runner gem:
 
 Start the WebSocket server in the test mode:
 
-> *$ python bin/ckan\_wss \<path\_to\_ckan\_config\> - -test*
+> *$ python bin/ckan\_wss &lt;path\_to\_ckan\_config&gt; - -test*
 
 Start the jasmine test runner:
 

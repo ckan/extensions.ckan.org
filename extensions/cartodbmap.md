@@ -12,10 +12,11 @@ permalink: /extension/cartodbmap/
 ---
 
 
-|------------------------------------------------|
-| ckanext-cartodbmap (CKAN CartoDB ResourceView) |
+|                                              |
+|----------------------------------------------|
+| ckanext-cartodbmap (CKAN Carto ResourceView) |
 
-Use CartoDB as a more powerful/performant way to visualize geospatial data in CKAN. And not just visualize, but actually start telling stories as well with round-tripping support with CartoDB editor.
+Use Carto as a more powerful/performant way to visualize geospatial data in CKAN. And not just visualize, but actually start telling stories as well with round-tripping support with the Carto Builder editor.
 
 Config Settings
 ===============
@@ -25,7 +26,11 @@ Add following in config settings:
     ckanext.cartodbmap.cartodb.username = <CartoDB Username Here> 
     ckanext.cartodbmap.cartodb.key = <API Key here> 
 
-Extras:
+The following can also be optionally added:
+
+Set a limit for DataStore resources. Resources with a row count higher than the limit will not have a view created, the default value is 100000:
+
+    ckanext.cartodbmap.datastore.limit = 100000
 
 Remove geojson\_preview from ckan.plugins list
 

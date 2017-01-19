@@ -18,6 +18,8 @@ dga-spatialingestor
 
 Provides ingestion capability for CKAN that can be triggered on dataset update with https://github.com/datagovuk/ckanext-os
 
+Alternatives include https://github.com/ngds/ckanext-geoserver http://ckan.org/2015/09/16/implementing-vectortiles-preview-of-geodata-on-hdx/ https://github.com/datacats/ckanext-geopusher
+
 
 CKAN Configuration ini settings:
 

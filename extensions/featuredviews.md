@@ -12,6 +12,7 @@ permalink: /extension/featuredviews/
 ---
 
 
+|                       |
 |-----------------------|
 | ckanext-featuredviews |
 
@@ -24,17 +25,11 @@ This extension lets you mark Resource Views as featured so they show up right on
 Usage
 =====
 
-Clone it. This package is not on PyPI yet: :
-
-    git clone https://github.com/deniszgonjanin/ckanext-featuredviews.git
-    cd ckanext-featuredviews
-    python setup.py develop
-
 Add to the list of plugins: :
 
     ckan.plugins = ... featuredviews
 
-The database table for featured views should be created automatically at startup. So the following command is optional: :
+Run the migrations: :
 
-    paster --plugin=ckanext-featuredviews featured migrate -c production.ini
+    paster --plugin=ckanext-featuredviews featured migrate
 

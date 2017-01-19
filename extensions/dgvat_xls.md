@@ -38,5 +38,5 @@ Set up the needed values in your ini:
 Using the Extension
 -------------------
 
-The plugin is now reachable at: \<your\_ckan\_url\>/export\_xls
+The plugin is now reachable at: &lt;your\_ckan\_url&gt;/export\_xls
 

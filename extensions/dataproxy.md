@@ -12,32 +12,18 @@ permalink: /extension/dataproxy/
 ---
 
 
-ckanext-dataproxy
-=========
-ckanext-dataproxy is [CKAN](https://github.com/ckan/ckan) extension that enables previewing data from remote databases via SQLAlchemy. The extension is compatible with datastore by masking the dataproxy resource as a datastore resource so it could be requested via api/3/action/datastore_search or previewed in-browser with recline-preview.
+# ckanext-dataproxy
+ckanext-dataproxy is [CKAN](https://github.com/ckan/ckan) extension that enables previewing data from remote databases via SQLAlchemy. The extension is compatible with datastore by masking the dataproxy resource as a datastore resource so it could be requested via `/api/3/action/datastore_search` or previewed in-browser with recline-preview.
 
-Usage
--------
-*Using this module assumes that CKAN server can access the database which is being proxied via resource.*
 
-Create a dataset and navigate to resource adding form:
-![create-resource](http://i.imgur.com/B7jAl7T.png)
+Usage:
 
-Upon clicking on the DataProxy button, following fields appear:
-![dataproxy-fields](http://i.imgur.com/iQexXDM.png)
+- [CKAN 2.2.x](https://github.com/cphsolutionslab/ckanext-dataproxy/wiki/Usage-with-CKAN-2.2.x)
+- [CKAN 2.5.x](https://github.com/cphsolutionslab/ckanext-dataproxy/wiki/Usage-with-CKAN-2.5.x)
 
- - The interface assists by providing default ports for various database types
- - Connection string (URL field) is automatically generated based on entered values
- - Connection string can be modified to pass additional parameters if necessary
- - Password will be encrypted with AES256 block cipher and replaced with \_password\_ placeholder
+## Installation 
+__NB! This module is developed for CKAN v2.2.x and v2.5.x, compatibility with other versions is not ensured__
 
-Upon navigating to the resource, recline will automatically render preview:
-![recline-preview](http://i.imgur.com/OCA4tMf.png)
-The resource is also accessible at api/3/action/datastore_search regardless if datastore extension itself is set up or not. The API response format is compatible with datastore resources*
-
-Installing
--------
-__NB! This module is developed on CKAN v2.2.1, compatibility with other version is not ensured__
 1) Clone this repo  
 
 ```sh
@@ -76,20 +62,27 @@ You can run the following command in your shell to generate a random secret:
 echo "import hashlib ; from uuid import uuid4 ; print hashlib.sha256(str(uuid4())).hexdigest()" | python -
 ```
 
-5) Enable the plugin, append 'dataproxy' to plugins:  
 
-In your settings file (e.g. /etc/ckan/default/production.ini)
+## Enable on CKAN 2.2.x
+
+Enable the extension by appending `dataproxy` to `ckan.plugins` variable in your configuration file:
+
 ```
 ckan.plugins = stats text_preview ... dataproxy
 ```
 
-Tests
--------
-TODO: No unit-tests currently
 
-Known bugs
--------
-1. if resource is file upload, then 'dataproxy' button will appear next to 'remove' button
-2. can not change resource type to 'dataproxy' from existing resource, however existing 'dataproxy' resource can be changed to other type
-3. download entire resource as csv not implemented
+## Enable on CKAN 2.5.x
+
+Enable the extension by appending `dataproxy` and `dataproxy_view` to `ckan.plugins` variable in your configuration file:
+
+```
+ckan.plugins = stats text_preview ... dataproxy dataproxy_view
+```
+
+Then append `dataproxy_view` to `ckan.views.default_views` variable:
+
+```
+ckan.views.default_views = image_view ... dataproxy_view
+```
 

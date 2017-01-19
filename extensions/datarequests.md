@@ -26,7 +26,7 @@ If you prefer to use the graphical interface, you should click on the "Data Requ
 
 * **Title**: a title for your data request
 * **Description**: a long description for your data request. You should include as much details as you can in order to allow others to understand you needs and upload a dataset that fulfil your requeriments.
-* **Organization**: in some cases, you want to ask specific data to an specific organization. If you are in such situation, you should complete this field. 
+* **Organization**: in some cases, you want to ask specific data to an specific organization. If you are in such situation, you should complete this field.
 
 Once that you have created your data request, you can view it by clicking on the link provided when you created it. When you are the owner of a data request, you will also be able of:
 * **Closing the data request** if you consider that there is a new dataset that fulfil your needs
@@ -48,34 +48,34 @@ In addition, you should note that the parameters will be checked and an exceptio
 ##### Parameters (included in `data_dict`):
 * **`title`** (string): the title of the data request
 * **`description`** (string): a brief description for your data request
-* **`organization_id`** (string): the ID of the organization in case you want to assing the data request to an organization.
+* **`organization_id`** (string): The ID of the organization you want to asign the data request (optional).
 
 ##### Returns:
 A dict with the data request (`id`, `user_id`, `title`, `description`,`organization_id`, `open_time`, `accepted_dataset`, `close_time`, `closed`).
 
 
 #### `datarequest_show(context, data_dict)`
-Action to retrieve the information of a data request. The only required parameter is the `id` of the data request. A `NotFound` exception will be risen if the `id` is not found. 
+Action to retrieve the information of a data request. The only required parameter is the `id` of the data request. A `NotFound` exception will be risen if the `id` is not found.
 
 Access rights will be checked before returning the information and an exception will be risen (`NotAuthorized`) if the user is not authorized.
 
 ##### Parameters (included in `data_dict`):
-* **`id`** (string): the ID of the datarequest to be displayed
+* **`id`** (string): the ID of the datarequest to be returned.
 
 ##### Returns:
 A dict with the data request (`id`, `user_id`, `title`, `description`,`organization_id`, `open_time`, `accepted_dataset`, `close_time`, `closed`).
 
 
 #### `datarequest_update(context, data_dict)`
-Action to update a dara request. The function checks the access rights of the user before updating the data request. If the user is not allowed, a `NotAuthorized` exception will be risen
+Action to update a data request. The function checks the access rights of the user before updating the data request. If the user is not allowed, a `NotAuthorized` exception will be risen
 
 In addition, you should note that the parameters will be checked and an exception (`ValidationError`) will be risen if some of these parameters are not valid.
 
 ##### Parameters (included in `data_dict`):
 * **`id`** (string): the ID of the datarequest to be updated
-* **`title`** (string): the title of the data request
-* **`description`** (string): a brief description for your data request
-* **`organization_id`** (string): the ID of the organization in case you want to assing the data request to an organization.
+* **`title`** (string): the updated title of the data request
+* **`description`** (string): a updated brief description for your data request
+* **`organization_id`** (string): The ID of the organization you want to asign the data request (optional).
 
 ##### Returns:
 A dict with the data request (`id`, `user_id`, `title`, `description`,`organization_id`, `open_time`, `accepted_dataset`, `close_time`, `closed`).
@@ -83,20 +83,22 @@ A dict with the data request (`id`, `user_id`, `title`, `description`,`organizat
 
 #### `datarequest_index(context, data_dict)`
 Returns a list with the existing data requests. Rights access will be checked before returning the results. If the user is not allowed, a `NotAuthorized` exception will be risen
-    
+
 ##### Parameters (included in `data_dict`):
 * **`organization_id`** (string) (optional): to filter the result by organization
 * **`user_id`** (string) (optional): to filter the result by user
 * **`closed`** (string) (optional): to filter the result by state (`True`: Closed, `False`: Open)
 * **`offset`** (int) (optional) (default `0`): the first element to be returned
 * **`limit`** (int) (optional) (default `10`): The max number of data requests to be returned
+* **`q`** (string) (optional): to filter the result using a free-text.
+* **`sort`** (string) (optional) (default `asc`): `desc` to order data requests in a descending way. `asc` to order data requests in an ascending way.
 
 ##### Returns:
 A dict with three fields: `result` (a list of data requests), `facets` (a list of the facets that can be used) and `count` (the total number of existing data requests)
 
 
 #### `datarequest_delete(context, data_dict)`
-Action to delete a new dara request. The function checks the access rights of the user before deleting the data request. If the user is not allowed, a `NotAuthorized` exception will be risen.
+Action to delete a new data request. The function checks the access rights of the user before deleting the data request. If the user is not allowed, a `NotAuthorized` exception will be risen.
 
 ##### Parameters (included in `data_dict`):
 * **`id`** (string): the ID of the datarequest to be deleted
@@ -141,11 +143,12 @@ A dict with the following fields: `id`, `user_id`, `datarequest_id`, `time` and 
 Action to retrieve all the comments of a data request. Access rights will be checked before getting the comments and a `NotAuthorized` exception will be risen if the user is not allowed to read the comments
 
 ##### Parameters (included in `data_dict`):
-* **`datarequest_id`** (string): The ID of the datarequest whose comments want to be retrieved  
+* **`datarequest_id`** (string): The ID of the datarequest whose comments want to be retrieved
+* **`sort`** (string) (optional) (default `asc`): `desc` to order comments in a descending way. `asc` to order comments in an ascending way.
 
 ##### Returns:
  A list with all the comments of a data request. Every comment is a dict with the following fields: `id`, `user_id`, `datarequest_id`, `time` and `comment`
- 
+
 
 #### `datarequest_comment_update(context, data_dict)`
 Action to update a comment of a data request. Access rights will be checked before updating the comment and a `NotAuthorized` exception will be risen if the user is not allowed to update the comment
@@ -171,23 +174,67 @@ Installation
 ------------
 Install this extension in your CKAN instance is as easy as intall any other CKAN extension.
 
-* Download the source from this GitHub repo.
-* Activate your virtual environment (generally by running `. /usr/lib/ckan/default/bin/activate`)
-* Install the extension by running `python setup.py develop`
-* Modify your configuration file (generally in `/etc/ckan/default/production.ini`) and add `datarequests` in the `ckan.plugins` setting. 
- * If you want to disable the comments system, you must also add this `ckan.datarequests.comments = False` to your properties file.
-* Restart your apache2 reserver (`sudo service apache2 restart`)
+* Activate your virtual environment
+```
+. /usr/lib/ckan/default/bin/activate
+```
+* Install the extension
+```
+pip install ckanext-datarequests
+```
+> **Note**: If you prefer, you can also download the source code and install the extension manually. To do so, execute the following commands:
+> ```
+> $ git clone https://github.com/conwetlab/ckanext-datarequests.git
+> $ cd ckanext-datarequests
+> $ python setup.py install
+> ```
+
+* Modify your configuration file (generally in `/etc/ckan/default/production.ini`) and add `datarequests` in the `ckan.plugins` property.
+```
+ckan.plugins = datarequests <OTHER_PLUGINS>
+```
+* Enable or disable the comments system by setting up the `ckan.datarequests.comments` property in the configuration file (by default, the comments system is enabled).
+```
+ckan.datarequests.comments = [true|false]
+```
+* Enable or disable a badge to show the number of data requests in the menu by setting up the `ckan.datarequests.show_datarequests_badge` property in the configuration file (by default, the badge is not shown).
+```
+ckan.datarequests.show_datarequests_badge = [true|false]
+```
+* Restart your apache2 reserver
+```
+sudo service apache2 restart
+```
 * That's All!
+
+Translations
+------------
+Help us to translate this extension so everyone can create data requests. Currently, the extension is translated to English and Spanish. If you want to contribute with your translation, the first step is to close this repo. Then, create the locale for your translation by executing:
+
+```
+python setup.py init_catalog -l <YOUR_LOCALE>
+```
+
+This will generate a file called `i18n/YOUR_LOCALE/LC_MESSAGES/ckanext-datarequests.po`. This file contains all the untranslated strings. You can manually add a translation for it by editing the `msgstr` section:
+
+```
+msgid "This is an untranslated string"
+msgstr "This is a itranslated string"
+```
+
+Once the translation files (`po`) have been updated, compile them by running:
+
+```
+python setup.py compile_catalog
+```
+
+This will generate the required `mo` file. Once this file has been generated, commit your changes and create a Pull Request. 
 
 Tests
 -----
-This sofware contains a set of test to detect errors and failures. You can run this tests by running the following command:
+This sofware contains a set of test to detect errors and failures. You can run this tests by running the following command (this command will generate coverage reports):
 ```
-nosetests --ckan --with-pylons=test.ini ckanext/datarequests/tests/
+python setup.py nosetests
 ```
-**Note:** The `test.ini` file contains a link to the CKAN `test-core.ini` file. You will need to change that link to the real path of the file in your system (generally `/usr/lib/ckan/default/src/ckan/test-core.ini`). 
-
-You can also generate coverage reports by running:
-```
-nosetests --ckan --with-xunit --with-pylons=test.ini ckanext/datarequests/tests/ --with-coverage --cover-package=ckanext.datarequests --cover-inclusive --cover-erase . --cover-xml
+**Note:** The `test.ini` file contains a link to the CKAN `test-core.ini` file. You will need to change that link to the real path of the file in your system (generally `/usr/lib/ckan/default/src/ckan/test-core.ini`).
 

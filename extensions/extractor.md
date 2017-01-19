@@ -15,6 +15,8 @@ permalink: /extension/extractor/
 ckanext-extractor
 =================
 
+[![image](https://travis-ci.org/stadt-karlsruhe/ckanext-extractor.svg?branch=master)](https://travis-ci.org/stadt-karlsruhe/ckanext-extractor)
+
 A [CKAN](https://www.ckan.org) extension for automatically extracting text and metadata from datasets.
 
 *ckanext-extractor* automatically extracts text and metadata from your resources and adds them to the search index so that they can be used to find your data.
@@ -35,11 +37,15 @@ Activate your CKAN virtualenv:
 
     . /usr/lib/ckan/default/bin/activate
 
-Install *ckanext-extractor* and its dependencies:
+Install the latest development version of *ckanext-extractor* and its dependencies:
 
     cd /usr/lib/ckan/default
     pip install -e git+https://github.com/stadt-karlsruhe/ckanext-extractor#egg=ckanext-extractor
     pip install -r src/ckanext-extractor/requirements.txt
+
+On a production system you'll probably want to pin a certain [release version](https://github.com/stadt-karlsruhe/ckanext-extractor/releases) of *ckanext-extractor* instead:
+
+    pip install -e git+https://github.com/stadt-karlsruhe/ckanext-extractor@v0.2.0#egg=ckanext-extractor
 
 ### Configure CKAN
 
@@ -148,11 +154,9 @@ Paster Commands
 
 In general, *ckanext-extractor* works automatically: whenever a new resource is created or an existing resource changes, its metadata is extracted and indexed. However, for administration purposes, metadata can also be managed from the command line using the [paster](http://docs.ckan.org/en/latest/maintaining/paster.html) tool.
 
-> **note**
->
-> You have to activate your virtualenv before you can use these commands:
->
->     . /usr/lib/ckan/default/bin/activate
+**Note:** You have to activate your virtualenv before you can use these commands:
+
+    . /usr/lib/ckan/default/bin/activate
 
 The general form for a paster command is
 
@@ -251,6 +255,17 @@ Returns a dict with the resource's metadata and information about the last extra
 
 Available to all (even anonymous) users via GET and POST.
 
+Postprocessing Extraction Results
+---------------------------------
+
+The `ckanext.extractor.interfaces.IExtractorPostprocessor` interface can be used to hook into the extraction process. It allows you to postprocess extraction results and to automatically trigger actions that use the extraction results for other purposes.
+
+The interface offers 3 hooks:
+
+-   `extractor_after_extract(resource_dict, extracted)` is called right after the extraction before the extracted metadata `extracted` is filtered and stored. You can modify `extracted` (in-place) and the changes will end up in the database.
+-   `extractor_after_save(resource_dict, metadata_dict)` is called after the metadata has been filtered and stored in the database but before it is indexed. `metadata_dict` is a dict-representation of a `ckanext.extractor.model.ResourceMetadata` instance and contains both the extracted metadata and information about the extraction process (meta-metadata, so to speak).
+-   `extractor_after_index(resource_dict, metadata_dict)` is called at the very end of the extraction process, after the metadata has been extracted, filtered, stored and indexed.
+
 Development
 -----------
 
@@ -274,4 +289,17 @@ License
 Copyright (C) 2016 Stadt Karlsruhe (www.karlsruhe.de)
 
 Distributed under the GNU Affero General Public License. See the file `LICENSE` for details.
+
+Changes
+-------
+
+### 0.2.0
+
+-   Added `IExtractorPostprocessor` interface for postprocessing extraction results
+-   Fixed logging problems in `paster` commands
+
+### 0.1.0
+
+-   First release
+
 

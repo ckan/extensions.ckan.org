@@ -1,7 +1,7 @@
 ---
 layout: extension
 name: aaf
-title: Allows AAF (Australian Access Federation) authentication to log into a CKAN installation
+title: Allows AAF (Australian Acceess Federation) authentication to log into a CKAN installation
 author: Louis des Landes (Swinburne University)
 homepage: https://github.com/Psykar/ckanext-aaf
 github_user: Psykar
@@ -15,6 +15,9 @@ permalink: /extension/aaf/
 [![image](https://travis-ci.org/Psykar/ckanext-aaf.svg?branch=master)](https://travis-ci.org/Psykar/ckanext-aaf)
 
 ![image](https://coveralls.io/repos/github/Psykar/ckanext-aaf/badge.svg)
+
+> target  
+> <https://coveralls.io/r/Psykar/ckanext-aaf>
 
 [![Downloads](https://img.shields.io/pypi/dm/ckanext-aaf.svg)](https://pypi.python.org/pypi/ckanext-aaf/)
 

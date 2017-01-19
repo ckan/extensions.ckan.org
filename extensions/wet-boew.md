@@ -12,27 +12,68 @@ permalink: /extension/wet-boew/
 ---
 
 
+
 ckanext-wet-boew
 ================
 
-This CKAN extension adds the Web Experience Toolkit base theme to CKAN 2.0. You will need WET release 3.1.0, which you can find here: <http://wet-boew.github.io/wet-boew/docs/versions/dwnld-en.html> . Copy the contents of the 'dist' folder into 'ckanext-wet-boew/ckanext/wet\_boew/public/dist':
+This CKAN extension adds the Web Experience Toolkit 4.0.x Base theme to CKAN 2.2. This theme is available from the [WET-BOEW
+website](http://wet-boew.github.io/wet-boew/docs/versions/dwnld-en.html).
 
-    cd ckanext/wet_boew/public/dist/
+Please note that this extension does not use the Fanstatic Resource Manager in CKAN. Instead, the WET resources are served
+directly from the web server.
 
-    wget https://github.com/wet-boew/wet-boew-dist/archive/v3.1.7.zip
-    unzip v3.1.7.zip wet-boew-dist-3.1.7/dist/*
-    mv wet-boew-dist-3.1.7/dist/* .
-    rm -r v3.1.7.zip wet-boew-dist-3.1.7/
+Configuration Settings
+----------------------
 
-The WET toolkit distribution includes only minimized versions of the required Javascript files. However CKAN uses the Fanstatic resource manager which requires un-minimized Javascript files, so it is necessary to supply these separately. Copy an unminimized version of the JQuery Mobile javascript file (obtained at '<http://jquerymobile.com/blog/2013/02/20/jquery-mobile-1-3-0-released/>') into 'ckanext-wet-boew/ckanext/wet\_boew/public/dist/js/jquerymobile/jquery.mobile.js':
+## WET Resources ##
 
-    mkdir -p js/jquerymobile/
-    wget http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.js \
-      -O js/jquerymobile/jquery.mobile-1.3.0.js
+### Externally Hosted ###
 
-This extension also requires the python json and shapely libraries that are used by the CKAN spatial extension.
+1. Set `wet_boew.url` to the root URL where the WET resources are hosted
 
-By default, CKAN pages will still display using the default CKAN template. To use the base theme, override the template for the page and have it extend template page\_wet.html instead of the usual page.html.
+  *Example*
 
-To use a WET page with a left hand menu, instead extend template page\_sec\_menu\_wet.html.
+  ```
+  wet_boew.url = http://domain.com/wet-boew/v4.0.23
+  ```
+
+### Internally Hosted  ###
+
+1. Extract the WET 4.0.x core CDN and desired themes cdn package to a folder
+
+  ```
+  export WET_VERSION=v4.0.23
+  mkdir wet-boew && curl -L https://github.com/wet-boew/wet-boew-cdn/archive/$WET_VERSION.tar.gz | tar -zx --strip-components 1 --directory=wet-boew
+  mkdir GCWeb && curl -L https://github.com/wet-boew/themes-cdn/archive/$WET_VERSION-gcweb.tar.gz | tar -zx --strip-components 1 --directory=GCWeb
+  mkdir theme-base && curl -L https://github.com/wet-boew/themes-cdn/archive/$WET_VERSION-theme-base.tar.gz | tar -zx --strip-components 1 --directory=theme-base
+  mkdir theme-gc-intranet && curl -L https://github.com/wet-boew/themes-cdn/archive/$WET_VERSION-theme-gc-intranet.tar.gz | tar -zx --strip-components 1 --directory=theme-gc-intranet
+  mkdir theme-gcwu-fegc && curl -L https://github.com/wet-boew/themes-cdn/archive/$WET_VERSION-theme-gcwu-fegc.tar.gz | tar -zx --strip-components 1 --directory=theme-gcwu-fegc
+  mkdir theme-ogpl && curl -L https://github.com/wet-boew/themes-cdn/archive/$WET_VERSION-theme-ogpl.tar.gz | tar -zx --strip-components 1 --directory=theme-ogpl
+  mkdir theme-wet-boew && curl -L https://github.com/wet-boew/themes-cdn/archive/$WET_VERSION-theme-wet-boew.tar.gz | tar -zx --strip-components 1 --directory=theme-wet-boew
+  ```
+
+
+2. Set the `extra_public_paths` settings to that path where the files are extracted
+
+  *Example*
+
+  ```
+  extra_public_paths = /home/user/wet-boew/v4.0.23
+  ```
+
+## Selecting a theme ###
+
+1. Add the desired theme to the `ckan.plugins` configuration (`wet_boew`, `wet_boew_theme_gcweb`, `wet_boew_theme_base`, `wet_boew_theme_gc_intranet`, `wet_boew_theme_ogpl`)
+
+
+## Additional Configuration ##
+
+1. **wet_theme.geo_map_type**: set this value to indicate what style of
+[WET Geomap widget](http://wet-boew.github.io/wet-boew/docs/ref/geomap/geomap-en.html) to use. Set this to either
+'static' or 'dynamic'.
+
+  *Example*
+   ```
+   wet_theme.geo_map_type = static
+   ```
 

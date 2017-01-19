@@ -135,5 +135,12 @@ ckanext-datasetthumbnail is availabe on PyPI as <https://pypi.python.org/pypi/ck
         git tag 0.0.2
         git push --tags
 
+About
+-----
 
+Copyright (c) 2016 [MapAction](http://mapaction.org). Developed by [Aptivate](http://aptivate.org).
+
+Development of v1 of this plugin was funded by [ECHO](http://ec.europa.eu/echo).
+
+!["Funded by European Union Humanitarian Aid"](http://www.echo-visibility.eu/wp-content/uploads/2014/02/EU_Flag_HA_2016_EN-300x272.png)
 

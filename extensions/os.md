@@ -20,7 +20,7 @@ This extension contains the Map Based Search and Map Preview pages, seen on data
 Licence
 -------
 
-All of this code is [c] Crown Copyright. Ordnance Survey developed the search and preview widgets, which were integrated into this CKAN extension by Cabinet Office.
+All of this code is \[c\] Crown Copyright. Ordnance Survey developed the search and preview widgets, which were integrated into this CKAN extension by Cabinet Office.
 
 This software is licensed pursuant to the terms of the BSD 3 Clause License, which can be found at: <http://opensource.org/licenses/BSD-3-Clause>
 
@@ -114,7 +114,7 @@ Tests
 
 For the OS server tests you need to provide this option in your development.ini:
 
-> ckanext-os.test.prod-apikey = \<key\>
+> ckanext-os.test.prod-apikey = &lt;key&gt;
 
 Run the tests like this:
 
