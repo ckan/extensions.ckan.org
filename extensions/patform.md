@@ -14,14 +14,18 @@ permalink: /extension/patform/
 
 ckanext-patform
 ===============
+
 install
 =======
-```bash
+
+``` bash
 pip install -e git+https://github.com/opendatatrentino/ckanext-patform.git#egg=ckanext-pat
 ```
+
 load plugin in ckan configuration
 =================================
-```bash
+
+``` bash
 ckan.plugins = pat
 ```
 

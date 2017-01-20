@@ -21,20 +21,20 @@ DDI extension for CKAN for the Worldbank.
 
 Features:
 
-* [Configuration of DDI fields to customize display](#ddi-fields-configuration)
-* [Import DDI data via command line](#run-import-from-command-line)
-* [Upload DDI files (XML) to a CKAN instance](#import)
-* [Manage DDI data manually via the CKAN frontend](#manage-ddi-datasets)
-* [Harvest data from a NADA instance](#nada-harvester)
+-   [Configuration of DDI fields to customize display](#ddi-fields-configuration)
+-   [Import DDI data via command line](#run-import-from-command-line)
+-   [Upload DDI files (XML) to a CKAN instance](#import)
+-   [Manage DDI data manually via the CKAN frontend](#manage-ddi-datasets)
+-   [Harvest data from a NADA instance](#nada-harvester)
 
-
-## Installation
+Installation
+------------
 
 **Requirement: This extensions runs on CKAN 2.3 or higher.**
 
 Use `pip` to install this plugin. This example installs it in `/home/www-data`
 
-```bash
+``` bash
 source /home/www-data/pyenv/bin/activate
 pip install -e git+https://github.com/liip/ckanext-ddi.git#egg=ckanext-ddi --src /home/www-data
 cd /home/www-data/ckanext-ddi
@@ -47,12 +47,14 @@ If you don't want to use the frontend-part of this extension, you can omit the `
 
 To use the `nada_harvester`, make sure the [ckanext-harvest extension](https://github.com/ckan/ckanext-harvest) is installed as well.
 
-## Configuration
+Configuration
+-------------
 
 ### CKAN configuration (production.ini)
+
 Four options are available:
 
-```bash
+``` bash
 ckanext.ddi.config_file = /path/to/my/config.yml
 ckanext.ddi.default_license = CC0-1.0
 ckanext.ddi.allow_duplicates = True
@@ -65,56 +67,57 @@ The `allow_duplicates` option is used to determine, if duplicate datasets are al
 With `override_datasets` you can specify, if you import a dataset that already exists, if a new dataset should be created or if the existing one should be overridden (defaults to `False`).
 
 ### DDI fields configuration
+
 The display and structure of the DDI fields can be configured individually. A separate YAML config file is used for that.
 
 There are 3 sections:
 
-1. `sections`: describes different section, used to group together `fields`
-2. `vocabularies`: describes availables controlled vocabularies, that can be referenced
-3. `fields`: describes all fields, their type and how they are displayed. Only the predefined fields can be used:
-    * `id`
-    * `name`
-    * `title`
-    * `url`
-    * `author`
-    * `author_email`
-    * `maintainer`
-    * `maintainer_email`
-    * `license_id`
-    * `copyright`
-    * `version`
-    * `version_notes`
-    * `notes`
-    * `tags`
-    * `abbreviation`
-    * `study_type`
-    * `series_info`
-    * `id_number`
-    * `description`
-    * `production_type`
-    * `production_date`
-    * `abstract`
-    * `kind_of_data`
-    * `unit_of_analysis`
-    * `description_of_scope`
-    * `country`
-    * `geographic_coverage`
-    * `time_period_covered`
-    * `universe`
-    * `primary_investigator`
-    * `other_producers`
-    * `funding`
-    * `sampling_procedure`
-    * `data_collection_dates`
-    * `access_authority`
-    * `conditions`
-    * `citation_requirement`
-    * `contact_persons`
-    * `contact_persons_email`
+1.  `sections`: describes different section, used to group together `fields`
+2.  `vocabularies`: describes availables controlled vocabularies, that can be referenced
+3.  `fields`: describes all fields, their type and how they are displayed. Only the predefined fields can be used:
+    -   `id`
+    -   `name`
+    -   `title`
+    -   `url`
+    -   `author`
+    -   `author_email`
+    -   `maintainer`
+    -   `maintainer_email`
+    -   `license_id`
+    -   `copyright`
+    -   `version`
+    -   `version_notes`
+    -   `notes`
+    -   `tags`
+    -   `abbreviation`
+    -   `study_type`
+    -   `series_info`
+    -   `id_number`
+    -   `description`
+    -   `production_type`
+    -   `production_date`
+    -   `abstract`
+    -   `kind_of_data`
+    -   `unit_of_analysis`
+    -   `description_of_scope`
+    -   `country`
+    -   `geographic_coverage`
+    -   `time_period_covered`
+    -   `universe`
+    -   `primary_investigator`
+    -   `other_producers`
+    -   `funding`
+    -   `sampling_procedure`
+    -   `data_collection_dates`
+    -   `access_authority`
+    -   `conditions`
+    -   `citation_requirement`
+    -   `contact_persons`
+    -   `contact_persons_email`
 
 Example:
 
-```bash
+``` bash
 fields:
     identification:
         title:
@@ -168,7 +171,9 @@ Based on this configuration the web UI is generated:
 
 ![Dataset page](https://raw.github.com/liip/ckanext-ddi/master/screenshots/dataset_view.png)
 
-## Usage
+Usage
+-----
+
 Data can be imported either via command line or using the web interface.
 
 ### Web interface
@@ -190,61 +195,65 @@ The "Add Dataset" form is modified, so you can find all the fields from your DDI
 
 ![Dataset form](https://raw.github.com/liip/ckanext-ddi/master/screenshots/manual_dataset.png)
 
-
 ### Run import from command line
+
 This plugin provides the possibility to import DDI XML files using a paster command.
 
-```bash
+``` bash
 source /home/www-data/pyenv/bin/activate
 paster --plugin=ckanext-ddi ddi import <path_or_url> [<license>] -c <path to config file>
 ```
 
-* `<path_or_url>` is a required parameter and - as the name implies - it can can either be a local file or a publicly accessible URL.
-* `<license>` is an optional parameter to specify the license of the dataset. Ideally this is a value from the [configured license group file](http://docs.ckan.org/en/943-writing-extensions-tutorial/configuration.html#licenses-group-url).
+-   `<path_or_url>` is a required parameter and - as the name implies - it can can either be a local file or a publicly accessible URL.
+-   `<license>` is an optional parameter to specify the license of the dataset. Ideally this is a value from the [configured license group file](http://docs.ckan.org/en/943-writing-extensions-tutorial/configuration.html#licenses-group-url).
 
 ### NADA harvester
-To add a harvester for a [NADA](http://www.ihsn.org/home/projects/NADA-development) instance, you should be logged in and visit `/harvest` on your CKAN installation (e.g. http://my.ckaninstance.org/harvest).
+
+To add a harvester for a [NADA](http://www.ihsn.org/home/projects/NADA-development) instance, you should be logged in and visit `/harvest` on your CKAN installation (e.g. <http://my.ckaninstance.org/harvest>).
 There you can add a new harvest source with the type "NADA harvester for DDI".
 
-In the URL field, specify the base URL of your NADA instance. If the start page of your NADA instance is my.nada-instance.org/index.php/home, then please specify http://my.nada-instance.org as the URL for the harvester.
+In the URL field, specify the base URL of your NADA instance. If the start page of your NADA instance is my.nada-instance.org/index.php/home, then please specify <http://my.nada-instance.org> as the URL for the harvester.
 
 ![Example configuration for NADA harvester](https://raw.github.com/liip/ckanext-ddi/master/screenshots/nada_harvester_config.png)
 
 You can specify the configuration as JSON:
 
-* `user`: the CKAN user to perform the harvesting (default: `harvest`)
-* `license`: A default license to apply to all harvested datasets (default: empty). If this is not specified the config value `ckanext.ddi.default_license` is used (see above).
-* `access_type`: Parameter for NADA to specify the the data access type of the datasets, that should be harvester (default: `public_use`)
+-   `user`: the CKAN user to perform the harvesting (default: `harvest`)
+-   `license`: A default license to apply to all harvested datasets (default: empty). If this is not specified the config value `ckanext.ddi.default_license` is used (see above).
+-   `access_type`: Parameter for NADA to specify the the data access type of the datasets, that should be harvester (default: `public_use`)
 
 Possible values for `access_type`:
-* `""` (empty string, i.e. all data access types are allowed)
-* `"direct_access"`
-* `"public_use"` (default)
-* `"licensed"`
-* `"data_enclave"`
-* `"data_external"`
-* `"no_data_available"`
-* `"open_data"`
+
+-   `""` (empty string, i.e. all data access types are allowed)
+-   `"direct_access"`
+-   `"public_use"` (default)
+-   `"licensed"`
+-   `"data_enclave"`
+-   `"data_external"`
+-   `"no_data_available"`
+-   `"open_data"`
 
 JSON example:
-```bash
+
+``` bash
 {"user": "harvest", "access_type": "public_use", "license": "CC-BY-SA-4.0"}
 ```
 
-
-## Development
+Development
+-----------
 
 This CKAN extensions uses flake8 to ensure basic code quality.
 
 You can add a pre-commit hook when you have installed flake8:
 
-```bash
+``` bash
 flake8 --install-hook
 ```
 
 Travis CI is used to check the code for all PRs.
 
-## Acknowledgements
+Acknowledgements
+----------------
 
 This module was developed with support from the World Bank to provide a solution for National Statistical Offices (NSOs) that need to publish data on CKAN platforms.
 

@@ -19,11 +19,12 @@ ckanext-zhgis
 
 Harvester for the Office for Spatial Development of the Canton of Zurich
 
-## Installation
+Installation
+------------
 
 Use `pip` to install this plugin. This example installs it in `/home/www-data`
 
-```bash
+``` bash
 source /home/www-data/pyenv/bin/activate
 pip install -e git+https://github.com/ogdch/ckanext-zhgis.git#egg=ckanext-zhgis --src /home/www-data
 cd /home/www-data/ckanext-zhgis
@@ -34,12 +35,14 @@ python setup.py develop
 Make sure to add `zhgis` and `zhgis_harvest` to `ckan.plugins` in your config file.
 
 ### For development
-* install the `pre-commit.sh` script as a pre-commit hook in your local repositories:
-** `ln -s ../../pre-commit.sh .git/hooks/pre-commit`
 
-## Run harvester
+-   install the `pre-commit.sh` script as a pre-commit hook in your local repositories:
+    \*\* `ln -s ../../pre-commit.sh .git/hooks/pre-commit`
 
-```bash
+Run harvester
+-------------
+
+``` bash
 source /home/www-data/pyenv/bin/activate
 paster --plugin=ckanext-zhgis zhgis_harvest gather_consumer -c development.ini &
 paster --plugin=ckanext-zhgis zhgis_harvest fetch_consumer -c development.ini &
@@ -48,7 +51,7 @@ paster --plugin=ckanext-zhgis zhgis_harvest run -c development.ini
 
 CSW query:
 
-```bash
+``` bash
 source /home/www-data/pyenv/bin/activate
 # Show output from CSW, 'query' is typically the name of a dataset like 'swissboundaries3D'
 paster --plugin=ckanext-zhgis zhgis csw <query> -c development.ini

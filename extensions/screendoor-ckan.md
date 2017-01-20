@@ -12,8 +12,8 @@ permalink: /extension/screendoor-ckan/
 ---
 
 
-Screendoor <> CKAN Integration
----
+Screendoor &lt;&gt; CKAN Integration
+------------------------------------
 
 **Note:** This integration is only available on Screendoor's [enterprise plans](https://www.dobt.co/screendoor/enterprise/).
 

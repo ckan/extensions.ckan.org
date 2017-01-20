@@ -19,7 +19,8 @@ Shows information about the HEAD (branch and latest commit) your ckan and
 extension repositories are running on. This is done checking the local
 repositories on your server.
 
-## Install
+Install
+-------
 
 With your virtualenv activated:
 
@@ -27,7 +28,6 @@ With your virtualenv activated:
     git clone https://github.com/ckan/ckanext-repo.git
     cd ckanext-repo
     python setup.py develop
-
 
 Add the following plugin to your CKAN ini file:
 
@@ -38,8 +38,8 @@ information added to your footer.
 
 ![Screenshot](http://i.imgur.com/pUWRYdE.png)
 
-
-## Configuration
+Configuration
+-------------
 
 By default the extension will only show information about the core `ckan` repo.
 
@@ -50,21 +50,19 @@ If the `github_org` part is not provided, `ckan` is assumed. For instance:
 
     ckanext.repo.repos = ckan okfn/ckanext-glasgow ckanext-oauth2waad ckanapi
 
-You can also specify the location where the CKAN sources are installed with 
+You can also specify the location where the CKAN sources are installed with
 `ckanext.repo.srcpath` configuration option. For instance:
-    ckanext.repo.srcpath = /usr/src
+ckanext.repo.srcpath = /usr/src
 
+FAQ
+---
 
-## FAQ
+-   *What does 'Last Updated' really mean?*
 
-* *What does 'Last Updated' really mean?*
+That's the time of the last `git pull` on that repository
 
-  That's the time of the last `git pull` on that repository
-
-## License
+License
+-------
 
 (c) Open Knowledge, licensed under the [GNU Affero General Public License (AGPL) v3.0](http://www.fsf.org/licensing/licenses/agpl-3.0.html).
- 
-
-
 

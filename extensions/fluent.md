@@ -12,7 +12,8 @@ permalink: /extension/fluent/
 ---
 
 
-# ckanext-fluent
+ckanext-fluent
+==============
 
 This extension provides a way to store and return multilingul
 fields in CKAN datasets, resources, organizations and groups.
@@ -27,16 +28,17 @@ The easiest way to use fluent multilingual text fields is with
 Add `ckanext.fluent:presets.json` to your scheming.presets
 configuration settings:
 
-```json
+``` json
 scheming.presets = ckanext.scheming:presets.json
                    ckanext.fluent:presets.json
 ```
 
-## `fluent_text` fields
+`fluent_text` fields
+--------------------
 
 A fluent multilingual text field in a scheming schema:
 
-```json
+``` json
 {
   "field_name": "books",
   "preset": "fluent_text",
@@ -51,12 +53,12 @@ A fluent multilingual text field in a scheming schema:
 This new extra field "books" will appear as multiple fields in the
 dataset form, one for each language specified in `form_languages`.
 
-![Example of fluent_text form snippet](docs/multilingual-form.png)
+![Example of fluent\_text form snippet](docs/multilingual-form.png)
 
 When the dataset is accessed from the API the language values appear
 and are updated as an object, eg.:
 
-```json
+``` json
 {
   "...": "...",
   "books": {
@@ -67,16 +69,17 @@ and are updated as an object, eg.:
 }
 ```
 
-## `fluent_tags` fields
+`fluent_tags` fields
+--------------------
 
 Example multilingual tag field:
 
-```json
+``` json
 {
   "field_name": "keywords",
   "label": {
     "en": "Keywords",
-    "fr": "Mots-clés",
+    "fr": "Mots-cl&#233;s",
   },
   "preset": "fluent_tags"
 }
@@ -87,12 +90,12 @@ Note: this preset is not supported for use on the core `tags` field.
 This new extra field "keywords" will appear as multiple fields in the
 dataset form, one for each language specified in `form_languages`.
 
-![Example of fluent_tags form snippet](docs/multilingual-tags.png)
+![Example of fluent\_tags form snippet](docs/multilingual-tags.png)
 
 When the dataset is accessed from the API the language values appear
 and are updated as an object with list values, eg.:
 
-```json
+``` json
 {
   "...": "...",
   "keywords": {
@@ -103,7 +106,8 @@ and are updated as an object with list values, eg.:
 }
 ```
 
-## `fluent_core_translated` fields
+`fluent_core_translated` fields
+-------------------------------
 
 Fluent should not be directly used on ckan core fields such as `title` and `notes`.
 To use fluent to translate core fields, you should use a field with the `_translated`
@@ -111,7 +115,7 @@ suffix appended to the core field name (e.g. `title_translated`) and use the `fl
 preset. By doing so, the translated version of the field is stored in the field with the
 `_translated` suffix while the core field displays the value for the site's default language.
 
-```json
+``` json
 
 {
   "field_name": "title_translated",

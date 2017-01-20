@@ -20,8 +20,8 @@ This extension contains view plugins to display ArcGIS Map services (cached, dyn
 Available plugins
 -----------------
 
--   ArcGIS Feature Layer Viewer (ags\_fs\_view)\_
--   ArcGIS MapService Viewer (ags\_ms\_view)\_
+-   [ArcGIS Feature Layer Viewer (ags\_fs\_view)]()
+-   [ArcGIS MapService Viewer (ags\_ms\_view)]()
 
 ### ArcGIS Feature Layer Viewer (ags\_fs\_view)
 

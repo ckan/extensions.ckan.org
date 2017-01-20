@@ -12,38 +12,37 @@ permalink: /extension/stromnetzberlin/
 ---
 
 
-# ckanext-stromnetzberlin
+ckanext-stromnetzberlin
+=======================
 
 A CKAN extension for harvesting Stromnetz Berlin.
 
 ### Dependencies
 
-The harvester relies on a group import feature, which is currently not implemented in the `ckanext-harvest`. Therefore a [fork][fork] with a feature branch is used as the dependency instead.
+The harvester relies on a group import feature, which is currently not implemented in the `ckanext-harvest`. Therefore a [fork](https://github.com/fraunhoferfokus/ckanext-harvest) with a feature branch is used as the dependency instead.
 
-## Getting Started
+Getting Started
+---------------
 
 If you are using Python virtual environment (virtualenv), activate it.
 
-```
-$ pip install -e git+git://github.com/fraunhoferfokus/ckanext-stromnetzberlin.git#egg=ckanext-stromnetzberlin
-$ cd /path/to/virtualenv/src/ckanext-stromnetzberlin
-$ pip install -r pip-requirements
-$ python setup.py develop
+    $ pip install -e git+git://github.com/fraunhoferfokus/ckanext-stromnetzberlin.git#egg=ckanext-stromnetzberlin
+    $ cd /path/to/virtualenv/src/ckanext-stromnetzberlin
+    $ pip install -r pip-requirements
+    $ python setup.py develop
 
-$ cd /path/to/virtualenv/src/ckanext-harvest
-$ pip install -r pip-requirements
-$ python setup.py develop
-```
+    $ cd /path/to/virtualenv/src/ckanext-harvest
+    $ pip install -r pip-requirements
+    $ python setup.py develop
 
 Add the following plugins to your CKAN configuration file:
 
-```
-ckan.plugins = harvest stromnetz_harvester
-```
+    ckan.plugins = harvest stromnetz_harvester
 
 Please make sure, that the CKAN process will have access to the logfile specified in `/path/to/virtualenv/src/ckanext-stromnetzberlin/ckanext/stromnetzberlin/config.ini`. After restarting CKAN the plugins should be ready to use.
 
-## License
+License
+-------
 
 CKAN Extension for harvesting Stromnetz Berlin.
 
@@ -61,6 +60,4 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
-
-[fork]: https://github.com/fraunhoferfokus/ckanext-harvest
 

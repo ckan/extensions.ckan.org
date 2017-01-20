@@ -12,22 +12,24 @@ permalink: /extension/sa/
 ---
 
 
-# ckanext-sa
+ckanext-sa
+==========
 
 Custom CKAN extension for [data.sa.gov.au](http://data.sa.gov.au/)
 
-## How to Install Locally for Development
+How to Install Locally for Development
+--------------------------------------
 
-1. Install CKAN from source.
+1.  Install CKAN from source.
 
-2. Install ckanext-pdeu. Activate your CKAN virtual environment and:
+2.  Install ckanext-pdeu. Activate your CKAN virtual environment and:
 
         git clone https://github.com/okfn/ckanext-sa.git
         cd ckanext-sa
         python setup.py develop
 
-3. Edit the following settings to the `[app:main]` section of your CKAN config
-   file (e.g. `development.ini` or `sa.ini`):
+3.  Edit the following settings to the `[app:main]` section of your CKAN config
+    file (e.g. `development.ini` or `sa.ini`):
 
         ckan.plugins = stats sa datastore googleanalytics pages resource_proxy recline_preview pdf_preview text_preview
         ckan.site_title = data.sa.gov.au
@@ -50,8 +52,7 @@ Custom CKAN extension for [data.sa.gov.au](http://data.sa.gov.au/)
         googleanalytics.username = xxxx
         googleanalytics.password = xxxx
 
-
-4. Run CKAN, e.g. `paster serve sa.ini`
+4.  Run CKAN, e.g. `paster serve sa.ini`
 
 Note on CKAN versions: at the time of writing the `master` branch of
 ckanext-sa is intended to work with CKAN 2.1.1.

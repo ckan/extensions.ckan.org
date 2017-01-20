@@ -18,13 +18,13 @@ ckanext-barnet
 Config, Extensions, and Themes for the Open Barnet CKAN Portal.
 
 **Note**: This extension requires the `release-v2.2.1-barnet` branch from
-https://github.com/okfn/ckan-barnet (contains a fix to allow custom dataset
+<https://github.com/okfn/ckan-barnet> (contains a fix to allow custom dataset
 fields and "free extras" to be used at the same time, back-ported to 2.2.1).
 Once CKAN 2.3 is released the Barnet sites can be upgraded to it and won't need
 a custom branch anymore.
 
-
-## Licenses
+Licenses
+--------
 
 To get the custom licenses:
 
@@ -32,12 +32,12 @@ To get the custom licenses:
 
 in config file.
 
+Themes
+------
 
-##Themes 
+To switch themes: In plugin.py, change references to `theme_1` to `theme_2` (or vice versa).
 
-To switch themes: In plugin.py, change references to ```theme_1``` to ```theme_2``` (or vice versa).
-
-###Theme 1
+### Theme 1
 
 Available images
 
@@ -50,5 +50,4 @@ Available images
 > /health.png
 > /roads.png
 > /waste.png
-
 

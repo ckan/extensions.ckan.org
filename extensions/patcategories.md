@@ -17,7 +17,8 @@ ckanext patcategories
 
 Install
 =======
-```bash
+
+``` bash
 pip install -e git+https://github.com/opendatatrentino/ckanext-patcategories.git#egg=ckanext-categories 
 ```
 
@@ -28,34 +29,39 @@ I comandi che possono essere usati per creare e cancellare nuove voci
 dei vocabolari presenti; i comandi vanno lanciati dalla cartella del
 plugin "ckanext-patform",
 
-start from the directory ckanext-patform 
-(eg. 
-```bash
+start from the directory ckanext-patform
+(eg.
+
+``` bash
 cd /where/is/ckan/ckanext-patform )
 ```
 
 to add a term in the vocabulary
-```bash
+
+``` bash
 paster pat add-term <vocab_name> <new_term> -c <path to config file>
 ```
+
 to remove a term from the vocabulary
-```bash
+
+``` bash
 paster pat remove-term <vocab_name> <term_to_remove> -c <path to config file>
 ```
 
 Example
 =======
-```
-paster pat add-term category_vocab Mobilita -c /etc/ckan.ini
-````
+
+    paster pat add-term category_vocab Mobilita -c /etc/ckan.ini
 
 The terms cad be added to this different vocabularies:
-- category_vocab (Categories)
-- holders_vocab (Holders)
-- coverage_vocab (Geographical coverage)
+
+-   category\_vocab (Categories)
+-   holders\_vocab (Holders)
+-   coverage\_vocab (Geographical coverage)
 
 Categories used in dati.trentino.it
 ===================================
+
 Ambiente
 Amministrazione
 Conoscenza

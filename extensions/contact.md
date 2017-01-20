@@ -12,11 +12,12 @@ permalink: /extension/contact/
 ---
 
 
-# CKAN Contact Extension
+CKAN Contact Extension
+======================
 
 This extension adds a contact form
 
-**DEMO:** http://data.nhm.ac.uk/
+**DEMO:** <http://data.nhm.ac.uk/>
 
 **Settings**
 
@@ -24,9 +25,9 @@ This extension adds a contact form
      ckanext.contact.recipient_name =
      ckanext.contact.subject =
 
-If ckanext.contact.mail_to is not set, the form will fall back to using the CKAN setting "email_to".
+If ckanext.contact.mail\_to is not set, the form will fall back to using the CKAN setting "email\_to".
 
 **Credits:**
 
-Borrows much of the contact form code from https://github.com/CityofSurrey/ckanext-surrey
+Borrows much of the contact form code from <https://github.com/CityofSurrey/ckanext-surrey>
 

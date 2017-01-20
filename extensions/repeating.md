@@ -28,14 +28,15 @@ The easiest way to use repeating fields is with
 Add `ckanext.repeating:presets.json` to your scheming.presets
 configuration settings:
 
-```json
+``` json
 scheming.presets = ckanext.scheming:presets.json
                    ckanext.repeating:presets.json
 ```
+
 A repeating field in a scheming schema
 will look something like:
 
-```json
+``` json
 {
   "field_name": "authors",
   "preset": "repeating_text",
@@ -59,13 +60,13 @@ by the
 When the dataset is accessed from the API each value will appear
 and are updated as items in a list, eg.:
 
-```json
+\`\`\`json
 {
-  "...": "...",
-  "authors": [
-    "Person One",
-    "Person Two"
-  ],
-  "...": "..."
+"...": "...",
+"authors": \[
+"Person One",
+"Person Two"
+\],
+"...": "..."
 }
 

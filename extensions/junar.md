@@ -12,5 +12,5 @@ permalink: /extension/junar/
 ---
 
 
-This ckan plugin aims to display recently added resources using junar.com api 
+This ckan plugin aims to display recently added resources using junar.com api
 

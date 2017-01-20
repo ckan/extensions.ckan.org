@@ -15,17 +15,16 @@ permalink: /extension/ytp-drupal/
 ckanext-ytp-drupal
 ==================
 
-This extension provides data utility methods from CKAN to Drupal. 
+This extension provides data utility methods from CKAN to Drupal.
 
-- service_alerts method for CKAN templates (h.service_alerts())
+-   service\_alerts method for CKAN templates (h.service\_alerts())
 
 Installation
 ------------
 
-Installed as CKAN extension: ytp_drupal
+Installed as CKAN extension: ytp\_drupal
 
 [See how to install CKAN extensions.](http://docs.ckan.org/en/latest/extensions/tutorial.html#installing-the-extension)
-
 
 Configuration
 -------------
@@ -42,8 +41,7 @@ Configuration
 
     ckanext.ytp.drupal.translations_disabled = <Disable language support for nodes>
 
-
-Connection URL is required. Node type defaults to service_alert and translations are enabled by default. 
+Connection URL is required. Node type defaults to service\_alert and translations are enabled by default.
 
 Example configuration::
 

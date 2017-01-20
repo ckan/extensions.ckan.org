@@ -12,8 +12,8 @@ permalink: /extension/ckanext_notification/
 ---
 
 
-ckanext_notification
-====================
+ckanext\_notification
+=====================
 
 An example of CKAN extension. Notify new resource via the twitter
 

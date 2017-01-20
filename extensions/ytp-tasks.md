@@ -22,28 +22,25 @@ Requires Celery on CKAN.
 Installation
 ------------
 
-Installed as CKAN extension: ytp_tasks
+Installed as CKAN extension: ytp\_tasks
 
 [See how to install CKAN extensions.](http://docs.ckan.org/en/latest/extensions/tutorial.html#installing-the-extension)
-
 
 Configuration
 -------------
 
-Copy ytp_celery.py.j2 to /etc/ckan/default/ytp_celery.py and rename variables.
-
+Copy ytp\_celery.py.j2 to /etc/ckan/default/ytp\_celery.py and rename variables.
 
 Execution
 ---------
 
-sudo -u $CELERY_USER /usr/lib/ckan/default/bin/celery beat --config=ytp_celery --workdir=/etc/ckan/default/ --pidfile=/tmp/celerybeat_pid --schedule=/tmp/celerybeat_schedule
-
+sudo -u $CELERY\_USER /usr/lib/ckan/default/bin/celery beat --config=ytp\_celery --workdir=/etc/ckan/default/ --pidfile=/tmp/celerybeat\_pid --schedule=/tmp/celerybeat\_schedule
 
 Commands
 --------
 
 Execute commands via paster:
-/usr/lib/ckan/default/bin/paster --plugin=ckanext-ytp-tasks -c /etc/ckan/default/$CONFIG_FILE <command-name> [arguments...]
+/usr/lib/ckan/default/bin/paster --plugin=ckanext-ytp-tasks -c /etc/ckan/default/$CONFIG\_FILE <command-name> \[arguments...\]
 
 ::
 
@@ -56,5 +53,4 @@ Execute commands via paster:
 ::
 
     ytp-task-execute-all - execute (queue) all tasks now
-
 

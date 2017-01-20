@@ -12,7 +12,9 @@ permalink: /extension/highlight-related-items/
 ---
 
 
-# ckanext-highlight-related-items
+ckanext-highlight-related-items
+===============================
+
 Surface a dataset's related items more visibly. Normally, a dataset page
 provides a text description of the dataset and then a bunch of "resources" in
 various formats. For very technical users, this is perfect. For everyone else,
@@ -22,15 +24,17 @@ the "Related" tab. This plugin simply surfaces those items above the "resources.
 ![screenshot of dataset view page with related items beneath the
 description](http://i.imgur.com/M8dmuPc.png)
 
-## Installation
+Installation
+------------
 
-```
- . /usr/lib/ckan/default/bin/activate
- cd /usr/lib/ckan/default/src
- git clone https://github.com/CityOfPhiladelphia/ckanext-highlight-related-items
- cd ckanext-highlight-related-items
- python setup.py develop
-```
+     . /usr/lib/ckan/default/bin/activate
+     cd /usr/lib/ckan/default/src
+     git clone https://github.com/CityOfPhiladelphia/ckanext-highlight-related-items
+     cd ckanext-highlight-related-items
+     python setup.py develop
 
-## Note
+Note
+----
+
 From CKAN v2.6, Related Items has been removed from CKAN, and replaced by the [Showcase extension](https://github.com/ckan/ckanext-showcase), which works with CKAN 2.3 and above.
+

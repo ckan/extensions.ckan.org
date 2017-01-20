@@ -15,73 +15,69 @@ permalink: /extension/ckanr/
 ckanr
 =====
 
-
-
 [![Build Status](https://api.travis-ci.org/ropensci/ckanr.png)](https://travis-ci.org/ropensci/ckanr)
 [![Build status](https://ci.appveyor.com/api/projects/status/5yqd882v4fbeggd5?svg=true)](https://ci.appveyor.com/project/sckott/ckanr)
 [![codecov.io](https://codecov.io/github/ropensci/ckanr/coverage.svg?branch=master)](https://codecov.io/github/ropensci/ckanr?branch=master)
 [![rstudio mirror downloads](http://cranlogs.r-pkg.org/badges/ckanr?color=FAB657)](https://github.com/metacran/cranlogs.app)
 [![cran version](http://www.r-pkg.org/badges/version/ckanr)](https://cran.r-project.org/package=ckanr)
 
-`ckanr` is an R client for the CKAN API. 
+`ckanr` is an R client for the CKAN API.
 
 It is meant to be as general as possible, allowing you to work with any CKAN instance.
 
-## Installation
+Installation
+------------
 
 Stable CRAN version
 
-
-```r
+``` r
 install.packages("ckanr")
 ```
 
 Development version
 
-
-```r
+``` r
 install.packages("devtools")
 devtools::install_github("ropensci/ckanr")
 ```
 
-
-```r
+``` r
 library('ckanr')
 ```
 
 Note: the default base CKAN URL is set to
-[http://data.techno-science.ca/](http://data.techno-science.ca/).
+<http://data.techno-science.ca/>.
 Functions requiring write permissions in CKAN additionally require a privileged
 CKAN API key.
 You can change this using `ckanr_setup()`, or change the URL using the `url`
 parameter in each function call.
 To set one or both, run:
 
-
-```r
+``` r
 ckanr_setup() # restores default CKAN url to http://data.techno-science.ca/
 ckanr_setup(url = "http://data.techno-science.ca/")
 ckanr_setup(url = "http://data.techno-science.ca/", key = "my-ckan-api-key")
 ```
 
-## ckanr package API
+ckanr package API
+-----------------
 
 There are a suite of CKAN things (package, resource, etc.) that each have a set of functions in this package. The functions for each CKAN thing have an S3 class that is returned from most functions, and can be passed to most other functions (this also facilitates piping). The following is a list of the function groups for certain CKAN things, with the prefix for the functions that work with that thing, and the name of the S3 class:
 
-+ Packages (aka packages) - `package_*()` - `ckan_package`
-+ Resources - `resource_*()` - `ckan_resource`
-+ Related - `related_*()` - `ckan_related`
-+ Users - `user_*()` - `ckan_user`
-+ Groups - `group_*()` - `ckan_group`
-+ Tags - `tag_*()` - `ckan_tag`
-+ Organizations  - `organization_*()` - `ckan_organization`
-+ Groups - `group_*()` - `ckan_group`
-+ Users - `user_*()` - `ckan_user`
-+ Related items - `related_*()` - `ckan_related`
+-   Packages (aka packages) - `package_*()` - `ckan_package`
+-   Resources - `resource_*()` - `ckan_resource`
+-   Related - `related_*()` - `ckan_related`
+-   Users - `user_*()` - `ckan_user`
+-   Groups - `group_*()` - `ckan_group`
+-   Tags - `tag_*()` - `ckan_tag`
+-   Organizations - `organization_*()` - `ckan_organization`
+-   Groups - `group_*()` - `ckan_group`
+-   Users - `user_*()` - `ckan_user`
+-   Related items - `related_*()` - `ckan_related`
 
 The S3 class objects all look very similar; for example:
 
-```r
+``` r
 <CKAN Resource> 8abc92ad-7379-4fb8-bba0-549f38a26ddb
   Name: Data From Digital Portal 
   Description: 
@@ -94,12 +90,12 @@ All classes state the type of object, have the ID to the right of the type, then
 
 > note: Many examples are given in brief for readme brevity
 
-## Packages
+Packages
+--------
 
 List packages
 
-
-```r
+``` r
 package_list(as = "table")
 #>  [1] "artifact-data-agriculture"                                  
 #>  [2] "artifact-data-aviation"                                     
@@ -116,8 +112,7 @@ package_list(as = "table")
 
 Show a package
 
-
-```r
+``` r
 package_show('34d60b13-1fd5-430e-b0ec-c8bc7f4841cf')
 #> <CKAN Package> 34d60b13-1fd5-430e-b0ec-c8bc7f4841cf 
 #>   Title: Artifact Data - Vacuum Tubes
@@ -129,8 +124,7 @@ package_show('34d60b13-1fd5-430e-b0ec-c8bc7f4841cf')
 
 Search for packages
 
-
-```r
+``` r
 x <- package_search(q = '*:*', rows = 2)
 x$results
 #> [[1]]
@@ -150,12 +144,12 @@ x$results
 #>   Groups (up to 5): scientific-instrumentation
 ```
 
-## Resources
+Resources
+---------
 
 Search for resources
 
-
-```r
+``` r
 x <- resource_search(q = 'name:data', limit = 2)
 x$results
 #> [[1]]
@@ -175,12 +169,12 @@ x$results
 #>   Format: XLS
 ```
 
-## Users
+Users
+-----
 
 List users
 
-
-```r
+``` r
 user_list()[1:2]
 #> [[1]]
 #> <CKAN User> ee100ca6-2363-4db8-b24b-066e865c33ec 
@@ -201,12 +195,12 @@ user_list()[1:2]
 #>   Created: 2014-03-20T02:55:40.628968
 ```
 
-## Groups
+Groups
+------
 
 List groups
 
-
-```r
+``` r
 group_list(as = 'table')[, 1:3]
 #>                         display_name description
 #> 1                     Communications            
@@ -228,8 +222,7 @@ group_list(as = 'table')[, 1:3]
 
 Show a group
 
-
-```r
+``` r
 group_show('communications', as = 'table')$users
 #>   openid about capacity     name                    created
 #> 1     NA  <NA>    admin     marc 2014-10-24T14:44:29.885262
@@ -248,12 +241,12 @@ group_show('communications', as = 'table')$users
 #> 2 b50449ea-1dcc-4d52-b620-fc95bf56034b
 ```
 
-## Tags
+Tags
+----
 
 List tags
 
-
-```r
+``` r
 tag_list('aviation', as = 'table')
 #>   vocabulary_id                     display_name
 #> 1            NA                         Aviation
@@ -265,8 +258,7 @@ tag_list('aviation', as = 'table')
 
 Show tags
 
-
-```r
+``` r
 tag_show('Aviation')$packages[[1]][1:3]
 #> $owner_org
 #> [1] "fafa260d-e2bf-46cd-9c35-34c1dfa46c57"
@@ -278,12 +270,12 @@ tag_show('Aviation')$packages[[1]][1:3]
 #> list()
 ```
 
-## Organizations
+Organizations
+-------------
 
 List organizations
 
-
-```r
+``` r
 organization_list()
 #> [[1]]
 #> <CKAN Organization> fafa260d-e2bf-46cd-9c35-34c1dfa46c57 
@@ -293,16 +285,16 @@ organization_list()
 #>   No. Users: 0
 ```
 
-## Examples of different CKAN APIs
+Examples of different CKAN APIs
+-------------------------------
 
 See `ckanr::servers()` for a list of CKAN servers. Ther are 124 as of 2015-10-21.
 
 ### The Natural History Museum
 
-Website: [http://data.nhm.ac.uk/](http://data.nhm.ac.uk/)
+Website: <http://data.nhm.ac.uk/>
 
-
-```r
+``` r
 ckanr_setup(url = "http://data.nhm.ac.uk")
 x <- package_search(q = '*:*', rows = 1)
 x$results
@@ -318,10 +310,9 @@ NA
 
 ### The National Geothermal Data System
 
-Website: [http://geothermaldata.org/](http://geothermaldata.org/)
+Website: <http://geothermaldata.org/>
 
-
-```r
+``` r
 ckanr_setup("http://search.geothermaldata.org")
 x <- package_search(q = '*:*', rows = 1)
 x$results
@@ -335,12 +326,13 @@ x$results
 NA
 ```
 
-## Meta
+Meta
+----
 
-* Please [report any issues or bugs](https://github.com/ropensci/ckanr/issues).
-* License: MIT
-* Get citation information for `ckanr` in R doing `citation(package = 'ckanr')`
-* Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
+-   Please [report any issues or bugs](https://github.com/ropensci/ckanr/issues).
+-   License: MIT
+-   Get citation information for `ckanr` in R doing `citation(package = 'ckanr')`
+-   Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
 
 [![ropensci](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)
 
