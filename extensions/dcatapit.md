@@ -3,7 +3,7 @@ layout: extension
 name: dcatapit
 title: CKAN extension for the Italian Open Data Portals (DCAT_AP-IT)
 author: GeoSolutions (https://github.com/geosolutions-it)
-homepage: ttps://github.com/geosolutions-it/ckanext-dcatapit
+homepage: https://github.com/geosolutions-it/ckanext-dcatapit
 github_user: geosolutions-it
 github_repo: ckanext-dcatapit
 category: Extension
