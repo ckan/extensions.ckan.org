@@ -2,9 +2,9 @@
 layout: extension
 name: openrefine-ckan
 title: OpenRefine CKAN Connector
-author: OpenGov/Ontodia
-homepage: https://github.com/Ontodia/openrefine-ckan-storage-extension
-github_user: Ontodia
+author: OpenGov
+homepage: https://github.com/opengov-opendata/openrefine-ckan-storage-extension
+github_user: opengov-opendata
 github_repo: openrefine-ckan-storage-extension
 category: Extension
 featured: 
