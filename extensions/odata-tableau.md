@@ -2,7 +2,7 @@
 layout: extension
 name: odata-tableau
 title: OData endpoint; fork optimized for Tableau Public
-author: OpenGov
+author: OpenGov/Ontodia
 homepage: https://github.com/jqnatividad/ckanext-odata
 github_user: jqnatividad
 github_repo: ckanext-odata
