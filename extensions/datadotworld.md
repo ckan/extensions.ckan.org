@@ -1,7 +1,7 @@
 ---
 layout: extension
 name: datadotworld
-title: data
+title: data.world integration
 author: data.world
 homepage: https://github.com/datadotworld/ckanext-datadotworld
 github_user: datadotworld
@@ -11,10 +11,6 @@ featured:
 permalink: /extension/datadotworld/
 ---
 
-
-|                      |
-|----------------------|
-| ckanext-datadotworld |
 
 With this extension enabled, the manage view for organizations is provided with the additional tab data.world. Within the data.world tab organization admins can specify syncronization options that will apply for that organization.
 
