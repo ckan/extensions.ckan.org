@@ -2,7 +2,7 @@
 layout: extension
 name: textcaptcha
 title: Text captcha for user registration
-author: Link Web Services Pty Ltd
+author: Link Digital
 homepage: https://github.com/DataShades/ckanext-textcaptcha
 github_user: DataShades
 github_repo: ckanext-textcaptcha

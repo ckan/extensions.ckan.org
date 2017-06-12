@@ -2,7 +2,7 @@
 layout: extension
 name: saml2
 title: SAML2 Authentication extension
-author: Link Web Services Pty Ltd
+author: Link Digital
 homepage: https://github.com/DataShades/ckanext-saml2
 github_user: DataShades
 github_repo: ckanext-saml2

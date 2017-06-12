@@ -2,7 +2,7 @@
 layout: extension
 name: twitterview
 title: A CKAN extension for previewing Twitter feed resources
-author: Link Web Services Pty Ltd
+author: Link Digital
 homepage: https://github.com/DataShades/ckanext-twitterview
 github_user: DataShades
 github_repo: ckanext-twitterview
