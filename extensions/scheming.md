@@ -1,8 +1,8 @@
 ---
 layout: extension
 name: scheming
-title: Scheming: Easy, sharable custom CKAN schemas
-author: open.canada.ca
+title: Scheming- Easy, sharable custom CKAN schemas
+author: CKAN
 homepage: https://github.com/ckan/ckanext-scheming
 github_user: ckan
 github_repo: ckanext-scheming
@@ -19,22 +19,20 @@ This extension provides a way to configure and share
 CKAN schemas using a JSON schema description. Custom
 template snippets for editing and display are also supported.
 
-[![Build Status](https://travis-ci.org/open-data/ckanext-scheming.svg?branch=master)](https://travis-ci.org/open-data/ckanext-scheming)
-[![Coverage](https://img.shields.io/coveralls/open-data/ckanext-scheming.svg?branch=master)](https://coveralls.io/r/open-data/ckanext-scheming)
-
+[![Circle CI](https://circleci.com/gh/ckan/ckanext-scheming/tree/master.svg?style=svg)](https://circleci.com/gh/ckan/ckanext-scheming/tree/master)
+[![Coverage](https://coveralls.io/repos/ckan/ckanext-scheming/badge.svg?branch=master&service=github)](https://coveralls.io/github/ckan/ckanext-scheming?branch=master)
 
 Requirements
 ============
 
 This plugin is compatible with CKAN 2.3 or later.
 
-
 Configuration
 =============
 
 Set the schemas you want to use with configuration options:
 
-```ini
+``` ini
 ckan.plugins = scheming_datasets
 
 #   module-path:file to schemas being used
@@ -54,12 +52,11 @@ scheming.presets = ckanext.scheming:presets.json
 scheming.dataset_fallback = false
 ```
 
-
 Example dataset schemas
 -----------------------
 
-* [default dataset schema](ckanext/scheming/ckan_dataset.json)
-* [camel photos schema](ckanext/scheming/camel_photos.json)
+-   [default dataset schema](ckanext/scheming/ckan_dataset.json)
+-   [camel photos schema](ckanext/scheming/camel_photos.json)
 
 These schemas are included in ckanext-scheming and may be enabled
 with e.g: `scheming.dataset_schemas = ckanext.scheming:camel_photos.json`
@@ -67,16 +64,13 @@ with e.g: `scheming.dataset_schemas = ckanext.scheming:camel_photos.json`
 These schemas use [presets](#preset) defined in
 [presets.json](ckanext/scheming/presets.json).
 
-
 Schema Keys
 -----------
-
 
 ### `scheming_version`
 
 Set to `1`. Future versions of ckanext-scheming may use a larger
 number to indicate a change to the description JSON format.
-
 
 ### `dataset_type`
 
@@ -86,12 +80,10 @@ It is also used to set the URL for searching this type of dataset.
 Normal datasets would be available under the URL `/dataset`, but datasets with
 the `camel_photos.json` schema above would appear under `/camel-photos` instead.
 
-
 ### `about_url`
 
 `about_url` is a Link to human-readable information about this schema.
 Its use is optional but highly recommended.
-
 
 ### `dataset_fields`, `resource_fields`
 
@@ -102,10 +94,8 @@ pages.
 Fields you exclude will not be shown to the end user, and will not
 be accepted when editing or updating this type of dataset.
 
-
 Field Keys
 ----------
-
 
 ### `field_name`
 
@@ -113,20 +103,19 @@ The `field_name` value is the name of an existing CKAN dataset or resource
 field or a new new extra field. Existing dataset
 field names include:
 
-* `name` - the URI for the dataset
-* `title`
-* `notes` - the dataset description
-* `author`
-* `author_email`
-* `maintainer`
-* `maintainer_email`
+-   `name` - the URI for the dataset
+-   `title`
+-   `notes` - the dataset description
+-   `author`
+-   `author_email`
+-   `maintainer`
+-   `maintainer_email`
 
-New field names should follow the current lowercase_with_underscores
- naming convention. Don't name your field `mySpecialField`, use
- `my_special_field` instead.
+New field names should follow the current lowercase\_with\_underscores
+naming convention. Don't name your field `mySpecialField`, use
+`my_special_field` instead.
 
 This value is available to the form snippet as `field.field_name`.
-
 
 ### `label`
 
@@ -135,7 +124,7 @@ it will appear in the dataset editing form.
 This label may be a string or an object providing multiple
 language versions:
 
-```json
+``` json
 {
   "label": {
     "en": "Title",
@@ -147,13 +136,12 @@ language versions:
 
 When using a plain string translations will be provided with gettext:
 
-```json
+``` json
 {
   "label": "Title",
   "...": "..."
 }
 ```
-
 
 ### `required`
 
@@ -169,16 +157,15 @@ as the first validator. `scheming_required` will check the required
 setting for this field and apply either the `not_empty` or `ignore_missing`
 validator.
 
-
 ### `choices`
 
-The `choices` list must be provided for
+The `choices` list may be provided for
 select and multiple choice fields.
 List elements include `label`s for human-readable text for
 each element (may be multiple languages like a [field label](#label))
 and `value`s that will be stored in the dataset or resource:
 
-```json
+``` json
 {
   "preset": "select",
   "choices": [
@@ -192,6 +179,26 @@ and `value`s that will be stored in the dataset or resource:
 }
 ```
 
+### `choices_helper`
+
+If a choices list is not provided you must provide a `choices_helper`
+function that will return a list of choices in the same format as
+the `choices` list above.
+
+You may register your own helper function or use the
+`scheming_datastore_choices` helper included in ckanext-scheming:
+
+``` json
+{
+  "preset": "select",
+  "choices_helper": "scheming_datastore_choices",
+  "datastore_choices_resource": "countries-resource-id-or-alias",
+  "datastore_choices_columns": {
+    "value": "Country Code",
+    "label": "English Country Name"
+  }
+}
+```
 
 ### `preset`
 
@@ -201,26 +208,29 @@ types.
 
 This extension includes the following presets:
 
-* `"title"` - title validation and large text form snippet
-* `"select"` - validation that choice is from [choices](#choices),
-  form select box and display snippet
-* `"multiple_checkbox"` - multiple choice from [choices](#choices)
-  rendered as checkboxes in the form
-* `"multiple_select"` - multiple choice from [choices](#choices)
-  rendered as a multiple select box in the form
-* `"date"` - date validation and form snippet
-* `"dataset_slug"` - dataset slug validation and form snippet that
-  autofills the value from the title field
-* `"tag_string_autocomplete"` - tag string validation and form autocomplete
-* `"dataset_organization"` - organization validation and form select box
-* `"resource_url_upload"` - resource url validaton and link/upload form
-  field
-* `"resource_format_autocomplete"` - resource format validation with
-  format guessing based on url and autocompleting form field
+-   `"title"` - title validation and large text form snippet
+-   `"select"` - validation that choice is from [choices](#choices),
+    form select box and display snippet
+-   `"multiple_checkbox"` - multiple choice from [choices](#choices)
+    rendered as checkboxes in the form
+-   `"multiple_select"` - multiple choice from [choices](#choices)
+    rendered as a multiple select box in the form
+-   `"date"` - date validation and form snippet
+-   `"datetime"` date and time validation and form snippet
+-   `"dataset_slug"` - dataset slug validation and form snippet that
+    autofills the value from the title field
+-   `"tag_string_autocomplete"` - tag string validation and form autocomplete
+-   `"dataset_organization"` - organization validation and form select box
+-   `"resource_url_upload"` - resource url validaton and link/upload form
+    field
+-   `"resource_format_autocomplete"` - resource format validation with
+    format guessing based on url and autocompleting form field
+-   `"json_object"` - JSON based input. Only JSON objects are supported.
+    The input JSON will be loaded during output (eg when loading the dataset in
+    a template or via the API).
 
 You may add your own presets by adding them to the `scheming.presets`
 configuration setting.
-
 
 ### `form_snippet`
 
@@ -237,34 +247,33 @@ you added to your that aren't handled by this extension.
 
 This extension includes the following form snippets:
 
-* [text.html](ckanext/scheming/templates/scheming/form_snippets/text.html) -
-  a simple text field for free-form text or numbers (default)
-* [large_text.html](ckanext/scheming/templates/scheming/form_snippets/large_text.html) -
-  a larger text field, typically used for the title
-* [date.html](ckanext/scheming/templates/scheming/form_snippets/date.html) -
-  a date widget with an html5 date picker
-* [slug.html](ckanext/scheming/templates/scheming/form_snippets/slug.html) -
-  the default name (URL) field
-* [license.html](ckanext/scheming/templates/scheming/form_snippets/license.html) -
-  a dataset license selection field
-* [markdown.html](ckanext/scheming/templates/scheming/form_snippets/markdown.html) -
-  a markdown field, often used for descriptions
-* [organization.html](ckanext/scheming/templates/scheming/form_snippets/organization.html) -
-  an organization selection field for datasets
-* [upload.html](ckanext/scheming/templates/scheming/form_snippets/upload.html) -
-  an upload field for resource files
-* [select.html](ckanext/scheming/templates/scheming/form_snippets/select.html) -
-  a select box
-* [multiple_checkbox.html](ckanext/scheming/templates/scheming/form_snippets/multiple_choice.html) -
-  a group of checkboxes
-* [multiple_select.html](ckanext/scheming/templates/scheming/form_snippets/multiple_choice.html) -
-  a multiple select box
-
+-   [text.html](ckanext/scheming/templates/scheming/form_snippets/text.html) -
+    a simple text field for free-form text or numbers (default)
+-   [large\_text.html](ckanext/scheming/templates/scheming/form_snippets/large_text.html) -
+    a larger text field, typically used for the title
+-   [date.html](ckanext/scheming/templates/scheming/form_snippets/date.html) -
+    a date widget with an html5 date picker
+-   [slug.html](ckanext/scheming/templates/scheming/form_snippets/slug.html) -
+    the default name (URL) field
+-   [license.html](ckanext/scheming/templates/scheming/form_snippets/license.html) -
+    a dataset license selection field
+-   [markdown.html](ckanext/scheming/templates/scheming/form_snippets/markdown.html) -
+    a markdown field, often used for descriptions
+-   [organization.html](ckanext/scheming/templates/scheming/form_snippets/organization.html) -
+    an organization selection field for datasets
+-   [upload.html](ckanext/scheming/templates/scheming/form_snippets/upload.html) -
+    an upload field for resource files
+-   [select.html](ckanext/scheming/templates/scheming/form_snippets/select.html) -
+    a select box
+-   [multiple\_checkbox.html](ckanext/scheming/templates/scheming/form_snippets/multiple_choice.html) -
+    a group of checkboxes
+-   [multiple\_select.html](ckanext/scheming/templates/scheming/form_snippets/multiple_select.html) -
+    a multiple select box
 
 ### `display_snippet`
 
 The `display_snippet` value is the name of the snippet template to
-use for this field in the dataset, group or organization view page.
+use for this field in the dataset, resource, group or organization view page.
 A number of snippets are provided with this
 extension, but you may also provide your own by creating templates
 under `scheming/display_snippets/` in a template directory in your
@@ -276,17 +285,29 @@ you added to your that aren't handled by this extension.
 
 This extension includes the following display snippets:
 
-* [text.html](ckanext/scheming/templates/scheming/display_snippets/text.html) -
-  render as a normal text value (default)
-* [link.html](ckanext/scheming/templates/scheming/display_snippets/link.html) -
-  render as an external link to open in a new window
-* [email.html](ckanext/scheming/templates/scheming/display_snippets/email.html) -
-  render as a "mailto:" link
-* [select.html](ckanext/scheming/templates/scheming/display_snippets/select.html) -
-  show the label text for the choice selected
-* [multiple_choice.html](ckanext/scheming/templates/scheming/display_snippets/) -
-  show the label text for all choices selected
+-   [text.html](ckanext/scheming/templates/scheming/display_snippets/text.html) -
+    render as a normal text value (default)
+-   [link.html](ckanext/scheming/templates/scheming/display_snippets/link.html) -
+    render as an external link to open in a new window
+-   [email.html](ckanext/scheming/templates/scheming/display_snippets/email.html) -
+    render as a "mailto:" link
+-   [select.html](ckanext/scheming/templates/scheming/display_snippets/select.html) -
+    show the label text for the choice selected
+-   [multiple\_choice.html](ckanext/scheming/templates/scheming/display_snippets/) -
+    show the label text for all choices selected
 
+If `null` is passed as value in `display_snippet`, it will remove the field from being displayed at the view page.
+
+### `select_size`
+
+Set to the number of [choices](#choices) to display in select, multiple\_select
+and multiple\_check\_box [form](#form_snippet) and [display](#display_snippet)
+snippets.
+
+### `sorted_choices`
+
+Set to `"true"` to sort [choices](#choices) alphabetically in [form](#form_snippet)
+and [display](#display_snippet) snippets.
 
 ### `validators`
 
@@ -298,7 +319,7 @@ and the result is used as the validator/converter.
 
 e.g. `"if_empty_same_as(name) unicode"` is the same as in a plugin specifying:
 
-```python
+``` python
 [get_validator('if_empty_same_as')("name"), unicode]
 ```
 
@@ -315,11 +336,11 @@ New validators and converters may be added using the
 
 Validators that need access to other values in this schema (e.g.
 to test values against the choices list) may be decorated with
-the [scheming.validation.scheming_validator](ckanext/scheming/validation.py)
+the [scheming.validation.scheming\_validator](ckanext/scheming/validation.py)
 function. This decorator will make scheming pass this field dict to the
 validator and use its return value for validation of the field.
 
-CKAN's [validator functions reference](http://docs.ckan.org/en/latest/extensions/validators.html) 
+CKAN's [validator functions reference](http://docs.ckan.org/en/latest/extensions/validators.html)
 lists available validators ready to be used.
 
 ### `output_validators`
@@ -346,4 +367,20 @@ Help text may be provided in multiple languages like [label fields](#label).
 ### `help_inline`
 
 Display help text inline if set to `true`. Default is `false`.
+
+Running the Tests
+=================
+
+To run the tests, do:
+
+`nosetests --ckan --nologcapture --with-pylons=test.ini`
+
+and
+
+`nosetests --ckan --nologcapture --with-pylons=test_subclass.ini ckanext.scheming.tests.test_dataset_display ckanext.scheming.tests.test_form:TestDatasetFormNew ckanext.scheming.tests.test_dataset_logic`
+
+To run the tests and produce a coverage report, first make sure you have
+coverage installed in your virtualenv (`pip install coverage`) then run:
+
+`nosetests --ckan --nologcapture --with-pylons=test.ini --with-coverage --cover-package=ckanext.scheming --cover-inclusive --cover-erase --cover-tests`
 
