@@ -1,6 +1,6 @@
 CKAN Extensions registry and website.
 
-## How it Works
+## How it Works
 
 * [Extension Master List][master] - maintained in Google Spreadsheet
   * name (id), title, url plus editorial information (show, featured etc) for all extensions we know about
@@ -11,7 +11,7 @@ CKAN Extensions registry and website.
 
 [master]: https://docs.google.com/a/okfn.org/spreadsheets/d/1izCpljO6Et7zLUKcUlB4BzsMZTurENp56Iqi9kXOtgs/edit#gid=0
 
-## Managing Updates and Buiding the Site
+## Managing Updates and Building the Site
 
 1. Add extension information to the [master list][master] (whether we plan to show the extension or not).
 
@@ -31,7 +31,7 @@ CKAN Extensions registry and website.
     python scripts/generate.py
     ```
 
-## License
+## License
 
 Copyright Open Knowledge (2014-) and licensed under the MIT License.
 
