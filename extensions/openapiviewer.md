@@ -16,7 +16,7 @@ ckanext-openapi
 ===============
 
 This CKAN Extension creates an OpenAPI (aka Swagger) view that is
-accessible for previewing OpenAPI JSON resources.
+accessible for previewing OpenAPI JSON resources. ([example](https://catalogue.data.gov.bc.ca/dataset/bc-data-catalogue-api))
 
 1.  Pre-Installation
 
