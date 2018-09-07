@@ -15,10 +15,16 @@ permalink: /extension/dcat/
 ckanext-dcat
 ============
 
-[![Build Status](https://travis-ci.org/ckan/ckanext-dcat.svg?branch=master)](https://travis-ci.org/ckan/ckanext-dcat)
-[![Code Coverage](http://codecov.io/github/ckan/ckanext-dcat/coverage.svg?branch=master)](http://codecov.io/github/ckan/ckanext-dcat?branch=master)
+[![Build
+Status](https://travis-ci.org/ckan/ckanext-dcat.svg?branch=master)](https://travis-ci.org/ckan/ckanext-dcat)
+[![Code
+Coverage](http://codecov.io/github/ckan/ckanext-dcat/coverage.svg?branch=master)](http://codecov.io/github/ckan/ckanext-dcat?branch=master)
 
-This extension provides plugins that allow CKAN to expose and consume metadata from other catalogs using RDF documents serialized using DCAT. The Data Catalog Vocabulary (DCAT) is "an RDF vocabulary designed to facilitate interoperability between data catalogs published on the Web". More information can be found on the following W3C page:
+This extension provides plugins that allow CKAN to expose and consume
+metadata from other catalogs using RDF documents serialized using DCAT.
+The Data Catalog Vocabulary (DCAT) is "an RDF vocabulary designed to
+facilitate interoperability between data catalogs published on the Web".
+More information can be found on the following W3C page:
 
 <http://www.w3.org/TR/vocab-dcat>
 
@@ -33,9 +39,11 @@ Contents
     -   [URIs](#uris)
     -   [Content negotiation](#content-negotiation)
 -   [RDF DCAT harvester](#rdf-dcat-harvester)
+    -   [Transitive harvesting](#transitive-harvesting)
     -   [Extending the RDF harvester](#extending-the-rdf-harvester)
 -   [JSON DCAT harvester](#json-dcat-harvester)
--   [RDF DCAT to CKAN dataset mapping](#rdf-dcat-to-ckan-dataset-mapping)
+-   [RDF DCAT to CKAN dataset
+    mapping](#rdf-dcat-to-ckan-dataset-mapping)
 -   [RDF DCAT Parser](#rdf-dcat-parser)
 -   [RDF DCAT Serializer](#rdf-dcat-serializer)
 -   [Profiles](#profiles)
@@ -43,6 +51,8 @@ Contents
     -   [Command line interface](#command-line-interface)
     -   [Compatibility mode](#compatibility-mode)
 -   [XML DCAT harvester (deprecated)](#xml-dcat-harvester-deprecated)
+-   [Translation of fields](#translation-of-fields)
+-   [Structured Data](#structured-data)
 -   [Running the Tests](#running-the-tests)
 -   [Acknowledgements](#acknowledgements)
 -   [Copying and License](#copying-and-license)
@@ -50,30 +60,54 @@ Contents
 Overview
 --------
 
-With the emergence of Open Data initiatives around the world, the need to share metadata across different catalogs has became more evident. Sites like <http://publicdata.eu> aggregate datasets from different portals, and there has been a growing demand to provide a clear and standard interface to allow incorporating metadata into them automatically.
+With the emergence of Open Data initiatives around the world, the need
+to share metadata across different catalogs has became more evident.
+Sites like <http://publicdata.eu> aggregate datasets from different
+portals, and there has been a growing demand to provide a clear and
+standard interface to allow incorporating metadata into them
+automatically.
 
-There is growing consensus around [DCAT](http://www.w3.org/TR/vocab-dcat) being the right way forward, but actual implementations are needed. This extension aims to provide tools and guidance to allow publishers to publish and share DCAT based metadata easily.
+There is growing consensus around
+[DCAT](http://www.w3.org/TR/vocab-dcat) being the right way forward, but
+actual implementations are needed. This extension aims to provide tools
+and guidance to allow publishers to publish and share DCAT based
+metadata easily.
 
 In terms of CKAN features, this extension offers:
 
--   [RDF DCAT Endpoints](#rdf-dcat-endpoints) that expose the catalog's datasets in different RDF serializations (`dcat` plugin).
+-   [RDF DCAT Endpoints](#rdf-dcat-endpoints) that expose the catalog's
+    datasets in different RDF serializations (`dcat` plugin).
 
--   An [RDF Harvester](#rdf-dcat-harvester) that allows importing RDF serializations from other catalogs to create CKAN datasets (`dcat_rdf_harvester` plugin).
+-   An [RDF Harvester](#rdf-dcat-harvester) that allows importing RDF
+    serializations from other catalogs to create CKAN datasets
+    (`dcat_rdf_harvester` plugin).
 
--   An [JSON DCAT Harvester](#json-dcat-harvester) that allows importing JSON objects that are based on DCAT terms but are not defined as JSON-LD, using the serialization described in the [spec.datacatalogs.org](http://spec.datacatalogs.org/#datasets_serialization_format) site (`dcat_json_harvester` plugin)..
+-   An [JSON DCAT Harvester](#json-dcat-harvester) that allows importing
+    JSON objects that are based on DCAT terms but are not defined as
+    JSON-LD, using the serialization described in the
+    [spec.datacatalogs.org](http://spec.datacatalogs.org/#datasets_serialization_format)
+    site (`dcat_json_harvester` plugin)..
 
 These are implemented internally using:
 
--   A base [mapping](#rdf-dcat-to-ckan-dataset-mapping) between DCAT and CKAN datasets and viceversa (compatible with [DCAT-AP v1.1](https://joinup.ec.europa.eu/asset/dcat_application_profile/asset_release/dcat-ap-v11)).
+-   A base [mapping](#rdf-dcat-to-ckan-dataset-mapping) between DCAT and
+    CKAN datasets and viceversa (compatible with [DCAT-AP
+    v1.1](https://joinup.ec.europa.eu/asset/dcat_application_profile/asset_release/dcat-ap-v11)).
 
--   An [RDF Parser](#rdf-dcat-parser) that allows to read RDF serializations in different formats and extract CKAN dataset dicts, using customizable [profiles](#profiles).
+-   An [RDF Parser](#rdf-dcat-parser) that allows to read RDF
+    serializations in different formats and extract CKAN dataset dicts,
+    using customizable [profiles](#profiles).
 
--   An [RDF Serializer](#rdf-dcat-serializer) that allows to transform CKAN datasets metadata to different semantic formats, also allowing customizable [profiles](#profiles).
+-   An [RDF Serializer](#rdf-dcat-serializer) that allows to transform
+    CKAN datasets metadata to different semantic formats, also allowing
+    customizable [profiles](#profiles).
 
 Installation
 ------------
 
-1.  Install ckanext-harvest (<https://github.com/ckan/ckanext-harvest#installation>) (Only if you want to use the RDF harvester)
+1.  Install ckanext-harvest
+    (<https://github.com/ckan/ckanext-harvest#installation>) (Only if
+    you want to use the RDF harvester)
 
 2.  Install the extension on your virtualenv:
 
@@ -85,20 +119,29 @@ Installation
 
 4.  Enable the required plugins in your ini file:
 
-        ckan.plugins = dcat dcat_rdf_harvester dcat_json_harvester dcat_json_interface
+        ckan.plugins = dcat dcat_rdf_harvester dcat_json_harvester dcat_json_interface structured_data
 
 RDF DCAT endpoints
 ------------------
 
-When the `dcat` plugin is enabled, the following RDF endpoints are available on your CKAN instance. The schema used on the serializations can be customized using [profiles](#profiles).
+By default when the `dcat` plugin is enabled, the following RDF
+endpoints are available on your CKAN instance. The schema used on the
+serializations can be customized using [profiles](#profiles).
+
+To disable the RDF endpoints, you can set the following config in your
+ini file:
+
+    ckanext.dcat.enable_rdf_endpoints = False
 
 ### Dataset endpoints
 
-RDF representations of a particular dataset can accessed using the following endpoint:
+RDF representations of a particular dataset can accessed using the
+following endpoint:
 
     https://{ckan-instance-host}/dataset/{dataset-id}.{format}
 
-The extension will determine the RDF serialization format returned. The currently supported values are:
+The extension will determine the RDF serialization format returned. The
+currently supported values are:
 
 | Extension | Format                                                      | Media Type          |
 |-----------|-------------------------------------------------------------|---------------------|
@@ -109,14 +152,16 @@ The extension will determine the RDF serialization format returned. The currentl
 
 The fallback `rdf` format defaults to RDF/XML.
 
-Here's an example of the different formats available (links might not be live as they link to a demo site):
+Here's an example of the different formats available (links might not be
+live as they link to a demo site):
 
 -   <http://demo.ckan.org/dataset/newcastle-city-council-payments-over-500.rdf>
 -   <http://demo.ckan.org/dataset/newcastle-city-council-payments-over-500.xml>
 -   <http://demo.ckan.org/dataset/newcastle-city-council-payments-over-500.ttl>
 -   <http://demo.ckan.org/dataset/newcastle-city-council-payments-over-500.n3>
 
-RDF representations will be advertised using `<link rel="alternate">` tags on the `<head>` sectionon the dataset page source code, eg:
+RDF representations will be advertised using `<link rel="alternate">`
+tags on the `<head>` sectionon the dataset page source code, eg:
 
     <head>
 
@@ -126,29 +171,46 @@ RDF representations will be advertised using `<link rel="alternate">` tags on th
 
     </head>
 
-Check the [RDF DCAT Serializer](#rdf-dcat-serializer) section for more details about how these are generated and how to customize the output using [profiles](#profiles).
+Check the [RDF DCAT Serializer](#rdf-dcat-serializer) section for more
+details about how these are generated and how to customize the output
+using [profiles](#profiles).
 
-*Note*: When using this plugin, the above endpoints will replace the old deprecated ones that were part of CKAN core.
+You can specify the profile by using the
+`profiles=<profile1>,<profile2>` query parameter on the dataset endpoint
+(as a comma-separated list):
+
+-   `http://demo.ckan.org/dataset/newcastle-city-council-payments-over-500.xml?profiles=euro_dcat_ap,sweden_dcat_ap`
+-   `http://demo.ckan.org/dataset/newcastle-city-council-payments-over-500.jsonld?profiles=schemaorg`
+
+*Note*: When using this plugin, the above endpoints will replace the old
+deprecated ones that were part of CKAN core.
 
 ### Catalog endpoint
 
-Additionally to the individual dataset representations, the extension also offers a catalog-wide endpoint for retrieving multiple datasets at the same time (the datasets are paginated, see below for details):
+Additionally to the individual dataset representations, the extension
+also offers a catalog-wide endpoint for retrieving multiple datasets at
+the same time (the datasets are paginated, see below for details):
 
-    https://{ckan-instance-host}/catalog.{format}?[page={page}]&[modified_date={date}]
+    https://{ckan-instance-host}/catalog.{format}?[page={page}]&[modified_since={date}]&[profiles={profile1},{profile2}]
 
-This endpoint can be customized if necessary using the `ckanext.dcat.catalog_endpoint` configuration option, eg:
+This endpoint can be customized if necessary using the
+`ckanext.dcat.catalog_endpoint` configuration option, eg:
 
     ckanext.dcat.catalog_endpoint = /dcat/catalog/{_format}
 
-The custom endpoint **must** start with a backslash (`/`) and contain the `{_format}` placeholder.
+The custom endpoint **must** start with a backslash (`/`) and contain
+the `{_format}` placeholder.
 
-As described previously, the extension will determine the RDF serialization format returned.
+As described previously, the extension will determine the RDF
+serialization format returned.
 
 -   <http://demo.ckan.org/catalog.rdf>
 -   <http://demo.ckan.org/catalog.xml>
 -   <http://demo.ckan.org/catalog.ttl>
 
-RDF representations will be advertised using `<link rel="alternate">` tags on the `<head>` sectionon the homepage and the dataset search page source code, eg:
+RDF representations will be advertised using `<link rel="alternate">`
+tags on the `<head>` sectionon the homepage and the dataset search page
+source code, eg:
 
     <head>
 
@@ -160,7 +222,11 @@ RDF representations will be advertised using `<link rel="alternate">` tags on th
 
     </head>
 
-The number of datasets returned is limited. The response will include paging info, serialized using the [Hydra](http://www.w3.org/ns/hydra/spec/latest/core/) vocabulary. The different terms are self-explanatory, and can be used by clients to iterate the catalog:
+The number of datasets returned is limited. The response will include
+paging info, serialized using the
+[Hydra](http://www.w3.org/ns/hydra/spec/latest/core/) vocabulary. The
+different terms are self-explanatory, and can be used by clients to
+iterate the catalog:
 
     @prefix hydra: <http://www.w3.org/ns/hydra/core#> .
 
@@ -171,108 +237,200 @@ The number of datasets returned is limited. The response will include paging inf
         hydra:nextPage "http://example.com/catalog.ttl?page=2" ;
         hydra:totalItems 283 .
 
-The default number of datasets returned (100) can be modified by CKAN site maintainers using the following configuration option on your ini file:
+The default number of datasets returned (100) can be modified by CKAN
+site maintainers using the following configuration option on your ini
+file:
 
     ckanext.dcat.datasets_per_page = 20
 
-The catalog endpoint also supports a `modified_date` parameter to restrict datasets to those modified from a certain date. The parameter value should be a valid ISO-8601 date:
+The catalog endpoint also supports a `modified_since` parameter to
+restrict datasets to those modified from a certain date. The parameter
+value should be a valid ISO-8601 date:
 
 <http://demo.ckan.org/catalog.xml?modified_since=2015-07-24>
 
+It's possible to specify the profile(s) to use for the serialization
+using the `profiles` parameter:
+
+<http://demo.ckan.org/catalog.xml?profiles=euro_dcat_ap,sweden_dcat_ap>
+
 ### URIs
 
-Whenever possible, URIs are generated for the relevant entities. To try to generate them, the extension will use the first found of the following for each entity:
+Whenever possible, URIs are generated for the relevant entities. To try
+to generate them, the extension will use the first found of the
+following for each entity:
 
 -   Catalog:
-    -   `ckanext.dcat.base_uri` configuration option value. This is the recommended approach. Value should be a valid URI
+    -   `ckanext.dcat.base_uri` configuration option value. This is the
+        recommended approach. Value should be a valid URI
     -   `ckan.site_url` configuration option value.
-    -   '<http://>' + `app_instance_uuid` configuration option value. This is not recommended, and a warning log message will be shown.
+    -   '<http://>' + `app_instance_uuid` configuration option value.
+        This is not recommended, and a warning log message will be
+        shown.
 -   Dataset:
-    -   The value of the `uri` field (note that this is not included in the default CKAN schema)
+    -   The value of the `uri` field (note that this is not included in
+        the default CKAN schema)
     -   The value of an extra with key `uri`
     -   Catalog URI (see above) + '/dataset/' + `id` field
 -   Resource:
-    -   The value of the `uri` field (note that this is not included in the default CKAN schema)
-    -   Catalog URI (see above) + '/dataset/' + `package_id` field + '/resource/ + `id` field
+    -   The value of the `uri` field (note that this is not included in
+        the default CKAN schema)
+    -   Catalog URI (see above) + '/dataset/' + `package_id` field +
+        '/resource/ + `id` field
 
-Note that if you are using the [RDF DCAT harvester](#rdf-dcat-harvester) to import datasets from other catalogs and these define a proper URI for each dataset or resource, these will be stored as `uri` fields in your instance, and thus used when generating serializations for them.
+Note that if you are using the [RDF DCAT harvester](#rdf-dcat-harvester)
+to import datasets from other catalogs and these define a proper URI for
+each dataset or resource, these will be stored as `uri` fields in your
+instance, and thus used when generating serializations for them.
 
 ### Content negotiation
 
-The extension supports returning different representations of the datasets based on the value of the `Accept` header ([Content negotiation](https://en.wikipedia.org/wiki/Content_negotiation)).
+The extension supports returning different representations of the
+datasets based on the value of the `Accept` header ([Content
+negotiation](https://en.wikipedia.org/wiki/Content_negotiation)).
 
-When enabled, client applications can request a particular format via the `Accept` header on requests to the main dataset page, eg:
+When enabled, client applications can request a particular format via
+the `Accept` header on requests to the main dataset page, eg:
 
     curl https://{ckan-instance-host}/dataset/{dataset-id} -H Accept:text/turtle
 
     curl https://{ckan-instance-host}/dataset/{dataset-id} -H Accept:"application/rdf+xml; q=1.0, application/ld+json; q=0.6"
 
-This is also supported on the [catalog endpoint](#catalog-endpoint), in this case when making a request to the CKAN root URL (home page). This won't support the pagination and filter parameters:
+This is also supported on the [catalog endpoint](#catalog-endpoint), in
+this case when making a request to the CKAN root URL (home page). This
+won't support the pagination and filter parameters:
 
     curl https://{ckan-instance-host} -H Accept:text/turtle
 
-Note that this feature overrides the CKAN core home page and dataset page controllers, so you probably don't want to enable it if your own extension is also doing it.
+Note that this feature overrides the CKAN core home page and dataset
+page controllers, so you probably don't want to enable it if your own
+extension is also doing it.
 
-To enable content negotiation, set the following configuration option on your ini file:
+To enable content negotiation, set the following configuration option on
+your ini file:
 
     ckanext.dcat.enable_content_negotiation = True
 
 RDF DCAT harvester
 ------------------
 
-The RDF parser described in the previous section has been integrated into a harvester,
-to allow automatic import of datasets from remote sources. To enable the RDF harvester, add the `dcat_rdf_harvester` plugin to your CKAN configuration file:
+The RDF parser described in the previous section has been integrated
+into a harvester, to allow automatic import of datasets from remote
+sources. To enable the RDF harvester, add the `dcat_rdf_harvester`
+plugin to your CKAN configuration file:
 
     ckan.plugins = ... dcat_rdf_harvester
 
-The harvester will download the remote file, extract all datasets using the parser and create or update actual CKAN datasets based on that.
-It will also handle deletions, ie if a dataset is not present any more in the DCAT dump anymore it will get deleted from CKAN.
+The harvester will download the remote file, extract all datasets using
+the parser and create or update actual CKAN datasets based on that. It
+will also handle deletions, ie if a dataset is not present any more in
+the DCAT dump anymore it will get deleted from CKAN.
 
-The harvester will look at the `content-type` HTTP header field to determine the used RDF format. Any format understood by the [RDFLib](https://rdflib.readthedocs.org/en/stable/plugin_parsers.html) library can be parsed. It is possible to override this functionality and provide a specific format using the harvester configuration. This is useful when the server does not return the correct `content-type` or when harvesting a file on the local file system without a proper extension. The harvester configuration is a JSON object that you fill into the harvester configuration form field.
+The harvester will look at the `content-type` HTTP header field to
+determine the used RDF format. Any format understood by the
+[RDFLib](https://rdflib.readthedocs.org/en/stable/plugin_parsers.html)
+library can be parsed. It is possible to override this functionality and
+provide a specific format using the harvester configuration. This is
+useful when the server does not return the correct `content-type` or
+when harvesting a file on the local file system without a proper
+extension. The harvester configuration is a JSON object that you fill
+into the harvester configuration form field.
 
     {"rdf_format":"text/turtle"}
 
 *TODO*: configure profiles.
 
+### Transitive harvesting
+
+In transitive harvesting (i.e., when you harvest a catalog A, and a
+catalog X harvests your catalog), you may want to provide the original
+catalog info for each harvested dataset.
+
+By setting the configuration option
+`ckanext.dcat.expose_subcatalogs = True` in your ini file, you'll enable
+the storing and publication of the source catalog for each harvested
+dataset.
+
+The information contained in the harvested `dcat:Catalog` node will be
+stored as extras into the harvested datasets. When serializing, your
+Catalog will expose the harvested Catalog using the `dct:hasPart`
+relation. This means that your catalog will have this structure:
+
+-   `dcat:Catalog` (represents your current catalog)
+    -   `dcat:dataset` (1..n, the dataset created withing your catalog)
+    -   `dct:hasPart`
+        -   `dcat:Catalog` (info of one of the harvested catalogs)
+            -   `dcat:dataset` (dataset in the harvested catalog)
+    -   `dct:hasPart`
+        -   `dcat:Catalog` (info of one of another harvester catalog)
+            ...
+
 ### Extending the RDF harvester
 
-The DCAT RDF harvester has extension points that allow to modify its behaviour from other extensions. These can be used by extensions implementing
-the `IDCATRDFHarvester` interface. Right now it provides the `before_download` and `after_download` methods that are called just before and after
-retrieving the remote file, and can be used for instance to validate the contents.
+The DCAT RDF harvester has extension points that allow to modify its
+behaviour from other extensions. These can be used by extensions
+implementing the `IDCATRDFHarvester` interface. Right now it provides
+the following methods:
 
-To know more about these methods, please check the source of [`ckanext-dcat/ckanext/dcat/interfaces.py`](https://github.com/ckan/ckanext-dcat/blob/master/ckanext/dcat/interfaces.py).
+-   `before_download` and `after_download`: called just before and after
+    retrieving the remote file, and can be used for instance to validate
+    the contents.
+-   `update_session`: called before making the remote requests to update
+    the `requests` session object, useful to add additional headers or
+    for setting client certificates. Check the [`requests`
+    documentation](http://docs.python-requests.org/en/master/user/advanced/#session-objects)
+    for details.
+-   `before_create` / `after_create`: called before and after the
+    `package_create` action has been performed
+-   `before_update` / `after_update`: called before and after the
+    `package_update` action has been performed
+
+To know more about these methods, please check the source of
+[`ckanext-dcat/ckanext/dcat/interfaces.py`](https://github.com/ckan/ckanext-dcat/blob/master/ckanext/dcat/interfaces.py).
 
 JSON DCAT harvester
 -------------------
 
-The DCAT JSON harvester supports importing JSON objects that are based on DCAT terms but are not defined as JSON-LD. The exact format for these JSON files
-is the one described in the [spec.datacatalogs.org](http://spec.datacatalogs.org/#datasets_serialization_format) site. There are [example files](https://github.com/ckan/ckanext-dcat/blob/master/examples/dataset.json) in the `examples` folder.
+The DCAT JSON harvester supports importing JSON objects that are based
+on DCAT terms but are not defined as JSON-LD. The exact format for these
+JSON files is the one described in the
+[spec.datacatalogs.org](http://spec.datacatalogs.org/#datasets_serialization_format)
+site. There are [example
+files](https://github.com/ckan/ckanext-dcat/blob/master/examples/dataset.json)
+in the `examples` folder.
 
-To enable the JSON harvester, add the `dcat_json_harvester` plugin to your CKAN configuration file:
+To enable the JSON harvester, add the `dcat_json_harvester` plugin to
+your CKAN configuration file:
 
     ckan.plugins = ... dcat_json_harvester
 
-*TODO*: align the fields created by this harvester with the base mapping (ie the ones created by the RDF harvester).
+*TODO*: align the fields created by this harvester with the base mapping
+(ie the ones created by the RDF harvester).
 
 RDF DCAT to CKAN dataset mapping
 --------------------------------
 
-The following table provides a generic mapping between the fields of the `dcat:Dataset` and `dcat:Distribution` classes and
-their equivalents on the CKAN model. In most cases this mapping is deliberately a loose one. For instance, it does not try to link
-the DCAT publisher property with a CKAN dataset author, maintainer or organization, as the link between them is not straight-forward
-and may depend on a particular instance needs. When mapping from CKAN metadata to DCAT though, there are in some cases fallback fields
-that are used if the default field is not present (see [RDF Serializer](#rdf-dcat-serializer) for more details on this.
+The following table provides a generic mapping between the fields of the
+`dcat:Dataset` and `dcat:Distribution` classes and their equivalents on
+the CKAN model. In most cases this mapping is deliberately a loose one.
+For instance, it does not try to link the DCAT publisher property with a
+CKAN dataset author, maintainer or organization, as the link between
+them is not straight-forward and may depend on a particular instance
+needs. When mapping from CKAN metadata to DCAT though, there are in some
+cases fallback fields that are used if the default field is not present
+(see [RDF Serializer](#rdf-dcat-serializer) for more details on this.
 
-This mapping is compatible with the [DCAT-AP v1.1](https://joinup.ec.europa.eu/asset/dcat_application_profile/asset_release/dcat-ap-v11).
+This mapping is compatible with the [DCAT-AP
+v1.1](https://joinup.ec.europa.eu/asset/dcat_application_profile/asset_release/dcat-ap-v11).
 
 <table>
 <colgroup>
-<col width="6%" />
-<col width="8%" />
-<col width="14%" />
-<col width="11%" />
-<col width="4%" />
-<col width="54%" />
+<col style="width: 6%" />
+<col style="width: 8%" />
+<col style="width: 14%" />
+<col style="width: 11%" />
+<col style="width: 3%" />
+<col style="width: 55%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -576,10 +734,10 @@ This mapping is compatible with the [DCAT-AP v1.1](https://joinup.ec.europa.eu/a
 <tr class="odd">
 <td>dcat:Distribution</td>
 <td>dcat:accessURL</td>
+<td><a href="resource:access_url" class="uri">resource:access_url</a></td>
 <td><a href="resource:url" class="uri">resource:url</a></td>
-<td></td>
 <td>text</td>
-<td>If accessURL is not present, downloadURL will be used as resource url</td>
+<td>If downloadURL is not present, accessURL will be used as resource url</td>
 </tr>
 <tr class="even">
 <td>dcat:Distribution</td>
@@ -587,7 +745,7 @@ This mapping is compatible with the [DCAT-AP v1.1](https://joinup.ec.europa.eu/a
 <td><a href="resource:download_url" class="uri">resource:download_url</a></td>
 <td></td>
 <td>text</td>
-<td></td>
+<td>If present, downloadURL will be used as resource url</td>
 </tr>
 <tr class="odd">
 <td>dcat:Distribution</td>
@@ -619,7 +777,7 @@ This mapping is compatible with the [DCAT-AP v1.1](https://joinup.ec.europa.eu/a
 <td><a href="resource:license" class="uri">resource:license</a></td>
 <td></td>
 <td>text</td>
-<td>Note that on the CKAN model, license is at the dataset level</td>
+<td>See note about dataset license</td>
 </tr>
 <tr class="odd">
 <td>dcat:Distribution</td>
@@ -706,8 +864,8 @@ This mapping is compatible with the [DCAT-AP v1.1](https://joinup.ec.europa.eu/a
 
 *Notes*
 
--   Whenever possible, URIs are extracted and stored so there is a clear reference to the original RDF resource.
-    For instance:
+-   Whenever possible, URIs are extracted and stored so there is a clear
+    reference to the original RDF resource. For instance:
 
     ``` xml
     <?xml version="1.0" encoding="utf-8" ?>
@@ -795,7 +953,10 @@ This mapping is compatible with the [DCAT-AP v1.1](https://joinup.ec.europa.eu/a
     }
     ```
 
--   The following formats for `dct:spatial` are supported by the default [parser](#rdf-dcat-parser). Note that the default [serializer](#rdf-dcat-serializer) will return the single `dct:spatial` instance form by default.
+-   The following formats for `dct:spatial` are supported by the default
+    [parser](#rdf-dcat-parser). Note that the default
+    [serializer](#rdf-dcat-serializer) will return the single
+    `dct:spatial` instance form by default.
 
     -   One `dct:spatial` instance, URI only
 
@@ -803,7 +964,8 @@ This mapping is compatible with the [DCAT-AP v1.1](https://joinup.ec.europa.eu/a
         <dct:spatial rdf:resource="http://geonames/Newark"/>
         ```
 
-    -   One `dct:spatial` instance with text (this should not be used anyway)
+    -   One `dct:spatial` instance with text (this should not be used
+        anyway)
 
         ``` xml
         <dct:spatial>Newark</dct:spatial>
@@ -846,12 +1008,25 @@ This mapping is compatible with the [DCAT-AP v1.1](https://joinup.ec.europa.eu/a
         </dct:spatial>
         ```
 
+-   On the CKAN model, license is at the dataset level whereas in DCAT
+    model it is at distributions level. By default the RDF parser will
+    try to find a distribution with a license that matches one of those
+    registered in CKAN and attach this license to the dataset. The first
+    matching distribution's license is used, meaning that any
+    discrepancy accross distributions license will not be accounted for.
+    This behavior can be customized by overridding the `_license` method
+    on a custom profile.
+
 RDF DCAT Parser
 ---------------
 
-The `ckanext.dcat.processors.RDFParser` class allows to read RDF serializations in different
-formats and extract CKAN dataset dicts. It will look for DCAT datasets and distributions
-and create CKAN datasets and resources, as dictionaries that can be passed to [`package_create`](http://docs.ckan.org/en/latest/api/index.html#ckan.logic.action.create.package_create) or [`package_update`](http://docs.ckan.org/en/latest/api/index.html#ckan.logic.action.update.package_update).
+The `ckanext.dcat.processors.RDFParser` class allows to read RDF
+serializations in different formats and extract CKAN dataset dicts. It
+will look for DCAT datasets and distributions and create CKAN datasets
+and resources, as dictionaries that can be passed to
+[`package_create`](http://docs.ckan.org/en/latest/api/index.html#ckan.logic.action.create.package_create)
+or
+[`package_update`](http://docs.ckan.org/en/latest/api/index.html#ckan.logic.action.update.package_update).
 
 Here is a quick overview of how it works:
 
@@ -891,15 +1066,21 @@ Here is a quick overview of how it works:
         print ('Error parsing the RDF file: {0}'.format(e))
 ```
 
-The parser is implemented using [RDFLib](https://rdflib.readthedocs.org/), a Python library for working with RDF. Any
-RDF serialization format supported by RDFLib can be parsed into CKAN datasets. The `examples` folder contains
-serializations in different formats including RDF/XML, Turtle or JSON-LD.
+The parser is implemented using
+[RDFLib](https://rdflib.readthedocs.org/), a Python library for working
+with RDF. Any RDF serialization format supported by RDFLib can be parsed
+into CKAN datasets. The `examples` folder contains serializations in
+different formats including RDF/XML, Turtle or JSON-LD.
 
 RDF DCAT Serializer
 -------------------
 
-The `ckanext.dcat.processors.RDFSerializer` class generates RDF serializations in different
-formats from CKAN dataset dicts, like the ones returned by [`package_show`](http://docs.ckan.org/en/latest/api/index.html#ckan.logic.action.get.package_show) or [`package_search`](http://docs.ckan.org/en/latest/api/index.html#ckan.logic.action.get.package_search).
+The `ckanext.dcat.processors.RDFSerializer` class generates RDF
+serializations in different formats from CKAN dataset dicts, like the
+ones returned by
+[`package_show`](http://docs.ckan.org/en/latest/api/index.html#ckan.logic.action.get.package_show)
+or
+[`package_search`](http://docs.ckan.org/en/latest/api/index.html#ckan.logic.action.get.package_search).
 
 Here is an example of how to use it:
 
@@ -937,15 +1118,21 @@ Here is an example of how to use it:
     # serializer.g now contains the full dataset graph, an RDFLib Graph class
 ```
 
-The serializer uses customizable [profiles](#profiles) to generate an RDF graph (an [RDFLib Graph class](https://rdflib.readthedocs.org/en/latest/apidocs/rdflib.html#rdflib.graph.Graph)).
-By default these use the [mapping](#rdf-dcat-to-ckan-dataset-mapping) described in the previous section.
+The serializer uses customizable [profiles](#profiles) to generate an
+RDF graph (an [RDFLib Graph
+class](https://rdflib.readthedocs.org/en/latest/apidocs/rdflib.html#rdflib.graph.Graph)).
+By default these use the [mapping](#rdf-dcat-to-ckan-dataset-mapping)
+described in the previous section.
 
-In some cases, if the default CKAN field that maps to a DCAT property is not present, some other fallback
-values will be used instead. For instance, if the `contact_email` field is not found, `maintainer_email`
-and `author_email` will be used (if present) for the email property of the `adms:contactPoint` property.
+In some cases, if the default CKAN field that maps to a DCAT property is
+not present, some other fallback values will be used instead. For
+instance, if the `contact_email` field is not found, `maintainer_email`
+and `author_email` will be used (if present) for the email property of
+the `adms:contactPoint` property.
 
-Note that the serializer will look both for a first level field or an extra field with the same key, ie both
-the following values will be used for `dct:accrualPeriodicity`:
+Note that the serializer will look both for a first level field or an
+extra field with the same key, ie both the following values will be used
+for `dct:accrualPeriodicity`:
 
     {
         "name": "my-dataset",
@@ -961,35 +1148,56 @@ the following values will be used for `dct:accrualPeriodicity`:
         ...
     }
 
-Once the dataset graph has been obtained, this is serialized into a text format using [RDFLib](https://rdflib.readthedocs.org/),
-so any format it supports can be obtained (common formats are 'xml', 'turtle' or 'json-ld').
+Once the dataset graph has been obtained, this is serialized into a text
+format using [RDFLib](https://rdflib.readthedocs.org/), so any format it
+supports can be obtained (common formats are 'xml', 'turtle' or
+'json-ld').
 
 Profiles
 --------
 
-Both the parser and the serializer use profiles to allow customization of how the values defined in the RDF graph are mapped to CKAN and viceversa.
+Both the parser and the serializer use profiles to allow customization
+of how the values defined in the RDF graph are mapped to CKAN and
+viceversa.
 
 Profiles define :
 
--   How the RDF graph values map into CKAN fields, ie how the RDF is parsed into CKAN datasets
+-   How the RDF graph values map into CKAN fields, ie how the RDF is
+    parsed into CKAN datasets
 -   How CKAN fields map to an RDF graph, which can be then serialized
--   How the CKAN catalog metadata maps to an RDF graph, which can be then serialized
+-   How the CKAN catalog metadata maps to an RDF graph, which can be
+    then serialized
 
 They essentially define the mapping between DCAT and CKAN.
 
-In most cases the default profile will provide a good mapping that will cover most properties described in the DCAT standard. If you want to extract extra fields defined in the RDF, are using a custom schema or
-need custom logic, you can write a custom to profile that extends or replaces the default one.
+In most cases the default profile will provide a good mapping that will
+cover most properties described in the DCAT standard. If you want to
+extract extra fields defined in the RDF, are using a custom schema or
+need custom logic, you can write a custom to profile that extends or
+replaces the default one.
 
-The default profile is mostly based in the
-[DCAT application profile for data portals in Europe](https://joinup.ec.europa.eu/asset/dcat_application_profile/description). It is actually fully-compatible with [DCAT-AP v1.1](https://joinup.ec.europa.eu/asset/dcat_application_profile/asset_release/dcat-ap-v11). As mentioned before though, it should be generic enough for most DCAT based representations.
+The default profile is mostly based in the [DCAT application profile for
+data portals in
+Europe](https://joinup.ec.europa.eu/asset/dcat_application_profile/description).
+It is actually fully-compatible with [DCAT-AP
+v1.1](https://joinup.ec.europa.eu/asset/dcat_application_profile/asset_release/dcat-ap-v11).
+As mentioned before though, it should be generic enough for most DCAT
+based representations.
+
+This plugin also contains a profile to serialize a CKAN dataset to a
+[schema.org Dataset](http://schema.org/Dataset) called `schemaorg`. This
+is especially useful to provide [JSON-LD structured
+data](#structured-data).
 
 To define which profiles to use you can:
 
-1.  Set the `ckanext.dcat.rdf.profiles` configuration option on your CKAN configuration file:
+1.  Set the `ckanext.dcat.rdf.profiles` configuration option on your
+    CKAN configuration file:
 
     ckanext.dcat.rdf.profiles = euro\_dcat\_ap sweden\_dcat\_ap
 
-2.  When initializing a parser or serializer class, pass the profiles to be used as a parameter, eg:
+2.  When initializing a parser or serializer class, pass the profiles to
+    be used as a parameter, eg:
 
 ``` python
 
@@ -998,21 +1206,30 @@ To define which profiles to use you can:
    serializer = RDFSerializer(profiles=['euro_dcat_ap', 'sweden_dcat_ap'])
 ```
 
-Note that in both cases the order in which you define them is important, as it will be the one that the profiles will be run on.
+Note that in both cases the order in which you define them is important,
+as it will be the one that the profiles will be run on.
 
 ### Writing custom profiles
 
-Internally, profiles are classes that define a particular set of methods called during the parsing process.
-For instance, the `parse_dataset` method is called on each DCAT dataset found when parsing an RDF file, and should return a CKAN dataset.
-Conversely, the `graph_from_dataset` will be called when requesting an RDF representation for a dataset, and will need to generate the necessary RDF graph.
+Internally, profiles are classes that define a particular set of methods
+called during the parsing process. For instance, the `parse_dataset`
+method is called on each DCAT dataset found when parsing an RDF file,
+and should return a CKAN dataset. Conversely, the `graph_from_dataset`
+will be called when requesting an RDF representation for a dataset, and
+will need to generate the necessary RDF graph.
 
-Custom profiles should always extend the `ckanext.dcat.profiles.RDFProfile` class. This class has several helper
-functions to make getting metadata from the RDF graph easier. These include helpers for getting fields for FOAF and VCard entities like the ones
-used to define publishers or contact points. Check the source code of `ckanex.dcat.profiles.py` to see what is available.
+Custom profiles should always extend the
+`ckanext.dcat.profiles.RDFProfile` class. This class has several helper
+functions to make getting metadata from the RDF graph easier. These
+include helpers for getting fields for FOAF and VCard entities like the
+ones used to define publishers or contact points. Check the source code
+of `ckanex.dcat.profiles.py` to see what is available.
 
-Profiles can extend other profiles to avoid repeating rules, or can be completely independent.
+Profiles can extend other profiles to avoid repeating rules, or can be
+completely independent.
 
-The following example shows a complete example of a profile built on top of the default one (`euro_dcat_ap`):
+The following example shows a complete example of a profile built on top
+of the default one (`euro_dcat_ap`):
 
 ``` python
 
@@ -1059,16 +1276,21 @@ The following example shows a complete example of a profile built on top of the 
                 g.add((spatial_ref, RDFS.label, Literal(spatial_text)))
 ```
 
-Note how the dataset dict is passed between profiles so it can be further tweaked.
+Note how the dataset dict is passed between profiles so it can be
+further tweaked.
 
-Extensions define their available profiles using the `ckan.rdf.profiles` in the `setup.py` file, as in this [example](https://github.com/ckan/ckanext-dcat/blob/cc5fcc7be0be62491301db719ce597aec7c684b0/setup.py#L37:L38) from this same extension:
+Extensions define their available profiles using the `ckan.rdf.profiles`
+in the `setup.py` file, as in this
+[example](https://github.com/ckan/ckanext-dcat/blob/cc5fcc7be0be62491301db719ce597aec7c684b0/setup.py#L37:L38)
+from this same extension:
 
     [ckan.rdf.profiles]
     euro_dcat_ap=ckanext.dcat.profiles:EuropeanDCATAPProfile
 
 ### Command line interface
 
-The parser and serializer can also be accessed from the command line via `python ckanext-dcat/ckanext/dcat/processors.py`.
+The parser and serializer can also be accessed from the command line via
+`python ckanext-dcat/ckanext/dcat/processors.py`.
 
 You can point to RDF files:
 
@@ -1108,13 +1330,16 @@ To see all available options, run the script with the `-h` argument:
 
 ### Compatibility mode
 
-In compatibility mode, some fields are modified to maintain compatibility with previous versions of the ckanext-dcat parsers
-(eg adding the `dcat_` prefix or storing comma separated lists instead
-of JSON blobs).
+In compatibility mode, some fields are modified to maintain
+compatibility with previous versions of the ckanext-dcat parsers (eg
+adding the `dcat_` prefix or storing comma separated lists instead of
+JSON blobs).
 
-CKAN instances that were using the legacy XML and JSON harvesters (`dcat_json_harvester` and `dcat_xml_harvester`)
-and want to move to the RDF based one may want to turn compatibility mode on to ensure that CKAN dataset fields are created as before.
-Users are encouraged to migrate their applications to support the new DCAT to CKAN mapping.
+CKAN instances that were using the legacy XML and JSON harvesters
+(`dcat_json_harvester` and `dcat_xml_harvester`) and want to move to the
+RDF based one may want to turn compatibility mode on to ensure that CKAN
+dataset fields are created as before. Users are encouraged to migrate
+their applications to support the new DCAT to CKAN mapping.
 
 To turn compatibility mode on add this to the CKAN configuration file:
 
@@ -1123,10 +1348,127 @@ To turn compatibility mode on add this to the CKAN configuration file:
 XML DCAT harvester (deprecated)
 -------------------------------
 
-The old DCAT XML harvester (`dcat_xml_harvester`) is now deprecated, in favour of the [RDF harvester](#rdf-dcat-harvester).
-Loading it on the ini file will result in an exception on startup.
+The old DCAT XML harvester (`dcat_xml_harvester`) is now deprecated, in
+favour of the [RDF harvester](#rdf-dcat-harvester). Loading it on the
+ini file will result in an exception on startup.
 
-The XML serialization described in the [spec.datacatalogs.org](http://spec.datacatalogs.org/#datasets_serialization_format) site is a valid RDF/XML one, so changing the harvester should have no effect. There might be slight differences in the way CKAN fields are created though, check [Compatibility mode](#compatibility-mode) for more details.
+The XML serialization described in the
+[spec.datacatalogs.org](http://spec.datacatalogs.org/#datasets_serialization_format)
+site is a valid RDF/XML one, so changing the harvester should have no
+effect. There might be slight differences in the way CKAN fields are
+created though, check [Compatibility mode](#compatibility-mode) for more
+details.
+
+Translation of fields
+---------------------
+
+The `dcat` plugin automatically translates the keys of the dcat fields
+used in the frontend. This makes it very easy to display the fields in
+the current language.
+
+To disable this behavior, you can set the following config value in your
+ini file (default: True):
+
+    ckanext.dcat.translate_keys = False
+
+Structured data
+---------------
+
+To add [structured
+data](https://developers.google.com/search/docs/guides/intro-structured-data)
+to dataset pages, activate the `structured_data` and `dcat` plugins in
+your ini file:
+
+        ckan.plugins = dcat structured_data
+
+By default this uses the `schemaorg` profile (see [profiles](#profiles))
+to serialize the dataset to JSON-LD, which is then added to the dataset
+detail page. To change the schema, you have to override the Jinja
+template block called `structured_data` in
+[`templates/package/read_base.html`](https://github.com/ckan/ckanext-dcat/blob/master/ckanext/dcat/templates/package/read_base.html)
+and call the template helper function with different parameters:
+
+    {%raw%}{% {%endraw%}block structured_data{%raw%} %}{%endraw%}
+      <script type="application/ld+json">
+      {{ h.structured_data(pkg.id, ['my_custom_schema'])|safe }}
+      </script>
+    {%raw%}{% {%endraw%}endblock{%raw%} %}{%endraw%}
+
+Example output of structured data in JSON-LD:
+
+    < ... >
+        <script type="application/ld+json">
+        {
+            "@context": {
+                "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+                "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+                "schema": "http://schema.org/",
+                "xsd": "http://www.w3.org/2001/XMLSchema#"
+            },
+            "@graph": [
+                {
+                    "@id": "http://demo.ckan.org/organization/c64835bf-b3b7-496d-a7cf-ed645dbf4b08",
+                    "@type": "schema:Organization",
+                    "schema:contactPoint": {
+                        "@id": "_:Nb9677036512840e1a00c9fec2818abe4"
+                    },
+                    "schema:name": "Public Transport Organization"
+                },
+                {
+                    "@id": "http://demo.ckan.org/dataset/69a5bc23-3abd-4af7-8d3d-8f0d08698307/resource/5f1cafa2-3c92-4e89-85d1-60f014c23e0f",
+                    "@type": "schema:DataDownload",
+                    "schema:dateModified": "2018-01-18T00:00:00",
+                    "schema:datePublished": "2018-01-02T00:00:00",
+                    "schema:description": "API for all the public transport stations",
+                    "schema:encodingFormat": "JSON",
+                    "schema:inLanguage": [
+                        "de",
+                        "it",
+                        "fr",
+                        "en"
+                    ],
+                    "schema:license": "https://creativecommons.org/licenses/by/4.0/",
+                    "schema:name": "Stations API",
+                    "schema:url": "http://stations.example.com/api"
+                },
+                {
+                    "@id": "http://demo.ckan.org/dataset/69a5bc23-3abd-4af7-8d3d-8f0d08698307",
+                    "@type": "schema:Dataset",
+                    "schema:dateModified": "2018-01-18T09:41:21.076522",
+                    "schema:datePublished": "2017-01-01T00:00:00",
+                    "schema:distribution": [
+                        {
+                            "@id": "http://demo.ckan.org/dataset/69a5bc23-3abd-4af7-8d3d-8f0d08698307/resource/5f1cafa2-3c92-4e89-85d1-60f014c23e0f"
+                        },
+                        {
+                            "@id": "http://demo.ckan.org/dataset/69a5bc23-3abd-4af7-8d3d-8f0d08698307/resource/bf3a0b61-415b-47b8-9cd0-86a14f8dc165"
+                        }
+                    ],
+                    "schema:identifier": "69a5bc23-3abd-4af7-8d3d-8f0d08698307",
+                    "schema:inLanguage": [
+                        "en",
+                        "de",
+                        "fr",
+                        "it"
+                    ],
+                    "schema:name": "Station list",
+                    "schema:publisher": {
+                        "@id": "http://demo.ckan.org/organization/c64835bf-b3b7-496d-a7cf-ed645dbf4b08"
+                    }
+                },
+                {
+                    "@id": "_:Nb9677036512840e1a00c9fec2818abe4",
+                    "@type": "schema:ContactPoint",
+                    "schema:contactType": "customer service",
+                    "schema:email": "contact@example.com",
+                    "schema:name": "Public Transport Support",
+                    "schema:url": "https://public-transport.example.com"
+                }
+            ]
+        }
+        </script>
+      </body>
+    </html>
 
 Running the Tests
 -----------------
@@ -1140,8 +1482,11 @@ Acknowledgements
 
 Work on ckanext-dcat has been made possible by:
 
--   the Government of Sweden and Vinnova, as part of work on [&#214;ppnadata.se](http://oppnadata.se), the Swedish Open Data Portal.
--   [FIWARE](https://www.fiware.org), a project funded by the European Commission to integrate different technologies to offer connected cloud services from a single platform.
+-   the Government of Sweden and Vinnova, as part of work on
+    [&#214;ppnadata.se](http://oppnadata.se), the Swedish Open Data Portal.
+-   [FIWARE](https://www.fiware.org), a project funded by the European
+    Commission to integrate different technologies to offer connected
+    cloud services from a single platform.
 
 If you can fund new developments or contribute please get in touch.
 
@@ -1150,7 +1495,8 @@ Copying and License
 
 This material is copyright (c) Open Knowledge.
 
-It is open and licensed under the GNU Affero General Public License (AGPL) v3.0 whose full text may be found at:
+It is open and licensed under the GNU Affero General Public License
+(AGPL) v3.0 whose full text may be found at:
 
 <http://www.fsf.org/licensing/licenses/agpl-3.0.html>
 
