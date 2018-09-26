@@ -2,7 +2,6 @@ title: CKAN Extensions
 markdown: kramdown
 kramdown:
   input: GFM
-highlighter: pygments
 relative_permalinks: false
 extension_list_gdoc: https://docs.google.com/a/okfn.org/spreadsheets/d/1izCpljO6Et7zLUKcUlB4BzsMZTurENp56Iqi9kXOtgs/edit#gid=0
 extension_list_csv: https://docs.google.com/spreadsheets/d/1izCpljO6Et7zLUKcUlB4BzsMZTurENp56Iqi9kXOtgs/export?gid=0&format=csv
