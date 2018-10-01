@@ -1,10 +1,10 @@
 ---
 layout: extension
 name: b2find
-title: 
+title: CKAN plugin for the B2Find Service (https-//eudat
 author: B2FIND
-homepage: https://github.com/B2FIND/ckanext-b2find
-github_user: B2FIND
+homepage: https://github.com/EUDAT-B2FIND/ckanext-b2find
+github_user: EUDAT-B2FIND
 github_repo: ckanext-b2find
 category: Extension
 featured: 
@@ -24,7 +24,8 @@ Contains external libraries
 ---------------------------
 
 -   [AngularJS](http://angularjs.org/), MIT License
--   [localForage](https://mozilla.github.io/localForage), Apache License 2.0
+-   [localForage](https://mozilla.github.io/localForage), Apache License
+    2.0
 -   [lodash](https://lodash.com/), MIT License
 
 Features
@@ -34,5 +35,4 @@ Features
 -   Improved basic facets
 -   Search guide
 -   Legal pages
-
 
