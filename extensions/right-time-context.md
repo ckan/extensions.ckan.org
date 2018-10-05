@@ -2,7 +2,7 @@
 layout: extension
 name: right-time-context
 title: CKAN extension providing right time context support through FIWARE NGSI
-author: CoNWeT
+author: CoNWeT Lab. Universidad Politécnica de Madrid
 homepage: https://github.com/conwetlab/ckanext-right_time_context
 github_user: conwetlab
 github_repo: ckanext-right_time_context
