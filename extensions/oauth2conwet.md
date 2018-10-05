@@ -2,7 +2,7 @@
 layout: extension
 name: oauth2conwet
 title: OAuth2 Support for CKAN
-author: CoNWeT
+author: CoNWeT Lab. Universidad Politécnica de Madrid
 homepage: https://github.com/conwetlab/ckanext-oauth2
 github_user: conwetlab
 github_repo: ckanext-oauth2
@@ -12,24 +12,33 @@ permalink: /extension/oauth2conwet/
 ---
 
 
-OAuth2 CKAN extension [![Build Status](https://build.conwet.fi.upm.es/jenkins/buildStatus/icon?job=ckan_oauth2)](https://build.conwet.fi.upm.es/jenkins/job/ckan_oauth2/)
-=========================================================================================================================================================================
+OAuth2 CKAN extension
+=====================
 
-The OAuth2 extension allows site visitors to login through an OAuth2 server.
+[![Build
+Status](https://travis-ci.org/conwetlab/ckanext-oauth2.svg?branch=master)](https://travis-ci.org/conwetlab/ckanext-oauth2)
+[![Coverage
+Status](https://coveralls.io/repos/github/conwetlab/ckanext-oauth2/badge.svg?branch=master)](https://coveralls.io/github/conwetlab/ckanext-oauth2?branch=master)
 
-**Note**: This extension has been tested in CKAN 2.2 and 2.3. It may not work in other versions.
+The OAuth2 extension allows site visitors to login through an OAuth2
+server.
 
-**Note**: If you want to use the FIWARE IdM, use the code on `fiware-migration` branch.
+**Note**: This extension is being tested in CKAN 2.6, 2.7 and 2.8. These
+are therefore considered as the supported versions
 
 Links
 -----
 
-1.  [Activating & Installing the plugin](https://github.com/conwetlab/ckanext-oauth2/wiki/Activating-and-Installing)
-2.  [Starting CKAN over HTTPs](https://github.com/conwetlab/ckanext-oauth2/wiki/Starting-CKAN-over-HTTPs)
-3.  [How it works?](https://github.com/conwetlab/ckanext-oauth2/wiki/How-it-works%3F)
+1.  [Activating & Installing the
+    plugin](https://github.com/conwetlab/ckanext-oauth2/wiki/Activating-and-Installing)
+2.  [Starting CKAN over
+    HTTPs](https://github.com/conwetlab/ckanext-oauth2/wiki/Starting-CKAN-over-HTTPs)
+3.  [How it
+    works?](https://github.com/conwetlab/ckanext-oauth2/wiki/How-it-works%3F)
 
 Credits
 -------
 
-Based on the idea proposed by [Etalab](https://github.com/etalab/ckanext-oauth2)
+Based on the idea proposed by
+[Etalab](https://github.com/etalab/ckanext-oauth2)
 
