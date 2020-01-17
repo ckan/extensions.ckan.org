@@ -2,7 +2,7 @@
 layout: extension
 name: contact
 title: Adds a contact form
-author: U.K. Natural History Museum
+author: Natural History Museum, London
 homepage: https://github.com/NaturalHistoryMuseum/ckanext-contact
 github_user: NaturalHistoryMuseum
 github_repo: ckanext-contact
