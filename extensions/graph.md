@@ -2,7 +2,7 @@
 layout: extension
 name: graph
 title: CKAN extension for graph views, with data processing moved to the backend
-author: U.K. Natural History Museum
+author: Natural History Museum, London
 homepage: https://github.com/NaturalHistoryMuseum/ckanext-graph
 github_user: NaturalHistoryMuseum
 github_repo: ckanext-graph
