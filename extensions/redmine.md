@@ -15,7 +15,9 @@ permalink: /extension/redmine/
 ckanext-redmine
 ===============
 
-This is an extension that provides a contact form for users to contact you about different categories of problems, backed by a [redmine](http://www.redmine.org/) installation.
+This is an extension that provides a contact form for users to contact
+you about different categories of problems, backed by a
+[redmine](http://www.redmine.org/) installation.
 
 Features
 --------
@@ -24,26 +26,46 @@ This extension provides:
 
 ### Contact form
 
-This (defaults to /contact) that allows a user to contact the data portal owners and send feedback/questions to various redmine installations. Each installation can be made available at a URL to cover different types of reports. For instance on data.gov.uk /contact and /content/general put data into one redmine instance, /contact/location puts the issues in another.
+This (defaults to /contact) that allows a user to contact the data
+portal owners and send feedback/questions to various redmine
+installations. Each installation can be made available at a URL to cover
+different types of reports. For instance on data.gov.uk /contact and
+/content/general put data into one redmine instance, /contact/location
+puts the issues in another.
 
-The categories drop-down is populated with the categories from the named Redmine instance and so these should be created within Redmine itself (optionally with a default assignee).
+The categories drop-down is populated with the categories from the named
+Redmine instance and so these should be created within Redmine itself
+(optionally with a default assignee).
 
-In this version of the extension all submitted issues are private (at least if Redmine is configured to be private) and they are not shown on the data portal.
+In this version of the extension all submitted issues are private (at
+least if Redmine is configured to be private) and they are not shown on
+the data portal.
 
-Failure to add the issue to redmine will trigger an email to a system administrator to containing the contact information (so that details are not lost).
+Failure to add the issue to redmine will trigger an email to a system
+administrator to containing the contact information (so that details are
+not lost).
 
 ### Simple contact-report
 
-This shows the number of open/closed tickets with links to the youngest and oldest tickets in each state. The table below shows the number of open/closed tickets for each category and provides a link directly to the Redmine view filtered by that category. This view is only accessible to system administrators.
+This shows the number of open/closed tickets with links to the youngest
+and oldest tickets in each state. The table below shows the number of
+open/closed tickets for each category and provides a link directly to
+the Redmine view filtered by that category. This view is only accessible
+to system administrators.
 
 Configuration
 -------------
 
-1.  Create a project, some categories and add a user to redmine. Go to /settings and click on Authentication and make sure Enable REST web service is checked.
+1.  Create a project, some categories and add a user to redmine. Go to
+    /settings and click on Authentication and make sure Enable REST web
+    service is checked.
 
 2.  Add `redmine` to your ckan.plugins.
 
-3.  Copy redmine-config-simple.json to where you put your config files and file in the required fields (for the number of instances you want to connect to). For each instance specify a name and fill in the fields as follows:
+3.  Copy redmine-config-simple.json to where you put your config files
+    and file in the required fields (for the number of instances you
+    want to connect to). For each instance specify a name and fill in
+    the fields as follows:
 
 <!-- -->
 
@@ -76,25 +98,37 @@ Future
 
 #### Spam checking
 
-The extension should use mollom (or suchlike) to check for spam submissions.
+The extension should use mollom (or suchlike) to check for spam
+submissions.
 
 #### Custom fields
 
-Extension should take advantage of the custom fields to record the relevant dataset/publisher so that issues can be grouped/queried on that data. Currently this is inline in the issue content.
+Extension should take advantage of the custom fields to record the
+relevant dataset/publisher so that issues can be grouped/queried on that
+data. Currently this is inline in the issue content.
 
 #### Fuller reports
 
-More reports on the processing of issues. Charts of velocity based on issue state, changes of state and grouped by publisher/dataset.
+More reports on the processing of issues. Charts of velocity based on
+issue state, changes of state and grouped by publisher/dataset.
 
 #### User tracking of issues
 
-Users should be able to view, on the site, issues that they have created and be able to respond to them (with their feedback being added to Redmine).
+Users should be able to view, on the site, issues that they have created
+and be able to respond to them (with their feedback being added to
+Redmine).
 
 #### Publisher access to issues
 
-Publishers should be able to obtain a view that shows the issues that are relevant to them, or are about their datasets. Eventually they should be able to response/close issues as well.
+Publishers should be able to obtain a view that shows the issues that
+are relevant to them, or are about their datasets. Eventually they
+should be able to response/close issues as well.
 
 #### Email integration
 
-Responses to issues are likely to take place in users' inboxes, and it would be more efficient, and valuable, if ckanext-redmine were able to be responsible for sending the messages, and also for integrating the responses. This may require new forms for responding to issues and delivering/retrieving email on each item.
+Responses to issues are likely to take place in users' inboxes, and it
+would be more efficient, and valuable, if ckanext-redmine were able to
+be responsible for sending the messages, and also for integrating the
+responses. This may require new forms for responding to issues and
+delivering/retrieving email on each item.
 

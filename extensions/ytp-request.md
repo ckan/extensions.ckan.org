@@ -15,7 +15,8 @@ permalink: /extension/ytp-request/
 ckanext-ytp-request
 ===================
 
-CKAN extension providing means to control organization member requests, requests history and related operations.
+CKAN extension providing means to control organization member requests,
+requests history and related operations.
 
 Features
 --------

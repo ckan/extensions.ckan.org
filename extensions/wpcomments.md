@@ -12,17 +12,26 @@ permalink: /extension/wpcomments/
 ---
 
 
-This plugin brings comments from WordPress to CKAN dataset pages. Includes reporting of comments and subscribing to comments features, latter of which is deemed specific to Helsinki Region Infoshare.
+This plugin brings comments from WordPress to CKAN dataset pages.
+Includes reporting of comments and subscribing to comments features,
+latter of which is deemed specific to Helsinki Region Infoshare.
 
-This plugin requires a relatively new WordPress installation to be present under the exact same domain name, so Ajax-queries to .../xmlrpc.php and .../wp-admin/admin-ajax.php will succeed. The plugin assumes that there is a WordPress post related to each CKAN dataset. Required changes to WordPress XML-RPC API are provided based on implementation in <https://github.com/Helsingin-kaupungin-tietokeskus/wordpress>
+This plugin requires a relatively new WordPress installation to be
+present under the exact same domain name, so Ajax-queries to
+.../xmlrpc.php and .../wp-admin/admin-ajax.php will succeed. The plugin
+assumes that there is a WordPress post related to each CKAN dataset.
+Required changes to WordPress XML-RPC API are provided based on
+implementation in
+<a href="https://github.com/Helsingin-kaupungin-tietokeskus/wordpress" class="uri">https://github.com/Helsingin-kaupungin-tietokeskus/wordpress</a>
 
-Modification of example Javascript and PHP code is required to make this plugin work.
+Modification of example Javascript and PHP code is required to make this
+plugin work.
 
 Install (CKAN)
 ==============
 
-In an activated python environment run:
-pip install -e git+<https://github.com/Helsingin-kaupungin-tietokeskus/ckanext-comments.git#egg=ckanext-comments>
+In an activated python environment run: pip install -e
+git+<a href="https://github.com/Helsingin-kaupungin-tietokeskus/ckanext-comments.git#egg=ckanext-comments" class="uri">https://github.com/Helsingin-kaupungin-tietokeskus/ckanext-comments.git#egg=ckanext-comments</a>
 
 \[The plugin is compatible only with CKAN 2.x versions\]
 
@@ -37,25 +46,27 @@ ckan.plugins = ... comments
 
 To your theme plugin, add:
 
-{%raw%}{% {%endraw%}snippet 'snippets/comments.html', package\_name = pkg\_dict.name, wp\_url = 'www.your.wordpress.installati.on', comment\_subscribing = False, subscription\_action\_url = '', wordpress\_user\_id = False{%raw%} %}{%endraw%}
+{%raw%}{% {%endraw%}snippet 'snippets/comments.html', package\_name =
+pkg\_dict.name, wp\_url = 'www.your.wordpress.installati.on',
+comment\_subscribing = False, subscription\_action\_url = '',
+wordpress\_user\_id = False{%raw%} %}{%endraw%}
 
-package\_name:
-Name (slug) of the dataset.
-wp\_url:
-URL of your WordPress installation.
-comment\_subscribing:
-True/False for enab&#314;ing/disabling comment subscription feature. Effectively HRI specific.
-subscription\_action\_url:
-Form target for comment subscription, related to the setting above. HRI specific.
-wordpress\_user\_id:
-Logged in user's ID from WordPress or False.
+package\_name: Name (slug) of the dataset. wp\_url: URL of your
+WordPress installation. comment\_subscribing: True/False for
+enabĺing/disabling comment subscription feature. Effectively HRI
+specific. subscription\_action\_url: Form target for comment
+subscription, related to the setting above. HRI specific.
+wordpress\_user\_id: Logged in user's ID from WordPress or False.
 
-This will enable commenting and reporting features. You may provide wordpress\_user\_id in order to link the comment to the logged in user on the WordPress side.
+This will enable commenting and reporting features. You may provide
+wordpress\_user\_id in order to link the comment to the logged in user
+on the WordPress side.
 
-The reporting feature requires additional setup. Add this script after the snippet call:
+The reporting feature requires additional setup. Add this script after
+the snippet call:
 
-<script type="text/javascript">
-function setCommentReportingCommentIdAndAction(element) {
+<script type="text/javascript"> function
+setCommentReportingCommentIdAndAction(element) {
 
     if(HRI_LANG && HRI_LANG === 'en') {
 
@@ -71,10 +82,13 @@ function setCommentReportingCommentIdAndAction(element) {
     $('#comment_ID').val( $(element).attr('id').substr(7) + '-' + hri_blog);
     $('#report-form').attr('action', target);
 
-}
-</script>
+} </script>
 
-Modify the script above to set target and comment id fields to suitable values. The target page will receive variables: comment\_ID, report-email and reporttext in POST. For a complete example of report handling with this input, you may refer to: <https://github.com/Helsingin-kaupungin-tietokeskus/wordpress/blob/master/wp-content/themes/hri2/page-report.php>
+Modify the script above to set target and comment id fields to suitable
+values. The target page will receive variables: comment\_ID,
+report-email and reporttext in POST. For a complete example of report
+handling with this input, you may refer to:
+<a href="https://github.com/Helsingin-kaupungin-tietokeskus/wordpress/blob/master/wp-content/themes/hri2/page-report.php" class="uri">https://github.com/Helsingin-kaupungin-tietokeskus/wordpress/blob/master/wp-content/themes/hri2/page-report.php</a>
 
 To set up jQuery plugin handling the comments, do:
 
@@ -106,9 +120,16 @@ To set up jQuery plugin handling the comments, do:
     }
     </script>
 
-Note that instead of hardcoding your WordPress installation URL like '<http://www.your.wordpress.installati.on>', you'll probably want to have a helper like '<http://>{{ h.wordpress\_url() }}' to provide it from the .ini settings file. Settings for $.comments can be reviewed from the jQuery plugin's code.
+Note that instead of hardcoding your WordPress installation URL like
+'<a href="http://www.your.wordpress.installati.on" class="uri">http://www.your.wordpress.installati.on</a>',
+you'll probably want to have a helper like
+'<a href="http://" class="uri">http://</a>{{ h.wordpress\_url() }}' to
+provide it from the .ini settings file. Settings for $.comments can be
+reviewed from the jQuery plugin's code.
 
-List of WordPress API-calls made by the jQuery plugin follows. Note that these must be implemented in a WordPress theme or plugin, example implementations are provided in the next chapter.
+List of WordPress API-calls made by the jQuery plugin follows. Note that
+these must be implemented in a WordPress theme or plugin, example
+implementations are provided in the next chapter.
 
     url: settings.xmlrpcurl + '/xmlrpc.php',
     methodName: 'wp.getPostId',
@@ -128,7 +149,8 @@ List of WordPress API-calls made by the jQuery plugin follows. Note that these m
 
     Called when submitting a new comment.
 
-These functions are deemed as HRI specific and as such only mentioned here.
+These functions are deemed as HRI specific and as such only mentioned
+here.
 
     url: settings.xmlrpcurl + '/xmlrpc.php',
     methodName: 'hri.subscribeToComments',
@@ -145,9 +167,15 @@ These functions are deemed as HRI specific and as such only mentioned here.
 Enabling (WordPress)
 ====================
 
-As mentioned before, the WordPress API must be extended to support querying a post's id, getting comments for the post and submitting a new comment for the post. In this chapter we present example implementations based on <https://github.com/Helsingin-kaupungin-tietokeskus/wordpress/blob/master/wp-content/plugins/hri-ckan/>
+As mentioned before, the WordPress API must be extended to support
+querying a post's id, getting comments for the post and submitting a new
+comment for the post. In this chapter we present example implementations
+based on
+<a href="https://github.com/Helsingin-kaupungin-tietokeskus/wordpress/blob/master/wp-content/plugins/hri-ckan/" class="uri">https://github.com/Helsingin-kaupungin-tietokeskus/wordpress/blob/master/wp-content/plugins/hri-ckan/</a>
 
-In the plugin we introduce extensions to the XML-RPC API by adding the following lines - note that the jQuery plugin expects the functions to be with these exact same names:
+In the plugin we introduce extensions to the XML-RPC API by adding the
+following lines - note that the jQuery plugin expects the functions to
+be with these exact same names:
 
     add_filter('xmlrpc_methods', 'hri_xmlrpc_methods');
     function hri_xmlrpc_methods($methods) {
@@ -159,7 +187,9 @@ In the plugin we introduce extensions to the XML-RPC API by adding the following
 
     require( ABSPATH . 'wp-content/plugins/hri-ckan/function_xml_rpc.php' );
 
-Which are then defined in the <https://github.com/Helsingin-kaupungin-tietokeskus/wordpress/blob/master/wp-content/plugins/hri-ckan/function_xml_rpc.php> as:
+Which are then defined in the
+<a href="https://github.com/Helsingin-kaupungin-tietokeskus/wordpress/blob/master/wp-content/plugins/hri-ckan/function_xml_rpc.php" class="uri">https://github.com/Helsingin-kaupungin-tietokeskus/wordpress/blob/master/wp-content/plugins/hri-ckan/function_xml_rpc.php</a>
+as:
 
     /**
      * Search a post's WordPress post_id by slug
@@ -189,7 +219,8 @@ Which are then defined in the <https://github.com/Helsingin-kaupungin-tietokesku
         return $wpdb->get_results( "SELECT DISTINCT p.ID FROM {$wpdb->posts} p JOIN {$wpdb->postmeta} pm ON p.ID = pm.post_id WHERE p.post_type = 'data' AND pm.meta_key = 'ckan_url' AND p.guid LIKE 'http://www.hri.fi/blog/data/{$slug}/' OR p.post_name = '{$slug}' OR pm.meta_value LIKE '%/dataset/{$slug}';" );
     }
 
-The get\_results query above needs to be at least checked, so that it is able to find the post in your system.
+The get\_results query above needs to be at least checked, so that it is
+able to find the post in your system.
 
 ------------------------------------------------------------------------
 

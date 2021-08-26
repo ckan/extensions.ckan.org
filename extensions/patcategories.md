@@ -29,8 +29,7 @@ I comandi che possono essere usati per creare e cancellare nuove voci
 dei vocabolari presenti; i comandi vanno lanciati dalla cartella del
 plugin "ckanext-patform",
 
-start from the directory ckanext-patform
-(eg.
+start from the directory ckanext-patform (eg.
 
 ``` bash
 cd /where/is/ckan/ckanext-patform )
@@ -62,17 +61,6 @@ The terms cad be added to this different vocabularies:
 Categories used in dati.trentino.it
 ===================================
 
-Ambiente
-Amministrazione
-Conoscenza
-Cultura
-Demografia
-Economia
-Gestione del territorio
-Meteo
-Mobilita
-Politica
-Sicurezza
-Sport
-Welfare
+Ambiente Amministrazione Conoscenza Cultura Demografia Economia Gestione
+del territorio Meteo Mobilita Politica Sicurezza Sport Welfare
 

@@ -17,14 +17,16 @@ ckanext-ord-hierarchy
 
 An extension to display a hierarchical structure of datasets.
 
-When parent-child relationships between datasets exist, the plugin will display the tree structure on the dataset page, showing links to the top level dataset, up one level and any sublevels.
+When parent-child relationships between datasets exist, the plugin will
+display the tree structure on the dataset page, showing links to the top
+level dataset, up one level and any sublevels.
 
 Installation
 ------------
 
 1.  Activate your virtualenv:
 
-        $ source /path/to/virtualenv/pyenv/bin/activate
+         $ source /path/to/virtualenv/pyenv/bin/activate
 
 2.  Install the extension in your virtualenv:
 
@@ -33,6 +35,4 @@ Installation
 3.  Enable the required plugin in your ini file:
 
         ckan.plugins = ... ord_hierarchy
-
-
 

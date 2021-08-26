@@ -97,7 +97,7 @@ the Resource ID
 
 ### PDI Sample Transformation
 
-<http://blog.professorcoruja.com/2017/06/unlock-your-data-using-pdi-and-ckan-pdi.html>
+<a href="http://blog.professorcoruja.com/2017/06/unlock-your-data-using-pdi-and-ckan-pdi.html" class="uri">http://blog.professorcoruja.com/2017/06/unlock-your-data-using-pdi-and-ckan-pdi.html</a>
 
 ### Install the plugin using your own PDI Marketplace
 
@@ -106,7 +106,7 @@ system/karaf/etc/pentaho.marketplace.di.cfg <BR> And change the value of
 the marketplace.site property.<BR>
 
 Change to: <BR> marketplace.site =
-<https://raw.githubusercontent.com/caiomsouza/marketplace-metadata/master/marketplace.xml><BR>
+<a href="https://raw.githubusercontent.com/caiomsouza/marketplace-metadata/master/marketplace.xml" class="uri">https://raw.githubusercontent.com/caiomsouza/marketplace-metadata/master/marketplace.xml</a><BR>
 
 and then start PDI.<BR>
 
@@ -114,5 +114,5 @@ and then start PDI.<BR>
 
 I created an issue asking the authors to publish it to Official PDI
 Markeplace<BR>
-<https://github.com/OpenGov-OpenData/CKAN-DataStore-Writer-for-Pentaho-Data-Integration/issues/1>
+<a href="https://github.com/OpenGov-OpenData/CKAN-DataStore-Writer-for-Pentaho-Data-Integration/issues/1" class="uri">https://github.com/OpenGov-OpenData/CKAN-DataStore-Writer-for-Pentaho-Data-Integration/issues/1</a>
 

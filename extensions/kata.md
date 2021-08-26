@@ -12,7 +12,12 @@ permalink: /extension/kata/
 ---
 
 
-Kata is a CKAN extension for handling metadata of research datasets. It is used in [Etsin research data finder](https://etsin.avointiede.fi/en/).
+This repository was part of an older version of Etsin which is no longer in use. For the newest version of Etsin, see <a href="https://github.com/CSCfi/etsin-finder/" class="uri">https://github.com/CSCfi/etsin-finder/</a>
+=============================================================================================================================================================================================================================
+
+Kata is a CKAN extension for handling metadata of research datasets. It
+is used in [Etsin research data
+finder](https://etsin.avointiede.fi/en/).
 
 Installation
 ============
@@ -25,9 +30,12 @@ Requirements
 ============
 
 -   CKAN 2.4.1
--   Some additional Python packages that will be installed using `pip install`
--   CKAN extension ckanext-ytp-comments: <https://github.com/kata-csc/ckanext-ytp-comments/tree/etsin>
--   ClamAV (if kata.storage.malware\_scan=true): <http://www.clamav.net/index.html>
+-   Some additional Python packages that will be installed using
+    `pip install`
+-   CKAN extension ckanext-ytp-comments:
+    <a href="https://github.com/kata-csc/ckanext-ytp-comments/tree/etsin" class="uri">https://github.com/kata-csc/ckanext-ytp-comments/tree/etsin</a>
+-   ClamAV (if kata.storage.malware\_scan=true):
+    <a href="http://www.clamav.net/index.html" class="uri">http://www.clamav.net/index.html</a>
 
 Configuration
 =============
@@ -42,7 +50,8 @@ If Google Analytics is on, add
 
 > kata.ga\_id = \[GA ID\]
 
-If LDAP is used, add basic LDAP configuration to the aforementioned file:
+If LDAP is used, add basic LDAP configuration to the aforementioned
+file:
 
 > kata.ldap.enabled = true
 

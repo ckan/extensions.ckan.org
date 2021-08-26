@@ -12,22 +12,36 @@ permalink: /extension/dgu/
 ---
 
 
-[![Build Status](https://travis-ci.org/datagovuk/ckanext-dgu.svg?branch=master)](https://travis-ci.org/datagovuk/ckanext-dgu)
-[![Coverage Status](https://coveralls.io/repos/datagovuk/ckanext-dgu/badge.svg?branch=master&service=github)](https://coveralls.io/github/datagovuk/ckanext-dgu?branch=master)
+[![Build
+Status](https://travis-ci.org/datagovuk/ckanext-dgu.svg?branch=master)](https://travis-ci.org/datagovuk/ckanext-dgu)
+[![Coverage
+Status](https://coveralls.io/repos/datagovuk/ckanext-dgu/badge.svg?branch=master&service=github)](https://coveralls.io/github/datagovuk/ckanext-dgu?branch=master)
 
 ckanext-dgu - data.gov.uk extension
 ===================================
 
-This is an extension to CKAN that provides customisations specifically for the data.gov.uk project.
+This is an extension to CKAN that provides customisations specifically
+for the data.gov.uk project.
 
-The official version is available at: <https://github.com/datagovuk/ckanext-dgu>
+The official version is available at:
+<a href="https://github.com/datagovuk/ckanext-dgu" class="uri">https://github.com/datagovuk/ckanext-dgu</a>
 
-Contributions from 1st March 2012 are by the Cabinet Office. It is Crown Copyright and opened up under both the Open Government Licence (OGL) (which is compatible with Creative Commons Attibution License) and the GNU Affero General Public License (AGPL) v3.0. Before 1st March 2012, contributions are Copyright (c) 2010-2012 Open Knowledge Foundation. This material is open and licensed under the GNU Affero General Public License (AGPL) v3.0.
+Contributions from 1st March 2012 are by the Cabinet Office. It is Crown
+Copyright and opened up under both the Open Government Licence (OGL)
+(which is compatible with Creative Commons Attibution License) and the
+GNU Affero General Public License (AGPL) v3.0. Before 1st March 2012,
+contributions are Copyright (c) 2010-2012 Open Knowledge Foundation.
+This material is open and licensed under the GNU Affero General Public
+License (AGPL) v3.0.
 
-OGL terms: <http://www.nationalarchives.gov.uk/doc/open-government-licence/>
-AGPL terms: <http://www.fsf.org/licensing/licenses/agpl-3.0.html>
+OGL terms:
+<a href="http://www.nationalarchives.gov.uk/doc/open-government-licence/" class="uri">http://www.nationalarchives.gov.uk/doc/open-government-licence/</a>
+AGPL terms:
+<a href="http://www.fsf.org/licensing/licenses/agpl-3.0.html" class="uri">http://www.fsf.org/licensing/licenses/agpl-3.0.html</a>
 
-Related extensions that data.gov.uk use in addition are: ckanext-archiver, ckanext-harvest, ckanext-spatial, ckanext-os, ckanext-qa, ckanext-social
+Related extensions that data.gov.uk use in addition are:
+ckanext-archiver, ckanext-harvest, ckanext-spatial, ckanext-os,
+ckanext-qa, ckanext-social
 
 Plugins
 =======
@@ -35,14 +49,18 @@ Plugins
 This extension contains a number of elements, principally:
 
 -   DGU-specific templates
--   Custom dataset edit form - includes a number of custom fields such as temporal\_coverage and geographic\_coverage.
--   Harvest Object inserted into the CKAN package view page.
+    -   Custom dataset edit form - includes a number of custom fields
+        such as temporal\_coverage and geographic\_coverage.
+    -   Harvest Object inserted into the CKAN package view page.
 -   DGU-customized search - different facets etc
 -   Reports (integrated from ckanext-report)
--   Drupal integration - Drupal login, user details copied into CKAN, comments below datasets, provide APIs to Drupal for displaying recent datasets
+-   Drupal integration - Drupal login, user details copied into CKAN,
+    comments below datasets, provide APIs to Drupal for displaying
+    recent datasets
 -   Authorization customizations - display of users is tightened up
 -   Feedback form (below datasets)
--   gov\_daily - a script (for running daily) that save the database dumps for end-users (JSON/CSV) and backups (SQL).
+-   gov\_daily - a script (for running daily) that save the database
+    dumps for end-users (JSON/CSV) and backups (SQL).
 -   various other command-line utilities
 
 dgu\_form
@@ -51,7 +69,9 @@ dgu\_form
     ckanext.dgu.plugin:DguForm
     ckanext.dgu.controllers.package:PackageController
 
-Based on PackageController but at /dataset/\* rather than /package/\* and adds the delete function. Proxy for getting Drupal comments (only for running in paster). NO FORM HERE
+Based on PackageController but at /dataset/\* rather than /package/\*
+and adds the delete function. Proxy for getting Drupal comments (only
+for running in paster). NO FORM HERE
 
 dgu\_drupal\_auth
 -----------------
@@ -59,7 +79,8 @@ dgu\_drupal\_auth
     ckanext.dgu.plugin:DrupalAuthPlugin
     ckanext.dgu.authentication.drupal_auth:DrupalAuthMiddleware
 
-Middleware to log-in the user based on Drupal cookies and requests to Drupal.
+Middleware to log-in the user based on Drupal cookies and requests to
+Drupal.
 
 dgu\_auth\_api
 --------------
@@ -69,11 +90,15 @@ dgu\_auth\_api
 
 Changes permissions:
 
--   hierarchy structure - edit package/group if is an editor for the group or an admin for the group or its parents.
+-   hierarchy structure - edit package/group if is an editor for the
+    group or an admin for the group or its parents.
 -   All package creations/edits need an API key - no anonymous ones
--   UKLP packages can't be edited through the form or API - only by harvesting (unless sysadmin)
--   ONS packages can't be edited through the form or API - only by ONS loader (unless sysadmin)
--   Packages can only be deleted by sysadmin or UKLP packages by their editor/admin.
+-   UKLP packages can't be edited through the form or API - only by
+    harvesting (unless sysadmin)
+-   ONS packages can't be edited through the form or API - only by ONS
+    loader (unless sysadmin)
+-   Packages can only be deleted by sysadmin or UKLP packages by their
+    editor/admin.
 -   Users can only be viewed by the user and sysadmin
 -   User list can only be viewed by sysadmin, editors, admins.
 
@@ -83,16 +108,19 @@ dgu\_publishers
     ckanext.dgu.plugin:PublisherPlugin
     ckanext.dgu.controllers.publisher:PublisherController
 
-Sets 'ckan.auth.profile' to 'publisher' (and same for harvesting: 'ckan.harvest.auth.profile' = 'publisher').
-Publisher controller, based on Group:
+Sets 'ckan.auth.profile' to 'publisher' (and same for harvesting:
+'ckan.harvest.auth.profile' = 'publisher'). Publisher controller, based
+on Group:
 
 -   Publisher browse page includes hierarchy, alpha-browse and search.
 -   Apply to be a publisher editor or admin.
 -   Edit admins/editors for a publisher
--   Publisher read shows publisher hierarchy, search pane with results and pager
+-   Publisher read shows publisher hierarchy, search pane with results
+    and pager
 -   Display publisher's admins/editors for appropriate users.
--   Report pages - users not assigned to groups, groups without admins, publishers vs users, users
-    When user is created, flashes "You can now <a>apply for publisher access</a>"
+-   Report pages - users not assigned to groups, groups without admins,
+    publishers vs users, users When user is created, flashes "You can
+    now <a>apply for publisher access</a>"
 
 dgu\_theme
 ----------
@@ -105,10 +133,11 @@ dgu\_theme
     ckanext/dgu/theme/templates
     ckanext/dgu/theme/public
 
-Data, Tag and Reports Controllers. Templates, helper functions.
-Random extras:
+Data, Tag and Reports Controllers. Templates, helper functions. Random
+extras:
 
--   Viewing user names (e.g. in History) change them for dept if not editor/admin.
+-   Viewing user names (e.g. in History) change them for dept if not
+    editor/admin.
 -   Add 'Vary: Cookie' header to all responses.
 
 dgu\_search
@@ -117,14 +146,16 @@ dgu\_search
     ckanext.dgu.plugin:SearchPlugin
     from ckanext.dgu.search_indexing import SearchIndexing
 
-Add fields to search index. Default sort-by. Escape SOLR characters. Search field weighting adjusted.
+Add fields to search index. Default sort-by. Escape SOLR characters.
+Search field weighting adjusted.
 
 dgu\_publisher\_form
 --------------------
 
     ckanext.dgu.forms.publisher_form:PublisherForm
 
-New group form, type 'publisher' with schema. Added fields: contact, foi contacts, category, abbreviation.
+New group form, type 'publisher' with schema. Added fields: contact, foi
+contacts, category, abbreviation.
 
 dgu\_dataset\_form
 ------------------
@@ -143,8 +174,9 @@ dgu\_api
     ckanext.dgu.controllers.api:DguReportsController
     ckanext.dgu.lib.reports
 
-Util API for Drupal - latest-datasets (front page), dataset-count (front page), revisions (unused).
-Reports, starting with organisation\_resources.
+Util API for Drupal - latest-datasets (front page), dataset-count (front
+page), revisions (unused). Reports, starting with
+organisation\_resources.
 
 dgu\_resource\_updates/dgu\_resource\_url\_updates
 --------------------------------------------------
@@ -152,7 +184,8 @@ dgu\_resource\_updates/dgu\_resource\_url\_updates
 ckanext.dgu.plugin:ResourceModificationPlugin
 ckanext.dgu.plugin:ResourceURLModificationPlugin
 
-When a resource is created/deleted/URL-changed, this updates the last\_major\_modification date of its package.
+When a resource is created/deleted/URL-changed, this updates the
+last\_major\_modification date of its package.
 
 Non-plugin code
 ===============
@@ -165,7 +198,8 @@ Non-plugin code
 Install
 =======
 
-This is how to install ckanext-dgu, ckan and their dependencies into a python virtual environment::
+This is how to install ckanext-dgu, ckan and their dependencies into a
+python virtual environment::
 
     virtualenv pyenv
     pip -E pyenv install -e git+https://github.com:okfn/ckanext-dgu.git#egg=ckanext-dgu
@@ -173,10 +207,12 @@ This is how to install ckanext-dgu, ckan and their dependencies into a python vi
     pip -E pyenv install -r pyenv/src/ckan/pip-requirements.txt
     pip -E pyenv install -r pyenv/src/ckanext-dgu/pip-requirements.txt
 
-There are plenty of other little details about getting CKAN running under Apache, SOLR config etc in the CKAN README.
+There are plenty of other little details about getting CKAN running
+under Apache, SOLR config etc in the CKAN README.
 
-When configuring Apache, DGU enables some modules SSL and for ckanext-os. This is the complete list::
-sudo a2enmod proxy wsgi headers proxy\_http rewrite ssl
+When configuring Apache, DGU enables some modules SSL and for
+ckanext-os. This is the complete list:: sudo a2enmod proxy wsgi headers
+proxy\_http rewrite ssl
 
 Configuration
 =============
@@ -195,7 +231,9 @@ and credentials for HTTP Basic Authentication (if necessary)::
     dgu.xmlrpc_username = ckan
     dgu.xmlrpc_password = letmein
 
-The DGU-version of the SOLR schema is required instead of the CKAN SOLR schema. Whether you use a single or mult-core SOLR setup, you'll need a link to the DGU SOLR schema like this::
+The DGU-version of the SOLR schema is required instead of the CKAN SOLR
+schema. Whether you use a single or mult-core SOLR setup, you'll need a
+link to the DGU SOLR schema like this::
 
     sudo ln -s /home/okfn/pyenv/src/ckanext-dgu/config/solr/schema-1.4-dgu.xml /etc/solr/conf/schema.xml
 
@@ -209,7 +247,8 @@ Creating the database is as usual for CKAN::
     sudo -u postgres createuser -S -D -R -P $db_user
     sudo -u postgres createdb -O $db_user $db
 
-And because we usually use ckanext-dgu also with ckanext-spatial, then PostGIS needs setting up too::
+And because we usually use ckanext-dgu also with ckanext-spatial, then
+PostGIS needs setting up too::
 
     sudo -u postgres psql -d $db -f /usr/share/postgresql/9.1/contrib/postgis-1.5/postgis.sql -v ON_ERROR_ROLLBACK=on
     sudo -u postgres psql -d $db -f /usr/share/postgresql/9.1/contrib/postgis-1.5/spatial_ref_sys.sql
@@ -221,7 +260,8 @@ And because we usually use ckanext-dgu also with ckanext-spatial, then PostGIS n
 Usage
 =====
 
-There is a front-page added to CKAN which describes the Catalogue APIs. The usual CKAN front-page has been moved to /ckan/ .
+There is a front-page added to CKAN which describes the Catalogue APIs.
+The usual CKAN front-page has been moved to /ckan/ .
 
 e.g.::
 
@@ -230,19 +270,25 @@ e.g.::
 Scripts
 =======
 
-There are a number of command-line scripts for processing data. Over the years they have been created in three different ways, but more recently we've been focussing on just creating stand-alone python scripts.
+There are a number of command-line scripts for processing data. Over the
+years they have been created in three different ways, but more recently
+we've been focussing on just creating stand-alone python scripts.
 
-To run a *python script* (in the ckanext/dgu/bin directory) you activate the environment and then call it with python::
+To run a *python script* (in the ckanext/dgu/bin directory) you activate
+the environment and then call it with python::
 
     . pyenv/bin/activate
     python ckanext/dgu/bin/dataset_change_publisher.py --help
 
-To run a *console script* (listed in setup.py) you should activate the environment first. For example::
+To run a *console script* (listed in setup.py) you should activate the
+environment first. For example::
 
     . pyenv/bin/activate
     bulk_delete --help
 
-To run a *paster command* (listed in setup.py) you activate the environment and if your CWD is not ckanext-dgu, specify it as the plugin::
+To run a *paster command* (listed in setup.py) you activate the
+environment and if your CWD is not ckanext-dgu, specify it as the
+plugin::
 
     . pyenv/bin/activate
     paster --plugin=ckanext-dgu prod --help
@@ -250,15 +296,23 @@ To run a *paster command* (listed in setup.py) you activate the environment and 
 Assets
 ======
 
-The DGU theme uses assets (images, javascript, css) from this repo and the shared assets repo::
+The DGU theme uses assets (images, javascript, css) from this repo and
+the shared assets repo::
 
     https://github.com/datagovuk/shared_dguk_assets
 
-Both repos should be cloned next to each other on developer and server machines. If this is not possible then you need to set the dgu.shared\_assets\_timestamp\_path config option to tell CKAN where the shared assets timestamp file is. e.g.::
+Both repos should be cloned next to each other on developer and server
+machines. If this is not possible then you need to set the
+dgu.shared\_assets\_timestamp\_path config option to tell CKAN where the
+shared assets timestamp file is. e.g.::
 
     dgu.shared_assets_timestamp_path = /vagrant/src/shared_dguk_assets/assets/timestamp
 
-Assets are stored in the repo in 'source' form - the form easiest for developers to edit them in. Before they can be served, Grunt must be run on both repos to create the 'public' versions of these files. This does concatenation, minification, compilation of the less, and recording a timestamp (see Gruntfile.js for details).
+Assets are stored in the repo in 'source' form - the form easiest for
+developers to edit them in. Before they can be served, Grunt must be run
+on both repos to create the 'public' versions of these files. This does
+concatenation, minification, compilation of the less, and recording a
+timestamp (see Gruntfile.js for details).
 
 Source:
 
@@ -273,16 +327,24 @@ And when you run grunt, you get:
     css:        ckanext/dgu/theme/public/css
     timestamp:  ckanext/dgu/theme/timestamp.py
 
-Read more about Grunt installation and running it: <https://github.com/datagovuk/shared_dguk_assets/blob/master/README.md>
+Read more about Grunt installation and running it:
+<a href="https://github.com/datagovuk/shared_dguk_assets/blob/master/README.md" class="uri">https://github.com/datagovuk/shared_dguk_assets/blob/master/README.md</a>
 
-The shared assets need to be served at /assets. On a deployment server, setup nginx or apache to do this. A developer running under paster will find that the shared assets are served autoimatically, as long as the repo is cloned alongside ckanext-dgu and that this config option is not set: dgu.shared\_assets\_timestamp\_path.
+The shared assets need to be served at /assets. On a deployment server,
+setup nginx or apache to do this. A developer running under paster will
+find that the shared assets are served autoimatically, as long as the
+repo is cloned alongside ckanext-dgu and that this config option is not
+set: dgu.shared\_assets\_timestamp\_path.
 
 Tests
 =====
 
-##### Unit and functional tests
+\#\#\#\#\#Unit and functional tests
 
-To test the DGU extension you need the setup with CKAN (see above) and creation of a configured pyenv/src/ckan/development.ini (see <http://docs.ckan.org/en/latest/install-from-source.html> ).
+To test the DGU extension you need the setup with CKAN (see above) and
+creation of a configured pyenv/src/ckan/development.ini (see
+<a href="http://docs.ckan.org/en/latest/install-from-source.html" class="uri">http://docs.ckan.org/en/latest/install-from-source.html</a>
+).
 
 To run the tests::
 
@@ -294,23 +356,30 @@ or run them from another directory by specifying the test.ini::
 
     nosetests --ckan --with-pylons={pyenv}/src/ckanext-dgu/test.ini {pyenv}/src/ckanext-dgu/ckanext/dgu/tests/
 
-You can either run the 'quick and dirty' tests with SQLite or more comprehensively with PostgreSQL. Set `--with-pylons` to point to the relevant configuration - either `test.ini` or `test-core.ini` (both from the ckanext-dgu repo, not the ckan one). For more information, see <http://docs.ckan.org/en/latest/install-from-source.html> .
+You can either run the 'quick and dirty' tests with SQLite or more
+comprehensively with PostgreSQL. Set `--with-pylons` to point to the
+relevant configuration - either `test.ini` or `test-core.ini` (both from
+the ckanext-dgu repo, not the ckan one). For more information, see
+<a href="http://docs.ckan.org/en/latest/install-from-source.html" class="uri">http://docs.ckan.org/en/latest/install-from-source.html</a>
+.
 
-##### Browser tests
+\#\#\#\#\#Browser tests
 
-Selenium is used to test a site is operating to a basic minimum standard, and specific checks on javascript elements.
+Selenium is used to test a site is operating to a basic minimum
+standard, and specific checks on javascript elements.
 
 To run the Selenium tests, TODO
 
 Troubleshooting
 ===============
 
-##### Address and Connection errors
+\#\#\#\#\#Address and Connection errors
 
 -   `socket.error: [Errno 98] Address already in use`
 -   `error: [Errno 111] Connection refused`
 
-These errors usually means a previous run of the tests has not cleaned up the Mock Drupal process. You can verify that::
+These errors usually means a previous run of the tests has not cleaned
+up the Mock Drupal process. You can verify that::
 
     $ ps a | grep mock_drupal
     4748 pts/8    S      0:00 /home/dread/hgroot/pyenv-dgu/bin/python /home/dread/hgroot/pyenv-dgu/bin/paster --plugin=ckanext-dgu mock_drupal run -q
@@ -319,25 +388,32 @@ Now kill it before running the tests again::
 
     $ kill 4748
 
-##### Config errors
+\#\#\#\#\#Config errors
 
 -   `DrupalXmlRpcSetupError: Drupal XMLRPC not configured.`
 
-The missing settings that result in this error are to be found in {pyenv}/src/ckanext-dgu/test-core.ini which is also imported into {pyenv}/src/ckanext-dgu/test.ini, so make sure you are specifying either of these config files in your nosetests `--with-pylons` parameter.
+The missing settings that result in this error are to be found in
+{pyenv}/src/ckanext-dgu/test-core.ini which is also imported into
+{pyenv}/src/ckanext-dgu/test.ini, so make sure you are specifying either
+of these config files in your nosetests `--with-pylons` parameter.
 
 -   `ckan.lib.search.common.SearchIndexError: HTTP code=400, reason=ERROR: [f752f33380e3eec1379cfb89e0fdded8] multiple values encountered for non multiValued field parent_publishers: [london-borough-of-barnet, local-authorities]`
 
-This is due to SOLR using the CKAN SOLR schema, rather than the specific DGU one. Change it using the `ln -s` command above, followed by stopping and starting SOLR.
+This is due to SOLR using the CKAN SOLR schema, rather than the specific
+DGU one. Change it using the `ln -s` command above, followed by stopping
+and starting SOLR.
 
 Documentation
 =============
 
-DGU is an extension for CKAN: <http://ckan.org>
+DGU is an extension for CKAN:
+<a href="http://ckan.org" class="uri">http://ckan.org</a>
 
-This README file is part of the DGU Developer Documentation, stored in the
-ckanext-dgu repo at `ckanext-dgu/doc`.
+This README file is part of the DGU Developer Documentation, stored in
+the ckanext-dgu repo at `ckanext-dgu/doc`.
 
-The Developer Docs can be built using `Sphinx <http://sphinx.pocoo.org/>`\_::
+The Developer Docs can be built using
+`Sphinx <http://sphinx.pocoo.org/>`\_::
 
       python setup.py build_sphinx
 

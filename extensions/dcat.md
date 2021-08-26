@@ -15,8 +15,7 @@ permalink: /extension/dcat/
 ckanext-dcat
 ============
 
-[![Build
-Status](https://travis-ci.org/ckan/ckanext-dcat.svg?branch=master)](https://travis-ci.org/ckan/ckanext-dcat)
+[![Tests](https://github.com/ckan/ckanext-pages/workflows/Tests/badge.svg?branch=master)](https://github.com/ckan/ckanext-dcat/actions)
 [![Code
 Coverage](http://codecov.io/github/ckan/ckanext-dcat/coverage.svg?branch=master)](http://codecov.io/github/ckan/ckanext-dcat?branch=master)
 
@@ -27,6 +26,10 @@ facilitate interoperability between data catalogs published on the Web".
 More information can be found on the following W3C page:
 
 <http://www.w3.org/TR/vocab-dcat>
+
+It also offers other features related to Semantic Data like exposing the
+necessary markup to get your datasets indexed in [Google Dataset
+Search](https://toolbox.google.com/datasetsearch).
 
 Contents
 --------
@@ -52,8 +55,10 @@ Contents
     -   [Compatibility mode](#compatibility-mode)
 -   [XML DCAT harvester (deprecated)](#xml-dcat-harvester-deprecated)
 -   [Translation of fields](#translation-of-fields)
--   [Structured Data](#structured-data)
+-   [Structured Data and Google Dataset Search
+    indexing](#structured-data-and-google-dataset-search-indexing)
 -   [Running the Tests](#running-the-tests)
+-   [Releases](#releases)
 -   [Acknowledgements](#acknowledgements)
 -   [Copying and License](#copying-and-license)
 
@@ -62,9 +67,10 @@ Overview
 
 With the emergence of Open Data initiatives around the world, the need
 to share metadata across different catalogs has became more evident.
-Sites like <http://publicdata.eu> aggregate datasets from different
-portals, and there has been a growing demand to provide a clear and
-standard interface to allow incorporating metadata into them
+Sites like [the EU Open Data
+Portal](https://data.europa.eu/euodp/en/data/) aggregate datasets from
+different portals, and there has been a growing demand to provide a
+clear and standard interface to allow incorporating metadata into them
 automatically.
 
 There is growing consensus around
@@ -85,7 +91,7 @@ In terms of CKAN features, this extension offers:
 -   An [JSON DCAT Harvester](#json-dcat-harvester) that allows importing
     JSON objects that are based on DCAT terms but are not defined as
     JSON-LD, using the serialization described in the
-    [spec.datacatalogs.org](http://spec.datacatalogs.org/#datasets_serialization_format)
+    [spec.dataportals.org](http://spec.dataportals.org/#datasets-serialization-format)
     site (`dcat_json_harvester` plugin)..
 
 These are implemented internally using:
@@ -152,13 +158,13 @@ currently supported values are:
 
 The fallback `rdf` format defaults to RDF/XML.
 
-Here's an example of the different formats available (links might not be
-live as they link to a demo site):
+Here's an example of the different formats:
 
--   <http://demo.ckan.org/dataset/newcastle-city-council-payments-over-500.rdf>
--   <http://demo.ckan.org/dataset/newcastle-city-council-payments-over-500.xml>
--   <http://demo.ckan.org/dataset/newcastle-city-council-payments-over-500.ttl>
--   <http://demo.ckan.org/dataset/newcastle-city-council-payments-over-500.n3>
+-   <a href="https://opendata.swiss/en/dataset/verbreitung-der-steinbockkolonien.rdf" class="uri">https://opendata.swiss/en/dataset/verbreitung-der-steinbockkolonien.rdf</a>
+-   <a href="https://opendata.swiss/en/dataset/verbreitung-der-steinbockkolonien.xml" class="uri">https://opendata.swiss/en/dataset/verbreitung-der-steinbockkolonien.xml</a>
+-   <a href="https://opendata.swiss/en/dataset/verbreitung-der-steinbockkolonien.ttl" class="uri">https://opendata.swiss/en/dataset/verbreitung-der-steinbockkolonien.ttl</a>
+-   <a href="https://opendata.swiss/en/dataset/verbreitung-der-steinbockkolonien.n3" class="uri">https://opendata.swiss/en/dataset/verbreitung-der-steinbockkolonien.n3</a>
+-   <a href="https://opendata.swiss/en/dataset/verbreitung-der-steinbockkolonien.jsonld" class="uri">https://opendata.swiss/en/dataset/verbreitung-der-steinbockkolonien.jsonld</a>
 
 RDF representations will be advertised using `<link rel="alternate">`
 tags on the `<head>` sectionon the dataset page source code, eg:
@@ -179,8 +185,8 @@ You can specify the profile by using the
 `profiles=<profile1>,<profile2>` query parameter on the dataset endpoint
 (as a comma-separated list):
 
--   `http://demo.ckan.org/dataset/newcastle-city-council-payments-over-500.xml?profiles=euro_dcat_ap,sweden_dcat_ap`
--   `http://demo.ckan.org/dataset/newcastle-city-council-payments-over-500.jsonld?profiles=schemaorg`
+-   <a href="https://opendata.swiss/en/dataset/verbreitung-der-steinbockkolonien.xml?profiles=euro_dcat_ap" class="uri">https://opendata.swiss/en/dataset/verbreitung-der-steinbockkolonien.xml?profiles=euro_dcat_ap</a>
+-   <a href="https://opendata.swiss/en/dataset/verbreitung-der-steinbockkolonien.jsonld?profiles=schemaorg" class="uri">https://opendata.swiss/en/dataset/verbreitung-der-steinbockkolonien.jsonld?profiles=schemaorg</a>
 
 *Note*: When using this plugin, the above endpoints will replace the old
 deprecated ones that were part of CKAN core.
@@ -191,7 +197,7 @@ Additionally to the individual dataset representations, the extension
 also offers a catalog-wide endpoint for retrieving multiple datasets at
 the same time (the datasets are paginated, see below for details):
 
-    https://{ckan-instance-host}/catalog.{format}?[page={page}]&[modified_since={date}]&[profiles={profile1},{profile2}]
+    https://{ckan-instance-host}/catalog.{format}?[page={page}]&[modified_since={date}]&[profiles={profile1},{profile2}]&[q={query}]&[fq={filter query}]
 
 This endpoint can be customized if necessary using the
 `ckanext.dcat.catalog_endpoint` configuration option, eg:
@@ -204,9 +210,9 @@ the `{_format}` placeholder.
 As described previously, the extension will determine the RDF
 serialization format returned.
 
--   <http://demo.ckan.org/catalog.rdf>
--   <http://demo.ckan.org/catalog.xml>
--   <http://demo.ckan.org/catalog.ttl>
+-   <a href="http://demo.ckan.org/catalog.rdf" class="uri">http://demo.ckan.org/catalog.rdf</a>
+-   <a href="http://demo.ckan.org/catalog.xml" class="uri">http://demo.ckan.org/catalog.xml</a>
+-   <a href="http://demo.ckan.org/catalog.ttl" class="uri">http://demo.ckan.org/catalog.ttl</a>
 
 RDF representations will be advertised using `<link rel="alternate">`
 tags on the `<head>` sectionon the homepage and the dataset search page
@@ -247,12 +253,21 @@ The catalog endpoint also supports a `modified_since` parameter to
 restrict datasets to those modified from a certain date. The parameter
 value should be a valid ISO-8601 date:
 
-<http://demo.ckan.org/catalog.xml?modified_since=2015-07-24>
+<a href="http://demo.ckan.org/catalog.xml?modified_since=2015-07-24" class="uri">http://demo.ckan.org/catalog.xml?modified_since=2015-07-24</a>
 
 It's possible to specify the profile(s) to use for the serialization
 using the `profiles` parameter:
 
-<http://demo.ckan.org/catalog.xml?profiles=euro_dcat_ap,sweden_dcat_ap>
+<a href="http://demo.ckan.org/catalog.xml?profiles=euro_dcat_ap,sweden_dcat_ap" class="uri">http://demo.ckan.org/catalog.xml?profiles=euro_dcat_ap,sweden_dcat_ap</a>
+
+To filter the output, the catalog endpoint supports the `q` and `fq`
+parameters to specify a [search
+query](https://lucene.apache.org/solr/guide/6_6/the-dismax-query-parser.html#TheDisMaxQueryParser-TheqParameter)
+or [filter
+query](https://lucene.apache.org/solr/guide/6_6/common-query-parameters.html#CommonQueryParameters-Thefq_FilterQuery_Parameter):
+
+<a href="http://demo.ckan.org/catalog.xml?q=budget" class="uri">http://demo.ckan.org/catalog.xml?q=budget</a>
+<a href="http://demo.ckan.org/catalog.xml?fq=tags:economy" class="uri">http://demo.ckan.org/catalog.xml?fq=tags:economy</a>
 
 ### URIs
 
@@ -264,9 +279,9 @@ following for each entity:
     -   `ckanext.dcat.base_uri` configuration option value. This is the
         recommended approach. Value should be a valid URI
     -   `ckan.site_url` configuration option value.
-    -   '<http://>' + `app_instance_uuid` configuration option value.
-        This is not recommended, and a warning log message will be
-        shown.
+    -   '<a href="http://" class="uri">http://</a>' +
+        `app_instance_uuid` configuration option value. This is not
+        recommended, and a warning log message will be shown.
 -   Dataset:
     -   The value of the `uri` field (note that this is not included in
         the default CKAN schema)
@@ -394,7 +409,7 @@ JSON DCAT harvester
 The DCAT JSON harvester supports importing JSON objects that are based
 on DCAT terms but are not defined as JSON-LD. The exact format for these
 JSON files is the one described in the
-[spec.datacatalogs.org](http://spec.datacatalogs.org/#datasets_serialization_format)
+[spec.dataportals.org](http://spec.dataportals.org/#datasets-serialization-format)
 site. There are [example
 files](https://github.com/ckan/ckanext-dcat/blob/master/examples/dataset.json)
 in the `examples` folder.
@@ -1371,8 +1386,18 @@ ini file (default: True):
 
     ckanext.dcat.translate_keys = False
 
-Structured data
----------------
+Structured data and Google Dataset Search indexing
+--------------------------------------------------
+
+There are plugins available to add [structured
+data](https://developers.google.com/search/docs/guides/intro-structured-data)
+to dataset pages to provide richer metadata for search engines crawling
+your site. One of the most well known is [Google Dataset
+Search](https://toolbox.google.com/datasetsearch). The `structured_data`
+plugin will add the necessary markup in order to get your datasets
+indexed by Google Dataset Search. This markup is a JSON-LD snippet that
+uses the [schema.org](https://schema.org) vocabulary to describe the
+dataset.
 
 To add [structured
 data](https://developers.google.com/search/docs/guides/intro-structured-data)
@@ -1473,9 +1498,22 @@ Example output of structured data in JSON-LD:
 Running the Tests
 -----------------
 
-To run the tests, do:
+To run the tests do:
 
-    nosetests --nologcapture --ckan --with-pylons=test.ini ckanext
+    pytest --ckan-ini=test.ini ckanext/dcat/tests
+
+Releases
+--------
+
+To create a new release, follow these steps:
+
+-   Determine new release number based on the rules of [semantic
+    versioning](http://semver.org)
+-   Update the CHANGELOG, especially the link for the "Unreleased"
+    section
+-   Update the version number in `setup.py`
+-   Create a new release on GitHub and add the CHANGELOG of this release
+    as release notes
 
 Acknowledgements
 ----------------
@@ -1483,7 +1521,7 @@ Acknowledgements
 Work on ckanext-dcat has been made possible by:
 
 -   the Government of Sweden and Vinnova, as part of work on
-    [&#214;ppnadata.se](http://oppnadata.se), the Swedish Open Data Portal.
+    [Öppnadata.se](http://oppnadata.se), the Swedish Open Data Portal.
 -   [FIWARE](https://www.fiware.org), a project funded by the European
     Commission to integrate different technologies to offer connected
     cloud services from a single platform.
@@ -1498,5 +1536,5 @@ This material is copyright (c) Open Knowledge.
 It is open and licensed under the GNU Affero General Public License
 (AGPL) v3.0 whose full text may be found at:
 
-<http://www.fsf.org/licensing/licenses/agpl-3.0.html>
+<a href="http://www.fsf.org/licensing/licenses/agpl-3.0.html" class="uri">http://www.fsf.org/licensing/licenses/agpl-3.0.html</a>
 

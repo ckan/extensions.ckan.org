@@ -12,12 +12,13 @@ permalink: /extension/opendata/
 ---
 
 
-<img src="http://oppnadata.se/img/sv-2rader.png" alt="&#214;ppna Data Logo" width="300">
+<img src="http://oppnadata.se/img/sv-2rader.png" alt="Öppna Data Logo" width="300">
 
 ckanext-opendata
 ================
 
-> CKAN extension for [oppnadata.se](http://oppnadata.se) (&#214;ppna Data) for Vinnova.
+> CKAN extension for [oppnadata.se](http://oppnadata.se) (Öppna Data)
+> for Vinnova.
 
 Sub extensions
 --------------

@@ -15,39 +15,67 @@ permalink: /extension/datajson/
 ckanext-datajson
 ================
 
-[![Build Status](https://travis-ci.org/GSA/ckanext-datajson.svg?branch=master)](https://travis-ci.org/GSA/ckanext-datajson)
-[![Codacy Badge](https://api.codacy.com/project/badge/c4816041270448b6a0c9760933065b7e)](https://www.codacy.com/app/alexandr-perfilov/ckanext-datajson)
-[![Coverage Status](https://coveralls.io/repos/GSA/ckanext-datajson/badge.svg?branch=master&service=github)](https://coveralls.io/github/GSA/ckanext-datajson?branch=master)
+![Github
+Actions](https://github.com/GSA/ckanext-datajson/actions/workflows/test.yml/badge.svg)
+[![CircleCI](https://circleci.com/gh/GSA/ckanext-datajson.svg?style=svg)](https://circleci.com/gh/GSA/ckanext-datajson)
 
-A CKAN extension containinig plugins `datajson`.
-First is used by <http://catalog.data.gov/> to harvest data sources
-from a remote /data.json file according to the U.S. Project
-Open Data metadata specification (<https://project-open-data.cio.gov/>).
+A CKAN extension containing plugins `datajson`. First is used by
+<a href="http://catalog.data.gov/" class="uri">http://catalog.data.gov/</a>
+to harvest data sources from a remote /data.json file according to the
+U.S. Project Open Data metadata specification
+(<a href="https://resources.data.gov/schemas/dcat-us/v1.1/" class="uri">https://resources.data.gov/schemas/dcat-us/v1.1/</a>).
 
 Plugin `datajson` provides a harvester to import datasets from other
 remote /data.json files. See below for setup instructions.
 
-And the plugin also provides a new view to validate /data.json files
-at <http://ckanhostname/pod/validate>.
+And the plugin also provides a new view to validate /data.json files at
+<a href="http://ckanhostname/pod/validate" class="uri">http://ckanhostname/pod/validate</a>.
 
-Installation
-------------
+Features
+--------
+
+*TODO*
+
+Three plugins are provided.
+
+-   **datajson** provides data.json export and DCAT-US metadata UI
+    integration
+-   **datajson\_harvest** extends
+    [ckanext-harvest](https://github.com/ckan/ckanext-harvest/) to
+    collect metadata from remote data.json sources
+-   **cmsdatanav\_harvest** *???*
+
+Usage
+-----
+
+### Requirements
+
+-   [ckanext-harvest](https://github.com/ckan/ckanext-harvest/)
+
+This extension is compatible with these versions of CKAN.
+
+| CKAN version | Compatibility                                                       |
+|--------------|---------------------------------------------------------------------|
+| &lt;=2.7     | no                                                                  |
+| 2.8          | yes                                                                 |
+| 2.9          | [in progress](https://github.com/GSA/datagov-ckan-multi/issues/564) |
+
+### Installation
 
 To install, activate your CKAN virtualenv, install dependencies, and
-install the module in develop mode, which just puts the directory in your
-Python path.
+install the module in develop mode, which just puts the directory in
+your Python path.
 
     . path/to/pyenv/bin/activate
-    pip install -r pip-requirements.txt
+    pip install -r requirements.txt
     python setup.py develop
 
-Then in your CKAN .ini file, add `datajson`
-to your ckan.plugins line:
+Then in your CKAN .ini file, add `datajson` to your ckan.plugins line:
 
     ckan.plugins = (other plugins here...) datajson
 
-That's the plugin for /data.json output. To make the harvester available,
-also add:
+That's the plugin for /data.json output. To make the harvester
+available, also add:
 
     ckan.plugins = (other plugins here...) harvest datajson_harvest
 
@@ -67,10 +95,9 @@ Then restart your server and check out:
        and
     http://yourdomain.com/data.jsonld
        and
-    http://yourdomain.com/pod/validate  
+    http://yourdomain.com/pod/validate
 
-Caching The Response
---------------------
+### Caching /data.json
 
 If you're deploying inside Apache, some caching would be a good idea
 because generating the /data.json file can take a good few moments.
@@ -89,20 +116,21 @@ And then in your Apache configuration add:
     CacheIgnoreNoLastMod On
     CacheStoreNoStore On
 
-And be sure to create /tmp/apache\_cache and make it writable by the Apache process.
+And be sure to create /tmp/apache\_cache and make it writable by the
+Apache process.
 
-Generating /data.json Off-Line
-------------------------------
+### Generating /data.json Off-Line
 
-Generating this file is a little slow, so an alternative instead of caching is
-to generate the file periodically (e.g. in a cron job). In that case, you'll want
-to change the path that CKAN generates the file at to something *other* than /data.json.
-In your CKAN .ini file, in the app:main section, add:
+Generating this file is a little slow, so an alternative instead of
+caching is to generate the file periodically (e.g. in a cron job). In
+that case, you'll want to change the path that CKAN generates the file
+at to something *other* than /data.json. In your CKAN .ini file, in the
+app:main section, add:
 
     ckanext.datajson.path = /internal/data.json
 
-Now create a crontab file ("mycrontab") to download this URL to a file on disk
-every ten minutes:
+Now create a crontab file ("mycrontab") to download this URL to a file
+on disk every ten minutes:
 
     0-59/10 * * * * wget -qO /path/to/static/data.json http://localhost/internal/data.json
 
@@ -110,8 +138,8 @@ And activate your crontab like so:
 
     crontab mycrontab
 
-In Apache, we'll want to block outside access to the "internal" URL, and also
-map the URL /data.json to the static file. In your httpd.conf, add:
+In Apache, we'll want to block outside access to the "internal" URL, and
+also map the URL /data.json to the static file. In your httpd.conf, add:
 
     Alias /data.json /path/to/static/data.json
 
@@ -121,13 +149,12 @@ map the URL /data.json to the static file. In your httpd.conf, add:
         Deny from all
     </Location>
 
-And then restart Apache. Wait for the cron job to run once, then check if
-/data.json loads (and it should be fast!). Also double check that
-<http://yourdomain.com/internal/data.json> gives a 403 forbidden error when
-accessed from some other location.
+And then restart Apache. Wait for the cron job to run once, then check
+if /data.json loads (and it should be fast!). Also double check that
+<a href="http://yourdomain.com/internal/data.json" class="uri">http://yourdomain.com/internal/data.json</a>
+gives a 403 forbidden error when accessed from some other location.
 
-Options
--------
+### Configuration
 
 You can customize the URL that generates the data.json output:
 
@@ -139,20 +166,20 @@ You can enable or disable the Data.json output by setting
 
     ckanext.datajson.url_enabled = False
 
-If ckanext.datajsonld.path is omitted, it defaults to replacing ".json" in your
-ckanext.datajson.path path with ".jsonld", so it probably won't need to be
-specified.
+If ckanext.datajsonld.path is omitted, it defaults to replacing ".json"
+in your ckanext.datajson.path path with ".jsonld", so it probably won't
+need to be specified.
 
-The option ckanext.datajsonld.id is the @id value used to identify the data
-catalog itself. If not given, it defaults to ckan.site\_url.
+The option ckanext.datajsonld.id is the @id value used to identify the
+data catalog itself. If not given, it defaults to ckan.site\_url.
 
-The Harvester
--------------
+### Harvesting
 
-To use the data.json harvester, you'll also need to set up the CKAN harvester
-extension. See the CKAN harvester README at <https://github.com/okfn/ckanext-harvest>
-for how to do that. You'll set some configuration variables and then initialize the
-CKAN harvester plugin using:
+To use the data.json harvester, you'll also need to set up the CKAN
+harvester extension. See the CKAN harvester README at
+<a href="https://github.com/okfn/ckanext-harvest" class="uri">https://github.com/okfn/ckanext-harvest</a>
+for how to do that. You'll set some configuration variables and then
+initialize the CKAN harvester plugin using:
 
     paster --plugin=ckanext-harvest harvester initdb --config=/path/to/ckan.ini
 
@@ -160,13 +187,16 @@ Now you can set up a new DataJson harvester by visiting:
 
     http://yourdomain.com/harvest
 
-And when configuring the data source, just choose "/data.json" as the source type.
+And when configuring the data source, just choose "/data.json" as the
+source type.
 
-\*\*The next paragraph assumes you're using my fork of the CKAN harvest extension
-at <https://github.com/JoshData/ckanext-harvest**>
+**The next paragraph assumes you're using my fork of the CKAN harvest
+extension at
+<a href="https://github.com/JoshData/ckanext-harvest" class="uri">https://github.com/JoshData/ckanext-harvest</a>**
 
-In the configuration field, you can put a YAML string containing defaults for fields
-that may not be set in the source data.json files, e.g. enter something like this:
+In the configuration field, you can put a YAML string containing
+defaults for fields that may not be set in the source data.json files,
+e.g. enter something like this:
 
     defaults:
       Agency: Department of Health & Human Services
@@ -175,13 +205,103 @@ that may not be set in the source data.json files, e.g. enter something like thi
 
 This again is tied to the HealthData.gov metadata schema.
 
+Development
+-----------
+
+### Setup
+
+Build the docker containers.
+
+    $ make build
+
+Start the docker containers.
+
+    $ make up
+
+CKAN will start at [localhost:5000](http://localhost:5000/).
+
+Clean up any containers and volumes.
+
+    $ make down
+
+Open a shell to run commands in the container.
+
+    $ docker-compose exec ckan bash
+
+If you're unfamiliar with docker-compose, see our
+[cheatsheet](https://github.com/GSA/datagov-deploy/wiki/Docker-Best-Practices#cheatsheet)
+and the [official docs](https://docs.docker.com/compose/reference/).
+
+For additional make targets, see the help.
+
+    $ make help
+
+### Testing
+
+They follow the guidelines for [testing CKAN
+extensions](https://docs.ckan.org/en/2.8/extensions/testing-extensions.html#testing-extensions).
+
+To run the extension tests, start the containers with `make up`, then:
+
+    $ make test
+
+Lint the code.
+
+    $ make lint
+
+### Matrix builds
+
+The existing development environment assumes a full catalog.data.gov
+test setup. This makes it difficult to develop and test against new
+versions of CKAN (or really any dependency) because everything is
+tightly coupled and would require us to upgrade everything at once which
+doesn't really work. A new make target `test-new` is introduced with a
+new docker-compose file.
+
+The "new" development environment drops as many dependencies as
+possible. It is not meant to have feature parity with
+[GSA/catalog.data.gov](https://github.com/GSA/catalog.data.gov/). Tests
+should mock external dependencies where possible.
+
+In order to support multiple versions of CKAN, or even upgrade to new
+versions of CKAN, we support development and testing through the
+`CKAN_VERSION` environment variable.
+
+    $ make CKAN_VERSION=2.8 test
+    $ make CKAN_VERSION=2.9 test
+
+Legacy nose tests are still supported. You must specify
+`COMPOSE_FILE=docker-compose.legacy.yml` when interacting with this
+environment.
+
+    $ make COMPOSE_FILE=docker-compose.legacy.yml up
+    $ make COMPOSE_FILE=docker-compose.legacy.yml test-legacy
+
+| Variable      | Description                              | Default            |
+|---------------|------------------------------------------|--------------------|
+| CKAN\_VERSION | Version of CKAN to use.                  | 2.8                |
+| COMPOSE\_FILE | docker-compose service description file. | docker-compose.yml |
+
 Credit / Copying
 ----------------
 
-Original work written by the HealthData.gov team. It has been modified in support of Data.gov.
+Original work written by the HealthData.gov team. It has been modified
+in support of Data.gov.
 
 As a work of the United States Government, this package is in the public
 domain within the United States. Additionally, we waive copyright and
 related rights in the work worldwide through the CC0 1.0 Universal
-public domain dedication (which can be found at <http://creativecommons.org/publicdomain/zero/1.0/>).
+public domain dedication (which can be found at
+<a href="http://creativecommons.org/publicdomain/zero/1.0/" class="uri">http://creativecommons.org/publicdomain/zero/1.0/</a>).
+
+Ways to Contribute
+------------------
+
+We're so glad you're thinking about contributing to ckanext-datajson!
+
+Before contributing to ckanext-datajson we encourage you to read our
+[CONTRIBUTING](CONTRIBUTING.md) guide, our [LICENSE](LICENSE.md), and
+our README (you are here), all of which should be in this repository. If
+you have any questions, you can email the Data.gov team at
+<datagov@gsa.gov>.
 

@@ -15,11 +15,15 @@ permalink: /extension/feedback-nhm/
 ckanext-feedback
 ================
 
+This extension is no longer maintained.
+---------------------------------------
+
+[![Travis
+branch](https://img.shields.io/travis/NaturalHistoryMuseum/ckanext-feedback/master.svg?style=flat-square)](https://travis-ci.org/NaturalHistoryMuseum/ckanext-feedback)
+[![Coveralls github
+branch](https://img.shields.io/coveralls/github/NaturalHistoryMuseum/ckanext-feedback/master.svg?style=flat-square)](https://coveralls.io/github/NaturalHistoryMuseum/ckanext-feedback)
+
 Feedback extension for CKAN
 
-THIS EXTENSION IS NO LONGER USED ON THE PORTAL!
-
-The private-beta branch was for internal launch, with a built in feedback form for Museum staff to submit form.
-
-The public-beta branch is for public beta launch, with a footer bar with link to survey monkey.
+This extension provides feedback side bar.
 

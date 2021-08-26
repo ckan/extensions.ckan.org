@@ -15,11 +15,12 @@ permalink: /extension/ckantoolkit/
 ckantoolkit
 ===========
 
-[![Circle CI](https://circleci.com/gh/ckan/ckantoolkit.svg?style=svg)](https://circleci.com/gh/ckan/ckantoolkit)
+[![Circle
+CI](https://circleci.com/gh/ckan/ckantoolkit.svg?style=svg)](https://circleci.com/gh/ckan/ckantoolkit)
 
-ckantoolkit is a library that wraps `ckan.plugins.toolkit` with backported
-attributes. This library is useful for writing extensions that work with
-a wide range of CKAN versions.
+ckantoolkit is a library that wraps `ckan.plugins.toolkit` with
+backported attributes. This library is useful for writing extensions
+that work with a wide range of CKAN versions.
 
 Example
 -------
@@ -39,9 +40,9 @@ from ckantoolkit import ungettext
 ckantoolkit.tests
 -----------------
 
-ckantoolkit includes a `tests` submodule that points to the correct
-ckan test module. e.g. If your extension builds on ckan's test factories
-your import code:
+ckantoolkit includes a `tests` submodule that points to the correct ckan
+test module. e.g. If your extension builds on ckan's test factories your
+import code:
 
 ``` python
 try:

@@ -23,7 +23,8 @@ GNU Affero General Public License version 3 (AGPLv3)
 Contains external libraries
 ---------------------------
 
--   [bootstrap-datepicker.js](https://github.com/eternicode/bootstrap-datepicker/), Apache License 2.0
+-   [bootstrap-datepicker.js](https://github.com/eternicode/bootstrap-datepicker/),
+    Apache License 2.0
 -   [Moment.js](http://momentjs.com/), MIT License
 
 Acknowledgement

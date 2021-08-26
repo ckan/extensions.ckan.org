@@ -25,6 +25,6 @@ Installation
     pip install -e .
     pip install -r pip-requirements.txt
 
-In the CKAN config file, enable the demo and dataset\_extent\_map plugins
-(the latter is found in ckanext-spatial).
+In the CKAN config file, enable the demo and dataset\_extent\_map
+plugins (the latter is found in ckanext-spatial).
 

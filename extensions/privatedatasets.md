@@ -12,8 +12,8 @@ permalink: /extension/privatedatasets/
 ---
 
 
-CKAN Private Datasets [![Build Status](https://travis-ci.org/conwetlab/ckanext-privatedatasets.svg?branch=develop)](https://travis-ci.org/conwetlab/ckanext-privatedatasets) [![Coverage Status](https://coveralls.io/repos/github/conwetlab/ckanext-privatedatasets/badge.svg?branch=develop)](https://coveralls.io/github/conwetlab/ckanext-privatedatasets?branch=develop)
-=============================================================================================================================================================================================================================================================================================================================================================================
+CKAN Private Datasets [![Build Status](https://travis-ci.org/conwetlab/ckanext-privatedatasets.svg?branch=master)](https://travis-ci.org/conwetlab/ckanext-privatedatasets) [![Coverage Status](https://coveralls.io/repos/github/conwetlab/ckanext-privatedatasets/badge.svg?branch=master)](https://coveralls.io/github/conwetlab/ckanext-privatedatasets?branch=develop)
+===========================================================================================================================================================================================================================================================================================================================================================================
 
 This CKAN extension allows a user to create private datasets that only
 certain users will be able to see. When a dataset is being created, it's

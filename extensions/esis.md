@@ -25,7 +25,8 @@ EcoSIS Tutorials
 CKAN 'IDE'
 ----------
 
-info on pycharm package install can be found [here](http://ubuntuhandbook.org/index.php/2015/07/install-pycharm-ubuntu-1404/http://ubuntuhandbook.org/index.php/2015/07/install-pycharm-ubuntu-1404/)
+info on pycharm package install can be found
+[here](http://ubuntuhandbook.org/index.php/2015/07/install-pycharm-ubuntu-1404/http://ubuntuhandbook.org/index.php/2015/07/install-pycharm-ubuntu-1404/)
 
 #### start pycharm
 
@@ -60,5 +61,4 @@ in ckan/lib/base.py
                  "X-CKAN-API-KEY, Authorization, Content-Type"
 
     +        response.headers['Access-Control-Allow-Credentials'] = "true"
-
 

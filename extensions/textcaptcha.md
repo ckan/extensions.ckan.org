@@ -15,7 +15,9 @@ permalink: /extension/textcaptcha/
 CKAN TextCaptcha
 ================
 
-A text based captcha for the [CKAN open data platform](http://ckan.org/) user registration form using <http://textcaptcha.com>.
+A text based captcha for the [CKAN open data platform](http://ckan.org/)
+user registration form using
+<a href="http://textcaptcha.com" class="uri">http://textcaptcha.com</a>.
 
 Requirements
 ------------
@@ -31,28 +33,33 @@ To install CKAN TextCaptcha:
 
     . /usr/lib/ckan/default/bin/activate
 
-2.  Install the ckanext-textcaptcha Python package into your virtual environment:
+2.  Install the ckanext-textcaptcha Python package into your virtual
+    environment:
 
     $ python setup.py install
 
-3.  Add `textcaptcha` to the `ckan.plugins` setting in your CKAN
-    config file (by default the config file is located at
+3.  Add `textcaptcha` to the `ckan.plugins` setting in your CKAN config
+    file (by default the config file is located at
     `/etc/ckan/default/production.ini`).
 
-4.  Restart CKAN. For example if you've deployed CKAN with Apache on Ubuntu:
+4.  Restart CKAN. For example if you've deployed CKAN with Apache on
+    Ubuntu:
 
     $ sudo service apache2 reload
 
 Config Settings
 ---------------
 
-1.  Add `ckan.textcaptcha.url` option to the `/etc/ckan/default/production.ini` that defines textcaptcha api url. For example <http://api.textcaptcha.com/YOUR_EMAIL.json>
+1.  Add `ckan.textcaptcha.url` option to the
+    `/etc/ckan/default/production.ini` that defines textcaptcha api url.
+    For example
+    <a href="http://api.textcaptcha.com/YOUR_EMAIL.json" class="uri">http://api.textcaptcha.com/YOUR_EMAIL.json</a>
 
 Development Installation
 ------------------------
 
-To install CKAN TextCaptcha for development, activate your CKAN virtualenv and
-do:
+To install CKAN TextCaptcha for development, activate your CKAN
+virtualenv and do:
 
      $ python setup.py develop
 
@@ -61,9 +68,10 @@ All dependencies will be installed automatically
 Copying and License
 -------------------
 
-This material is copyright &#169; 2015 Link Web Services Pty Ltd
+This material is copyright © 2015 Link Web Services Pty Ltd
 
-It is open and licensed under the GNU Affero General Public License (AGPL) v3.0 whose full text may be found at:
+It is open and licensed under the GNU Affero General Public License
+(AGPL) v3.0 whose full text may be found at:
 
 <http://www.fsf.org/licensing/licenses/agpl-3.0.html>
 
